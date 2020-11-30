@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 
-const userRouter = require("./routes/users");
+//const userRouter = require("./routes/users");
 
 
 const app = express();
@@ -27,9 +27,9 @@ mongoose.connect(uri, {
 const connection = mongoose.connection;
 
 
-// connection.once("open", () => {
-//   console.log("MongoDB database connection established successfully");
-// });
+connection.once("open", () => {
+  console.log("MongoDB database connection established successfully");
+});
 
 //Simple Route
 // app.get("/hello", function (req, res) {
