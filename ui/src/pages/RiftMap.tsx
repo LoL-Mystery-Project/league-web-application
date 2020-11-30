@@ -3,7 +3,7 @@ import { Test } from "../components/Test";
 
 interface RiftMapProps {}
 
-export const RiftMap: FC<RiftMapProps> = ({}) => {
+export const RiftMap: FC<RiftMapProps> = () => {
 
     // helper functions and API calls
     // useEffects
