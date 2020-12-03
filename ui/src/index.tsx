@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -5,12 +6,23 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./redux/configureStore";
 import { Provider } from "react-redux";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#FFFFFF",
+    },
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

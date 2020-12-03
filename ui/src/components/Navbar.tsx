@@ -77,7 +77,7 @@ export default function MenuAppBar() {
       dispatch(setCurrentPage(window.location.pathname));
     }
   }, [currentPage, dispatch]);
-  
+
   const handleClick = (page: Array<string>) => {
     dispatch(setCurrentPage(page[0]));
   };
@@ -87,7 +87,11 @@ export default function MenuAppBar() {
       <div className={classes.root}>
         <AppBar
           position="static"
-          style={{ backgroundImage: `url(${background})` }}
+          style={{
+            backgroundImage: `url(${background})`,
+            backgroundSize: "cover",
+          }}
+          color="transparent"
         >
           <Toolbar>
             {/* TODO: make this the LoL icon */}
