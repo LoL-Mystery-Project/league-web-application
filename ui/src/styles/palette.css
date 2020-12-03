@@ -1,0 +1,100 @@
+.mainWhite {
+  color: #ffffff;
+}
+
+.mainGrey {
+  color: #808080;
+}
+
+.mainYellow {
+  color: #b67f15;
+}
+
+.mainPurple {
+  color: #8717de;
+}
+
+.mainBlue {
+  color: #108b94;
+}
+
+.mainGreen {
+  color: #0d9e35;
+}
+
+.mainRed {
+  color: #aa0013;
+}
+
+.mainOrange {
+  color: #ff6b00;
+}
+
+.mainBlack {
+  background: #010a13;
+}
+
+.glowWhite {
+  background: linear-gradient(
+    225deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    #ffffff 50.52%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+}
+
+.glowYellow {
+  background: linear-gradient(
+    25.61deg,
+    rgba(182, 127, 21, 0.5) 1.04%,
+    #b67f15 52.08%,
+    rgba(182, 127, 21, 0.5) 100%
+  );
+}
+
+.glowPurple {
+  background: linear-gradient(
+    25.61deg,
+    rgba(135, 23, 222, 0.5) 1.04%,
+    #8717de 52.08%,
+    rgba(135, 23, 222, 0.5) 100%
+  );
+}
+
+.glowBlue {
+  background: linear-gradient(
+    225deg,
+    rgba(10, 94, 100, 0.5) 0%,
+    #108b94 49.48%,
+    rgba(10, 94, 100, 0.5) 100%
+  );
+}
+
+.glowOrange {
+  background: linear-gradient(
+    225deg,
+    rgba(155, 65, 0, 0.5) 0%,
+    #ff6b00 48.44%,
+    rgba(155, 65, 0, 0.5) 100%
+  );
+}
+
+.subGrey {
+  background: #5b5b5b;
+}
+
+.subYellow {
+  background: #63430f;
+}
+
+.subBlue {
+  background: #0a5e64;
+}
+
+.subOrange {
+  background: #9b4100;
+}
+
+.subNavy {
+  background: #041722;
+}
