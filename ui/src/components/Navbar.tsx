@@ -27,7 +27,7 @@ const Wrapper = styled.div`
     align-items: center;
     text-align: center;
     color: #808080;
-    padding: 24px 15px 15px 24px;
+    padding: 15px 15px;
   }
 
   .navBarButton:hover {
