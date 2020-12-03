@@ -113,7 +113,7 @@ export default function MenuAppBar() {
               <MenuIcon />
             </IconButton>
             <div className="parentNavBarContainer">
-              {Object.keys(pages).map((page: string, index) => {
+              {Object.keys(pages as any).map((page: string, index) => {
                 return (
                   <Typography className="navBarButton" key={index}>
                     <Link
