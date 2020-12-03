@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
 import background from "../assets/navbar/background.svg";
+import blur from "../assets/navbar/blur.svg";
 
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,10 +28,16 @@ const Wrapper = styled.div`
     align-items: center;
     text-align: center;
     color: #808080;
+    height: 34px;
     padding: 15px 15px;
   }
 
   .navBarButton:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .selectedPage {
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.1);
   }
@@ -68,15 +75,15 @@ const pages = [
 
 export default function MenuAppBar() {
   const dispatch = useDispatch();
-  const currentPage: PageState = useSelector((state: RootState) => state.page);
+  const pageState: PageState = useSelector((state: RootState) => state.page);
   const classes = useStyles();
 
   // set current page to "/" on initial page load
   useEffect(() => {
-    if (isEmpty(currentPage)) {
+    if (isEmpty(pageState)) {
       dispatch(setCurrentPage(window.location.pathname));
     }
-  }, [currentPage, dispatch]);
+  }, [pageState, dispatch]);
 
   const handleClick = (page: Array<string>) => {
     dispatch(setCurrentPage(page[0]));
@@ -106,18 +113,23 @@ export default function MenuAppBar() {
             <div className="parentNavBarContainer">
               {pages.map((page, index) => {
                 return (
-                  <Typography className="navBarButton" key={index}>
-                    <Link
-                      to={page[0]}
-                      style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                      }}
-                      onClick={() => handleClick(page)}
+                  <Link
+                    to={page[0]}
+                    style={{
+                      textDecoration: "none",
+                      color: "inherit",
+                    }}
+                    onClick={() => handleClick(page)}
+                  >
+                    <Typography
+                      className={`navBarButton ${
+                        pageState.currentPage === page[0] && "selectedPage"
+                      }`}
+                      key={index}
                     >
                       {page[1]}
-                    </Link>
-                  </Typography>
+                    </Typography>
+                  </Link>
                 );
               })}
             </div>
