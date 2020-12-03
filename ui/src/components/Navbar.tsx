@@ -9,7 +9,6 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
 import background from "../assets/navbar/background.svg";
-import blur from "../assets/navbar/blur.svg";
 
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,12 +22,11 @@ const Wrapper = styled.div`
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    line-height: 22px;
+    line-height: 34px;
     display: flex;
     align-items: center;
     text-align: center;
     color: #808080;
-    height: 34px;
     padding: 15px 15px;
   }
 
@@ -89,6 +87,9 @@ export default function MenuAppBar() {
     dispatch(setCurrentPage(page[0]));
   };
 
+  const isSelectedPage = (menuItem: string) =>
+    pageState.currentPage === menuItem && "selectedPage";
+
   return (
     <Wrapper>
       <div className={classes.root}>
@@ -119,13 +120,11 @@ export default function MenuAppBar() {
                       textDecoration: "none",
                       color: "inherit",
                     }}
+                    key={index}
                     onClick={() => handleClick(page)}
                   >
                     <Typography
-                      className={`navBarButton ${
-                        pageState.currentPage === page[0] && "selectedPage"
-                      }`}
-                      key={index}
+                      className={`navBarButton ${isSelectedPage(page[0])}`}
                     >
                       {page[1]}
                     </Typography>
