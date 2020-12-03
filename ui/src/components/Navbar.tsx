@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -6,16 +6,13 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import Switch from "@material-ui/core/Switch";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormGroup from "@material-ui/core/FormGroup";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
 
-import background from "../assets/navbar/background.png";
+import background from "../assets/navbar/background.svg";
 
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { PageState, RootState } from "../redux/types";
+import { setCurrentPage } from "../redux/actions/pageActions";
 
 // https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 const Wrapper = styled.div`
@@ -29,12 +26,12 @@ const Wrapper = styled.div`
     align-items: center;
     text-align: center;
     color: #808080;
-    padding: 15px;
+    padding: 24px 15px 15px 24px;
   }
 
   .navBarButton:hover {
     color: #ffffff;
-    background-color: #111;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .parentNavBarContainer {
@@ -59,51 +56,37 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const pages = {
-  "Explore": "/explore",
-  "Watch Live": "/watchlive",
-  "Tier List": "tierlist",
-  "Summoner's Rift": "/summonersrift",
-  "Champions": "/champions",
-  "Items": "/items",
-};
+const pages = [
+  ["/explore", "Explore"],
+  ["/watchlive", "Watch Live"],
+  ["/tierlist", "Tier List"],
+  ["/summonersrift", "Summoner's Rift"],
+  ["/champions", "Champions"],
+  ["/items", "Items"],
+];
 
 export default function MenuAppBar() {
+  const dispatch = useDispatch();
+  const currentPage: PageState = useSelector((state: RootState) => state.page);
   const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
-  const open = Boolean(anchorEl);
+  useEffect(() => {
+    console.log(currentPage);
+  }, [currentPage]);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAuth(event.target.checked);
-  };
-
-  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleClick = (page: Array<string>) => {
+    dispatch(setCurrentPage(page[0]));
   };
 
   return (
     <Wrapper>
       <div className={classes.root}>
-        {/* <FormGroup>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={auth}
-                onChange={handleChange}
-                aria-label="login switch"
-              />
-            }
-            label={auth ? "Logout" : "Login"}
-          />
-        </FormGroup> */}
-        <AppBar position="static" style={{ background: "#222222" }}>
+        <AppBar
+          position="static"
+          style={{ backgroundImage: `url(${background})` }}
+        >
           <Toolbar>
+            {/* TODO: make this the LoL icon */}
             <IconButton
               edge="start"
               className={classes.menuButton}
@@ -113,53 +96,23 @@ export default function MenuAppBar() {
               <MenuIcon />
             </IconButton>
             <div className="parentNavBarContainer">
-              {Object.keys(pages as any).map((page: string, index) => {
+              {pages.map((page, index) => {
                 return (
                   <Typography className="navBarButton" key={index}>
                     <Link
-                      to={pages[page]}
+                      to={page[0]}
                       style={{
                         textDecoration: "none",
                         color: "inherit",
                       }}
+                      onClick={() => handleClick(page)}
                     >
-                      {page}
+                      {page[1]}
                     </Link>
                   </Typography>
                 );
               })}
             </div>
-            {/* {auth && (
-              <div>
-                <IconButton
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleMenu}
-                  color="inherit"
-                >
-                  <AccountCircle />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={open}
-                  onClose={handleClose}
-                >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                </Menu>
-              </div>
-            )} */}
           </Toolbar>
         </AppBar>
       </div>
