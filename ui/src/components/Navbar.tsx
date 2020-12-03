@@ -77,11 +77,7 @@ export default function MenuAppBar() {
       dispatch(setCurrentPage(window.location.pathname));
     }
   }, [currentPage, dispatch]);
-
-  useEffect(() => {
-    console.log(currentPage);
-  }, [currentPage]);
-
+  
   const handleClick = (page: Array<string>) => {
     dispatch(setCurrentPage(page[0]));
   };
