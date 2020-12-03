@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { isEmpty } from "lodash";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -69,6 +70,13 @@ export default function MenuAppBar() {
   const dispatch = useDispatch();
   const currentPage: PageState = useSelector((state: RootState) => state.page);
   const classes = useStyles();
+
+  // set current page to "/" on initial page load
+  useEffect(() => {
+    if (isEmpty(currentPage)) {
+      dispatch(setCurrentPage(window.location.pathname));
+    }
+  }, [currentPage, dispatch]);
 
   useEffect(() => {
     console.log(currentPage);
