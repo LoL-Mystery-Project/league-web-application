@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
 import background from "../assets/navbar/background.svg";
+import leageIcon from "../assets/navbar/league_icon.png";
 
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
@@ -104,12 +105,11 @@ export default function MenuAppBar() {
           <Toolbar>
             {/* TODO: make this the LoL icon */}
             <IconButton
-              edge="start"
               className={classes.menuButton}
               color="inherit"
               aria-label="menu"
             >
-              <MenuIcon />
+              <img src={leageIcon} alt="league icon" style={{ height: 39 }}/>
             </IconButton>
             <div className="parentNavBarContainer">
               {pages.map((page, index) => {
