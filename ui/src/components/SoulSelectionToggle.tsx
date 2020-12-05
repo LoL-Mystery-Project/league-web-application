@@ -33,18 +33,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SummonersRiftMap() {
+export default function SoulSelectionToggle() {
   const classes = useStyles();
 
   return (
-    // div col1
-    // put into a div / row
-    // The selection thingy with the cloud drakes <separate component>
-    // the toggles <separate component>
-
-    // the map below
-    <div className="Map">
-      <img src={map} height="400" width="400" />
+    <div>
+      <img src="" /> Icon2 Icon3 Icon 4<div>Other Toggles</div>
     </div>
   );
 }
