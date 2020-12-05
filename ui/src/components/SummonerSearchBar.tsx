@@ -1,52 +1,77 @@
 import React, { FC } from "react";
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-// interface SummonerSearchBarProps {}
 
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import FormControl from '@material-ui/core/FormControl';
-import Grid from '@material-ui/core/Grid';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 
+import InputBase from "@material-ui/core/InputBase";
 
+import SearchIcon from "@material-ui/icons/Search";
 
-// export const SummonerSearchBar: FC<SummonerSearchBarProps> = ({}) => {
-//   return (
-//     <>
-//       <button>hi</button>
-//     </>
-//   );
-// };
+import { mainColour, subColour } from "../styles/palette";
 
-const useStyles = makeStyles((theme) => ({
-  margin: {
-    margin: theme.spacing(1),
-  },
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    title: {
+      display: "none",
+      [theme.breakpoints.up("sm")]: {
+        display: "block",
+      },
     },
-  },
-}));
-
+    search: {
+      position: "relative",
+      backgroundColor: "transparent",
+      "&:hover": {
+        backgroundColor: "transparent",
+      },
+      border: `1px solid ${mainColour.yellow}`,
+      marginRight: theme.spacing(2),
+      marginLeft: 0,
+      width: "100%",
+      [theme.breakpoints.up("sm")]: {
+        marginLeft: theme.spacing(3),
+        width: "auto",
+      },
+    },
+    searchIcon: {
+      padding: theme.spacing(0, 2),
+      height: "100%",
+      position: "absolute",
+      pointerEvents: "none",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    inputRoot: {
+      color: subColour.grey,
+    },
+    inputInput: {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      [theme.breakpoints.up("md")]: {
+        width: "20ch",
+      },
+    },
+  })
+);
 
 export default function SummonerSearchBar() {
   const classes = useStyles();
 
   return (
-    <div className={classes.margin}>
-        <Grid container spacing={1} alignItems="flex-end">
-          <Grid item>
-            <AccountCircle />
-          </Grid>
-          <Grid item>
-            <TextField id="input-with-icon-grid" label="Search the Rift"/>
-          </Grid>
-        </Grid>
+    <div className={classes.search}>
+      <div className={classes.searchIcon}>
+        <SearchIcon style={{ color: `${mainColour.yellow}` }} />
       </div>
+      <InputBase
+        placeholder="Search the Rift"
+        classes={{
+          root: classes.inputRoot,
+          input: classes.inputInput,
+        }}
+        inputProps={{ "aria-label": "search" }}
+      />
+    </div>
   );
 }

@@ -5,6 +5,7 @@ import SoulSelectionToggle from "../components/SoulSelectionToggle";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import { mainColour, glowColour } from "../styles/palette";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -19,7 +20,6 @@ interface SummonersRiftProps {}
 
 export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const [windowHeight, setWindowHeight] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
     window.addEventListener("resize", updateWindowDimensions);
@@ -28,7 +28,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
 
   const updateWindowDimensions = () => {
     setWindowHeight(window.innerHeight - 85);
-    setWindowWidth(window.innerWidth / 2 - 10);
   };
 
   const classes = useStyles();
@@ -59,7 +58,9 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             style={{
               height: windowHeight,
             }}
-          />
+          >
+            <SummonerSearchBar />
+          </Paper>
         </Grid>
         {/* BIG ANNOYING AD */}
         <Grid item xs={3}>
