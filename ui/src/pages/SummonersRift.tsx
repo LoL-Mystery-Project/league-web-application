@@ -1,27 +1,16 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import SummonerSearchBar from "../components/SummonerSearchBar";
 import SummonersRiftMap from "../components/SummonersRiftMap";
 import SoulSelectionToggle from "../components/SoulSelectionToggle";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import Grid, { GridSpacing } from "@material-ui/core/Grid";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import Radio from "@material-ui/core/Radio";
+import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      flexGrow: 1,
-    },
+    root: {},
     paper: {
-      height: 1000,
-      width: 500,
-      color: "#000000"
-    },
-    control: {
-      padding: theme.spacing(2),
+      backgroundColor: "black", // TODO: change this later
     },
   })
 );
@@ -29,67 +18,59 @@ const useStyles = makeStyles((theme: Theme) =>
 interface SummonersRiftProps {}
 
 export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
-  const [spacing, setSpacing] = React.useState<GridSpacing>(2);
-  const classes = useStyles();
+  const [windowHeight, setWindowHeight] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSpacing(Number((event.target as HTMLInputElement).value) as GridSpacing);
+  useEffect(() => {
+    window.addEventListener("resize", updateWindowDimensions);
+    updateWindowDimensions();
+  }, []);
+
+  const updateWindowDimensions = () => {
+    setWindowHeight(window.innerHeight - 85);
+    setWindowWidth(window.innerWidth / 2 - 10);
   };
 
+  const classes = useStyles();
   return (
     <>
-      <Grid container className={classes.root} justify="center" spacing={1}>
-        {[0, 1].map((value) => (
-          <Grid key={value} item>
-            <Paper className={classes.paper} />
-          </Grid>
-        ))}
+      <Grid
+        container
+        className={classes.root}
+        justify="center"
+        spacing={1}
+        style={{ padding: 10 }}
+      >
+        {/* MAP */}
+        <Grid item xs={6}>
+          <Paper
+            className={classes.paper}
+            style={{
+              height: windowHeight,
+            }}
+          >
+            <SoulSelectionToggle />
+          </Paper>
+        </Grid>
+        {/* MONSTER LIST */}
+        <Grid item xs={3}>
+          <Paper
+            className={classes.paper}
+            style={{
+              height: windowHeight,
+            }}
+          />
+        </Grid>
+        {/* BIG ANNOYING AD */}
+        <Grid item xs={3}>
+          <Paper
+            className={classes.paper}
+            style={{
+              height: windowHeight,
+            }}
+          />
+        </Grid>
       </Grid>
-      <SoulSelectionToggle />
     </>
-    // <Grid container className={classes.root} spacing={2}>
-    //   <Grid item xs={12}>
-    //     <Grid container justify="center" spacing={spacing}>
-    //       {[0, 1].map((value) => (
-    //         <Grid key={value} item>
-    //           <Paper className={classes.paper} />
-    //         </Grid>
-    //       ))}
-    //     </Grid>
-    //   </Grid>
-    //   <Grid item xs={12}>
-    //     <Paper className={classes.control}>
-    //       <Grid container>
-    //         <Grid item>
-    //           <FormLabel>spacing</FormLabel>
-    //           <RadioGroup
-    //             name="spacing"
-    //             aria-label="spacing"
-    //             value={spacing.toString()}
-    //             onChange={handleChange}
-    //             row
-    //           >
-    //             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
-    //               <FormControlLabel
-    //                 key={value}
-    //                 value={value.toString()}
-    //                 control={<Radio />}
-    //                 label={value.toString()}
-    //               />
-    //             ))}
-    //           </RadioGroup>
-    //         </Grid>
-    //       </Grid>
-    //     </Paper>
-    //   </Grid>
-    // </Grid>
   );
-  // layout here
-  // return (
-  //   <>
-  //     <h1>Summoner's Rift</h1>
-  //     {/* <SummonerSearchBar/> */}
-  //     <SummonersRiftMap />
-  //   </>
-  // );
 };
