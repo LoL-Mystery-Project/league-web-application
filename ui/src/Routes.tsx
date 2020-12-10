@@ -1,14 +1,17 @@
 import React, { FC } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import { Test } from "./components/Test";
-import { Champions } from "./pages/Champions";
-import { Explore } from "./pages/Explore";
-import { Items } from "./pages/Items";
+
+import { Wiki } from "./pages/Wiki";
+import { Home } from "./pages/Home";
 import { RiftMap } from "./pages/RiftMap";
 import { SummonersRift } from "./pages/SummonersRift";
-import { TierList } from "./pages/TierList";
 import { WatchLive } from "./pages/WatchLive";
+import { Ranking } from "./pages/Ranking";
+import { Stats } from "./pages/Stats";
+import { Guides } from "./pages/Guides";
 
 export const Routes: FC = () => {
   return (
@@ -17,12 +20,13 @@ export const Routes: FC = () => {
       <Switch>
         <Route exact path="/" component={Test} />
         <Route path="/test" component={RiftMap} />
-        <Route path="/explore" component={Explore} />
+        <Route path="/home" component={Home} />
         <Route path="/watchlive" component={WatchLive} />
-        <Route path="/tierlist" component={TierList} />
+        <Route path="/ranking" component={Ranking} />
+        <Route path="/stats" component={Stats} />
+        <Route path="/guides" component={Guides} />
         <Route path="/summonersrift" component={SummonersRift} />
-        <Route path="/champions" component={Champions} />
-        <Route path="/items" component={Items} />
+        <Route path="/wiki" component={Wiki} />
       </Switch>
     </BrowserRouter>
   );

@@ -64,12 +64,13 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const pages = [
-  ["/explore", "Explore"],
+  ["/home", "Home"],
   ["/watchlive", "Watch Live"],
-  ["/tierlist", "Tier List"],
+  ["/ranking", "Ranking"],
+  ["/Stats", "Stats"],
+  ["/Guides", "Guides"],
+  ["/wiki", "Wiki"],
   ["/summonersrift", "Summoner's Rift"],
-  ["/champions", "Champions"],
-  ["/items", "Items"],
 ];
 
 export default function MenuAppBar() {
@@ -109,7 +110,7 @@ export default function MenuAppBar() {
               color="inherit"
               aria-label="menu"
             >
-              <img src={leageIcon} alt="league icon" style={{ height: 39 }}/>
+              <img src={leageIcon} alt="league icon" style={{ height: 39 }} />
             </IconButton>
             <div className="parentNavBarContainer">
               {pages.map((page, index) => {

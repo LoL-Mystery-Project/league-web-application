@@ -5,6 +5,7 @@ import SoulSelectionToggle from "../components/SoulSelectionToggle";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 import { mainColour, glowColour } from "../styles/palette";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -12,6 +13,10 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {},
     paper: {
       backgroundColor: "black", // TODO: change this later
+    },
+    headerText: {
+      color: mainColour.yellow,
+      fontFamily: "Friz Quadrata",
     },
   })
 );
@@ -60,6 +65,15 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             }}
           >
             <SummonerSearchBar />
+            <Typography className={classes.headerText}>
+              Neutral Monsters
+            </Typography>
+            <Typography className={classes.headerText}>
+              Minions
+            </Typography>
+            <Typography className={classes.headerText}>
+              Jungle Plants
+            </Typography>
           </Paper>
         </Grid>
         {/* BIG ANNOYING AD */}
