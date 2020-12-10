@@ -9,8 +9,8 @@ import oceanUnselected from "../assets/map/ocean.svg";
 import infernalUnselected from "../assets/map/infernal.svg";
 import mountainUnselected from "../assets/map/mountain.svg";
 
-import checkbox from "../assets/map/checkbox.svg";
-import checkboxborder from "../assets/map/checkboxborder.svg";
+import CheckboxFilled from "../assets/map/checkbox.svg";
+import CheckboxBorder from "../assets/map/checkboxborder.svg";
 import Grid from "@material-ui/core/Grid/Grid";
 import { Typography } from "@material-ui/core";
 import styled from "styled-components";
@@ -101,28 +101,48 @@ export default function SoulSelectionToggle() {
           </Button>
         </Grid>
         <Grid item xs={3}>
-          {/* <img src={checkbox} height="10" width="10" alt="check" /> */}
-          <Checkbox
-            defaultChecked
-            color="primary"
-            className="check-rotate"
-            inputProps={{ "aria-label": "secondary checkbox" }}
-          />
-          <Typography className={"toggleButtonStyles"}>
-            Show neutral monsters
-          </Typography>
-          <img src={checkboxborder} height="10" width="10" alt="border" />
-          <Typography className={"toggleButtonStyles"}>
-            Show jungle plants{" "}
-          </Typography>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <Checkbox
+              style={{ width: 10, height: 10 }}
+              icon={<img src={CheckboxBorder} alt="bordered" />}
+              checkedIcon={<img src={CheckboxFilled} alt="not-bordered" />}
+            />
+            <Typography className={"toggleButtonStyles"}>
+              Show neutral monsters
+            </Typography>
+          </div>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <Checkbox
+              style={{ width: 10, height: 10 }}
+              icon={<img src={CheckboxBorder} alt="bordered" />}
+              checkedIcon={<img src={CheckboxFilled} alt="not-bordered" />}
+            />
+            <Typography className={"toggleButtonStyles"}>
+              Show jungle plants{" "}
+            </Typography>
+          </div>
         </Grid>
         <Grid item xs={3}>
-          <img src={checkboxborder} height="10" width="10" alt="border" />
-          <Typography className={"toggleButtonStyles"}>
-            Show buildings
-          </Typography>
-          <img src={checkboxborder} height="10" width="10" alt="border" />
-          <Typography className={"toggleButtonStyles"}>Show brushes</Typography>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <Checkbox
+              style={{ width: 10, height: 10 }}
+              icon={<img src={CheckboxBorder} alt="bordered" />}
+              checkedIcon={<img src={CheckboxFilled} alt="not-bordered" />}
+            />
+            <Typography className={"toggleButtonStyles"}>
+              Show buildings
+            </Typography>
+          </div>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <Checkbox
+              style={{ width: 10, height: 10 }}
+              icon={<img src={CheckboxBorder} alt="bordered" />}
+              checkedIcon={<img src={CheckboxFilled} alt="not-bordered" />}
+            />
+            <Typography className={"toggleButtonStyles"}>
+              Show brushes
+            </Typography>
+          </div>
         </Grid>
       </Grid>
     </Wrapper>
