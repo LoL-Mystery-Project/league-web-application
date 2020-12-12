@@ -1,21 +1,20 @@
-import React, {FC, useEffect} from 'react';
-import clsx from 'clsx';
+import React, { FC, useEffect } from "react";
+import clsx from "clsx";
 
-import {InfoCard} from './InfoCard';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Card from '@material-ui/core/Card';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
+import { InfoCard } from "./InfoCard";
+import { makeStyles } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import Card from "@material-ui/core/Card";
+import Button from "@material-ui/core/Button";
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
 import styled from "styled-components";
 import { mainColour, subColour } from "../styles/palette";
-import Paper from '@material-ui/core/Paper';
-import Fade from '@material-ui/core/Fade';
+import Paper from "@material-ui/core/Paper";
+import Fade from "@material-ui/core/Fade";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { MonsterObject } from '../pages/SummonersRift';
-
+import { MonsterObject } from "../pages/SummonersRift";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -39,12 +38,12 @@ const Wrapper = styled.div`
   }
 
   .InfoDrawerStyle {
-	max-width: 30rem;
-	box-shadow: $shadow-8dp;
-	border: 0;
+    max-width: 30rem;
+    box-shadow: $shadow-8dp;
+    border: 0;
     height: 100%;
     z-index: 9990;
-}
+  }
 `;
 
 const useStyles = makeStyles({
@@ -52,7 +51,7 @@ const useStyles = makeStyles({
     width: 250,
   },
   fullList: {
-    width: 'auto',
+    width: "auto",
   },
   drawerStyle: {
     zIndex: 9999,
@@ -81,9 +80,12 @@ export interface InfoDrawerProps {
   showInfoDrawer: boolean;
   asset: MonsterObject;
 }
-  
 
-export const InfoDrawer: FC<InfoDrawerProps> = ({handleClose, showInfoDrawer, asset}) => {
+export const InfoDrawer: FC<InfoDrawerProps> = ({
+  handleClose,
+  showInfoDrawer,
+  asset,
+}) => {
   const { name, hp, imageIcon } = asset;
 
   const classes = useStyles();
@@ -91,41 +93,59 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({handleClose, showInfoDrawer, as
   const handleCloseInfoDrawer = () => {
     console.log("inside infodrawer");
     handleClose();
-  }
+  };
 
   return (
     // <Drawer anchor="right" open={showInfoDrawer} onClose={() => handleClose(false)}>
     //   Hello
     // </Drawer>
-     <Fade in={showInfoDrawer}>
-     <Paper elevation={4} className={classes.infoCard} >
-     <Grid container style={{ display: "flex", flexDirection: "column"}}>
-       {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
-       {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
-     <Grid item xs={12} style={{ backgroundColor: "lavender" }}>
-     <img className=""
-                      src={imageIcon}
-                     
-                      height={50}
-                      width={50}
-                      style={{ paddingRight: 5 }}
-                      alt="whyyyyy"
-                    />{" "}
-        <Typography  className={classes.monsterTitle}>{name}</Typography>
-        <Typography className={classes.monsterTitle}>
-              Neutral Monsters
-        </Typography>
-        <Typography className={classes.monsterSubtitle}>
-              Epic Monster
-        </Typography>
-     
-      </Grid>
-      {/* EVERYTHING ELSE */}
-       <Grid item xs={12} style={{ backgroundColor: "pink" }}>
-       <InfoCard infoCardProps={[{helloObject: 'hey there'}]}/>
-       </Grid>
-      </Grid>
-     </Paper>
-   </Fade>
+    <Fade in={showInfoDrawer}>
+      <Paper elevation={4} className={classes.infoCard}>
+        <Grid container style={{ display: "flex", flexDirection: "column" }}>
+          {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
+          {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
+          <Grid item xs={12} style={{ backgroundColor: "lavender" }}>
+            <Grid
+              container
+              style={{ display: "flex", flexDirection: "row", margin: 5 }}
+            >
+              {/* ICON */}
+              <Grid item xs={1} style={{ backgroundColor: "pink" }}>
+                <img
+                  className=""
+                  src={imageIcon}
+                  height={50}
+                  width={50}
+                  style={{ paddingRight: 5 }}
+                  alt="whyyyyy"
+                />{" "}
+              </Grid>
+              {/* MONSTER TITLE */}
+              <Grid item xs={10} style={{ backgroundColor: "lavender" }}>
+                <Typography className={classes.monsterTitle}>{name}</Typography>
+                <Typography className={classes.monsterSubtitle}>
+                  Epic Monster
+                </Typography>
+              </Grid>
+              {/* MONSTER SUBTITLE */}
+              <Grid item xs={1} style={{ backgroundColor: "pink" }}>
+                <img
+                  className=""
+                  src={imageIcon}
+                  height={50}
+                  width={50}
+                  style={{ paddingRight: 5 }}
+                  alt="whyyyyy"
+                />{" "}
+              </Grid>
+            </Grid>
+          </Grid>
+          {/* EVERYTHING ELSE */}
+          <Grid item xs={12} style={{ backgroundColor: "pink" }}>
+            <InfoCard infoCardProps={[{ helloObject: "hey there" }]} />
+          </Grid>
+        </Grid>
+      </Paper>
+    </Fade>
   );
-}
+};
