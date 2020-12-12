@@ -1,7 +1,10 @@
 import React, { FC } from "react";
+import {InfoDrawer} from '../components/InfoDrawer'
 
 interface HomeProps {}
 
 export const Home: FC<HomeProps> = ({}) => {
-  return <h1>Home</h1>;
+
+  return <div><h1>Home</h1></div>;
 };
+ 

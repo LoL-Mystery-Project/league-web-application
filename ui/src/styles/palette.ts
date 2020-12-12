@@ -15,7 +15,8 @@ export const glowColour = Object.freeze({
   yellow: `linear-gradient(25.61deg, rgba(182, 127, 21, 0.5) 1.04%, #b67f15 52.08%, rgba(182, 127, 21, 0.5) 100%)`,
   purple: `linear-gradient(25.61deg, rgba(135, 23, 222, 0.5) 1.04%, #8717de 52.08%, rgba(135, 23, 222, 0.5) 100%)`,
   blue: `linear-gradient(225deg, rgba(10, 94, 100, 0.5) 0%, #108b94 49.48%, rgba(10, 94, 100, 0.5) 100%)`,
-  orange: `background: linear-gradient(225deg, rgba(155, 65, 0, 0.5) 0%, #ff6b00 48.44%, rgba(155, 65, 0, 0.5) 100%)`,
+  orange: `linear-gradient(225deg, rgba(155, 65, 0, 0.5) 0%, #ff6b00 48.44%, rgba(155, 65, 0, 0.5) 100%)`,
+  backGroundBlue: `linear-gradient(180deg, #010A13 0%, #041722 100%)`,
 });
 
 export const subColour = Object.freeze({
