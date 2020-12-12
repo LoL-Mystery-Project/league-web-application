@@ -1,20 +1,20 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import clsx from 'clsx';
+
+import {InfoCard} from './InfoCard';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import styled from "styled-components";
 import { mainColour, subColour } from "../styles/palette";
-import { isPropertyAccessExpression } from 'typescript';
-import PropTypes from 'prop-types';
+import Paper from '@material-ui/core/Paper';
+import Fade from '@material-ui/core/Fade';
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { MonsterObject } from '../pages/SummonersRift';
 
 
 const Wrapper = styled.div`
@@ -42,7 +42,8 @@ const Wrapper = styled.div`
 	max-width: 30rem;
 	box-shadow: $shadow-8dp;
 	border: 0;
-	height: 100%;
+    height: 100%;
+    z-index: 9990;
 }
 `;
 
@@ -56,16 +57,35 @@ const useStyles = makeStyles({
   drawerStyle: {
     zIndex: 9999,
     color: mainColour.white,
-  }
+  },
+  infoCard: {
+    width: 500,
+    height: 500,
+    background: mainColour.black,
+    color: mainColour.white,
+  },
+  monsterTitle: {
+    color: mainColour.purple,
+    fontFamily: "Friz Quadrata",
+    fontSize: 30,
+  },
+  monsterSubtitle: {
+    color: mainColour.grey,
+    fontFamily: "Friz Quadrata",
+    fontSize: 16,
+  },
 });
 
-interface InfoDrawerProps {
+export interface InfoDrawerProps {
   handleClose: Function;
   showInfoDrawer: boolean;
+  asset: MonsterObject;
 }
   
 
-export const InfoDrawer: FC<InfoDrawerProps> = ({handleClose, showInfoDrawer}) => {
+export const InfoDrawer: FC<InfoDrawerProps> = ({handleClose, showInfoDrawer, asset}) => {
+  const { name, hp, imageIcon } = asset;
+
   const classes = useStyles();
 
   const handleCloseInfoDrawer = () => {
@@ -74,8 +94,38 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({handleClose, showInfoDrawer}) =
   }
 
   return (
-    <Drawer anchor="right" open={showInfoDrawer} onClose={() => handleClose(false)}>
-      Hello
-    </Drawer>
+    // <Drawer anchor="right" open={showInfoDrawer} onClose={() => handleClose(false)}>
+    //   Hello
+    // </Drawer>
+     <Fade in={showInfoDrawer}>
+     <Paper elevation={4} className={classes.infoCard} >
+     <Grid container style={{ display: "flex", flexDirection: "column"}}>
+       {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
+       {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
+     <Grid item xs={12} style={{ backgroundColor: "lavender" }}>
+     <img className=""
+                      src={imageIcon}
+                     
+                      height={50}
+                      width={50}
+                      style={{ paddingRight: 5 }}
+                      alt="whyyyyy"
+                    />{" "}
+        <Typography  className={classes.monsterTitle}>{name}</Typography>
+        <Typography className={classes.monsterTitle}>
+              Neutral Monsters
+        </Typography>
+        <Typography className={classes.monsterSubtitle}>
+              Epic Monster
+        </Typography>
+     
+      </Grid>
+      {/* EVERYTHING ELSE */}
+       <Grid item xs={12} style={{ backgroundColor: "pink" }}>
+       <InfoCard infoCardProps={[{helloObject: 'hey there'}]}/>
+       </Grid>
+      </Grid>
+     </Paper>
+   </Fade>
   );
 }

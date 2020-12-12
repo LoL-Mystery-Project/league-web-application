@@ -98,3 +98,11 @@
 .subNavy {
   background: #041722;
 }
+
+.glowBackGroundBlue {
+  background: linear-gradient(
+    180deg,
+    #010A13 0%,
+    #041722 100%,
+  )
+}

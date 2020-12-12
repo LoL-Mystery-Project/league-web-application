@@ -14,13 +14,13 @@ import Button from "@material-ui/core/ButtonGroup";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { mainColour, glowColour } from "../styles/palette";
-import {InfoDrawer} from '../components/InfoDrawer';
+import {InfoDrawer, InfoDrawerProps} from '../components/InfoDrawer';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {},
     paper: {
-      backgroundColor: "black", // TODO: change this later
+      background: glowColour.backGroundBlue, // TODO: change this later
     },
     headerText: {
       color: mainColour.yellow,
@@ -47,13 +47,28 @@ interface SummonersRiftProps {}
 
 const ICON_SIZE = 30;
 
+export interface MonsterObject {
+  name: string;
+  hp: number;
+  imageIcon: string
+}
+
 export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const [windowHeight, setWindowHeight] = useState(0);
   const [showInfoDrawer, setInfoDrawer] = useState(false);
+  const [asset, setAsset] = useState<MonsterObject>({
+    name: '',
+    hp: 0,
+    imageIcon: ''
+  });
 
-  const handleToggleInfoDrawer = () => {
-    console.log("works" + {showInfoDrawer});
+  const handleToggleInfoDrawer = (monster: MonsterObject) => {
     setInfoDrawer(!showInfoDrawer);
+    handleAsset(monster);
+  }
+
+  const handleAsset = (asset: MonsterObject) => {
+    setAsset(asset);
   }
 
   useEffect(() => {
@@ -69,8 +84,9 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   return (
     <>
     
-    <InfoDrawer showInfoDrawer={showInfoDrawer} handleClose={handleToggleInfoDrawer}/>
-    
+    <div style={{ zIndex: 10, position: 'absolute', right: 0, height: windowHeight }}>
+      <InfoDrawer showInfoDrawer={showInfoDrawer} handleClose={handleToggleInfoDrawer} asset = {asset}/>
+    </div>
       <Grid
         container
         className={classes.root}
@@ -108,10 +124,17 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             >
               {/* COLUMN 1 */}
               <Grid item xs={6}>
-                {[1, 1, 1, 1, 1, 1, 1, 1].map(() => (
+                {[{name: "hehehehehehehehehehehe", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
+                {name: "baron1", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
+                {name: "baron2", hp: 5, imageIcon: "https://images-ext-1.discordapp.net/external/CMiyPfQ2hlPUJrL-_RZNtppxSIaBItvKHlvL06kcCVM/https/raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/summoner-backdrops/4570.jpg?width=648&height=442"}, 
+                {name: "baron3", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
+                {name: "baron4", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
+                {name: "baron5", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
+                {name: "baron6", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
+                {name: "baron7", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}].map((elem: MonsterObject) => (
                   <Button 
                   onClick = {() => {
-                    handleToggleInfoDrawer()
+                    handleToggleInfoDrawer(elem)
                   }}
                   ><div style={{ display: "flex", flexDirection: "row" }}>
                     <img
