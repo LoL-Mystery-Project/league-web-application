@@ -10,9 +10,11 @@ import lineSeparator from "../assets/assetPanel/lineSeparator.svg";
 
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/ButtonGroup";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { mainColour, glowColour } from "../styles/palette";
+import {InfoDrawer} from '../components/InfoDrawer';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,6 +33,13 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Friz Quadrata",
       fontSize: 14,
     },
+
+    drawerStyle: {
+      zIndex: 9999,
+      color: mainColour.white,
+    }
+
+
   })
 );
 
@@ -40,6 +49,12 @@ const ICON_SIZE = 30;
 
 export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const [windowHeight, setWindowHeight] = useState(0);
+  const [showInfoDrawer, setInfoDrawer] = useState(false);
+
+  const handleToggleInfoDrawer = () => {
+    console.log("works" + {showInfoDrawer});
+    setInfoDrawer(!showInfoDrawer);
+  }
 
   useEffect(() => {
     window.addEventListener("resize", updateWindowDimensions);
@@ -53,6 +68,9 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const classes = useStyles();
   return (
     <>
+    
+    <InfoDrawer showInfoDrawer={showInfoDrawer} handleClose={handleToggleInfoDrawer}/>
+    
       <Grid
         container
         className={classes.root}
@@ -91,7 +109,11 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
               {/* COLUMN 1 */}
               <Grid item xs={6}>
                 {[1, 1, 1, 1, 1, 1, 1, 1].map(() => (
-                  <div style={{ display: "flex", flexDirection: "row" }}>
+                  <Button 
+                  onClick = {() => {
+                    handleToggleInfoDrawer()
+                  }}
+                  ><div style={{ display: "flex", flexDirection: "row" }}>
                     <img
                       className=""
                       src={baronIcon}
@@ -102,7 +124,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                     <Typography className={classes.assetText}>
                       Baron Nashor
                     </Typography>
-                  </div>
+                  </div></Button>
                 ))}
               </Grid>
               {/* COLUMN 2 */}
