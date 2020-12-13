@@ -124,7 +124,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             >
               {/* COLUMN 1 */}
               <Grid item xs={6}>
-                {[{name: "hehehehehehehehehehehe", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
+                {[{name: "Baron Nashor", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
                 {name: "baron1", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
                 {name: "baron2", hp: 5, imageIcon: "https://images-ext-1.discordapp.net/external/CMiyPfQ2hlPUJrL-_RZNtppxSIaBItvKHlvL06kcCVM/https/raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/summoner-backdrops/4570.jpg?width=648&height=442"}, 
                 {name: "baron3", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 

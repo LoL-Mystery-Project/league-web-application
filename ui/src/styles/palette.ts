@@ -8,6 +8,10 @@ export const mainColour = Object.freeze({
   red: "#aa0013",
   orange: "#ff6b00",
   black: "#010a13",
+  bgBlack: "#222222",
+  testBigContainer: "cornflowerBlue",
+  testMediumContainer: "lavender",
+  testSmallContainer: "pink",
 });
 
 export const glowColour = Object.freeze({

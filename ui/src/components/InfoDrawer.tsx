@@ -15,6 +15,7 @@ import Fade from "@material-ui/core/Fade";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { MonsterObject } from "../pages/SummonersRift";
+import close from "../assets/assetPanel/close.svg";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -67,6 +68,7 @@ const useStyles = makeStyles({
     color: mainColour.purple,
     fontFamily: "Friz Quadrata",
     fontSize: 30,
+    marginTop: -10,
   },
   monsterSubtitle: {
     color: mainColour.grey,
@@ -101,47 +103,48 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
     // </Drawer>
     <Fade in={showInfoDrawer}>
       <Paper elevation={4} className={classes.infoCard}>
-        <Grid container style={{ display: "flex", flexDirection: "column" }}>
+        <Grid container style={{ display: "flex", flexDirection: "column"}}>
           {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
           {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
-          <Grid item xs={12} style={{ backgroundColor: "lavender" }}>
+          {/* TODO: change marginLeft = 20 */}
+          <Grid item xs={12} style={{ backgroundColor: mainColour.bgBlack }}>
             <Grid
               container
-              style={{ display: "flex", flexDirection: "row", margin: 5 }}
+              style={{ display: "flex", flexDirection: "row", marginTop: 30, marginLeft: 10 }}
             >
               {/* ICON */}
-              <Grid item xs={1} style={{ backgroundColor: "pink" }}>
+              <Grid style={{ backgroundColor: mainColour.bgBlack, marginRight: 5}}>
                 <img
                   className=""
                   src={imageIcon}
-                  height={50}
-                  width={50}
+                  height={60}
+                  width={60}
                   style={{ paddingRight: 5 }}
                   alt="whyyyyy"
                 />{" "}
               </Grid>
-              {/* MONSTER TITLE */}
-              <Grid item xs={10} style={{ backgroundColor: "lavender" }}>
+              {/* MONSTER TITLE AND SUBTITLE */}
+              <Grid item xs={9} style={{ backgroundColor: mainColour.bgBlack }}>
                 <Typography className={classes.monsterTitle}>{name}</Typography>
                 <Typography className={classes.monsterSubtitle}>
                   Epic Monster
                 </Typography>
               </Grid>
-              {/* MONSTER SUBTITLE */}
-              <Grid item xs={1} style={{ backgroundColor: "pink" }}>
+              {/* CLOSE BUTTON */}
+              <Grid item style={{ backgroundColor: mainColour.bgBlack, marginLeft: 10 }}>
                 <img
                   className=""
-                  src={imageIcon}
-                  height={50}
-                  width={50}
-                  style={{ paddingRight: 5 }}
-                  alt="whyyyyy"
+                  src={close}
+                  height={30}
+                  width={30}
+                  style={{ paddingRight: 5}}
+                  alt="close"
                 />{" "}
               </Grid>
             </Grid>
           </Grid>
           {/* EVERYTHING ELSE */}
-          <Grid item xs={12} style={{ backgroundColor: "pink" }}>
+          <Grid item xs={12} style={{ backgroundColor: mainColour.bgBlack }}>
             <InfoCard infoCardProps={[{ helloObject: "hey there" }]} />
           </Grid>
         </Grid>
