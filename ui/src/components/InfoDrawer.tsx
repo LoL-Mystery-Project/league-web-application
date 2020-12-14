@@ -1,20 +1,16 @@
-import React, { FC, useEffect } from "react";
-import clsx from "clsx";
-
+import React, { FC } from "react";
 import { InfoCard } from "./InfoCard";
 import { makeStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import Card from "@material-ui/core/Card";
-import Button from "@material-ui/core/Button";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
 import styled from "styled-components";
-import { mainColour, subColour } from "../styles/palette";
+import { mainColour } from "../styles/palette";
+
 import Paper from "@material-ui/core/Paper";
 import Fade from "@material-ui/core/Fade";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+
 import { MonsterObject } from "../pages/SummonersRift";
+
 import close from "../assets/assetPanel/close.svg";
 
 const Wrapper = styled.div`
@@ -93,9 +89,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
   const classes = useStyles();
 
   const handleCloseInfoDrawer = () => {
-    console.log("inside infodrawer");
-    showInfoDrawer = !showInfoDrawer;
-    //handleClose();
+    handleClose(asset);
   };
 
   return (
@@ -151,8 +145,6 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
                   style={{ paddingRight: 5 }}
                   alt="close"
                   onClick={() => {
-                    console.log("button pressed");
-                    // call to handle close here
                     handleCloseInfoDrawer();
                   }}
                 />{" "}
