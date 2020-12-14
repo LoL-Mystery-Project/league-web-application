@@ -94,7 +94,8 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
 
   const handleCloseInfoDrawer = () => {
     console.log("inside infodrawer");
-    handleClose();
+    showInfoDrawer = !showInfoDrawer;
+    //handleClose();
   };
 
   return (
@@ -103,17 +104,24 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
     // </Drawer>
     <Fade in={showInfoDrawer}>
       <Paper elevation={4} className={classes.infoCard}>
-        <Grid container style={{ display: "flex", flexDirection: "column"}}>
+        <Grid container style={{ display: "flex", flexDirection: "column" }}>
           {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
           {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
           {/* TODO: change marginLeft = 20 */}
           <Grid item xs={12} style={{ backgroundColor: mainColour.bgBlack }}>
             <Grid
               container
-              style={{ display: "flex", flexDirection: "row", marginTop: 30, marginLeft: 10 }}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                marginTop: 30,
+                marginLeft: 10,
+              }}
             >
               {/* ICON */}
-              <Grid style={{ backgroundColor: mainColour.bgBlack, marginRight: 5}}>
+              <Grid
+                style={{ backgroundColor: mainColour.bgBlack, marginRight: 5 }}
+              >
                 <img
                   className=""
                   src={imageIcon}
@@ -131,14 +139,22 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
                 </Typography>
               </Grid>
               {/* CLOSE BUTTON */}
-              <Grid item style={{ backgroundColor: mainColour.bgBlack, marginLeft: 10 }}>
+              <Grid
+                item
+                style={{ backgroundColor: mainColour.bgBlack, marginLeft: 10 }}
+              >
                 <img
                   className=""
                   src={close}
                   height={30}
                   width={30}
-                  style={{ paddingRight: 5}}
+                  style={{ paddingRight: 5 }}
                   alt="close"
+                  onClick={() => {
+                    console.log("button pressed");
+                    // call to handle close here
+                    handleCloseInfoDrawer();
+                  }}
                 />{" "}
               </Grid>
             </Grid>

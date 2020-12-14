@@ -31,15 +31,15 @@ interface InfoPanelDetails {
 }
 
 interface InfoPanelProps {
-    InfoPanelProps: Array<InfoPanelDetails>;
+  InfoPanelProps: Array<InfoPanelDetails>;
 }
-    
-  
-export const InfoCardPanel: FC<InfoPanelProps> = ({InfoPanelProps}) => {
-    //const classes = useStyles();
 
-  
+export const InfoCardPanel: FC<InfoPanelProps> = ({ InfoPanelProps }) => {
+  //const classes = useStyles();
+
   return (
-    <div><p>`This is info panel where we have a bunch of text' </p></div>
+    <div>
+      <p>`This is info panel where we have a bunch of text' </p>
+    </div>
   );
-}
+};
