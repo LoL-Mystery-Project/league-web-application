@@ -109,9 +109,9 @@ export default function InfoCardTabs() {
       >
         {/* https://material-ui.com/api/tabs/ */}
       
-        <Tab label={<Typography className={classes.tabText}>Information</Typography>} disabled={false}/>
-        <Tab label={<Typography className={classes.tabText}>Patch Notes</Typography>} disabled={false}/>
-        <Tab label={<Typography className={classes.tabText}>Splash Art</Typography>} disabled={false}/>
+        <Tab disableRipple label={<Typography className={classes.tabText}>Information</Typography>} disabled={false}/>
+        <Tab disableRipple label={<Typography className={classes.tabText}>Patch Notes</Typography>} disabled={false}/>
+        <Tab disableRipple label={<Typography className={classes.tabText}>Splash Art</Typography>} disabled={false}/>
        
       </StyledTabs>
       {(value === 0) && <div>Show info <InfoCardPanel  InfoPanelProps={[{helloObject: 'hey there'}]}/></div>}

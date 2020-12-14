@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const pages = [
   ["/home", "Home"],
   ["/watchlive", "Watch Live"],
-  ["/ranking", "Ranking"],
+  ["/leaderboards", "Leaderboards"],
   ["/Stats", "Stats"],
   ["/Guides", "Guides"],
   ["/wiki", "Wiki"],
