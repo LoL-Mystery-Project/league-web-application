@@ -1,9 +1,6 @@
 import React, { FC, useEffect } from "react";
 import styled from "styled-components";
-
 import { mainColour, subColour } from "../styles/palette";
-import InfoCardTabs from './InfoCardTabs';
-
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -27,27 +24,22 @@ const Wrapper = styled.div`
   }
 `;
 
-interface InfoCardDetails {
+// mini nav / tab thing
+
+interface SplashArtCardPanelDetails {
   helloObject: string;
 }
 
-interface InfoCardProps {
-    infoCardProps: Array<InfoCardDetails>;
+interface SplashArtCardPanelProps {
+    SplashArtCardPanelProps: Array<SplashArtCardPanelDetails>;
 }
-    
-  
-export const InfoCard: FC<InfoCardProps> = ({infoCardProps}) => {
-    //const classes = useStyles();
 
-  
+export const SplashArtCardPanel: FC<SplashArtCardPanelProps> = ({ SplashArtCardPanelProps }) => {
+  //const classes = useStyles();
+
   return (
     <div>
-      {/* <p>{`Hello World!!!!! ${infoCardProps[0].helloObject}`}</p> */}
-    
-    <InfoCardTabs /> 
-    
-    
+      <p>`This is SplashArt panel where we have a bunch of text' </p>
     </div>
-
   );
-}
+};

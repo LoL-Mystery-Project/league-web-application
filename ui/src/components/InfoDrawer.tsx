@@ -110,6 +110,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
                 flexDirection: "row",
                 marginTop: 30,
                 marginLeft: 10,
+                marginBottom: -20,
               }}
             >
               {/* ICON */}
