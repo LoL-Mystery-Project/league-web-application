@@ -1,26 +1,31 @@
 import React, { FC, useEffect } from "react";
 import styled from "styled-components";
 import { mainColour, subColour } from "../styles/palette";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import patchNotesLineSeparator from "../assets/assetPanel/patchNotesLineSeparator.svg";
 
+// TODO: download Roboto font
 const Wrapper = styled.div`
-  .soulIconHover:hover {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
+  .patchNotePanel {
+    color: ${mainColour.white};
   }
 
-  .toggleButtonStyles {
+  .versionNumber {
     color: ${mainColour.yellow};
-    font-family: Friz Quadrata;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 15px;
-    display: flex;
-    align-items: center;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: bold;
   }
 
-  .check-rotate {
-    transform: rotate(45deg);
+  .patchInfoHeading {
+    font-family: Roboto;
+    font-size: 16px;
+  }
+
+  .patchInfoText {
+    font-family: Roboto;
+    font-size: 16px;
   }
 `;
 
@@ -38,8 +43,28 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({ PatchNoteCardP
   //const classes = useStyles();
 
   return (
-    <div>
-      <p>`This is PatchNoteCard panel where we have a bunch of text' </p>
-    </div>
+    <Wrapper>
+    <Grid container className="patchNotePanel" spacing={1} style={{ display: "flex", flexDirection: "column" }}>
+      {/* LINE SEPARATOR AND VERSION NUMBER */}
+      <Grid item style={{marginLeft: 22}}>
+      <img
+          src={patchNotesLineSeparator}
+          alt="patchNotesLineSeparator"
+          />
+        <Typography className="versionNumber" >V10.3</Typography>
+      </Grid>
+      {/* PATCH HEADER AND INFO */}
+      <Grid item style={{marginLeft: 30}}>
+        <Grid container spacing={2}>
+          <Grid item>
+          <Typography className="patchInfoHeading" >BUG FIX</Typography>
+          </Grid>
+          <Grid item style={{width: 400}}>
+          <Typography className="patchInfoText" >- No longer damages or grants visions around himself for players behind his pit that do not originally have vision on him.</Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Grid>
+    </Wrapper>
   );
 };
