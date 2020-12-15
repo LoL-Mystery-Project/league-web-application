@@ -44,6 +44,7 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({ PatchNoteCardP
 
   return (
     <Wrapper>
+    {[1, 1, 1, 1, 1].map(() => (
     <Grid container className="patchNotePanel" spacing={1} style={{ display: "flex", flexDirection: "column" }}>
       {/* LINE SEPARATOR AND VERSION NUMBER */}
       <Grid item style={{marginLeft: 22}}>
@@ -65,6 +66,7 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({ PatchNoteCardP
         </Grid>
       </Grid>
     </Grid>
+    ))}
     </Wrapper>
   );
 };
