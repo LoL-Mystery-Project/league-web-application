@@ -71,6 +71,11 @@ const useStyles = makeStyles({
     fontFamily: "Friz Quadrata",
     fontSize: 16,
   },
+  closeButton: {
+    '&:hover': {
+      cursor: 'pointer'
+    }
+  }
 });
 
 export interface InfoDrawerProps {
@@ -118,7 +123,6 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
                 style={{ backgroundColor: mainColour.bgBlack, marginRight: 5 }}
               >
                 <img
-                  className=""
                   src={imageIcon}
                   height={60}
                   width={60}
@@ -139,7 +143,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
                 style={{ backgroundColor: mainColour.bgBlack, marginLeft: 10 }}
               >
                 <img
-                  className=""
+                  className={classes.closeButton}
                   src={close}
                   height={30}
                   width={30}

@@ -39,6 +39,12 @@ const useStyles = makeStyles((theme: Theme) =>
       zIndex: 9999,
       color: mainColour.white,
     },
+
+    listItem: {
+      '&:hover': {
+        cursor: 'pointer'
+      }
+    }
   })
 );
 
@@ -188,7 +194,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                       handleToggleInfoDrawer(elem);
                     }}
                   >
-                    <div style={{ display: "flex", flexDirection: "row" }}>
+                    <div style={{ display: "flex", flexDirection: "row" }} className={classes.listItem}>
                       <img
                         className=""
                         src={elem.imageIcon}
