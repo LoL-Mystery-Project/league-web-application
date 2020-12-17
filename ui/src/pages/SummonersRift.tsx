@@ -15,6 +15,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { mainColour, glowColour } from "../styles/palette";
 import {InfoDrawer, InfoDrawerProps} from '../components/InfoDrawer';
+import images from '../assets/images.json';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,7 +51,8 @@ const ICON_SIZE = 30;
 export interface MonsterObject {
   name: string;
   hp: number;
-  imageIcon: string
+  imageIcon: string;
+  data?: any;
 }
 
 export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
@@ -61,6 +63,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
     hp: 0,
     imageIcon: ''
   });
+  const [monsters, setMonsters] = useState<any>({});
 
   const handleToggleInfoDrawer = (monster: MonsterObject) => {
     setInfoDrawer(!showInfoDrawer);
@@ -74,6 +77,15 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   useEffect(() => {
     window.addEventListener("resize", updateWindowDimensions);
     updateWindowDimensions();
+    (async () => {
+      try {
+        const response = await fetch('http://localhost:5000/monsters');
+        const json = await response.json();
+        setMonsters(json);
+      } catch {
+        // do nothing
+      }
+    })()
   }, []);
 
   const updateWindowDimensions = () => {
@@ -85,7 +97,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
     <>
     
     <div style={{ zIndex: 10, position: 'absolute', right: 0, height: windowHeight }}>
-      <InfoDrawer showInfoDrawer={showInfoDrawer} handleClose={handleToggleInfoDrawer} asset = {asset}/>
+      <InfoDrawer showInfoDrawer={showInfoDrawer} handleClose={handleToggleInfoDrawer} asset={asset}/>
     </div>
       <Grid
         container
@@ -124,28 +136,30 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             >
               {/* COLUMN 1 */}
               <Grid item xs={6}>
-                {[{name: "Baron Nashor", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
-                {name: "baron1", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
-                {name: "baron2", hp: 5, imageIcon: "https://images-ext-1.discordapp.net/external/CMiyPfQ2hlPUJrL-_RZNtppxSIaBItvKHlvL06kcCVM/https/raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/summoner-backdrops/4570.jpg?width=648&height=442"}, 
-                {name: "baron3", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
-                {name: "baron4", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
-                {name: "baron5", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
-                {name: "baron6", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
-                {name: "baron7", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}].map((elem: MonsterObject) => (
+                {[{name: "Baron Nashor", hp: 5, imageIcon: images['Baron_NashorSquare.png'], data: monsters && monsters[0]}, 
+                {name: "Mountain Drake", hp: 5, imageIcon: images['Mountain_DrakeSquare.png']}, 
+                {name: "Baron Nashor 2", hp: 5, imageIcon: "https://images-ext-1.discordapp.net/external/CMiyPfQ2hlPUJrL-_RZNtppxSIaBItvKHlvL06kcCVM/https/raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/summoner-backdrops/4570.jpg?width=648&height=442"}, 
+                {name: "Baron Nashor 3", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
+                {name: "Baron Nashor 4", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
+                {name: "Baron Nashor 5", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
+                {name: "Baron Nashor 6", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}, 
+                {name: "Baron Nashor 7", hp: 5, imageIcon: "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg"}].map((elem: MonsterObject) => (
                   <Button 
                   onClick = {() => {
                     handleToggleInfoDrawer(elem)
                   }}
-                  ><div style={{ display: "flex", flexDirection: "row" }}>
+                  >
+                    <div style={{ display: "flex", flexDirection: "row" }}>
                     <img
                       className=""
-                      src={baronIcon}
+                      src={elem.imageIcon}
                       height={ICON_SIZE}
+                      width={ICON_SIZE}
                       style={{ paddingRight: 5 }}
                       alt="baronIcon"
                     />{" "}
                     <Typography className={classes.assetText}>
-                      Baron Nashor
+                      {elem.name}
                     </Typography>
                   </div></Button>
                 ))}

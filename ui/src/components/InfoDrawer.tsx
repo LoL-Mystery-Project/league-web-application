@@ -84,7 +84,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
   showInfoDrawer,
   asset,
 }) => {
-  const { name, hp, imageIcon } = asset;
+  const { name, hp, imageIcon, data } = asset;
 
   const classes = useStyles();
 
@@ -155,6 +155,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
           {/* EVERYTHING ELSE */}
           <Grid item xs={12} style={{ backgroundColor: mainColour.bgBlack }}>
             <InfoCard infoCardProps={[{ helloObject: "hey there" }]} />
+            {data && <pre style={{overflowX: "hidden"}}>{JSON.stringify(data, null, 2)}</pre>}
           </Grid>
         </Grid>
       </Paper>
