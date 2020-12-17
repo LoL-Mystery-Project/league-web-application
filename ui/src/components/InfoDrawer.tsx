@@ -35,7 +35,7 @@ const Wrapper = styled.div`
   }
 
   .InfoDrawerStyle {
-    max-width: 30rem;
+    max-width: 100rem;
     box-shadow: $shadow-8dp;
     border: 0;
     height: 100%;
@@ -55,7 +55,7 @@ const useStyles = makeStyles({
     color: mainColour.white,
   },
   infoCard: {
-    width: 500,
+    // width: 800,
     height: 500,
     background: mainColour.black,
     color: mainColour.white,
@@ -155,7 +155,11 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
           {/* EVERYTHING ELSE */}
           <Grid item xs={12} style={{ backgroundColor: mainColour.bgBlack }}>
             <InfoCard infoCardProps={[{ helloObject: "hey there" }]} />
-            {data && <pre style={{overflowX: "hidden"}}>{JSON.stringify(data, null, 2)}</pre>}
+            {data && (
+              <pre style={{ overflowX: "hidden" }}>
+                {JSON.stringify(data, null, 2)}
+              </pre>
+            )}
           </Grid>
         </Grid>
       </Paper>
