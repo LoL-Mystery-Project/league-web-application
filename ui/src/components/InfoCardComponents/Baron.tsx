@@ -5,6 +5,7 @@ import { mainColour } from "../../styles/palette";
 import styled from "styled-components";
 import images from "../../assets/images.json";
 import expIcon from '../../assets/assetPanel/icons/exp.svg';
+import goldIcon from '../../assets/assetPanel/icons/gold.svg';
 
 const Wrapper = styled.div`
   .patchNotePanel {
@@ -150,11 +151,15 @@ export const Baron: FC<BaronProps> = ({}) => {
                 style={{ display: "flex", flexDirection: "column" }}
               >
                 <Grid item>
+                <Grid
+                    container
+                    style={{ display: "flex", flexDirection: "column" }}
+                  ></Grid>
                   {/* Gold 1 */}
                   <Typography className="greyText">
                     Gold{" "}
                     <img
-                      src={images["Gold.png"]}
+                      src={goldIcon}
                       alt="gold"
                       width={200 * 0.1}
                       height={154 * 0.1}
@@ -179,6 +184,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                 </Grid>
               </Grid>
             </Grid>
+            {/* STATISTICS */}
             <Grid item xs={6} style={{ backgroundColor: "blue" }}>
               <Typography className="overViewSubTextStyling">
                 Statistics
@@ -269,6 +275,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                 </Grid>
               </Grid>
             </Grid>
+            {/* SPAWN */}
             <Grid
               item
               xs={3}
