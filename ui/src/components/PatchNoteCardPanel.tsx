@@ -1,6 +1,6 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
-import { mainColour, subColour } from "../styles/palette";
+import { mainColour } from "../styles/palette";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import patchNotesLineSeparator from "../assets/assetPanel/patchNotesLineSeparator.svg";
@@ -36,8 +36,6 @@ interface PatchNoteCardPanelProps {
 }
 
 export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({ PatchNoteCardPanelProps }) => {
-  //const classes = useStyles();
-
   return (
     <Wrapper>
     {[1, 1, 1, 1, 1].map(() => (
@@ -52,11 +50,11 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({ PatchNoteCardP
       </Grid>
       {/* PATCH HEADER AND INFO */}
       <Grid item style={{marginLeft: 30}}>
-        <Grid container spacing={2}>
-          <Grid item>
+        <Grid container spacing={2} >
+          <Grid item >
           <Typography className="patchInfoHeading" >BUG FIX</Typography>
           </Grid>
-          <Grid item style={{width: 400}}>
+          <Grid item style={{ width: 740, height: 40}}>
           <Typography className="patchInfoText" >- No longer damages or grants visions around himself for players behind his pit that do not originally have vision on him.</Typography>
           </Grid>
         </Grid>
