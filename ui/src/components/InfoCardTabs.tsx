@@ -114,7 +114,7 @@ export default function InfoCardTabs() {
         <Tab disableRipple label={<Typography className={classes.tabText}>Splash Art</Typography>} disabled={false}/>
        
       </StyledTabs>
-      {(value === 0) && <div>Show info <InfoCardPanel  InfoPanelProps={[{helloObject: 'hey there'}]}/></div>}
+      {(value === 0) && <div><InfoCardPanel  InfoPanelProps={[{helloObject: 'hey there'}]}/></div>}
         {(value === 1) && <div><PatchNoteCardPanel  PatchNoteCardPanelProps={[{helloObject: 'hey there'}]}/></div>}
         {(value === 2) && <div>Show splash art  <SplashArtCardPanel  SplashArtCardPanelProps={[{helloObject: 'hey there'}]}/></div>}
     </Paper>

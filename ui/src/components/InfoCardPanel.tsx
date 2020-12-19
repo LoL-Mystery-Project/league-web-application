@@ -25,7 +25,6 @@ export const InfoCardPanel: FC<InfoPanelProps> = ({ InfoPanelProps }) => {
   return (
     <Wrapper>
     <div className="text">
-      <p>`This is info panel where we have a bunch of text' </p>
       <Baron/>
     </div>
     </Wrapper>
