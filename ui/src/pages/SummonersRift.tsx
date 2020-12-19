@@ -56,7 +56,6 @@ export interface MonsterObject {
   name: string;
   hp: number;
   imageIcon: string;
-  data?: any;
 }
 
 export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
@@ -67,7 +66,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
     hp: 0,
     imageIcon: "",
   });
-  const [monsters, setMonsters] = useState<any>({});
 
   const handleToggleInfoDrawer = (monster: MonsterObject) => {
     setInfoDrawer(!showInfoDrawer);
@@ -81,15 +79,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   useEffect(() => {
     window.addEventListener("resize", updateWindowDimensions);
     updateWindowDimensions();
-    (async () => {
-      try {
-        const response = await fetch("http://localhost:5000/monsters");
-        const json = await response.json();
-        setMonsters(json);
-      } catch {
-        // do nothing
-      }
-    })();
   }, []);
 
   const updateWindowDimensions = () => {
@@ -145,7 +134,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                     name: "Baron Nashor",
                     hp: 5,
                     imageIcon: images["Baron_NashorSquare.png"],
-                    data: monsters && monsters[0],
                   },
                   {
                     name: "Mountain Drake",

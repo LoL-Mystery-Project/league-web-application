@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { mainColour } from "../styles/palette";
+import {Baron} from './InfoCardComponents/Baron';
 
 const Wrapper = styled.div`
   .text {
@@ -25,6 +26,7 @@ export const InfoCardPanel: FC<InfoPanelProps> = ({ InfoPanelProps }) => {
     <Wrapper>
     <div className="text">
       <p>`This is info panel where we have a bunch of text' </p>
+      <Baron/>
     </div>
     </Wrapper>
   );
