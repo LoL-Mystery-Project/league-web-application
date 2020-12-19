@@ -10,9 +10,9 @@
     "cs": 4
   },
   "stats": {
-    "health": "9000 (+ 180 per minute from match start)",
-    "healthRegen": "15 (+ 0.375 per minute from match start)",
-    "attackDamage": "285 − 435 (based on game time)",
+    "health": "9000 (+180)",
+    "healthRegen": "15 (+0.375)",
+    "attackDamage": "285 − 435",
     "attackSpeed": 0.625,
     "range": 955,
     "armor": 120,

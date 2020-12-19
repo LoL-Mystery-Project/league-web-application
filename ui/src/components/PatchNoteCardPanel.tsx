@@ -5,7 +5,6 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import patchNotesLineSeparator from "../assets/assetPanel/patchNotesLineSeparator.svg";
 
-// TODO: download Roboto font
 const Wrapper = styled.div`
   .patchNotePanel {
     color: ${mainColour.white};
@@ -13,18 +12,15 @@ const Wrapper = styled.div`
 
   .versionNumber {
     color: ${mainColour.yellow};
-    font-family: Roboto;
     font-size: 24px;
     font-weight: bold;
   }
 
   .patchInfoHeading {
-    font-family: Roboto;
     font-size: 16px;
   }
 
   .patchInfoText {
-    font-family: Roboto;
     font-size: 16px;
   }
 `;

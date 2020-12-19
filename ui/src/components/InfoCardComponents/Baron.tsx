@@ -148,7 +148,7 @@ export const Baron: FC<BaronProps> = ({}) => {
               >
                 <Grid item>
                   {/* Gold 1 */}
-                  <Typography className="greyText"> Gold {JSON.stringify(baronData?.bounty?.gold)}</Typography>
+                  <Typography className="greyText">Gold <img src = {images['Gold.png']} alt="gold" width={200*0.1} height={154*0.1} /> {JSON.stringify(baronData?.bounty?.gold)}</Typography>
                 </Grid>
                 <Grid item>
                   {/* EXP 1 */}
@@ -170,7 +170,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                 style={{ display: "flex", flexDirection: "column" }}
               >
                 <Grid item>
-                  {" "}
+                  {/* STAT COL 1 */}
                   <Grid
                     container
                     style={{ display: "flex", flexDirection: "row" }}
@@ -185,43 +185,43 @@ export const Baron: FC<BaronProps> = ({}) => {
                     </Grid>
                     <Grid item xs={3}>
                       {/* DEF */}
-                      <Typography> DEF </Typography>
+                      <Typography> {JSON.stringify(baronData?.stats?.armor)} </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
                 <Grid item>
-                  {" "}
+                  {/* STAT COL 2 */}
                   <Grid
                     container
                     style={{ display: "flex", flexDirection: "row" }}
                   >
                     <Grid item xs={3}>
-                      {" "}
-                      <Typography> REGEN </Typography>{" "}
+                      {/* REGEN */}
+                      <Typography> {JSON.stringify(baronData?.stats?.healthRegen)} </Typography>
                     </Grid>
                     <Grid item xs={3}>
-                      {" "}
-                      <Typography> A.SPD </Typography>{" "}
+                      {/* ATK.SPD */}
+                      <Typography> {JSON.stringify(baronData?.stats?.attackSpeed)} </Typography>
                     </Grid>
                     <Grid item xs={3}>
-                      {" "}
-                      <Typography> MR </Typography>
+                      {/* MR */}
+                      <Typography> {JSON.stringify(baronData?.stats?.magicResist)} </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
                 <Grid item>
-                  {" "}
+                  {/* STAT COL 3 */}
                   <Grid
                     container
                     style={{ display: "flex", flexDirection: "row" }}
                   >
                     <Grid item xs={3}>
-                      {" "}
-                      <Typography> SPEED </Typography>{" "}
+                      {/* SPEED */}
+                      <Typography> {JSON.stringify(baronData?.stats?.movSpeed)} </Typography>{" "}
                     </Grid>
                     <Grid item xs={3}>
-                      {" "}
-                      <Typography> RANGE </Typography>{" "}
+                      {/* RANGE */}
+                      <Typography> {JSON.stringify(baronData?.stats?.range)} </Typography>{" "}
                     </Grid>
                   </Grid>
                 </Grid>
@@ -234,10 +234,36 @@ export const Baron: FC<BaronProps> = ({}) => {
               style={{ backgroundColor: mainColour.testBigContainer }}
             >
               <Typography className="overViewSubTextStyling">Spawn</Typography>
-              <Typography className="greyText">
-              {baronData?.location?.initial}
-                {/* {JSON.stringify(baronData?.location?.initial)} */}
+              <Grid container spacing={3} style={{ display: "flex", flexDirection: "row" }}>
+                  <Grid item>
+ {/* Spawn Header Text */}
+ <Grid container style={{ display: "flex", flexDirection: "column" }}>
+                  <Grid item>
+                  <Typography className="greyText">
+              Initial
               </Typography>
+                  </Grid>
+                  <Grid item>
+                  <Typography className="greyText">
+              Respawn
+              </Typography>
+                  </Grid>
+              </Grid>
+                  </Grid>
+                  <Grid item>
+{/* Spawn Info */}
+<Grid container style={{ display: "flex", flexDirection: "column" }}>
+                  <Grid item>
+                        <Typography>{baronData?.location?.initial}</Typography>
+                  </Grid>
+                  <Grid item>
+                      <Typography>{baronData?.location?.respawn}</Typography>
+                  </Grid>
+              </Grid>
+                  </Grid>
+              </Grid>
+             
+              
             </Grid>
           </Grid>
         </Grid>
