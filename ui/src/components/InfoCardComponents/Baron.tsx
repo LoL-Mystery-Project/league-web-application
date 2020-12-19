@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import { mainColour } from "../../styles/palette";
 import styled from "styled-components";
 import images from "../../assets/images.json";
+import expIcon from '../../assets/assetPanel/icons/exp.svg';
 
 const Wrapper = styled.div`
   .patchNotePanel {
@@ -124,6 +125,7 @@ export const Baron: FC<BaronProps> = ({}) => {
   return (
     <Wrapper>
       <Grid container style={{ display: "flex", flexDirection: "column" }}>
+          {/* OVERVIEW: BOUNTY, STATISTICS, SPAWN */}
         <Grid item>
           <Typography className="infoHeaderText">Overview</Typography>
           <Typography className="infoText">
@@ -136,6 +138,7 @@ export const Baron: FC<BaronProps> = ({}) => {
             spacing={1}
             style={{ display: "flex", flexDirection: "row" }}
           >
+              {/* BOUNTY */}
             <Grid
               item
               xs={3}
@@ -148,18 +151,33 @@ export const Baron: FC<BaronProps> = ({}) => {
               >
                 <Grid item>
                   {/* Gold 1 */}
-                  <Typography className="greyText">Gold <img src = {images['Gold.png']} alt="gold" width={200*0.1} height={154*0.1} /> {JSON.stringify(baronData?.bounty?.gold)}</Typography>
+                  <Typography className="greyText">
+                    Gold{" "}
+                    <img
+                      src={images["Gold.png"]}
+                      alt="gold"
+                      width={200 * 0.1}
+                      height={154 * 0.1}
+                    />{" "}
+                    {(baronData?.bounty?.gold)}
+                  </Typography>
                 </Grid>
                 <Grid item>
                   {/* EXP 1 */}
-                  <Typography className="greyText"> EXP {JSON.stringify(baronData?.bounty?.exp)}</Typography>
+                  <Typography className="greyText">
+                    {" "}
+                    EXP <img src={expIcon} alt="xp" />{" "}
+                    {(baronData?.bounty?.exp)}
+                  </Typography>
                 </Grid>
                 <Grid item>
                   {/* CS */}
-                  <Typography className="greyText"> CS {JSON.stringify(baronData?.bounty?.cs)}</Typography>
+                  <Typography className="greyText">
+                    {" "}
+                    CS {(baronData?.bounty?.cs)}
+                  </Typography>
                 </Grid>
               </Grid>
-              <Typography>{JSON.stringify(baronData?.bounty)}</Typography>
             </Grid>
             <Grid item xs={6} style={{ backgroundColor: "blue" }}>
               <Typography className="overViewSubTextStyling">
@@ -177,15 +195,24 @@ export const Baron: FC<BaronProps> = ({}) => {
                   >
                     <Grid item xs={3}>
                       {/* HP */}
-                      <Typography> {JSON.stringify(baronData?.stats?.health)} </Typography>{" "}
+                      <Typography>
+                        {" "}
+                        {(baronData?.stats?.health)}{" "}
+                      </Typography>
                     </Grid>
                     <Grid item xs={3}>
                       {/* ATK */}
-                      <Typography> {JSON.stringify(baronData?.stats?.attackDamage)} </Typography>{" "}
+                      <Typography>
+                        {" "}
+                        {(baronData?.stats?.attackDamage)}{" "}
+                      </Typography>
                     </Grid>
                     <Grid item xs={3}>
                       {/* DEF */}
-                      <Typography> {JSON.stringify(baronData?.stats?.armor)} </Typography>
+                      <Typography>
+                        {" "}
+                        {(baronData?.stats?.armor)}{" "}
+                      </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -197,15 +224,24 @@ export const Baron: FC<BaronProps> = ({}) => {
                   >
                     <Grid item xs={3}>
                       {/* REGEN */}
-                      <Typography> {JSON.stringify(baronData?.stats?.healthRegen)} </Typography>
+                      <Typography>
+                        {" "}
+                        {(baronData?.stats?.healthRegen)}{" "}
+                      </Typography>
                     </Grid>
                     <Grid item xs={3}>
                       {/* ATK.SPD */}
-                      <Typography> {JSON.stringify(baronData?.stats?.attackSpeed)} </Typography>
+                      <Typography>
+                        {" "}
+                        {(baronData?.stats?.attackSpeed)}{" "}
+                      </Typography>
                     </Grid>
                     <Grid item xs={3}>
                       {/* MR */}
-                      <Typography> {JSON.stringify(baronData?.stats?.magicResist)} </Typography>
+                      <Typography>
+                        {" "}
+                        {(baronData?.stats?.magicResist)}{" "}
+                      </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -217,16 +253,21 @@ export const Baron: FC<BaronProps> = ({}) => {
                   >
                     <Grid item xs={3}>
                       {/* SPEED */}
-                      <Typography> {JSON.stringify(baronData?.stats?.movSpeed)} </Typography>{" "}
+                      <Typography>
+                        {" "}
+                        {(baronData?.stats?.movSpeed)}{" "}
+                      </Typography>{" "}
                     </Grid>
                     <Grid item xs={3}>
                       {/* RANGE */}
-                      <Typography> {JSON.stringify(baronData?.stats?.range)} </Typography>{" "}
+                      <Typography>
+                        {" "}
+                        {JSON.stringify(baronData?.stats?.range)}{" "}
+                      </Typography>{" "}
                     </Grid>
                   </Grid>
                 </Grid>
               </Grid>
-              <Typography>{JSON.stringify(baronData?.stats)}</Typography>
             </Grid>
             <Grid
               item
@@ -234,36 +275,40 @@ export const Baron: FC<BaronProps> = ({}) => {
               style={{ backgroundColor: mainColour.testBigContainer }}
             >
               <Typography className="overViewSubTextStyling">Spawn</Typography>
-              <Grid container spacing={3} style={{ display: "flex", flexDirection: "row" }}>
-                  <Grid item>
- {/* Spawn Header Text */}
- <Grid container style={{ display: "flex", flexDirection: "column" }}>
-                  <Grid item>
-                  <Typography className="greyText">
-              Initial
-              </Typography>
+              <Grid
+                container
+                spacing={3}
+                style={{ display: "flex", flexDirection: "row" }}
+              >
+                <Grid item>
+                  {/* Spawn Header Text */}
+                  <Grid
+                    container
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
+                    <Grid item>
+                      <Typography className="greyText">Initial</Typography>
+                    </Grid>
+                    <Grid item>
+                      <Typography className="greyText">Respawn</Typography>
+                    </Grid>
                   </Grid>
-                  <Grid item>
-                  <Typography className="greyText">
-              Respawn
-              </Typography>
-                  </Grid>
-              </Grid>
-                  </Grid>
-                  <Grid item>
-{/* Spawn Info */}
-<Grid container style={{ display: "flex", flexDirection: "column" }}>
-                  <Grid item>
-                        <Typography>{baronData?.location?.initial}</Typography>
-                  </Grid>
-                  <Grid item>
+                </Grid>
+                <Grid item>
+                  {/* Spawn Info */}
+                  <Grid
+                    container
+                    style={{ display: "flex", flexDirection: "column" }}
+                  >
+                    <Grid item>
+                      <Typography>{baronData?.location?.initial}</Typography>
+                    </Grid>
+                    <Grid item>
                       <Typography>{baronData?.location?.respawn}</Typography>
+                    </Grid>
                   </Grid>
+                </Grid>
               </Grid>
-                  </Grid>
-              </Grid>
-             
-              
             </Grid>
           </Grid>
         </Grid>
@@ -305,8 +350,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                   20 - 80 (based on minutes) ability power
                 </span>{" "}
                 determined   by the time the{" "}
-                <span className="textColorStylingYellow">Baron</span> is
-                slain.
+                <span className="textColorStylingYellow">Baron</span> is slain.
               </Typography>
             </Grid>
             <Grid item>
@@ -315,12 +359,9 @@ export const Baron: FC<BaronProps> = ({}) => {
               </Typography>
               <Typography>
                 After{" "}
-                <span className="textColorStylingBlue">
-                  0.5s cast time
-                </span>
-                , channel for{" "}
-                <span className="textColorStylingBlue">4s</span> to blink
-                to their team’s fountain if not interrupted.
+                <span className="textColorStylingBlue">0.5s cast time</span>,
+                channel for <span className="textColorStylingBlue">4s</span> to
+                blink to their team’s fountain if not interrupted.
               </Typography>
             </Grid>
             <Grid item>
