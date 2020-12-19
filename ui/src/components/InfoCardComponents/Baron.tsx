@@ -63,7 +63,7 @@ const Wrapper = styled.div`
     color: ${mainColour.purple};
   }
 
-  .customStylingHandOfBaron {
+  .textColorStylingOrange {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -71,7 +71,7 @@ const Wrapper = styled.div`
 
     color: ${mainColour.orange};
   }
-  .customStylingHandOfBaron2 {
+  .textColorStylingBlue {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -79,7 +79,7 @@ const Wrapper = styled.div`
 
     color: ${mainColour.blue};
   }
-  .customStylingHandOfBaron3 {
+  .textColorStylingYellow {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -87,7 +87,7 @@ const Wrapper = styled.div`
 
     color: ${mainColour.yellow};
   }
-  .customStylingHandOfBaron4 {
+  .textColorStylingPurple {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -147,16 +147,16 @@ export const Baron: FC<BaronProps> = ({}) => {
                 style={{ display: "flex", flexDirection: "column" }}
               >
                 <Grid item>
-                  {" "}
-                  <Typography className="greyText"> Gold </Typography>
+                  {/* Gold 1 */}
+                  <Typography className="greyText"> Gold {JSON.stringify(baronData?.bounty?.gold)}</Typography>
                 </Grid>
                 <Grid item>
-                  {" "}
-                  <Typography className="greyText"> EXP </Typography>
+                  {/* EXP 1 */}
+                  <Typography className="greyText"> EXP {JSON.stringify(baronData?.bounty?.exp)}</Typography>
                 </Grid>
                 <Grid item>
-                  {" "}
-                  <Typography className="greyText"> CS </Typography>
+                  {/* CS */}
+                  <Typography className="greyText"> CS {JSON.stringify(baronData?.bounty?.cs)}</Typography>
                 </Grid>
               </Grid>
               <Typography>{JSON.stringify(baronData?.bounty)}</Typography>
@@ -176,26 +176,54 @@ export const Baron: FC<BaronProps> = ({}) => {
                     style={{ display: "flex", flexDirection: "row" }}
                   >
                     <Grid item xs={3}>
-                      {" "}
-                      <Typography> HP </Typography>{" "}
+                      {/* HP */}
+                      <Typography> {JSON.stringify(baronData?.stats?.health)} </Typography>{" "}
                     </Grid>
                     <Grid item xs={3}>
-                      {" "}
-                      <Typography> ATK </Typography>{" "}
+                      {/* ATK */}
+                      <Typography> {JSON.stringify(baronData?.stats?.attackDamage)} </Typography>{" "}
                     </Grid>
                     <Grid item xs={3}>
-                      {" "}
+                      {/* DEF */}
                       <Typography> DEF </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
                 <Grid item>
                   {" "}
-                  <Typography> REGEN </Typography>
+                  <Grid
+                    container
+                    style={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <Grid item xs={3}>
+                      {" "}
+                      <Typography> REGEN </Typography>{" "}
+                    </Grid>
+                    <Grid item xs={3}>
+                      {" "}
+                      <Typography> A.SPD </Typography>{" "}
+                    </Grid>
+                    <Grid item xs={3}>
+                      {" "}
+                      <Typography> MR </Typography>
+                    </Grid>
+                  </Grid>
                 </Grid>
                 <Grid item>
                   {" "}
-                  <Typography> MOVE </Typography>
+                  <Grid
+                    container
+                    style={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <Grid item xs={3}>
+                      {" "}
+                      <Typography> SPEED </Typography>{" "}
+                    </Grid>
+                    <Grid item xs={3}>
+                      {" "}
+                      <Typography> RANGE </Typography>{" "}
+                    </Grid>
+                  </Grid>
                 </Grid>
               </Grid>
               <Typography>{JSON.stringify(baronData?.stats)}</Typography>
@@ -207,7 +235,8 @@ export const Baron: FC<BaronProps> = ({}) => {
             >
               <Typography className="overViewSubTextStyling">Spawn</Typography>
               <Typography className="greyText">
-                {JSON.stringify(baronData?.location)}
+              {baronData?.location?.initial}
+                {/* {JSON.stringify(baronData?.location?.initial)} */}
               </Typography>
             </Grid>
           </Grid>
@@ -241,16 +270,16 @@ export const Baron: FC<BaronProps> = ({}) => {
               </Typography>
               <Typography>
                 Gives
-                <span className="customStylingHandOfBaron">
+                <span className="textColorStyling">
                   {" "}
                   12 - 48 (based on minutes) attack damage{" "}
                 </span>
                 and{" "}
-                <span className="customStylingHandOfBaron2">
+                <span className="textColorStylingBlue">
                   20 - 80 (based on minutes) ability power
                 </span>{" "}
                 determined   by the time the{" "}
-                <span className="customStylingHandOfBaron3">Baron</span> is
+                <span className="textColorStylingYellow">Baron</span> is
                 slain.
               </Typography>
             </Grid>
@@ -260,11 +289,11 @@ export const Baron: FC<BaronProps> = ({}) => {
               </Typography>
               <Typography>
                 After{" "}
-                <span className="customStylingHandOfBaron2">
+                <span className="textColorStylingBlue">
                   0.5s cast time
                 </span>
                 , channel for{" "}
-                <span className="customStylingHandOfBaron2">4s</span> to blink
+                <span className="textColorStylingBlue">4s</span> to blink
                 to their team’s fountain if not interrupted.
               </Typography>
             </Grid>
@@ -274,20 +303,20 @@ export const Baron: FC<BaronProps> = ({}) => {
               </Typography>
               <Typography>
                 Nearby allied minions gain: Slow Resist,{" "}
-                <span className="customStylingHandOfBaron2">
+                <span className="textColorStylingBlue">
                   75% damage reduction
                 </span>
                 from area of effect and damage over time   abilities and attacks
                 (except for Super Minions),{" "}
-                <span className="customStylingHandOfBaron4">
+                <span className="textColorStylingPurple">
                   bonus movement speed
                 </span>{" "}
                 equal to{" "}
-                <span className="customStylingHandOfBaron4">
+                <span className="textColorStylingPurple">
                   90% averaged movement speed
                 </span>{" "}
                 of all nearby champions, capped at{" "}
-                <span className="customStylingHandOfBaron4">500</span>.{" "}
+                <span className="textColorStylingPurple">500</span>.{" "}
               </Typography>
             </Grid>
           </Grid>

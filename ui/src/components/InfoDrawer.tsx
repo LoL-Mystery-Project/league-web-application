@@ -72,9 +72,11 @@ const useStyles = makeStyles({
     fontSize: 16,
   },
   closeButton: {
+    position: 'absolute',
+    right: 20,
     '&:hover': {
       cursor: 'pointer'
-    }
+    } 
   }
 });
 
@@ -107,7 +109,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
           {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
           {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
           {/* TODO: change marginLeft = 20 */}
-          <Grid item xs={12} style={{ backgroundColor: mainColour.bgBlack }}>
+          <Grid item style={{ backgroundColor: mainColour.bgBlack }}>
             <Grid
               container
               style={{
@@ -140,14 +142,13 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
               {/* CLOSE BUTTON */}
               <Grid
                 item
-                style={{ backgroundColor: mainColour.bgBlack, marginLeft: 10 }}
+                style={{ backgroundColor: mainColour.testBigContainer }}
               >
                 <img
                   className={classes.closeButton}
                   src={close}
                   height={30}
                   width={30}
-                  style={{ paddingRight: 5 }}
                   alt="close"
                   onClick={() => {
                     handleCloseInfoDrawer();
