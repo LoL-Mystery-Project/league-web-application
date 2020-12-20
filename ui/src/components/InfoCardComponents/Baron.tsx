@@ -23,6 +23,8 @@ import shieldBlueIcon from "../../assets/assetPanel/icons/shield_blue.svg";
 import handOfBaronIcon from "../../assets/assetPanel/icons/handofbaron.svg";
 import empoweredRecallIcon from "../../assets/assetPanel/icons/empoweredrecall.svg";
 import unknownIcon from "../../assets/assetPanel/icons/unknown.svg";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/types";
 
 const Wrapper = styled.div`
   .infoHeaderText {
@@ -134,6 +136,7 @@ interface BaronProps {}
 
 export const Baron: FC<BaronProps> = ({}) => {
   const [baronData, setBaronData] = useState<any>({});
+  const { imageMap } = useSelector((state: RootState) => state.images);
 
   useEffect(() => {
     (async () => {
@@ -161,9 +164,13 @@ export const Baron: FC<BaronProps> = ({}) => {
         <Grid item>
           <Typography className="infoHeaderText">Overview</Typography>
           <Typography className="infoText">
-            <span className = 'textColorStylingPurple'>Baron Nashor</span> is the most powerful neutral monster on Summoner Rift.
-            Grants living teammates <span className = 'textColorStylingPurple'>Hand of Baron</span>, <span className = 'textColorStylingPurple'>Empowered Recall</span>, and <span className = 'textColorStylingPurple'>Aura </span>
-             when killed.
+            <span className="textColorStylingPurple">Baron Nashor</span> is the
+            most powerful neutral monster on Summoner Rift. Grants living
+            teammates{" "}
+            <span className="textColorStylingPurple">Hand of Baron</span>,{" "}
+            <span className="textColorStylingPurple">Empowered Recall</span>,
+            and <span className="textColorStylingPurple">Aura </span>
+            when killed.
           </Typography>
           <Grid
             container
@@ -189,7 +196,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                     </Grid>
                     <Grid item xs={3}>
                       {/* Gold icon */}
-                      <img src={goldIcon} alt="gold" />
+                      <img src={imageMap["gold.svg"]} alt="gold.svg" />
                     </Grid>
                     <Grid item xs={6}>
                       {/* Gold value */}
@@ -216,10 +223,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                     </Grid>
                     <Grid item xs={6}>
                       {/* EXP value */}
-                      <Typography>
-                        {" "}
-                        {baronData?.bounty?.exp}{" "}
-                      </Typography>
+                      <Typography> {baronData?.bounty?.exp} </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -239,10 +243,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                     </Grid>
                     <Grid item xs={6}>
                       {/* CS value */}
-                      <Typography>
-                        {" "}
-                        {baronData?.bounty?.cs}{" "}
-                      </Typography>
+                      <Typography> {baronData?.bounty?.cs} </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -266,20 +267,33 @@ export const Baron: FC<BaronProps> = ({}) => {
                     <Grid item xs={4}>
                       {/* HP */}
                       <img src={heartIcon} alt="hp" />
-                      <Typography> <span className = 'textColorStylingGreen'>{baronData?.stats?.health}</span> </Typography>
+                      <Typography>
+                        {" "}
+                        <span className="textColorStylingGreen">
+                          {baronData?.stats?.health}
+                        </span>{" "}
+                      </Typography>
                     </Grid>
                     <Grid item xs={4}>
                       {/* ATK */}
                       <img src={physicalDmgIcon} alt="atk" />
                       <Typography>
                         {" "}
-                        <span className = 'textColorStylingOrange'> {baronData?.stats?.attackDamage}</span>{" "}
+                        <span className="textColorStylingOrange">
+                          {" "}
+                          {baronData?.stats?.attackDamage}
+                        </span>{" "}
                       </Typography>
                     </Grid>
                     <Grid item xs={4}>
                       {/* DEF */}
                       <img src={shieldOrangeIcon} alt="def" />
-                      <Typography><span className = 'textColorStylingOrange'> {baronData?.stats?.armor} </span></Typography>
+                      <Typography>
+                        <span className="textColorStylingOrange">
+                          {" "}
+                          {baronData?.stats?.armor}{" "}
+                        </span>
+                      </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -292,17 +306,32 @@ export const Baron: FC<BaronProps> = ({}) => {
                     <Grid item xs={4}>
                       {/* REGEN */}
                       <img src={hpRegenIcon} alt="regen" />
-                      <Typography> <span className = 'textColorStylingGreen'>{baronData?.stats?.healthRegen}</span> </Typography>
+                      <Typography>
+                        {" "}
+                        <span className="textColorStylingGreen">
+                          {baronData?.stats?.healthRegen}
+                        </span>{" "}
+                      </Typography>
                     </Grid>
                     <Grid item xs={4}>
                       {/* ATK.SPD */}
                       <img src={atkspdIcon} alt="atkspd" />
-                      <Typography> <span className = 'textColorStylingOrange'>{baronData?.stats?.attackSpeed} </span> </Typography>
+                      <Typography>
+                        {" "}
+                        <span className="textColorStylingOrange">
+                          {baronData?.stats?.attackSpeed}{" "}
+                        </span>{" "}
+                      </Typography>
                     </Grid>
                     <Grid item xs={4}>
                       {/* MR */}
                       <img src={shieldBlueIcon} alt="mr" />
-                      <Typography> <span className = 'textColorStylingBlue'>{baronData?.stats?.magicResist}</span> </Typography>
+                      <Typography>
+                        {" "}
+                        <span className="textColorStylingBlue">
+                          {baronData?.stats?.magicResist}
+                        </span>{" "}
+                      </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -317,7 +346,9 @@ export const Baron: FC<BaronProps> = ({}) => {
                       <img src={movementIcon} alt="movement" />
                       <Typography>
                         {" "}
-                        <span className = 'textColorStylingPurple'>{baronData?.stats?.movSpeed}</span>{" "}
+                        <span className="textColorStylingPurple">
+                          {baronData?.stats?.movSpeed}
+                        </span>{" "}
                       </Typography>{" "}
                     </Grid>
                     <Grid item xs={4}>
@@ -325,7 +356,9 @@ export const Baron: FC<BaronProps> = ({}) => {
                       <img src={rangeIcon} alt="range" />
                       <Typography>
                         {" "}
-                        <span className = 'textColorStylingWhite'>{(baronData?.stats?.range)}</span>{" "}
+                        <span className="textColorStylingWhite">
+                          {baronData?.stats?.range}
+                        </span>{" "}
                       </Typography>{" "}
                     </Grid>
                   </Grid>
@@ -397,7 +430,7 @@ export const Baron: FC<BaronProps> = ({}) => {
             style={{ display: "flex", flexDirection: "column" }}
           >
             <Grid item>
-                {/* <Grid container style={{ display: "flex", flexDirection: "column" }}>
+              {/* <Grid container style={{ display: "flex", flexDirection: "column" }}>
                   <Grid item xs={1}>
                   <img src={handOfBaronIcon} alt="handofbaron" />
                   </Grid>
