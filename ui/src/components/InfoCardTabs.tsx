@@ -1,23 +1,22 @@
 import React, { FC, useEffect } from "react";
 import styled from "styled-components";
-import { makeStyles, withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 
-import {InfoCardPanel} from './InfoCardPanel';
-import {PatchNoteCardPanel} from './PatchNoteCardPanel';
-import {SplashArtCardPanel} from './SplashArtCardPanel';
+import { InfoCardPanel } from "./InfoCardPanel";
+import { PatchNoteCardPanel } from "./PatchNoteCardPanel";
+import { SplashArtCardPanel } from "./SplashArtCardPanel";
 
-import Typography from '@material-ui/core/Typography';
-import { mainColour, glowColour } from "../styles/palette";
+import Typography from "@material-ui/core/Typography";
+import { mainColour } from "../styles/palette";
 
 const StyledTabs = withStyles({
   root: {
     color: mainColour.white,
   },
   indicator: {
-    height: 2,
+    height: 3,
     background: `radial-gradient(
       circle at bottom,
       white -50%,
@@ -47,18 +46,26 @@ const Wrapper = styled.div`
     transform: rotate(45deg);
   }
 
-  .textSelected: {
+  .textselected: {
     color: ${mainColour.red};
   }
 
-  .textUnselected: {
+  .textunselected: {
     color: ${mainColour.grey};
+  }
+
+  .bottomBorder {
+    border-bottom: 2px solid transparent;
+    border-image-source: url("https://league-icons.s3-us-west-2.amazonaws.com/patchNotesLineSeparator.svg");
+    border-image-repeat: initial;
+    border-image-slice: 1;
+    margin-bottom: 10px;
   }
 `;
 
 const useStyles = makeStyles({
   indicator: {
-    color: mainColour.blue
+    color: mainColour.blue,
   },
   root: {
     color: mainColour.white,
@@ -68,7 +75,7 @@ const useStyles = makeStyles({
     fontFamily: "Friz Quadrata",
     fontSize: 20,
     textTransform: "none",
-  }
+  },
 });
 // mini nav / tab thing
 
@@ -85,7 +92,7 @@ const useStyles = makeStyles({
 //     backgroundColor: 'cornflowerBlue',
 //   },
 // })
-    
+
 export default function InfoCardTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -94,30 +101,60 @@ export default function InfoCardTabs() {
     setValue(newValue);
   };
 
-
-
   return (
     <Wrapper>
-    <Paper style={{ backgroundColor: mainColour.bgBlack }}>
       <StyledTabs
-
         value={value}
         onChange={handleChange}
         indicatorColor="primary" // underline
+        className="bottomBorder"
         // textColor="secondary" // this changes the selected text colour
         // variant="fullWidth"
       >
         {/* https://material-ui.com/api/tabs/ */}
-      
-        <Tab disableRipple label={<Typography className={classes.tabText}>Information</Typography>} disabled={false}/>
-        <Tab disableRipple label={<Typography className={classes.tabText}>Patch Notes</Typography>} disabled={false}/>
-        <Tab disableRipple label={<Typography className={classes.tabText}>Splash Art</Typography>} disabled={false}/>
-       
+
+        <Tab
+          disableRipple
+          label={
+            <Typography className={classes.tabText}>Information</Typography>
+          }
+          disabled={false}
+        />
+        <Tab
+          disableRipple
+          label={
+            <Typography className={classes.tabText}>Patch Notes</Typography>
+          }
+          disabled={false}
+        />
+        <Tab
+          disableRipple
+          label={
+            <Typography className={classes.tabText}>Splash Art</Typography>
+          }
+          disabled={false}
+        />
       </StyledTabs>
-      {(value === 0) && <div><InfoCardPanel  InfoPanelProps={[{helloObject: 'hey there'}]}/></div>}
-        {(value === 1) && <div><PatchNoteCardPanel  PatchNoteCardPanelProps={[{helloObject: 'hey there'}]}/></div>}
-        {(value === 2) && <div>Show splash art  <SplashArtCardPanel  SplashArtCardPanelProps={[{helloObject: 'hey there'}]}/></div>}
-    </Paper>
+      {value === 0 && (
+        <div>
+          <InfoCardPanel InfoPanelProps={[{ helloObject: "hey there" }]} />
+        </div>
+      )}
+      {value === 1 && (
+        <div>
+          <PatchNoteCardPanel
+            PatchNoteCardPanelProps={[{ helloObject: "hey there" }]}
+          />
+        </div>
+      )}
+      {value === 2 && (
+        <div>
+          Show splash art{" "}
+          <SplashArtCardPanel
+            SplashArtCardPanelProps={[{ helloObject: "hey there" }]}
+          />
+        </div>
+      )}
     </Wrapper>
   );
 }

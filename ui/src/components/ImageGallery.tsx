@@ -60,7 +60,7 @@ export const ImageGallery: FC = ({}) => {
     <Wrapper>
       <h1>Image Gallery (dev mode only)</h1>
       <div className="containerStyles">
-        <GridList cellHeight={175} cols={5} style={{ width: "70%" }}>
+        <GridList cellHeight={175} cols={7} style={{ width: "70%" }}>
           {imageList &&
             imageList.map((image) => (
               <GridListTile key={image.key}>
@@ -91,7 +91,7 @@ const ImageDialog: FC<ImageDialogProps> = ({
   isOpen,
   setOpen,
 }) => {
-  const longImages = ["line", "background", "blur"];
+  const longImages = ["line", "background", "blur", "riftmap", "fullmap"];
 
   const shouldNotResize = () => {
     const toCheck = imageKey.toLowerCase();
@@ -125,6 +125,7 @@ const ImageDialog: FC<ImageDialogProps> = ({
           style={{
             height: shouldNotResize() ? undefined : 120,
             marginBottom: 20,
+            maxWidth: '100%'
           }}
         />
         <Typography>{url}</Typography>
@@ -138,7 +139,7 @@ const ImageDialog: FC<ImageDialogProps> = ({
           Or, if you're using the Redux store:
         </Typography>
         <SyntaxHighlighter language="typescript" style={vscDarkPlus}>
-          {`// make sure this line is included in your file! \nconst { imageMap } = useSelector((state: RootState) => state.images);\n\n...\n\n<img\n  src={imageMap['${imageKey}']}\`\n  alt='${imageKey}'\n/>`}
+          {`// make sure this line is included at the top of your component! \nconst { imageMap } = useSelector((state: RootState) => state.images);\n\n// include this line in the render method\n<img src={imageMap['${imageKey}']} alt='${imageKey}'/>`}
         </SyntaxHighlighter>
       </DialogContent>
     </Dialog>

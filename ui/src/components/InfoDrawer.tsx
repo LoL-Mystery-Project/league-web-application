@@ -11,7 +11,8 @@ import Typography from "@material-ui/core/Typography";
 
 import { MonsterObject } from "../pages/SummonersRift";
 
-import close from "../assets/assetPanel/close.svg";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/types";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -57,7 +58,7 @@ const useStyles = makeStyles({
   infoCard: {
     // width: 800,
     height: 500,
-    background: mainColour.black,
+    background: "transparent",
     color: mainColour.white,
   },
   monsterTitle: {
@@ -72,12 +73,12 @@ const useStyles = makeStyles({
     fontSize: 16,
   },
   closeButton: {
-    position: 'absolute',
+    position: "absolute",
     right: 20,
-    '&:hover': {
-      cursor: 'pointer'
-    } 
-  }
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
 });
 
 export interface InfoDrawerProps {
@@ -91,6 +92,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
   showInfoDrawer,
   asset,
 }) => {
+  const { imageMap } = useSelector((state: RootState) => state.images);
   const { name, hp, imageIcon } = asset;
 
   const classes = useStyles();
@@ -104,65 +106,58 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
     //   Hello
     // </Drawer>
     <Fade in={showInfoDrawer}>
-      <Paper elevation={4} className={classes.infoCard}>
-        <Grid container style={{ display: "flex", flexDirection: "column" }}>
-          {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
-          {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
-          {/* TODO: change marginLeft = 20 */}
-          <Grid item style={{ backgroundColor: mainColour.bgBlack }}>
-            <Grid
-              container
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                marginTop: 30,
-                marginLeft: 10,
-                marginBottom: -20,
-              }}
-            >
-              {/* ICON */}
-              <Grid
-                style={{ backgroundColor: mainColour.bgBlack, marginRight: 5 }}
-              >
-                <img
-                  src={imageIcon}
-                  height={60}
-                  width={60}
-                  style={{ paddingRight: 5 }}
-                  alt="whyyyyy"
-                />{" "}
-              </Grid>
-              {/* MONSTER TITLE AND SUBTITLE */}
-              <Grid item xs={9} style={{ backgroundColor: mainColour.bgBlack }}>
-                <Typography className={classes.monsterTitle}>{name}</Typography>
-                <Typography className={classes.monsterSubtitle}>
-                  Epic Monster
-                </Typography>
-              </Grid>
-              {/* CLOSE BUTTON */}
-              <Grid
-                item
-                style={{ backgroundColor: mainColour.testBigContainer }}
-              >
-                <img
-                  className={classes.closeButton}
-                  src={close}
-                  height={30}
-                  width={30}
-                  alt="close"
-                  onClick={() => {
-                    handleCloseInfoDrawer();
-                  }}
-                />{" "}
-              </Grid>
+      <Grid container style={{ display: "flex", flexDirection: "column" }}>
+        {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
+        {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
+        {/* TODO: change marginLeft = 20 */}
+        <Grid item style={{ backgroundColor: "transparent" }}>
+          <Grid
+            container
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              marginTop: 30,
+              marginLeft: 10,
+              marginBottom: -50,
+            }}
+          >
+            {/* ICON */}
+            <Grid style={{ backgroundColor: "transparent", marginRight: 5 }}>
+              <img
+                src={imageIcon}
+                height={60}
+                width={60}
+                style={{ paddingRight: 5 }}
+                alt="whyyyyy"
+              />{" "}
+            </Grid>
+            {/* MONSTER TITLE AND SUBTITLE */}
+            <Grid item xs={9} style={{ backgroundColor: "transparent" }}>
+              <Typography className={classes.monsterTitle}>{name}</Typography>
+              <Typography className={classes.monsterSubtitle}>
+                Epic Monster
+              </Typography>
+            </Grid>
+            {/* CLOSE BUTTON */}
+            <Grid item style={{ backgroundColor: "transparent" }}>
+              <img
+                className={classes.closeButton}
+                src={imageMap["close.svg"]}
+                height={30}
+                width={30}
+                alt="close"
+                onClick={() => {
+                  handleCloseInfoDrawer();
+                }}
+              />{" "}
             </Grid>
           </Grid>
-          {/* EVERYTHING ELSE */}
-          <Grid item xs={12} style={{ backgroundColor: mainColour.bgBlack }}>
-            <InfoCard infoCardProps={[{ helloObject: "hey there" }]} />
-          </Grid>
         </Grid>
-      </Paper>
+        {/* EVERYTHING ELSE */}
+        <Grid item xs={12} style={{ backgroundColor: "transparent" }}>
+          <InfoCard infoCardProps={[{ helloObject: "hey there" }]} />
+        </Grid>
+      </Grid>
     </Fade>
   );
 };

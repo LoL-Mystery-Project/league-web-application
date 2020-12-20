@@ -1,10 +1,11 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { mainColour } from "../styles/palette";
-import {Baron} from './InfoCardComponents/Baron';
+import { Baron } from "./InfoCardComponents/Baron";
 
 const Wrapper = styled.div`
   .text {
+    background-color: transparent;
     color: ${mainColour.white};
   }
 `;
@@ -24,9 +25,9 @@ export const InfoCardPanel: FC<InfoPanelProps> = ({ InfoPanelProps }) => {
 
   return (
     <Wrapper>
-    <div className="text">
-      <Baron/>
-    </div>
+      <div className="text">
+        <Baron />
+      </div>
     </Wrapper>
   );
 };
