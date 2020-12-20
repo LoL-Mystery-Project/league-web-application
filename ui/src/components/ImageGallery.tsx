@@ -2,7 +2,7 @@ import { Dialog, GridListTileBar, Typography } from "@material-ui/core";
 import DialogContent from "@material-ui/core/DialogContent";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { RootState } from "../redux/types";
@@ -15,6 +15,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 100px;
   }
 
   .gridCell {
@@ -60,7 +61,7 @@ export const ImageGallery: FC = ({}) => {
     <Wrapper>
       <h1>Image Gallery (dev mode only)</h1>
       <div className="containerStyles">
-        <GridList cellHeight={175} cols={7} style={{ width: "70%" }}>
+        <GridList cellHeight={150} cols={8} style={{ width: "70%" }}>
           {imageList &&
             imageList.map((image) => (
               <GridListTile key={image.key}>
@@ -91,7 +92,26 @@ const ImageDialog: FC<ImageDialogProps> = ({
   isOpen,
   setOpen,
 }) => {
-  const longImages = ["line", "background", "blur", "riftmap", "fullmap"];
+  const longImages = [
+    "line",
+    "background",
+    "blur",
+    "riftmap",
+    "fullmap",
+    "240",
+    "241",
+    "242",
+    "244",
+    "245",
+    "246"
+  ];
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    if (url) {
+      getMetaData(url);
+    }
+  }, [url]);
 
   const shouldNotResize = () => {
     const toCheck = imageKey.toLowerCase();
@@ -100,6 +120,12 @@ const ImageDialog: FC<ImageDialogProps> = ({
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const getMetaData = (imageUrl: string) => {
+    const img = new Image();
+    img.src = imageUrl;
+    img.onload = () => setDimensions({ width: img.width, height: img.height });
   };
 
   return (
@@ -125,10 +151,16 @@ const ImageDialog: FC<ImageDialogProps> = ({
           style={{
             height: shouldNotResize() ? undefined : 120,
             marginBottom: 20,
-            maxWidth: '100%'
+            maxWidth: "100%",
           }}
         />
-        <Typography>{url}</Typography>
+        <Typography>
+          <b>Source:</b> {url}
+        </Typography>
+        <Typography>
+          <b>Original dimensions:</b>{" "}
+          {`${dimensions.width} x ${dimensions.height}`}
+        </Typography>
         <br />
         <Typography style={{ textAlign: "left" }}>The quickie:</Typography>
         <SyntaxHighlighter language="html" style={vscDarkPlus} wrapLongLines>
