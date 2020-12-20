@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {},
     paper: {
-      background: glowColour.backGroundBlue, // TODO: change this later
+      background: 'transparent', // TODO: change this later
     },
     headerText: {
       color: mainColour.yellow,
