@@ -15,7 +15,8 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { mainColour, glowColour } from "../styles/palette";
 import { InfoDrawer, InfoDrawerProps } from "../components/InfoDrawer";
-import images from "../assets/images.json";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/types";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -61,6 +62,7 @@ export interface MonsterObject {
 export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const [windowHeight, setWindowHeight] = useState(0);
   const [showInfoDrawer, setInfoDrawer] = useState(false);
+  const { imageMap } = useSelector((state: RootState) => state.images);
   const [asset, setAsset] = useState<MonsterObject>({
     name: "",
     hp: 0,
@@ -133,12 +135,12 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                   {
                     name: "Baron Nashor",
                     hp: 5,
-                    imageIcon: images["Baron_NashorSquare.png"],
+                    imageIcon: imageMap && imageMap['baronnashor.svg'],
                   },
                   {
                     name: "Mountain Drake",
                     hp: 5,
-                    imageIcon: images["Mountain_DrakeSquare.png"],
+                    imageIcon: imageMap && imageMap['mountaindrake.svg'],
                   },
                   {
                     name: "Baron Nashor 2",
@@ -314,7 +316,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
           </Grid>
         </Grid>
         ) : (
-          <Grid item xs={7}>
+          <Grid item xs={7} style={{ background: `linear-gradient(180deg, #010A13 0%, #041722 100%)` }}>
             <InfoDrawer
               showInfoDrawer={showInfoDrawer}
               handleClose={handleToggleInfoDrawer}

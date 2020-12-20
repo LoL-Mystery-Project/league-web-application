@@ -12,6 +12,7 @@ import { WatchLive } from "./pages/WatchLive";
 import { Ranking } from "./pages/Ranking";
 import { Stats } from "./pages/Stats";
 import { Guides } from "./pages/Guides";
+import { ImageGallery } from "./components/ImageGallery";
 
 export const Routes: FC = () => {
   return (
@@ -27,6 +28,7 @@ export const Routes: FC = () => {
         <Route path="/guides" component={Guides} />
         <Route path="/summonersrift" component={SummonersRift} />
         <Route path="/wiki" component={Wiki} />
+        <Route path="/image_gallery" component={ImageGallery} />
       </Switch>
     </BrowserRouter>
   );
