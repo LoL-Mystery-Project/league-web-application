@@ -92,19 +92,6 @@ const ImageDialog: FC<ImageDialogProps> = ({
   isOpen,
   setOpen,
 }) => {
-  const longImages = [
-    "line",
-    "background",
-    "blur",
-    "riftmap",
-    "fullmap",
-    "240",
-    "241",
-    "242",
-    "244",
-    "245",
-    "246"
-  ];
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -112,11 +99,6 @@ const ImageDialog: FC<ImageDialogProps> = ({
       getMetaData(url);
     }
   }, [url]);
-
-  const shouldNotResize = () => {
-    const toCheck = imageKey.toLowerCase();
-    return longImages.some((image) => toCheck.includes(image));
-  };
 
   const handleClose = () => {
     setOpen(false);
@@ -149,7 +131,7 @@ const ImageDialog: FC<ImageDialogProps> = ({
           src={url}
           alt={imageKey}
           style={{
-            height: shouldNotResize() ? undefined : 120,
+            minWidth: 120,
             marginBottom: 20,
             maxWidth: "100%",
           }}
