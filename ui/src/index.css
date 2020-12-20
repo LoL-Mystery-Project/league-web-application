@@ -32,7 +32,10 @@ https://scotch.io/@micwanyoike/how-to-add-fonts-to-a-react-project
 body {
   font-family: "Friz Quadrata";
   /* background-color: #; */
-  background-color: #222222; /*change for testing*/
+  background: linear-gradient(180deg, #010a13 0%, #041722 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   color: white;
 }
 
