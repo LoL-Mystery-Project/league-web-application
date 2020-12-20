@@ -1,9 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { mainColour } from "../styles/palette";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import patchNotesLineSeparator from "../assets/assetPanel/patchNotesLineSeparator.svg";
+
+// TODO: display all patch notes
+// TODO: modify display of details, which is an array of strings
+// TODO: add bullet before first patch detail
 
 const Wrapper = styled.div`
   .patchNotePanel {
@@ -16,16 +20,10 @@ const Wrapper = styled.div`
     font-weight: bold;
   }
 
-  .patchInfoHeading {
-    font-size: 16px;
-  }
-
-  .patchInfoText {
+  .patchInfo {
     font-size: 16px;
   }
 `;
-
-// mini nav / tab thing
 
 interface PatchNoteCardPanelDetails {
   helloObject: string;
@@ -36,9 +34,31 @@ interface PatchNoteCardPanelProps {
 }
 
 export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({ PatchNoteCardPanelProps }) => {
+
+  const [patchData, setPatchData] = useState<any>({});
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch("http://localhost:5000/monsters");
+        const json = await response.json();
+        const monster = json.find((elem: any) => elem.name === "Baron Nashor");
+        setPatchData(monster.patchHistory);
+      } catch {
+        // do nothing, API call failed.
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    if (patchData) {
+      console.log(patchData);
+    }
+  }, [patchData]);
+
   return (
     <Wrapper>
-    {[1, 1, 1, 1, 1].map(() => (
+    {[0, 1, 2, 3, 4, 5].map((index: number) => (
     <Grid container className="patchNotePanel" spacing={1} style={{ display: "flex", flexDirection: "column" }}>
       {/* LINE SEPARATOR AND VERSION NUMBER */}
       <Grid item style={{marginLeft: 22}}>
@@ -46,21 +66,18 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({ PatchNoteCardP
           src={patchNotesLineSeparator}
           alt="patchNotesLineSeparator"
           />
-        <Typography className="versionNumber" >V10.3</Typography>
+        <Typography className="versionNumber" >{patchData[index]?.release}</Typography>
       </Grid>
       {/* PATCH HEADER AND INFO */}
-      <Grid item style={{marginLeft: 30}}>
+      <Grid item style={{marginLeft: 40}}>
         <Grid container spacing={2} >
           <Grid item >
-          <Typography className="patchInfoHeading" >BUG FIX</Typography>
-          </Grid>
-          <Grid item style={{ width: 740, height: 40}}>
-          <Typography className="patchInfoText" >- No longer damages or grants visions around himself for players behind his pit that do not originally have vision on him.</Typography>
+          <Typography className="patchInfo" >{patchData[index]?.details}</Typography>
           </Grid>
         </Grid>
       </Grid>
     </Grid>
-    ))}
+))}
     </Wrapper>
   );
 };
