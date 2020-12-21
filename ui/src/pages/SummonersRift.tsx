@@ -15,6 +15,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { mainColour, glowColour } from "../styles/palette";
 import { InfoDrawer, InfoDrawerProps } from "../components/InfoDrawer";
+import DonateInfoBox from "../components/DonateInfoBox";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/types";
 
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {},
     paper: {
-      background: 'transparent', // TODO: change this later
+      background: "transparent", // TODO: change this later
     },
     headerText: {
       color: mainColour.yellow,
@@ -42,10 +43,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
 
     listItem: {
-      '&:hover': {
-        cursor: 'pointer'
-      }
-    }
+      "&:hover": {
+        cursor: "pointer",
+      },
+    },
   })
 );
 
@@ -111,212 +112,231 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
 
         {!showInfoDrawer ? (
           <Grid item xs={7}>
-          <Grid container spacing={1} >
-        {/* MONSTER LIST */}
-        <Grid item xs={7}>
-          <Paper
-            className={classes.paper}
+            <Grid container spacing={1}>
+              {/* MONSTER LIST */}
+              <Grid item xs={7}>
+                <Paper
+                  className={classes.paper}
+                  style={{
+                    height: windowHeight,
+                  }}
+                >
+                  <SummonerSearchBar />
+                  <Typography className={classes.headerText}>
+                    Neutral Monsters
+                  </Typography>
+                  <img src={lineSeparator} alt="line" />
+                  <Grid
+                    container
+                    style={{ display: "flex", flexDirection: "row", margin: 5 }}
+                  >
+                    {/* COLUMN 1 */}
+                    <Grid item xs={6}>
+                      {[
+                        {
+                          name: "Baron Nashor",
+                          hp: 5,
+                          imageIcon: imageMap && imageMap["baronnashor.svg"],
+                        },
+                        {
+                          name: "Mountain Drake",
+                          hp: 5,
+                          imageIcon: imageMap && imageMap["mountaindrake.svg"],
+                        },
+                        {
+                          name: "Baron Nashor 2",
+                          hp: 5,
+                          imageIcon:
+                            "https://images-ext-1.discordapp.net/external/CMiyPfQ2hlPUJrL-_RZNtppxSIaBItvKHlvL06kcCVM/https/raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/summoner-backdrops/4570.jpg?width=648&height=442",
+                        },
+                        {
+                          name: "Baron Nashor 3",
+                          hp: 5,
+                          imageIcon:
+                            "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
+                        },
+                        {
+                          name: "Baron Nashor 4",
+                          hp: 5,
+                          imageIcon:
+                            "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
+                        },
+                        {
+                          name: "Baron Nashor 5",
+                          hp: 5,
+                          imageIcon:
+                            "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
+                        },
+                        {
+                          name: "Baron Nashor 6",
+                          hp: 5,
+                          imageIcon:
+                            "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
+                        },
+                        {
+                          name: "Baron Nashor 7",
+                          hp: 5,
+                          imageIcon:
+                            "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
+                        },
+                      ].map((elem: MonsterObject) => (
+                        <Button
+                          onClick={() => {
+                            handleToggleInfoDrawer(elem);
+                          }}
+                        >
+                          <div
+                            style={{ display: "flex", flexDirection: "row" }}
+                            className={classes.listItem}
+                          >
+                            <img
+                              className=""
+                              src={elem.imageIcon}
+                              height={ICON_SIZE}
+                              width={ICON_SIZE}
+                              style={{ paddingRight: 5 }}
+                              alt="baronIcon"
+                            />{" "}
+                            <Typography className={classes.assetText}>
+                              {elem.name}
+                            </Typography>
+                          </div>
+                        </Button>
+                      ))}
+                    </Grid>
+                    {/* COLUMN 2 */}
+                    <Grid item xs={6}>
+                      {[1, 1, 1, 1, 1, 1].map(() => (
+                        <div style={{ display: "flex", flexDirection: "row" }}>
+                          <img
+                            className=""
+                            src={baronIcon}
+                            height={ICON_SIZE}
+                            style={{ paddingRight: 5 }}
+                            alt="baronIcon"
+                          />{" "}
+                          <Typography className={classes.assetText}>
+                            Baron Nashor
+                          </Typography>
+                        </div>
+                      ))}
+                    </Grid>
+                  </Grid>
+                  <Typography className={classes.headerText}>
+                    Minions
+                  </Typography>
+                  <img src={lineSeparator} alt="line" />
+                  <Grid
+                    container
+                    style={{ display: "flex", flexDirection: "row" }}
+                  >
+                    {/* COLUMN 1 */}
+                    <Grid item xs={6}>
+                      {[1, 1].map(() => (
+                        <div style={{ display: "flex", flexDirection: "row" }}>
+                          <img
+                            className=""
+                            src={baronIcon}
+                            height={ICON_SIZE}
+                            style={{ paddingRight: 5 }}
+                            alt="baronIcon"
+                          />{" "}
+                          <Typography className={classes.assetText}>
+                            Baron Nashor
+                          </Typography>
+                        </div>
+                      ))}
+                    </Grid>
+                    {/* COLUMN 2 */}
+                    <Grid item xs={6}>
+                      {[1, 1].map(() => (
+                        <div style={{ display: "flex", flexDirection: "row" }}>
+                          <img
+                            className=""
+                            src={baronIcon}
+                            height={ICON_SIZE}
+                            style={{ paddingRight: 5 }}
+                            alt="baronIcon"
+                          />{" "}
+                          <Typography className={classes.assetText}>
+                            Baron Nashor
+                          </Typography>
+                        </div>
+                      ))}
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    style={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <Grid
+                      container
+                      style={{ display: "flex", flexDirection: "row" }}
+                    >
+                      {/* COLUMN 1 */}
+                      <Grid item xs={6}>
+                        <Typography className={classes.headerText}>
+                          Jungle Plants
+                        </Typography>
+                        <img src={lineSeparator} alt="line" />
+                        {[1, 1].map(() => (
+                          <div
+                            style={{ display: "flex", flexDirection: "row" }}
+                          >
+                            <img
+                              className=""
+                              src={baronIcon}
+                              height={ICON_SIZE}
+                              style={{ paddingRight: 5 }}
+                              alt="baronIcon"
+                            />{" "}
+                            <Typography className={classes.assetText}>
+                              Baron Nashor
+                            </Typography>
+                          </div>
+                        ))}
+                      </Grid>
+                      {/* COLUMN 2 */}
+                      <Grid item xs={6}>
+                        <Typography className={classes.headerText}>
+                          Buildings
+                        </Typography>
+                        <img src={lineSeparator} alt="line" />
+                        {[1, 1].map(() => (
+                          <div
+                            style={{ display: "flex", flexDirection: "row" }}
+                          >
+                            <img
+                              className=""
+                              src={baronIcon}
+                              height={ICON_SIZE}
+                              style={{ paddingRight: 5 }}
+                              alt="baronIcon"
+                            />{" "}
+                            <Typography className={classes.assetText}>
+                              Baron Nashor
+                            </Typography>
+                          </div>
+                        ))}
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Paper>
+              </Grid>
+              {/* BIG ANNOYING AD */}
+              <Grid item xs={5}>
+                <DonateInfoBox />
+              </Grid>
+            </Grid>
+          </Grid>
+        ) : (
+          <Grid
+            item
+            xs={7}
             style={{
-              height: windowHeight,
+              background: `linear-gradient(180deg, #010A13 0%, #041722 100%)`,
             }}
           >
-            <SummonerSearchBar />
-            <Typography className={classes.headerText}>
-              Neutral Monsters
-            </Typography>
-            <img src={lineSeparator} alt="line" />
-            <Grid
-              container
-              style={{ display: "flex", flexDirection: "row", margin: 5 }}
-            >
-              {/* COLUMN 1 */}
-              <Grid item xs={6}>
-                {[
-                  {
-                    name: "Baron Nashor",
-                    hp: 5,
-                    imageIcon: imageMap && imageMap['baronnashor.svg'],
-                  },
-                  {
-                    name: "Mountain Drake",
-                    hp: 5,
-                    imageIcon: imageMap && imageMap['mountaindrake.svg'],
-                  },
-                  {
-                    name: "Baron Nashor 2",
-                    hp: 5,
-                    imageIcon:
-                      "https://images-ext-1.discordapp.net/external/CMiyPfQ2hlPUJrL-_RZNtppxSIaBItvKHlvL06kcCVM/https/raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/summoner-backdrops/4570.jpg?width=648&height=442",
-                  },
-                  {
-                    name: "Baron Nashor 3",
-                    hp: 5,
-                    imageIcon:
-                      "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
-                  },
-                  {
-                    name: "Baron Nashor 4",
-                    hp: 5,
-                    imageIcon:
-                      "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
-                  },
-                  {
-                    name: "Baron Nashor 5",
-                    hp: 5,
-                    imageIcon:
-                      "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
-                  },
-                  {
-                    name: "Baron Nashor 6",
-                    hp: 5,
-                    imageIcon:
-                      "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
-                  },
-                  {
-                    name: "Baron Nashor 7",
-                    hp: 5,
-                    imageIcon:
-                      "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
-                  },
-                ].map((elem: MonsterObject) => (
-                  <Button
-                    onClick={() => {
-                      handleToggleInfoDrawer(elem);
-                    }}
-                  >
-                    <div style={{ display: "flex", flexDirection: "row" }} className={classes.listItem}>
-                      <img
-                        className=""
-                        src={elem.imageIcon}
-                        height={ICON_SIZE}
-                        width={ICON_SIZE}
-                        style={{ paddingRight: 5 }}
-                        alt="baronIcon"
-                      />{" "}
-                      <Typography className={classes.assetText}>
-                        {elem.name}
-                      </Typography>
-                    </div>
-                  </Button>
-                ))}
-              </Grid>
-              {/* COLUMN 2 */}
-              <Grid item xs={6}>
-                {[1, 1, 1, 1, 1, 1].map(() => (
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <img
-                      className=""
-                      src={baronIcon}
-                      height={ICON_SIZE}
-                      style={{ paddingRight: 5 }}
-                      alt="baronIcon"
-                    />{" "}
-                    <Typography className={classes.assetText}>
-                      Baron Nashor
-                    </Typography>
-                  </div>
-                ))}
-              </Grid>
-            </Grid>
-            <Typography className={classes.headerText}>Minions</Typography>
-            <img src={lineSeparator} alt="line" />
-            <Grid container style={{ display: "flex", flexDirection: "row" }}>
-              {/* COLUMN 1 */}
-              <Grid item xs={6}>
-                {[1, 1].map(() => (
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <img
-                      className=""
-                      src={baronIcon}
-                      height={ICON_SIZE}
-                      style={{ paddingRight: 5 }}
-                      alt="baronIcon"
-                    />{" "}
-                    <Typography className={classes.assetText}>
-                      Baron Nashor
-                    </Typography>
-                  </div>
-                ))}
-              </Grid>
-              {/* COLUMN 2 */}
-              <Grid item xs={6}>
-                {[1, 1].map(() => (
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <img
-                      className=""
-                      src={baronIcon}
-                      height={ICON_SIZE}
-                      style={{ paddingRight: 5 }}
-                      alt="baronIcon"
-                    />{" "}
-                    <Typography className={classes.assetText}>
-                      Baron Nashor
-                    </Typography>
-                  </div>
-                ))}
-              </Grid>
-            </Grid>
-            <Grid container style={{ display: "flex", flexDirection: "row" }}>
-              <Grid container style={{ display: "flex", flexDirection: "row" }}>
-                {/* COLUMN 1 */}
-                <Grid item xs={6}>
-                  <Typography className={classes.headerText}>
-                    Jungle Plants
-                  </Typography>
-                  <img src={lineSeparator} alt="line" />
-                  {[1, 1].map(() => (
-                    <div style={{ display: "flex", flexDirection: "row" }}>
-                      <img
-                        className=""
-                        src={baronIcon}
-                        height={ICON_SIZE}
-                        style={{ paddingRight: 5 }}
-                        alt="baronIcon"
-                      />{" "}
-                      <Typography className={classes.assetText}>
-                        Baron Nashor
-                      </Typography>
-                    </div>
-                  ))}
-                </Grid>
-                {/* COLUMN 2 */}
-                <Grid item xs={6}>
-                  <Typography className={classes.headerText}>
-                    Buildings
-                  </Typography>
-                  <img src={lineSeparator} alt="line" />
-                  {[1, 1].map(() => (
-                    <div style={{ display: "flex", flexDirection: "row" }}>
-                      <img
-                        className=""
-                        src={baronIcon}
-                        height={ICON_SIZE}
-                        style={{ paddingRight: 5 }}
-                        alt="baronIcon"
-                      />{" "}
-                      <Typography className={classes.assetText}>
-                        Baron Nashor
-                      </Typography>
-                    </div>
-                  ))}
-                </Grid>
-              </Grid>
-            </Grid>
-          </Paper>
-        </Grid>
-        {/* BIG ANNOYING AD */}
-        <Grid item xs={5}>
-            <Paper
-            className={classes.paper}
-              style={{
-                height: windowHeight,
-              }}
-            />
-          </Grid>
-          </Grid>
-        </Grid>
-        ) : (
-          <Grid item xs={7} style={{ background: `linear-gradient(180deg, #010A13 0%, #041722 100%)` }}>
             <InfoDrawer
               showInfoDrawer={showInfoDrawer}
               handleClose={handleToggleInfoDrawer}
