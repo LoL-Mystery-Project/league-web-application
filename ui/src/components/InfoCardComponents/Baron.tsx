@@ -5,6 +5,7 @@ import { mainColour } from "../../styles/palette";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/types";
+import { ImageAsset } from "../ImageAsset";
 
 const Wrapper = styled.div`
   .infoHeaderText {
@@ -233,7 +234,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                     </Grid>
                     <Grid item xs={4} style={{ textAlign: "center" }}>
                       {/* Gold icon */}
-                      <img src={imageMap["gold.svg"]} alt="gold.svg" />
+                      <ImageAsset alt="gold.svg" />
                     </Grid>
                     <Grid item xs={4}>
                       {/* Gold value */}
@@ -253,7 +254,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                     </Grid>
                     <Grid item xs={4} style={{ textAlign: "center" }}>
                       {/* EXP icon */}
-                      <img src={imageMap["exp.svg"]} alt="exp.svg" />
+                      <ImageAsset alt="exp.svg" />
                     </Grid>
                     <Grid item xs={4}>
                       {/* EXP value */}

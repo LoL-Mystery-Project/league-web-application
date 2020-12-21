@@ -150,10 +150,10 @@ const ImageDialog: FC<ImageDialogProps> = ({
         </SyntaxHighlighter>
         <br />
         <Typography style={{ textAlign: "left" }}>
-          Or, if you're using the Redux store:
+          Or, if you have the ImageAsset component imported (preferred):
         </Typography>
         <SyntaxHighlighter language="typescript" style={vscDarkPlus}>
-          {`// make sure this line is included at the top of your component! \nconst { imageMap } = useSelector((state: RootState) => state.images);\n\n// include this line in the render method\n<img src={imageMap['${imageKey}']} alt='${imageKey}'/>`}
+          {`// make sure you have imported the components/ImageAsset component! (eg)\nimport { ImageAsset } from 'src/components/ImageAsset';\n\n// include this line in the render method\n<ImageAsset alt='${imageKey}'/>`}
         </SyntaxHighlighter>
       </DialogContent>
     </Dialog>
