@@ -44,7 +44,7 @@ interface ImageDialogProps {
   setOpen: Function;
 }
 
-export const ImageGallery: FC = ({}) => {
+export const ImageGallery: FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [dialogProps, setDialogProps] = useState<ImageProps>({
     imageKey: "",
