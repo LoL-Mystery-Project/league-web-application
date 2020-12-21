@@ -44,7 +44,7 @@ interface ImageDialogProps {
   setOpen: Function;
 }
 
-export const ImageGallery: FC = () => {
+export const ImageGallery: FC = ({}) => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [dialogProps, setDialogProps] = useState<ImageProps>({
     imageKey: "",
@@ -131,7 +131,8 @@ const ImageDialog: FC<ImageDialogProps> = ({
           src={url}
           alt={imageKey}
           style={{
-            minWidth: 120,
+            minHeight: 120,
+            maxHeight: 600,
             marginBottom: 20,
             maxWidth: "100%",
           }}
