@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { InfoCard } from "./InfoCard";
 import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
 import { mainColour } from "../styles/palette";
@@ -13,6 +12,7 @@ import { MonsterObject } from "../pages/SummonersRift";
 
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/types";
+import { InfoCardTabs } from "./InfoCardTabs";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -155,7 +155,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
         </Grid>
         {/* EVERYTHING ELSE */}
         <Grid item xs={12} style={{ backgroundColor: "transparent" }}>
-          <InfoCard infoCardProps={[{ helloObject: "hey there" }]} />
+          <InfoCardTabs infoCardTabsProps={asset} />
         </Grid>
       </Grid>
     </Fade>

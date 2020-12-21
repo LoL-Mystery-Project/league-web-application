@@ -10,6 +10,7 @@ import { SplashArtCardPanel } from "./SplashArtCardPanel";
 
 import Typography from "@material-ui/core/Typography";
 import { mainColour } from "../styles/palette";
+import { MonsterObject } from "../pages/SummonersRift";
 
 const StyledTabs = withStyles({
   root: {
@@ -83,17 +84,11 @@ const useStyles = makeStyles({
 //   helloObject: string;
 // }
 
-// interface InfoCardTabsProps {
-//     infoCardTabsProps: Array<InfoCardTabsProps>;
-// }
+interface InfoCardTabsProps {
+  infoCardTabsProps: MonsterObject;
+}
 
-// const styles = (theme: any) => ({
-//   indicator: {
-//     backgroundColor: 'cornflowerBlue',
-//   },
-// })
-
-export default function InfoCardTabs() {
+export const InfoCardTabs: FC<InfoCardTabsProps> = ({ infoCardTabsProps }) => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -137,24 +132,20 @@ export default function InfoCardTabs() {
       </StyledTabs>
       {value === 0 && (
         <div>
-          <InfoCardPanel InfoPanelProps={[{ helloObject: "hey there" }]} />
+          <InfoCardPanel InfoPanelProps={infoCardTabsProps} />
         </div>
       )}
       {value === 1 && (
         <div>
-          <PatchNoteCardPanel
-            PatchNoteCardPanelProps={[{ helloObject: "hey there" }]}
-          />
+          <PatchNoteCardPanel PatchNoteCardPanelProps={infoCardTabsProps} />
         </div>
       )}
       {value === 2 && (
         <div>
           Show splash art{" "}
-          <SplashArtCardPanel
-            SplashArtCardPanelProps={[{ helloObject: "hey there" }]}
-          />
+          <SplashArtCardPanel SplashArtCardPanelProps={infoCardTabsProps} />
         </div>
       )}
     </Wrapper>
   );
-}
+};

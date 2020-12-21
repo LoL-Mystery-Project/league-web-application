@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import { MonsterObject } from "../pages/SummonersRift";
 import { mainColour } from "../styles/palette";
 import { Baron } from "./InfoCardComponents/Baron";
 
@@ -12,12 +13,8 @@ const Wrapper = styled.div`
 
 // mini nav / tab thing
 
-interface InfoPanelDetails {
-  helloObject: string;
-}
-
 interface InfoPanelProps {
-  InfoPanelProps: Array<InfoPanelDetails>;
+  InfoPanelProps: MonsterObject;
 }
 
 export const InfoCardPanel: FC<InfoPanelProps> = ({ InfoPanelProps }) => {
