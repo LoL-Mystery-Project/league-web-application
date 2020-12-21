@@ -4,6 +4,7 @@ import { mainColour } from "../styles/palette";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import patchNotesLineSeparator from "../assets/assetPanel/patchNotesLineSeparator.svg";
+import { MonsterObject } from "../pages/SummonersRift";
 
 // TODO: display all patch notes
 // TODO: modify display of details, which is an array of strings
@@ -25,17 +26,12 @@ const Wrapper = styled.div`
   }
 `;
 
-interface PatchNoteCardPanelDetails {
-  helloObject: string;
-}
-
 export interface PatchNote {
   release: string;
   details: Array<string>;
 }
-
 interface PatchNoteCardPanelProps {
-  PatchNoteCardPanelProps: Array<PatchNoteCardPanelDetails>;
+  PatchNoteCardPanelProps: MonsterObject;
 }
 
 export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({

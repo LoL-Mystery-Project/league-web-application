@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from "react";
 import styled from "styled-components";
+import { MonsterObject } from "../pages/SummonersRift";
 import { mainColour, subColour } from "../styles/palette";
 
 const Wrapper = styled.div`
@@ -26,20 +27,22 @@ const Wrapper = styled.div`
 
 // mini nav / tab thing
 
-interface SplashArtCardPanelDetails {
-  helloObject: string;
-}
-
 interface SplashArtCardPanelProps {
-    SplashArtCardPanelProps: Array<SplashArtCardPanelDetails>;
+  SplashArtCardPanelProps: MonsterObject;
 }
 
-export const SplashArtCardPanel: FC<SplashArtCardPanelProps> = ({ SplashArtCardPanelProps }) => {
+export const SplashArtCardPanel: FC<SplashArtCardPanelProps> = ({
+  SplashArtCardPanelProps,
+}) => {
   //const classes = useStyles();
+  const { name, hp, imageIcon } = SplashArtCardPanelProps;
 
   return (
     <div>
-      <p>`This is SplashArt panel where we have a bunch of text' </p>
+      <p>
+        `This is SplashArt panel where we have a bunch of text $
+        {SplashArtCardPanelProps.name}`{" "}
+      </p>
     </div>
   );
 };

@@ -3,26 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { mainColour } from "../../styles/palette";
 import styled from "styled-components";
-import images from "../../assets/images.json";
-
-import expIcon from "../../assets/assetPanel/icons/exp.svg";
-import goldIcon from "../../assets/assetPanel/icons/gold.svg";
-import csIcon from "../../assets/assetPanel/icons/cs.svg";
-
-import heartIcon from "../../assets/assetPanel/icons/heart.svg";
-import hpRegenIcon from "../../assets/assetPanel/icons/hpregeneration.svg";
-import movementIcon from "../../assets/assetPanel/icons/movement.svg";
-
-import physicalDmgIcon from "../../assets/assetPanel/icons/physicaldamage.svg";
-import atkspdIcon from "../../assets/assetPanel/icons/attackspd.svg";
-import rangeIcon from "../../assets/assetPanel/icons/range.svg";
-
-import shieldOrangeIcon from "../../assets/assetPanel/icons/shield_orange.svg";
-import shieldBlueIcon from "../../assets/assetPanel/icons/shield_blue.svg";
-
-import handOfBaronIcon from "../../assets/assetPanel/icons/handofbaron.svg";
-import empoweredRecallIcon from "../../assets/assetPanel/icons/empoweredrecall.svg";
-import unknownIcon from "../../assets/assetPanel/icons/unknown.svg";
+import { ImageAsset } from "../ImageAsset";
 
 const Wrapper = styled.div`
   .infoHeaderText {
@@ -128,6 +109,38 @@ const Wrapper = styled.div`
 
     color: ${mainColour.white};
   }
+
+  .bottomBorder {
+    border-bottom: 2px solid transparent;
+    border-image-source: url("https://league-icons.s3-us-west-2.amazonaws.com/patchNotesLineSeparator.svg");
+    border-image-repeat: initial;
+    border-image-slice: 1;
+    margin-bottom: 15px;
+  }
+
+  .leftBorder {
+    position: absolute;
+  }
+
+  .bountyStyles {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 34px;
+    white-space: nowrap;
+  }
+
+  .listStyles {
+    margin-left: -20px;
+  }
+
+  .effectsStyles {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 `;
 
 interface BaronProps {}
@@ -159,39 +172,64 @@ export const Baron: FC<BaronProps> = ({}) => {
       <Grid container style={{ display: "flex", flexDirection: "column" }}>
         {/* OVERVIEW: BOUNTY, STATISTICS, SPAWN */}
         <Grid item>
-          <Typography className="infoHeaderText">Overview</Typography>
-          <Typography className="infoText">
-            <span className = 'textColorStylingPurple'>Baron Nashor</span> is the most powerful neutral monster on Summoner Rift.
-            Grants living teammates <span className = 'textColorStylingPurple'>Hand of Baron</span>, <span className = 'textColorStylingPurple'>Empowered Recall</span>, and <span className = 'textColorStylingPurple'>Aura </span>
-             when killed.
-          </Typography>
+          <div>
+            <Typography className="infoHeaderText">Overview</Typography>
+            <Typography className="infoText">
+              <ul style={{ margin: 0 }}>
+                <li>
+                  <span className="textColorStylingPurple">Baron Nashor</span>{" "}
+                  is the most powerful neutral monster on Summoner Rift. Grants
+                  living teammates{" "}
+                  <span className="textColorStylingPurple">Hand of Baron</span>,{" "}
+                  <span className="textColorStylingPurple">
+                    Empowered Recall
+                  </span>
+                  , and <span className="textColorStylingPurple">Aura </span>
+                  when killed.
+                </li>
+              </ul>
+            </Typography>
+          </div>
           <Grid
             container
             spacing={1}
-            style={{ display: "flex", flexDirection: "row" }}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              paddingTop: 30,
+              paddingBottom: 20,
+            }}
+            className="bottomBorder"
           >
             {/* BOUNTY */}
             <Grid item xs={3}>
-              <Typography className="overViewSubTextStyling">Bounty</Typography>
+              <Typography
+                className="overViewSubTextStyling"
+                style={{ paddingBottom: 10 }}
+              >
+                Bounty
+              </Typography>
+              <ImageAsset alt="line2.svg" className="leftBorder" />
               <Grid
                 container
-                style={{ display: "flex", flexDirection: "column" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  paddingLeft: 15,
+                }}
               >
                 <Grid item>
                   {/* Gold */}
-                  <Grid
-                    container
-                    style={{ display: "flex", flexDirection: "row" }}
-                  >
-                    <Grid item xs={3}>
+                  <Grid container className="bountyStyles">
+                    <Grid item xs={2}>
                       {/* Gold word */}
                       <Typography className="greyText"> Gold </Typography>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={4} style={{ textAlign: "center" }}>
                       {/* Gold icon */}
-                      <img src={goldIcon} alt="gold" />
+                      <ImageAsset alt="gold.svg" />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={4}>
                       {/* Gold value */}
                       <Typography className="textColorStylingYellow">
                         {" "}
@@ -202,47 +240,35 @@ export const Baron: FC<BaronProps> = ({}) => {
                 </Grid>
                 <Grid item>
                   {/* EXP 1 */}
-                  <Grid
-                    container
-                    style={{ display: "flex", flexDirection: "row" }}
-                  >
-                    <Grid item xs={3}>
+                  <Grid container className="bountyStyles">
+                    <Grid item xs={2}>
                       {/* EXP word */}
                       <Typography className="greyText"> EXP </Typography>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={4} style={{ textAlign: "center" }}>
                       {/* EXP icon */}
-                      <img src={expIcon} alt="xp" />
+                      <ImageAsset alt="exp.svg" />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={4}>
                       {/* EXP value */}
-                      <Typography>
-                        {" "}
-                        {baronData?.bounty?.exp}{" "}
-                      </Typography>
+                      <Typography> {baronData?.bounty?.exp} </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
                 <Grid item>
                   {/* CS */}
-                  <Grid
-                    container
-                    style={{ display: "flex", flexDirection: "row" }}
-                  >
-                    <Grid item xs={3}>
+                  <Grid container className="bountyStyles">
+                    <Grid item xs={2}>
                       {/* CS word */}
                       <Typography className="greyText"> CS </Typography>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={4} style={{ textAlign: "center" }}>
                       {/* CS icon */}
-                      <img src={csIcon} alt="cs" />
+                      <ImageAsset alt="cs.svg" />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={4}>
                       {/* CS value */}
-                      <Typography>
-                        {" "}
-                        {baronData?.bounty?.cs}{" "}
-                      </Typography>
+                      <Typography> {baronData?.bounty?.cs} </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -250,12 +276,20 @@ export const Baron: FC<BaronProps> = ({}) => {
             </Grid>
             {/* STATISTICS */}
             <Grid item xs={6}>
-              <Typography className="overViewSubTextStyling">
+              <Typography
+                className="overViewSubTextStyling"
+                style={{ paddingBottom: 10 }}
+              >
                 Statistics
               </Typography>
+              <ImageAsset alt="line2.svg" className="leftBorder" />
               <Grid
                 container
-                style={{ display: "flex", flexDirection: "column" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  paddingLeft: 15,
+                }}
               >
                 <Grid item>
                   {/* STAT COL 1 */}
@@ -265,21 +299,51 @@ export const Baron: FC<BaronProps> = ({}) => {
                   >
                     <Grid item xs={4}>
                       {/* HP */}
-                      <img src={heartIcon} alt="hp" />
-                      <Typography> <span className = 'textColorStylingGreen'>{baronData?.stats?.health}</span> </Typography>
+
+                      <Typography
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        {" "}
+                        <ImageAsset alt="heart.svg" />
+                        <span
+                          className="textColorStylingGreen"
+                          style={{ paddingLeft: 10 }}
+                        >
+                          {baronData?.stats?.health}
+                        </span>{" "}
+                      </Typography>
                     </Grid>
                     <Grid item xs={4}>
                       {/* ATK */}
-                      <img src={physicalDmgIcon} alt="atk" />
-                      <Typography>
-                        {" "}
-                        <span className = 'textColorStylingOrange'> {baronData?.stats?.attackDamage}</span>{" "}
+
+                      <Typography
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        <ImageAsset alt="physicaldamage.svg" />{" "}
+                        <span
+                          className="textColorStylingOrange"
+                          style={{ paddingLeft: 10 }}
+                        >
+                          {" "}
+                          {baronData?.stats?.attackDamage}
+                        </span>{" "}
                       </Typography>
                     </Grid>
                     <Grid item xs={4}>
                       {/* DEF */}
-                      <img src={shieldOrangeIcon} alt="def" />
-                      <Typography><span className = 'textColorStylingOrange'> {baronData?.stats?.armor} </span></Typography>
+
+                      <Typography
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        <ImageAsset alt="shield_orange.svg" />
+                        <span
+                          className="textColorStylingOrange"
+                          style={{ paddingLeft: 10 }}
+                        >
+                          {" "}
+                          {baronData?.stats?.armor}{" "}
+                        </span>
+                      </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -291,18 +355,47 @@ export const Baron: FC<BaronProps> = ({}) => {
                   >
                     <Grid item xs={4}>
                       {/* REGEN */}
-                      <img src={hpRegenIcon} alt="regen" />
-                      <Typography> <span className = 'textColorStylingGreen'>{baronData?.stats?.healthRegen}</span> </Typography>
+
+                      <Typography
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        <ImageAsset alt="hpregeneration.svg" />{" "}
+                        <span
+                          className="textColorStylingGreen"
+                          style={{ paddingLeft: 10 }}
+                        >
+                          {baronData?.stats?.healthRegen}
+                        </span>{" "}
+                      </Typography>
                     </Grid>
                     <Grid item xs={4}>
                       {/* ATK.SPD */}
-                      <img src={atkspdIcon} alt="atkspd" />
-                      <Typography> <span className = 'textColorStylingOrange'>{baronData?.stats?.attackSpeed} </span> </Typography>
+
+                      <Typography
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        <ImageAsset alt="attackspd.svg" />{" "}
+                        <span
+                          className="textColorStylingOrange"
+                          style={{ paddingLeft: 10 }}
+                        >
+                          {baronData?.stats?.attackSpeed}{" "}
+                        </span>{" "}
+                      </Typography>
                     </Grid>
                     <Grid item xs={4}>
                       {/* MR */}
-                      <img src={shieldBlueIcon} alt="mr" />
-                      <Typography> <span className = 'textColorStylingBlue'>{baronData?.stats?.magicResist}</span> </Typography>
+                      <Typography
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        <ImageAsset alt="shield_blue.svg" />{" "}
+                        <span
+                          className="textColorStylingBlue"
+                          style={{ paddingLeft: 10 }}
+                        >
+                          {baronData?.stats?.magicResist}
+                        </span>{" "}
+                      </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -314,18 +407,30 @@ export const Baron: FC<BaronProps> = ({}) => {
                   >
                     <Grid item xs={4}>
                       {/* SPEED */}
-                      <img src={movementIcon} alt="movement" />
-                      <Typography>
-                        {" "}
-                        <span className = 'textColorStylingPurple'>{baronData?.stats?.movSpeed}</span>{" "}
+                      <Typography
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        <ImageAsset alt="movement.svg" />{" "}
+                        <span
+                          className="textColorStylingPurple"
+                          style={{ paddingLeft: 10 }}
+                        >
+                          {baronData?.stats?.movSpeed}
+                        </span>{" "}
                       </Typography>{" "}
                     </Grid>
                     <Grid item xs={4}>
                       {/* RANGE */}
-                      <img src={rangeIcon} alt="range" />
-                      <Typography>
-                        {" "}
-                        <span className = 'textColorStylingWhite'>{(baronData?.stats?.range)}</span>{" "}
+                      <Typography
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        <ImageAsset alt="range.svg" />{" "}
+                        <span
+                          className="textColorStylingWhite"
+                          style={{ paddingLeft: 10 }}
+                        >
+                          {baronData?.stats?.range}
+                        </span>{" "}
                       </Typography>{" "}
                     </Grid>
                   </Grid>
@@ -334,11 +439,21 @@ export const Baron: FC<BaronProps> = ({}) => {
             </Grid>
             {/* SPAWN */}
             <Grid item xs={3}>
-              <Typography className="overViewSubTextStyling">Spawn</Typography>
+              <Typography
+                className="overViewSubTextStyling"
+                style={{ paddingBottom: 10 }}
+              >
+                Spawn
+              </Typography>
+              <ImageAsset alt="line2.svg" className="leftBorder" />
               <Grid
                 container
                 spacing={3}
-                style={{ display: "flex", flexDirection: "row" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  paddingLeft: 15,
+                }}
               >
                 <Grid item>
                   {/* Spawn Header Text */}
@@ -395,81 +510,89 @@ export const Baron: FC<BaronProps> = ({}) => {
             container
             spacing={1}
             style={{ display: "flex", flexDirection: "column" }}
+            className="bottomBorder"
           >
             <Grid item>
-                {/* <Grid container style={{ display: "flex", flexDirection: "column" }}>
-                  <Grid item xs={1}>
-                  <img src={handOfBaronIcon} alt="handofbaron" />
-                  </Grid>
-                    <Grid item xs={11}><Typography className="effectsSubHeaderStyle">
-                Hand of Baron
-              </Typography>
-              <Typography>
-                Gives
-                <span className="textColorStyling">
-                  {" "}
-                  12 - 48 (based on minutes) attack damage{" "}
+              <div className="effectsStyles">
+                <ImageAsset alt="handofbaron.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="effectsSubHeaderStyle">
+                    Hand of Baron
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        Gives
+                        <span className="textColorStylingOrange">
+                          {" "}
+                          12 - 48 (based on minutes) attack damage{" "}
+                        </span>
+                        and{" "}
+                        <span className="textColorStylingBlue">
+                          20 - 80 (based on minutes) ability power
+                        </span>{" "}
+                        determined   by the time the{" "}
+                        <span className="textColorStylingYellow">Baron</span> is
+                        slain.
+                      </Typography>
+                    </li>
+                  </ul>
                 </span>
-                and{" "}
-                <span className="textColorStylingBlue">
-                  20 - 80 (based on minutes) ability power
-                </span>{" "}
-                determined   by the time the{" "}
-                <span className="textColorStylingYellow">Baron</span> is slain.
-              </Typography></Grid>
-                </Grid> */}
-              <img src={handOfBaronIcon} alt="handofbaron" />
-              <Typography className="effectsSubHeaderStyle">
-                Hand of Baron
-              </Typography>
-              <Typography>
-                Gives
-                <span className="textColorStyling">
-                  {" "}
-                  12 - 48 (based on minutes) attack damage{" "}
-                </span>
-                and{" "}
-                <span className="textColorStylingBlue">
-                  20 - 80 (based on minutes) ability power
-                </span>{" "}
-                determined   by the time the{" "}
-                <span className="textColorStylingYellow">Baron</span> is slain.
-              </Typography>
+              </div>
             </Grid>
             <Grid item>
-              <img src={empoweredRecallIcon} alt="empoweredrecall" />
-              <Typography className="effectsSubHeaderStyle">
-                Empowered Recall
-              </Typography>
-              <Typography>
-                After{" "}
-                <span className="textColorStylingBlue">0.5s cast time</span>,
-                channel for <span className="textColorStylingBlue">4s</span> to
-                blink to their team’s fountain if not interrupted.
-              </Typography>
+              <div className="effectsStyles">
+                <ImageAsset alt="empoweredrecall.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="effectsSubHeaderStyle">
+                    Empowered Recall
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        After{" "}
+                        <span className="textColorStylingBlue">
+                          0.5s cast time
+                        </span>
+                        , channel for{" "}
+                        <span className="textColorStylingBlue">4s</span> to
+                        blink to their team’s fountain if not interrupted.
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
             </Grid>
             <Grid item>
-              <img src={unknownIcon} alt="unknown" />
-              <Typography className="effectsSubHeaderStyle">
-                Aura - Empowered Minions
-              </Typography>
-              <Typography>
-                Nearby allied minions gain: Slow Resist,{" "}
-                <span className="textColorStylingBlue">
-                  75% damage reduction
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="effectsSubHeaderStyle">
+                    Aura - Empowered Minions
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        Nearby allied minions gain: Slow Resist,{" "}
+                        <span className="textColorStylingBlue">
+                          75% damage reduction
+                        </span>
+                        from area of effect and damage over time   abilities and
+                        attacks (except for Super Minions),{" "}
+                        <span className="textColorStylingPurple">
+                          bonus movement speed
+                        </span>{" "}
+                        equal to{" "}
+                        <span className="textColorStylingPurple">
+                          90% averaged movement speed
+                        </span>{" "}
+                        of all nearby champions, capped at{" "}
+                        <span className="textColorStylingPurple">500</span>.{" "}
+                      </Typography>
+                    </li>
+                  </ul>
                 </span>
-                from area of effect and damage over time   abilities and attacks
-                (except for Super Minions),{" "}
-                <span className="textColorStylingPurple">
-                  bonus movement speed
-                </span>{" "}
-                equal to{" "}
-                <span className="textColorStylingPurple">
-                  90% averaged movement speed
-                </span>{" "}
-                of all nearby champions, capped at{" "}
-                <span className="textColorStylingPurple">500</span>.{" "}
-              </Typography>
+              </div>
             </Grid>
           </Grid>
         </Grid>
