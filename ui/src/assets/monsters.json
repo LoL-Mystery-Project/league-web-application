@@ -1,0 +1,347 @@
+{
+  "_id": {
+    "$oid": "5fdad020c21d40feeeeaec7c"
+  },
+  "name": "Baron Nashor",
+  "description": "Baron Nashor is the most powerful neutral monster on Summoner's Rift in League of Legends. Killing Baron Nashor grants Hand of Baron Hand of Baron to all living teammates for 180 seconds. The buff gives bonus attack damage, bonus ability power, Empowered Recall, and an aura that greatly increases the power of nearby minions.",
+  "bounty": {
+    "gold": "300 / +25",
+    "exp": "600 / +800",
+    "cs": 4
+  },
+  "stats": {
+    "health": "9000 (+180)",
+    "healthRegen": "15 (+0.375)",
+    "attackDamage": "285 − 435",
+    "attackSpeed": 0.625,
+    "range": 955,
+    "armor": 120,
+    "magicResist": 70,
+    "movSpeed": 300,
+    "monsterType": ["epic", "large"]
+  },
+  "location": {
+    "initial": "20:00",
+    "respawn": "6:00"
+  },
+  "abilities": {
+    "preamble": "The following list displays the known set of abilities that Baron Nashor may activate. While not revealed in a player's Death Recap, their debuffs and animations are visible and distinctive, allowing players to work around them.",
+    "basicAttacks": [
+      {
+        "name": "Single-Target Rear Attack",
+        "description": "If the target is behind Baron Nashor, he erects a spike that deals 100% AD physical damage to the target."
+      },
+      {
+        "name": "Ranged Attack",
+        "description": "If the target is in front of Baron Nashor, he deals 100% AD physical damage to the target and applies two stacks of Voracious Corrosion."
+      },
+      {
+        "name": "Melee Attack",
+        "description": "If the target is in front of Baron Nashor within about melee range, he occasionally uses a melee attack instead of a ranged attack, dealing 100% AD physical damage to the target and 50% AD physical damage to nearby units."
+      }
+    ],
+    "passives": [
+      {
+        "name": "Presence of the Baron",
+        "description": "While Baron Nashor is alive, all obstructing champions, pets, and wards that are on top of him are pushed to a location in front of him. Baron Nashor is immune to ghosting effects (ghosted units cannot pass through him)."
+      },
+      {
+        "name": "Debuff Immunity",
+        "description": "Immune to all forms of crowd control except Stasis stasis. Additionally, Baron Nashor's stats cannot be reduced by any means."
+      },
+      {
+        "name": "Baron's Gaze",
+        "description": "Baron Nashor takes 50% reduced damage from the unit that it has most recently basic attacked for 8 seconds, reduced to 4.5 seconds after Baron Nashor is slain."
+      },
+      {
+        "name": "Voracious Corrosion",
+        "description": "Reduces the target's armor and magic resistance by 0.5, stacking up to 100 times for a total of 50 maximum resistances reduction. Lasts for 8 seconds, reduced to 4.5 seconds after Baron Nashor is slain."
+      },
+      {
+        "name": "Void Corruption",
+        "description": "Basic attacks cause another burst of 60 (+ 20% AD) bonus magic damage that can occur every 0.75 seconds. This attack targets the nearest champion with the lowest number of Voracious Corrosion stacks, applying another stack."
+      }
+    ],
+    "actives": [
+      {
+        "name": "Acid Pool",
+        "description": "After winding up for 2 seconds, Baron Nashor spits out 3 pools of acid in a cone in front of him, landing over 0.75 seconds and dealing 10% AD magic damage to all champions upon impact as well as creating a field for 2.5 seconds that slows by 50%."
+      },
+      {
+        "name": "Acid Shot",
+        "description": "After winding up for 2 seconds, Baron Nashor spits acid down along a straight line over 2 seconds, dealing 20% AD magic damage to all units it hits."
+      },
+      {
+        "name": "Tentacle Knockup",
+        "description": "Baron Nashor summons a tremor beneath the target's location that erupts with a tentacle after 1.25 seconds, dealing 25% AD magic damage to units within and knocking them up for a duration based on their proximity to the area's center. Units near the area's edge are also slightly knocked away."
+      },
+      {
+        "name": "Area-Of-Effect Rear Attack",
+        "description": "Erects a cluster of spikes dealing 50% AD physical damage and Stun icon.png stunning for 0.5 seconds."
+      }
+    ]
+  },
+  "strategy": "Baron Nashor is a highly coveted objective that is difficult to fight without proper strength and personnel. A Tank icon.png tank to endure the damage is almost always required, otherwise there are few champions that can battle the monster self-sufficiently, mainly utilizing immense sustainability and DPS. Securing Baron Nashor is a high-risk investment with the resistance-shred debuff and the confined pit providing an advantage to an intervening counterattack. Sight control of the pit is also essential to securing the kill, obscuring the opportune moment to intervene and steal the objective. With these risks, fighting Baron Nashor is preferably conducted while the enemy is indisposed.",
+  "trivia": [
+    "Brandon 'Ryze' Beck stated a Visual Update was coming for Baron Nashor, later revealed in A Twist of Fate and finally implemented when Summoner's Rift was too visually updated.",
+    "Old Baron Nashor's skull was placed within his modern counterpart's pit in patch V5.7.",
+    "During Snowdown Showdown 2012, players could earn a summoner icon featuring old Baron Nashor's main head with a santa hat on.",
+    "Nashor is an anagram for Roshan, being a tribute to the monster filling a similar role in Defense of the Ancients.",
+    "A box labeled 'Baron Acid' can be seen in the preview video for the launch of the League of Legends' Mac Version.",
+    "In the Death Recap screen, Voracious Corrosion buff.png Voracious Corrosion is labeled as 'WormAttack' and Wrath of the Ancients 'wrathdamage'.",
+    "Voracious Corrosion old icon was recycled from Tabu's Soul Drain.",
+    "The icon for Hand of Baron was recycled from Averdrian's Astral Beam.",
+    "If Baron and Elder Dragon Elder Dragon had a duel, Baron Nashor will lose. Elder Dragon's HP regen is so high (250 HP/s) that Baron can't even deal damage to him."
+  ],
+  "patchHistory": [
+    {
+      "release": "V10.3",
+      "details": [
+        "BUG FIX: No longer damages or grants visions around himself for players behind his pit that do not originally have vision on him."
+      ]
+    },
+    {
+      "release": "V9.23",
+      "details": [
+        "Duration of Hand of Baron decreased to 3 minutes from 3 minutes 30 seconds."
+      ]
+    },
+    {
+      "release": "V8.23",
+      "details": ["Respawn time reduced to 6 minutes from 7."]
+    },
+    {
+      "release": "V8.19",
+      "details": ["Now indicates if Baron Nashor was stolen."]
+    },
+    {
+      "release": "V8.11",
+      "details": [
+        "Attack speed reduced to 0.625 from 0.75.",
+        "Base corruption damage reduced to 60 from 120.",
+        "Corruption AD ratio reduced to 20% AD from 30% AD.",
+        "REMOVED: Special attacks no longer apply corruption stacks."
+      ]
+    },
+    {
+      "release": "V8.9",
+      "details": [
+        "Base attack damage reduced to 285 − 435 (based on game time). from 400 − 550 (based on game time).",
+        "Base health increased to 9000 from 6400.",
+        "Baron corruption changed to (120 (+ 30% AD) every basic attack and spike attack, these occur every 0.75 seconds) from (30 (+ 5% AD) every 0.5 seconds to the target with the lowest corruption stacks).",
+        "Baron corruption attack is also represented with different visual particles now to make the difference more clear. Champions gain corruption by being hit by his attacks/spells."
+      ]
+    },
+    {
+      "release": "V7.23",
+      "details": [
+        "BUG FIX: Fixed a bug where it could spawn before Rift Herald Rift Herald returned to the Void."
+      ]
+    },
+    {
+      "release": "V6.9",
+      "details": [
+        "Duration of Hand of Baron increased to 3 minutes 30 seconds."
+      ]
+    },
+    {
+      "release": "V5.14",
+      "details": [
+        "Baron timer is updated instantly for both teams, regardless if you have vision of the objective at the time of its death.",
+        "Baron now has a new global death sound."
+      ]
+    },
+    {
+      "release": "V5.3",
+      "details": [
+        "Baron Nashor now cannot be walked through even with effects like Ghost or Fizz's Nimble Fighter, which grant this ability."
+      ]
+    },
+    {
+      "release": "V4.20",
+      "details": ["Spawn time increased to 20 minutes from 15 minutes."]
+    },
+    {
+      "release": "V3.10",
+      "details": [
+        "Voracious Corrosion now applies a debuff that reduces damage dealt to baron by 50% rather than -50% attack damage."
+      ]
+    },
+    {
+      "release": "V3.6",
+      "details": [
+        "Baron Nashor is now immune to effects that would decrease his damage output."
+      ]
+    },
+    {
+      "release": "V1.0.0.152",
+      "details": []
+    },
+    {
+      "release": "V1.0.0.134",
+      "details": [
+        "Baron Nashor can no longer critically strike, but has been granted 10% increased attack damage.",
+        "Fixed a number of bugs where certain champions could still shred his defenses.",
+        "Fixed a bug where his statistic tooltip was displaying fewer stats than he had."
+      ]
+    },
+    {
+      "release": "V1.0.0.131",
+      "details": ["Baron Nashor found his holiday hat."]
+    },
+    {
+      "release": "V1.0.0.130",
+      "details": [
+        "Baron Nashor is now immune to armor and magic resist-shredding effects."
+      ]
+    },
+    {
+      "release": "V1.0.0.118",
+      "details": [
+        "Baron Nashor now ignores debuffs if you are too far away to engage him."
+      ]
+    },
+    {
+      "release": "V1.0.0.109",
+      "details": [
+        "The 'Wrath of the Ancients' spell no longer targets stealthed units."
+      ]
+    },
+    {
+      "release": "V1.0.0.108",
+      "details": [
+        "Base health increased to 8000 from 6500.",
+        "Magic resistance increased to 70 from 35.",
+        "Damage increased by approximately 15%."
+      ]
+    },
+    {
+      "release": "V1.0.0.107",
+      "details": [
+        "Can now be debuffed with non-disables (for example, poisons)."
+      ]
+    },
+    {
+      "release": "V1.0.0.106",
+      "details": [
+        "Moved Baron Nashor in the autumn version of Summoner's Rift to the same location as the summer version of Summoner's Rift."
+      ]
+    },
+    {
+      "release": "V1.0.0.105",
+      "details": [
+        "Moved to the center of his arena so that he can no longer knock you out of it.",
+        "Fixed audio playing through Fog of War."
+      ]
+    },
+    {
+      "release": "V1.0.0.98",
+      "details": [
+        "Fixed a bug where Baron Nashor Baron Nashor would stop attacking a target immediately after the target stopped attacking Baron Nashor.",
+        "Fixed a bug where Baron Nashor Baron Nashor was not regenerating health at the proper rate"
+      ]
+    },
+    {
+      "release": "V1.0.0.75",
+      "details": [
+        "Now debuffs his target with -50% attack damage rather than 60% attack speed."
+      ]
+    },
+    {
+      "release": "V1.0.0.74",
+      "details": [
+        "Now adds a debuff to his primary attack target - Voracious Corrosion reduces the target's attack speed by 60%."
+      ]
+    },
+    {
+      "release": "V1.0.0.63",
+      "details": [
+        "Initial spawn time increased to 15 minutes from 8 minutes.",
+        "Global gold reduced to 250 from 300.",
+        "Maximum damage / ability power granted by Exalted with Baron Nashor Exalted with Baron Nashor reduced to 40 from 50."
+      ]
+    },
+    {
+      "release": "V1.0.0.61",
+      "details": [
+        "Global gold reduced to 300 from 400.",
+        "Local experience changed to global experience.",
+        "Total global experience reduced to 900 from 1200."
+      ]
+    },
+    {
+      "release": "V0.9.25.34",
+      "details": [
+        "Starting health regeneration per second reduced to 15 from 25.",
+        "Baron Nashor gains 0.375 health regen a second every minute.",
+        "New particle for Exalted with Baron Nashor Exalted with Baron Nashor.",
+        "Resolved an issue with one of his particles displaying through the fog of war.",
+        "Fixed a bug where Nashor's particles appeared through Fog of War."
+      ]
+    },
+    {
+      "release": "V0.9.25.24",
+      "details": [
+        "Can no longer be outranged by Karthus, Tristana, or Twisted Fate."
+      ]
+    },
+    {
+      "release": "V0.9.22.16",
+      "details": [
+        "Added an internal cooldown to his AoE Slime spell.",
+        "Reduced global experience to 600 from 1000."
+      ]
+    },
+    {
+      "release": "V0.9.22.15",
+      "details": [
+        "Base health increased to 6500 (+125 per minute).",
+        "Wrath of the Ancients: damage reduced from 80 to 70 per hit, but leaves a stacking +15 magic damage taken buff."
+      ]
+    },
+    {
+      "release": "V0.8.22.115",
+      "details": [
+        "Spawn delayed to 8 minutes.",
+        "Magic resistance increased to 35 from 0.",
+        "Base health increased to 7260 from 6760.",
+        "Base damage increased to 550 from 500.",
+        "Exalted with Baron Nashor Exalted with Baron Nashor: Damage / Ability Power bonus increased to 90 from 60."
+      ]
+    },
+    {
+      "release": "V0.8.21.110",
+      "details": [
+        "Base health reduced to 7000 from 9000.",
+        "Maximum health scales by 240 per player level, leading to a maximum health of 11080.",
+        "Nashor buff duration increased to 4 minutes from 3 minutes."
+      ]
+    },
+    {
+      "release": "July 10, 2009 Patch",
+      "details": ["Magic resistance decreased by 10."]
+    },
+    {
+      "release": "June 12, 2009 Patch",
+      "details": ["No longer resizes when you engage him."]
+    },
+    {
+      "release": "May 29, 2009 Patch",
+      "details": ["Knockback ability reduced to 600 from 750 range."]
+    },
+    {
+      "release": "April 18, 2009 Patch",
+      "details": [
+        "Base damage increased to 500 from 400.",
+        "Armor increased to 120 from 100.",
+        "Knock-back on Sweeping blow decreased to 750 from 1000.",
+        "Global gold bounty decreased to 400 from 500.",
+        "Added a global buff to the team that kills Baron Nashor, Exalted with Baron Nashor, which increases your champion's attack damage and ability power by 60."
+      ]
+    },
+    {
+      "release": "April 11, 2009 Patch",
+      "details": ["Removed buff icon from Baron Nashor."]
+    }
+  ]
+}

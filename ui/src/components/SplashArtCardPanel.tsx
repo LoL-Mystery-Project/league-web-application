@@ -1,9 +1,7 @@
 import React, { FC, useEffect } from "react";
 import styled from "styled-components";
-
+import { MonsterObject } from "../pages/SummonersRift";
 import { mainColour, subColour } from "../styles/palette";
-import InfoCardTabs from './InfoCardTabs';
-import {InfoCardPanel} from './InfoCardPanel';
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -27,26 +25,24 @@ const Wrapper = styled.div`
   }
 `;
 
-interface InfoCardDetails {
-  helloObject: string;
+// mini nav / tab thing
+
+interface SplashArtCardPanelProps {
+  SplashArtCardPanelProps: MonsterObject;
 }
 
-interface InfoCardProps {
-    infoCardProps: Array<InfoCardDetails>;
-}
-    
-  
-export const InfoCard: FC<InfoCardProps> = ({infoCardProps}) => {
-    //const classes = useStyles();
+export const SplashArtCardPanel: FC<SplashArtCardPanelProps> = ({
+  SplashArtCardPanelProps,
+}) => {
+  //const classes = useStyles();
+  const { name, hp, imageIcon } = SplashArtCardPanelProps;
 
-  
   return (
-    <div><p>{`Hello World!!!!! ${infoCardProps[0].helloObject}`}</p>
-    
-    <InfoCardTabs />
-    <InfoCardPanel  InfoPanelProps={[{helloObject: 'hey there'}]}/>
-    
+    <div>
+      <p>
+        `This is SplashArt panel where we have a bunch of text $
+        {SplashArtCardPanelProps.name}`{" "}
+      </p>
     </div>
-
   );
-}
+};

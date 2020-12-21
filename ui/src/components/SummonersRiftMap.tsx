@@ -1,7 +1,10 @@
 import React, { FC } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-import map from "../assets/map/riftmap.png";
+import { ImageAsset } from "./ImageAsset";
+
+import SoulSelectionToggle from "../components/SoulSelectionToggle";
+
 // interface SummonersRiftMap {}
 
 // export const SummonersRiftMap: FC<SummonersRiftMapProps> = ({}) => {
@@ -43,8 +46,11 @@ export default function SummonersRiftMap() {
     // the toggles <separate component>
 
     // the map below
-    <div className="Map">
-      <img src={map} height="400" width="400" />
-    </div>
+    <>
+      <SoulSelectionToggle />
+      <div className="Map">
+        <ImageAsset alt="fullmap.svg" height="700" width="700" />;
+      </div>
+    </>
   );
 }
