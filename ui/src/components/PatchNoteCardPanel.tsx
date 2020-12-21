@@ -29,13 +29,19 @@ interface PatchNoteCardPanelDetails {
   helloObject: string;
 }
 
-interface PatchNoteCardPanelProps {
-    PatchNoteCardPanelProps: Array<PatchNoteCardPanelDetails>;
+export interface PatchNote {
+  release: string;
+  details: Array<string>;
 }
 
-export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({ PatchNoteCardPanelProps }) => {
+interface PatchNoteCardPanelProps {
+  PatchNoteCardPanelProps: Array<PatchNoteCardPanelDetails>;
+}
 
-  const [patchData, setPatchData] = useState<any>({});
+export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
+  PatchNoteCardPanelProps,
+}) => {
+  const [patchData, setPatchData] = useState<Array<PatchNote>>([]);
 
   useEffect(() => {
     (async () => {
@@ -58,26 +64,32 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({ PatchNoteCardP
 
   return (
     <Wrapper>
-    {[0, 1, 2, 3, 4, 5].map((index: number) => (
-    <Grid container className="patchNotePanel" spacing={1} style={{ display: "flex", flexDirection: "column" }}>
-      {/* LINE SEPARATOR AND VERSION NUMBER */}
-      <Grid item style={{marginLeft: 22}}>
-      <img
-          src={patchNotesLineSeparator}
-          alt="patchNotesLineSeparator"
-          />
-        <Typography className="versionNumber" >{patchData[index]?.release}</Typography>
-      </Grid>
-      {/* PATCH HEADER AND INFO */}
-      <Grid item style={{marginLeft: 40}}>
-        <Grid container spacing={2} >
-          <Grid item >
-          <Typography className="patchInfo" >{patchData[index]?.details}</Typography>
+      {patchData.map((patchNote: PatchNote) => (
+        <Grid
+          container
+          className="patchNotePanel"
+          spacing={1}
+          style={{ display: "flex", flexDirection: "column" }}
+        >
+          {/* LINE SEPARATOR AND VERSION NUMBER */}
+          <Grid item style={{ marginLeft: 22 }}>
+            <img src={patchNotesLineSeparator} alt="patchNotesLineSeparator" />
+            <Typography className="versionNumber">
+              {patchNote.release}
+            </Typography>
+          </Grid>
+          {/* PATCH HEADER AND INFO */}
+          <Grid item style={{ marginLeft: 40 }}>
+            <Grid container spacing={2}>
+              <Grid item>
+                <Typography className="patchInfo">
+                  {patchNote.details}
+                </Typography>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </Grid>
-))}
+      ))}
     </Wrapper>
   );
 };
