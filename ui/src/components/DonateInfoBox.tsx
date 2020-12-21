@@ -6,6 +6,7 @@ import { Card } from "@material-ui/core";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/types";
+import { ImageAsset } from "./ImageAsset";
 
 import { mainColour, subColour } from "../styles/palette";
 
@@ -71,7 +72,7 @@ const useStyles = makeStyles({
 
 export default function DonateInfoBox() {
   const classes = useStyles();
-  const { imageMap } = useSelector((state: RootState) => state.images);
+
   return (
     <Wrapper>
       <Card
@@ -83,15 +84,9 @@ export default function DonateInfoBox() {
             plz <br />
             donate
           </Typography>
-          {imageMap && <img src={imageMap["cat.svg"]} alt="cat.svg" />}
+          <ImageAsset alt="cat.svg" />
           <a href="/">
-            {imageMap && (
-              <img
-                src={imageMap["donate.svg"]}
-                alt="donate.svg"
-                className="bottomLeft"
-              />
-            )}
+            <ImageAsset alt="donate.svg" className="bottomLeft" />
           </a>
         </div>
 
@@ -126,9 +121,7 @@ export default function DonateInfoBox() {
             margin: 10,
           }}
         >
-          {imageMap && (
-            <img src={imageMap["compliance.svg"]} alt="compliance.svg" />
-          )}{" "}
+          <ImageAsset alt="compliance.svg" />
           <Typography className="linkTextStyles">
             Riot Games Compliant
           </Typography>
