@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-import map from "../assets/map/riftmap.png";
+import { ImageAsset } from "./ImageAsset";
+
 // interface SummonersRiftMap {}
 
 // export const SummonersRiftMap: FC<SummonersRiftMapProps> = ({}) => {
@@ -44,7 +45,7 @@ export default function SummonersRiftMap() {
 
     // the map below
     <div className="Map">
-      <img src={map} height="400" width="400" />
+      <ImageAsset alt="fullmap.svg" height="700" width="700" />;
     </div>
   );
 }

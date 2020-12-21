@@ -107,6 +107,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             }}
           >
             <SoulSelectionToggle />
+            <SummonersRiftMap />
           </Paper>
         </Grid>
 
