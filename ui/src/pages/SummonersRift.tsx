@@ -2,7 +2,6 @@ import React, { FC, useEffect, useState } from "react";
 
 import SummonerSearchBar from "../components/SummonerSearchBar";
 import SummonersRiftMap from "../components/SummonersRiftMap";
-import SoulSelectionToggle from "../components/SoulSelectionToggle";
 
 import baronIcon from "../assets/assetPanel/baronnashor.svg";
 
@@ -106,7 +105,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
               height: windowHeight,
             }}
           >
-            <SoulSelectionToggle />
             <SummonersRiftMap />
           </Paper>
         </Grid>
