@@ -7,14 +7,14 @@ interface ImageAssetProps {
   className?: string;
   width?: number;
   height?: number;
-  styles?: React.CSSProperties | undefined;
+  style?: React.CSSProperties | undefined;
 }
 
 export const ImageAsset: FC<ImageAssetProps> = ({
   alt,
   width = undefined,
   height = undefined,
-  styles = {},
+  style = {},
   className = "",
 }) => {
   const { imageMap } = useSelector((state: RootState) => state.images);
@@ -26,7 +26,7 @@ export const ImageAsset: FC<ImageAssetProps> = ({
           alt={alt}
           width={width}
           height={height}
-          style={styles}
+          style={style}
           className={className}
         />
       )}

@@ -153,7 +153,7 @@ const ImageDialog: FC<ImageDialogProps> = ({
           Or, if you have the ImageAsset component imported (preferred):
         </Typography>
         <SyntaxHighlighter language="typescript" style={vscDarkPlus}>
-          {`// make sure you have imported the components/ImageAsset component! (eg)\nimport { ImageAsset } from 'src/components/ImageAsset';\n\n// include this line in the render method\n<ImageAsset alt='${imageKey}'/>`}
+          {`// make sure you have imported the components/ImageAsset component! (eg)\nimport { ImageAsset } from '{relative_file_path}/ImageAsset';\n\n// include this line in the render method\n<ImageAsset alt='${imageKey}'/>`}
         </SyntaxHighlighter>
       </DialogContent>
     </Dialog>

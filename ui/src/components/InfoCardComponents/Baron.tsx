@@ -3,8 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { mainColour } from "../../styles/palette";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/types";
 import { ImageAsset } from "../ImageAsset";
 
 const Wrapper = styled.div`
@@ -149,7 +147,6 @@ interface BaronProps {}
 
 export const Baron: FC<BaronProps> = ({}) => {
   const [baronData, setBaronData] = useState<any>({});
-  const { imageMap } = useSelector((state: RootState) => state.images);
 
   useEffect(() => {
     (async () => {
@@ -212,11 +209,7 @@ export const Baron: FC<BaronProps> = ({}) => {
               >
                 Bounty
               </Typography>
-              <img
-                src={imageMap["line2.svg"]}
-                alt="line2.svg"
-                className="leftBorder"
-              />
+              <ImageAsset alt="line2.svg" className="leftBorder" />
               <Grid
                 container
                 style={{
@@ -271,7 +264,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                     </Grid>
                     <Grid item xs={4} style={{ textAlign: "center" }}>
                       {/* CS icon */}
-                      <img src={imageMap["cs.svg"]} alt="cs.svg" />
+                      <ImageAsset alt="cs.svg" />
                     </Grid>
                     <Grid item xs={4}>
                       {/* CS value */}
@@ -289,11 +282,7 @@ export const Baron: FC<BaronProps> = ({}) => {
               >
                 Statistics
               </Typography>
-              <img
-                src={imageMap["line2.svg"]}
-                alt="line2.svg"
-                className="leftBorder"
-              />
+              <ImageAsset alt="line2.svg" className="leftBorder" />
               <Grid
                 container
                 style={{
@@ -315,7 +304,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                         style={{ display: "flex", alignItems: "center" }}
                       >
                         {" "}
-                        <img src={imageMap["heart.svg"]} alt="heart.svg" />
+                        <ImageAsset alt="heart.svg" />
                         <span
                           className="textColorStylingGreen"
                           style={{ paddingLeft: 10 }}
@@ -330,10 +319,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                       <Typography
                         style={{ display: "flex", alignItems: "center" }}
                       >
-                        <img
-                          src={imageMap["physicaldamage.svg"]}
-                          alt="physicaldamage.svg"
-                        />{" "}
+                        <ImageAsset alt="physicaldamage.svg" />{" "}
                         <span
                           className="textColorStylingOrange"
                           style={{ paddingLeft: 10 }}
@@ -349,10 +335,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                       <Typography
                         style={{ display: "flex", alignItems: "center" }}
                       >
-                        <img
-                          src={imageMap["shield_orange.svg"]}
-                          alt="shield_orange.svg"
-                        />
+                        <ImageAsset alt="shield_orange.svg" />
                         <span
                           className="textColorStylingOrange"
                           style={{ paddingLeft: 10 }}
@@ -376,10 +359,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                       <Typography
                         style={{ display: "flex", alignItems: "center" }}
                       >
-                        <img
-                          src={imageMap["hpregeneration.svg"]}
-                          alt="hpregeneration.svg"
-                        />{" "}
+                        <ImageAsset alt="hpregeneration.svg" />{" "}
                         <span
                           className="textColorStylingGreen"
                           style={{ paddingLeft: 10 }}
@@ -394,10 +374,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                       <Typography
                         style={{ display: "flex", alignItems: "center" }}
                       >
-                        <img
-                          src={imageMap["attackspd.svg"]}
-                          alt="attackspd.svg"
-                        />{" "}
+                        <ImageAsset alt="attackspd.svg" />{" "}
                         <span
                           className="textColorStylingOrange"
                           style={{ paddingLeft: 10 }}
@@ -411,10 +388,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                       <Typography
                         style={{ display: "flex", alignItems: "center" }}
                       >
-                        <img
-                          src={imageMap["shield_blue.svg"]}
-                          alt="shield_blue.svg"
-                        />{" "}
+                        <ImageAsset alt="shield_blue.svg" />{" "}
                         <span
                           className="textColorStylingBlue"
                           style={{ paddingLeft: 10 }}
@@ -436,10 +410,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                       <Typography
                         style={{ display: "flex", alignItems: "center" }}
                       >
-                        <img
-                          src={imageMap["movement.svg"]}
-                          alt="movement.svg"
-                        />{" "}
+                        <ImageAsset alt="movement.svg" />{" "}
                         <span
                           className="textColorStylingPurple"
                           style={{ paddingLeft: 10 }}
@@ -453,7 +424,7 @@ export const Baron: FC<BaronProps> = ({}) => {
                       <Typography
                         style={{ display: "flex", alignItems: "center" }}
                       >
-                        <img src={imageMap["range.svg"]} alt="range.svg" />{" "}
+                        <ImageAsset alt="range.svg" />{" "}
                         <span
                           className="textColorStylingWhite"
                           style={{ paddingLeft: 10 }}
@@ -474,11 +445,7 @@ export const Baron: FC<BaronProps> = ({}) => {
               >
                 Spawn
               </Typography>
-              <img
-                src={imageMap["line2.svg"]}
-                alt="line2.svg"
-                className="leftBorder"
-              />
+              <ImageAsset alt="line2.svg" className="leftBorder" />
               <Grid
                 container
                 spacing={3}
@@ -547,7 +514,7 @@ export const Baron: FC<BaronProps> = ({}) => {
           >
             <Grid item>
               <div className="effectsStyles">
-                <img src={imageMap["handofbaron.svg"]} alt="handofbaron.svg" />
+                <ImageAsset alt="handofbaron.svg" />
                 <span style={{ paddingLeft: 20, paddingTop: 30 }}>
                   <Typography className="effectsSubHeaderStyle">
                     Hand of Baron
@@ -575,10 +542,7 @@ export const Baron: FC<BaronProps> = ({}) => {
             </Grid>
             <Grid item>
               <div className="effectsStyles">
-                <img
-                  src={imageMap["empoweredrecall.svg"]}
-                  alt="empoweredrecall.svg"
-                />
+                <ImageAsset alt="empoweredrecall.svg" />
                 <span style={{ paddingLeft: 20, paddingTop: 30 }}>
                   <Typography className="effectsSubHeaderStyle">
                     Empowered Recall
@@ -601,7 +565,7 @@ export const Baron: FC<BaronProps> = ({}) => {
             </Grid>
             <Grid item>
               <div className="effectsStyles">
-                <img src={imageMap["unknown.svg"]} alt="unknown.svg" />
+                <ImageAsset alt="unknown.svg" />
                 <span style={{ paddingLeft: 20, paddingTop: 30 }}>
                   <Typography className="effectsSubHeaderStyle">
                     Aura - Empowered Minions
