@@ -21,7 +21,7 @@ interface TextColourizerProps extends TypographyProps {
 }
 
 export const TextColourizer: FC<TextColourizerProps> = (props) => {
-  const { text, colourMap: colouredWordMap } = props;
+  const { text, colourMap } = props;
   const [final, setFinal] = useState<Array<JSX.Element>>([]);
 
   useEffect(() => {
@@ -29,8 +29,8 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
     let set = new Set();
 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#Finding_all_the_occurrences_of_an_element
-    Object.keys(colouredWordMap).forEach((colour) => {
-      colouredWordMap[colour].forEach((phrase) => {
+    Object.keys(colourMap).forEach((colour) => {
+      colourMap[colour].forEach((phrase) => {
         let indices = [];
         let idx = text.indexOf(phrase);
         while (idx !== -1) {
@@ -75,7 +75,7 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
       i = phrase!.end;
       setFinal(result);
     }
-  }, [colouredWordMap, text]);
+  }, [colourMap, text]);
 
   return <Typography {...props}>{final.map((elem) => elem)}</Typography>;
 };
