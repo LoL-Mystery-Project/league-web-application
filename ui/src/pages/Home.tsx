@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core";
 import React, { FC } from "react";
 import { mainColour } from "../styles/palette";
 import { TextColourizer } from "../utils/TextColourizer";
@@ -31,6 +32,25 @@ export const Home: FC = () => {
           purple: ["Baron Nashor"],
           blue: ["1.25s", "magic damage"],
           orange: ["25% AD"],
+        }}
+      />
+      <br />
+      <TextColourizer
+        text="Damaging an enemy champion below 20% of their maximum health blasts them with Elder Immolation afer 0.5s, executing them, which deals 100% of their current health as true damage that pierces through shields."
+        paletteMap={{
+          purple: mainColour.purple,
+          blue: mainColour.blue,
+          orange: mainColour.orange,
+          green: mainColour.green,
+        }}
+        colouredWordMap={{
+          purple: ["Elder Immolation"],
+          blue: ["0.5s"],
+          orange: ["true damage"],
+          green: [
+            "20% of their maximum health",
+            "100% of their current health",
+          ],
         }}
       />
     </div>

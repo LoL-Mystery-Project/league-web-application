@@ -1,35 +1,32 @@
-import Typography from "@material-ui/core/Typography";
+import Typography, { TypographyProps } from "@material-ui/core/Typography";
 import React, { FC, useEffect, useState } from "react";
 import { findKey } from "lodash";
 
-export interface ColouredWordSet {
+export interface ColouredWordMapSet {
   [key: string]: Array<string>;
 }
 
-export interface PositionType {
+export interface PaletteMapType {
+  [key: string]: string;
+}
+
+interface PositionType {
   start: number;
   end: number;
 }
 
-export interface IndexSetType {
+interface IndexSetType {
   [key: string]: Array<PositionType>;
 }
 
-export interface PaletteType {
-  [key: string]: string;
-}
-
-export interface TextColourizerProps {
+interface TextColourizerProps extends TypographyProps {
   text: string;
-  colouredWordMap: ColouredWordSet;
-  paletteMap: PaletteType;
+  colouredWordMap: ColouredWordMapSet;
+  paletteMap: PaletteMapType;
 }
 
-export const TextColourizer: FC<TextColourizerProps> = ({
-  text,
-  colouredWordMap,
-  paletteMap,
-}) => {
+export const TextColourizer: FC<TextColourizerProps> = (props) => {
+  const { text, colouredWordMap, paletteMap } = props;
   const [final, setFinal] = useState<Array<JSX.Element>>([]);
 
   useEffect(() => {
@@ -85,5 +82,5 @@ export const TextColourizer: FC<TextColourizerProps> = ({
     }
   }, [colouredWordMap, paletteMap, text]);
 
-  return <Typography>{final.map((elem) => elem)}</Typography>;
+  return <Typography {...props}>{final.map((elem) => elem)}</Typography>;
 };
