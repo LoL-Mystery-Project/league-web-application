@@ -1,7 +1,10 @@
 import React, { FC, useEffect } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { MonsterObject } from "../pages/SummonersRift";
+import { RootState } from "../redux/types";
 import { mainColour, subColour } from "../styles/palette";
+import { ImageAsset } from "./ImageAsset";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -27,22 +30,14 @@ const Wrapper = styled.div`
 
 // mini nav / tab thing
 
-interface SplashArtCardPanelProps {
-  SplashArtCardPanelProps: MonsterObject;
-}
-
-export const SplashArtCardPanel: FC<SplashArtCardPanelProps> = ({
-  SplashArtCardPanelProps,
-}) => {
-  //const classes = useStyles();
-  const { name, hp, imageIcon } = SplashArtCardPanelProps;
+export const SplashArtCardPanel: FC = () => {
+  const { selectedMonster } = useSelector((state: RootState) => state.monsters);
 
   return (
     <div>
-      <p>
-        `This is SplashArt panel where we have a bunch of text $
-        {SplashArtCardPanelProps.name}`{" "}
-      </p>
+      {selectedMonster?.splashArt.map((image) => (
+        <ImageAsset alt={image} />
+      ))}
     </div>
   );
 };

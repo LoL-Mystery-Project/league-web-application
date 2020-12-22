@@ -42,6 +42,16 @@ app.get("/monsters", async (req, res) => {
   }
 });
 
+// app.get("/add", async (req, res) => {
+//   try {
+//     const elderDrag = new Monster(elder);
+//     await elderDrag.save();
+//     res.status(200).send("ok");
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
+// });
+
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
