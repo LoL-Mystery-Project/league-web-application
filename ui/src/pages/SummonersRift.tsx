@@ -6,6 +6,7 @@ import SummonersRiftMap from "../components/SummonersRiftMap";
 import baronIcon from "../assets/assetPanel/baronnashor.svg";
 
 import lineSeparator from "../assets/assetPanel/lineSeparator.svg";
+import lineSeparatorShort from "../assets/assetPanel/lineSeparatorShort.svg";
 
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -277,7 +278,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         <Typography className={classes.headerText}>
                           Jungle Plants
                         </Typography>
-                        <img src={lineSeparator} alt="line" />
+                        <img src={lineSeparatorShort} alt="lineShort" />
                         {[1, 1].map(() => (
                           <div
                             style={{ display: "flex", flexDirection: "row" }}
@@ -300,7 +301,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         <Typography className={classes.headerText}>
                           Buildings
                         </Typography>
-                        <img src={lineSeparator} alt="line" />
+                        <img src={lineSeparatorShort} alt="lineShort" />
                         {[1, 1].map(() => (
                           <div
                             style={{ display: "flex", flexDirection: "row" }}

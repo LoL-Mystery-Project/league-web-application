@@ -59,6 +59,19 @@ const Wrapper = styled.div`
     color: ${mainColour.purple};
   }
 
+  .abilitiesSubHeaderStyle {
+    font-family: Friz Quadrata;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+
+    /* purple/main */
+    color: ${mainColour.white};
+  }
+
   .textColorStylingOrange {
     font-style: normal;
     font-weight: normal;
@@ -588,6 +601,120 @@ export const Baron: FC<BaronProps> = ({}) => {
                         </span>{" "}
                         of all nearby champions, capped at{" "}
                         <span className="textColorStylingPurple">500</span>.{" "}
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+          </Grid>
+        </Grid>
+        {/* ABILITIES */}
+        <Grid>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            {/* ABILITES HEADER */}
+            <Typography className="infoHeaderText">Abilites</Typography>
+            <Typography
+              className="effectsDescription"
+              style={{ marginLeft: 25 }}
+            ></Typography>
+          </div>
+          {/* ABILITIES INFO */}
+          <Grid>
+            <Typography>
+              Basic Attacks Baron will attack the unit closest to him
+            </Typography>
+          </Grid>
+          <Grid
+            container
+            spacing={1}
+            style={{ display: "flex", flexDirection: "column" }}
+            className="bottomBorder"
+          >
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Melee Attack
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        If the target is in front of
+                        <span className="textColorStylingPurple">
+                          {" "}
+                          Baron Nashor{" "}
+                        </span>
+                        within about melee range, he occasionally uses a Melee
+                        attack instead of a Ranged attack, dealing{" "}
+                        <span className="textColorStylingOrange">
+                          100% AD physical damage
+                        </span>{" "}
+                        to the target and{" "}
+                        <span className="textColorStylingOrange">
+                          50% AD physical damage
+                        </span>{" "}
+                        to nearby units.
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Ranged Attack
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        If the target is in front of
+                        <span className="textColorStylingPurple">
+                          {" "}
+                          Baron Nashor{" "}
+                        </span>
+                        , he deals{" "}
+                        <span className="textColorStylingOrange">
+                          100% AD physical damage
+                        </span>{" "}
+                        to the target and applies two stack of Voracious
+                        Corrosion{" "}
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Single-target Rear Attack
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        If the target is behind
+                        <span className="textColorStylingPurple">
+                          {" "}
+                          Baron Nashor{" "}
+                        </span>
+                        , he erects a spike that deals{" "}
+                        <span className="textColorStylingOrange">
+                          100% AD physical damage
+                        </span>{" "}
+                        to the target.{" "}
                       </Typography>
                     </li>
                   </ul>
