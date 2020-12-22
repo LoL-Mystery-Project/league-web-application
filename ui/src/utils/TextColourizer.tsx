@@ -2,7 +2,7 @@ import Typography from "@material-ui/core/Typography";
 import React, { FC, useEffect, useState } from "react";
 import { findKey } from "lodash";
 
-export interface ColourSetType {
+export interface ColouredWordSet {
   [key: string]: Array<string>;
 }
 
@@ -21,14 +21,14 @@ export interface PaletteType {
 
 export interface TextColourizerProps {
   text: string;
-  colourSet: ColourSetType;
-  paletteSet: PaletteType;
+  colouredWordMap: ColouredWordSet;
+  paletteMap: PaletteType;
 }
 
 export const TextColourizer: FC<TextColourizerProps> = ({
   text,
-  colourSet,
-  paletteSet,
+  colouredWordMap,
+  paletteMap,
 }) => {
   const [final, setFinal] = useState<Array<JSX.Element>>([]);
 
@@ -37,8 +37,8 @@ export const TextColourizer: FC<TextColourizerProps> = ({
     let set = new Set();
 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#Finding_all_the_occurrences_of_an_element
-    Object.keys(colourSet).forEach((colour) => {
-      colourSet[colour].forEach((phrase) => {
+    Object.keys(colouredWordMap).forEach((colour) => {
+      colouredWordMap[colour].forEach((phrase) => {
         let indices = [];
         let idx = text.indexOf(phrase);
         while (idx !== -1) {
@@ -76,14 +76,14 @@ export const TextColourizer: FC<TextColourizerProps> = ({
       const phrase = indexSet[colour!].find((e) => e.start === i);
 
       result.push(
-        <span style={{ color: paletteSet[colour!] }}>
+        <span style={{ color: paletteMap[colour!] }}>
           {text.substring(phrase!.start, phrase!.end)}
         </span>
       );
       i = phrase!.end;
       setFinal(result);
     }
-  }, [colourSet, paletteSet, text]);
+  }, [colouredWordMap, paletteMap, text]);
 
   return <Typography>{final.map((elem) => elem)}</Typography>;
 };
