@@ -21,7 +21,7 @@ interface TextColourizerProps extends TypographyProps {
 }
 
 export const TextColourizer: FC<TextColourizerProps> = (props) => {
-  const { text, colourMap } = props;
+  const { text, colourMap, ...typographyProps } = props;
   const [final, setFinal] = useState<Array<JSX.Element>>([]);
 
   useEffect(() => {
@@ -41,41 +41,45 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
           });
           idx = text.indexOf(phrase, idx + 1);
         }
-        if (indexSet[colour]) {
-          indexSet[colour] = [...indexSet[colour], ...indices];
-        } else {
-          indexSet[colour] = indices;
-        }
+        indexSet[colour] = indexSet[colour]
+          ? [...indexSet[colour], ...indices]
+          : indices;
       });
     });
 
-    let result: Array<JSX.Element> = [];
+    const getFinalJSX = () => {
+      let result: Array<JSX.Element> = [];
+      let key = 0;
 
-    for (let i = 0; i < text.length; ) {
-      let curr = [];
-      while (!set.has(i)) {
-        curr.push(text[i]);
-        i++;
-        if (i >= text.length) {
-          result.push(<span>{curr.join("")}</span>);
-          return;
+      for (let i = 0; i <= text.length; ) {
+        let curr = [];
+        while (!set.has(i) && i !== text.length) {
+          curr.push(text[i]);
+          i++;
         }
+
+        const normalPhrase = curr.join("");
+        result.push(<span key={key++}>{normalPhrase}</span>);
+        if (i === text.length) return result;
+
+        const colour = findKey(indexSet, (e) => e.some((x) => x.start === i));
+        const phrase = indexSet[colour!].find((e) => e.start === i);
+
+        result.push(
+          <span key={key++} style={{ color: colour! }}>
+            {text.substring(phrase!.start, phrase!.end)}
+          </span>
+        );
+        i = phrase!.end;
       }
 
-      result.push(<span>{curr.join("")}</span>);
+      return result;
+    };
 
-      const colour = findKey(indexSet, (e) => e.some((x) => x.start === i));
-      const phrase = indexSet[colour!].find((e) => e.start === i);
-
-      result.push(
-        <span style={{ color: colour! }}>
-          {text.substring(phrase!.start, phrase!.end)}
-        </span>
-      );
-      i = phrase!.end;
-      setFinal(result);
-    }
+    setFinal(getFinalJSX());
   }, [colourMap, text]);
 
-  return <Typography {...props}>{final.map((elem) => elem)}</Typography>;
+  return (
+    <Typography {...typographyProps}>{final.map((elem) => elem)}</Typography>
+  );
 };
