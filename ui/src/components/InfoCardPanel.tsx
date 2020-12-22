@@ -1,8 +1,12 @@
-import React, { FC } from "react";
+/* eslint-disable no-fallthrough */
+import React, { FC, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { MonsterObject } from "../pages/SummonersRift";
+import { RootState } from "../redux/types";
 import { mainColour } from "../styles/palette";
 import { Baron } from "./InfoCardComponents/Baron";
+import { ElderDragon } from "./InfoCardComponents/ElderDragon";
+import { RiftHerald } from "./InfoCardComponents/RiftHerald";
 
 const Wrapper = styled.div`
   .text {
@@ -13,18 +17,33 @@ const Wrapper = styled.div`
 
 // mini nav / tab thing
 
-interface InfoPanelProps {
-  InfoPanelProps: MonsterObject;
-}
+export const InfoCardPanel: FC = () => {
+  const [selectedComponent, setSelectedComponent] = useState<JSX.Element>(
+    <></>
+  );
+  const { selectedMonster } = useSelector((state: RootState) => state.monsters);
 
-export const InfoCardPanel: FC<InfoPanelProps> = ({ InfoPanelProps }) => {
-  //const classes = useStyles();
+  useEffect(() => {
+    if (selectedMonster) {
+      switch (selectedMonster?.name) {
+        case "Baron Nashor":
+          setSelectedComponent(<Baron />);
+          break;
+        case "Rift Herald":
+          setSelectedComponent(<RiftHerald />);
+          break;
+        case "Elder Dragon":
+          setSelectedComponent(<ElderDragon />);
+          break;
+        default:
+          return;
+      }
+    }
+  }, [selectedMonster]);
 
   return (
     <Wrapper>
-      <div className="text">
-        <Baron />
-      </div>
+      <div className="text">{selectedComponent}</div>
     </Wrapper>
   );
 };

@@ -2,6 +2,7 @@ export interface RootState {
   page: PageState;
   dragon: DragonState;
   images: ImageState;
+  monsters: MonsterState;
 }
 
 export interface PageState {
@@ -29,4 +30,50 @@ export interface ImageState {
 interface ImageType {
   key: string;
   url: string;
+}
+
+export interface MonsterState {
+  fetchingMonsters: boolean;
+  fetchFailed: boolean;
+  allMonsters: Array<MonsterType> | undefined;
+  selectedMonster: MonsterType | undefined;
+}
+
+export interface MonsterType {
+  name: string;
+  icon: string;
+  description: Array<string>;
+  bounty: MonsterBounty;
+  stats: MonsterStats;
+  location: MonsterLocation;
+  patchHistory?: Array<MonsterPatchObject>;
+  splashArt: Array<string>;
+}
+
+export interface MonsterLocation {
+  initial: string;
+  respawn: string;
+}
+
+export interface MonsterBounty {
+  gold: string;
+  exp: string;
+  cs: string;
+}
+
+export interface MonsterStats {
+  health: string;
+  healthRegen: string;
+  attackDamage: string;
+  attackSpeed: string;
+  range: string;
+  armor: string;
+  magicResist: string;
+  movSpeed: string;
+  monsterType: Array<string>;
+}
+
+export interface MonsterPatchObject {
+  release: string;
+  details: Array<string>;
 }

@@ -16,8 +16,10 @@ import Typography from "@material-ui/core/Typography";
 import { mainColour, glowColour } from "../styles/palette";
 import { InfoDrawer, InfoDrawerProps } from "../components/InfoDrawer";
 import DonateInfoBox from "../components/DonateInfoBox";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/types";
+import { useDispatch, useSelector } from "react-redux";
+import { MonsterType, RootState } from "../redux/types";
+import { setSelectedMonster } from "../redux/actions/monsterActions";
+import { ImageAsset } from "../components/ImageAsset";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -61,22 +63,15 @@ export interface MonsterObject {
 }
 
 export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
+  const dispatch = useDispatch();
   const [windowHeight, setWindowHeight] = useState(0);
   const [showInfoDrawer, setInfoDrawer] = useState(false);
-  const { imageMap } = useSelector((state: RootState) => state.images);
-  const [asset, setAsset] = useState<MonsterObject>({
-    name: "",
-    hp: 0,
-    imageIcon: "",
-  });
+  const { allMonsters } = useSelector((state: RootState) => state.monsters);
+  const [asset, setAsset] = useState<MonsterType | undefined>(undefined);
 
-  const handleToggleInfoDrawer = (monster: MonsterObject) => {
+  const handleToggleInfoDrawer = (monster: MonsterType) => {
     setInfoDrawer(!showInfoDrawer);
-    handleAsset(monster);
-  };
-
-  const handleAsset = (asset: MonsterObject) => {
-    setAsset(asset);
+    setAsset(monster);
   };
 
   useEffect(() => {
@@ -132,70 +127,23 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                   >
                     {/* COLUMN 1 */}
                     <Grid item xs={6}>
-                      {[
-                        {
-                          name: "Baron Nashor",
-                          hp: 5,
-                          imageIcon: imageMap && imageMap["baronnashor.svg"],
-                        },
-                        {
-                          name: "Mountain Drake",
-                          hp: 5,
-                          imageIcon: imageMap && imageMap["mountaindrake.svg"],
-                        },
-                        {
-                          name: "Baron Nashor 2",
-                          hp: 5,
-                          imageIcon:
-                            "https://images-ext-1.discordapp.net/external/CMiyPfQ2hlPUJrL-_RZNtppxSIaBItvKHlvL06kcCVM/https/raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/summoner-backdrops/4570.jpg?width=648&height=442",
-                        },
-                        {
-                          name: "Baron Nashor 3",
-                          hp: 5,
-                          imageIcon:
-                            "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
-                        },
-                        {
-                          name: "Baron Nashor 4",
-                          hp: 5,
-                          imageIcon:
-                            "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
-                        },
-                        {
-                          name: "Baron Nashor 5",
-                          hp: 5,
-                          imageIcon:
-                            "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
-                        },
-                        {
-                          name: "Baron Nashor 6",
-                          hp: 5,
-                          imageIcon:
-                            "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
-                        },
-                        {
-                          name: "Baron Nashor 7",
-                          hp: 5,
-                          imageIcon:
-                            "https://pusheen.com/wp-content/uploads/2019/12/Catfe-Drink_v2-34.jpg",
-                        },
-                      ].map((elem: MonsterObject) => (
+                      {allMonsters?.map((elem: MonsterType) => (
                         <Button
                           onClick={() => {
                             handleToggleInfoDrawer(elem);
+                            dispatch(setSelectedMonster(elem.name));
                           }}
                         >
                           <div
                             style={{ display: "flex", flexDirection: "row" }}
                             className={classes.listItem}
                           >
-                            <img
+                            <ImageAsset
                               className=""
-                              src={elem.imageIcon}
                               height={ICON_SIZE}
                               width={ICON_SIZE}
                               style={{ paddingRight: 5 }}
-                              alt="baronIcon"
+                              alt={elem.icon}
                             />{" "}
                             <Typography className={classes.assetText}>
                               {elem.name}
