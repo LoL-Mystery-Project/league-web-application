@@ -30,13 +30,8 @@ export interface PatchNote {
   release: string;
   details: Array<string>;
 }
-interface PatchNoteCardPanelProps {
-  PatchNoteCardPanelProps: MonsterObject;
-}
 
-export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
-  PatchNoteCardPanelProps,
-}) => {
+export const PatchNoteCardPanel: FC = () => {
   const [patchData, setPatchData] = useState<Array<PatchNote>>([]);
 
   useEffect(() => {
@@ -51,12 +46,6 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
       }
     })();
   }, []);
-
-  useEffect(() => {
-    if (patchData) {
-      console.log(patchData);
-    }
-  }, [patchData]);
 
   return (
     <Wrapper>

@@ -10,9 +10,11 @@ import Typography from "@material-ui/core/Typography";
 
 import { MonsterObject } from "../pages/SummonersRift";
 
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/types";
+import { useDispatch, useSelector } from "react-redux";
+import { MonsterType, RootState } from "../redux/types";
 import { InfoCardTabs } from "./InfoCardTabs";
+import { ImageAsset } from "./ImageAsset";
+import { clearSelectedMonster } from "../redux/actions/monsterActions";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -84,7 +86,7 @@ const useStyles = makeStyles({
 export interface InfoDrawerProps {
   handleClose: Function;
   showInfoDrawer: boolean;
-  asset: MonsterObject;
+  asset: MonsterType | undefined;
 }
 
 export const InfoDrawer: FC<InfoDrawerProps> = ({
@@ -92,9 +94,8 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
   showInfoDrawer,
   asset,
 }) => {
-  const { imageMap } = useSelector((state: RootState) => state.images);
-  const { name, hp, imageIcon } = asset;
-
+  const dispatch = useDispatch();
+  const { selectedMonster } = useSelector((state: RootState) => state.monsters);
   const classes = useStyles();
 
   const handleCloseInfoDrawer = () => {
@@ -123,31 +124,32 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
           >
             {/* ICON */}
             <Grid style={{ backgroundColor: "transparent", marginRight: 5 }}>
-              <img
-                src={imageIcon}
+              <ImageAsset
                 height={60}
                 width={60}
                 style={{ paddingRight: 5 }}
-                alt="whyyyyy"
+                alt={selectedMonster?.icon ?? ""}
               />{" "}
             </Grid>
             {/* MONSTER TITLE AND SUBTITLE */}
             <Grid item xs={9} style={{ backgroundColor: "transparent" }}>
-              <Typography className={classes.monsterTitle}>{name}</Typography>
+              <Typography className={classes.monsterTitle}>
+                {selectedMonster?.name}
+              </Typography>
               <Typography className={classes.monsterSubtitle}>
                 Epic Monster
               </Typography>
             </Grid>
             {/* CLOSE BUTTON */}
             <Grid item style={{ backgroundColor: "transparent" }}>
-              <img
+              <ImageAsset
                 className={classes.closeButton}
-                src={imageMap["close.svg"]}
                 height={30}
                 width={30}
-                alt="close"
+                alt="close.svg"
                 onClick={() => {
                   handleCloseInfoDrawer();
+                  dispatch(clearSelectedMonster());
                 }}
               />{" "}
             </Grid>
@@ -155,7 +157,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
         </Grid>
         {/* EVERYTHING ELSE */}
         <Grid item xs={12} style={{ backgroundColor: "transparent" }}>
-          <InfoCardTabs infoCardTabsProps={asset} />
+          <InfoCardTabs />
         </Grid>
       </Grid>
     </Fade>

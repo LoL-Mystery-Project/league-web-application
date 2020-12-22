@@ -84,11 +84,8 @@ const useStyles = makeStyles({
 //   helloObject: string;
 // }
 
-interface InfoCardTabsProps {
-  infoCardTabsProps: MonsterObject;
-}
 
-export const InfoCardTabs: FC<InfoCardTabsProps> = ({ infoCardTabsProps }) => {
+export const InfoCardTabs: FC = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -132,18 +129,18 @@ export const InfoCardTabs: FC<InfoCardTabsProps> = ({ infoCardTabsProps }) => {
       </StyledTabs>
       {value === 0 && (
         <div>
-          <InfoCardPanel InfoPanelProps={infoCardTabsProps} />
+          <InfoCardPanel />
         </div>
       )}
       {value === 1 && (
         <div>
-          <PatchNoteCardPanel PatchNoteCardPanelProps={infoCardTabsProps} />
+          <PatchNoteCardPanel />
         </div>
       )}
       {value === 2 && (
         <div>
           Show splash art{" "}
-          <SplashArtCardPanel SplashArtCardPanelProps={infoCardTabsProps} />
+          <SplashArtCardPanel />
         </div>
       )}
     </Wrapper>
