@@ -2,12 +2,8 @@ import Typography, { TypographyProps } from "@material-ui/core/Typography";
 import React, { FC, useEffect, useState } from "react";
 import { findKey } from "lodash";
 
-export interface ColouredWordMapSet {
+export interface ColourMap {
   [key: string]: Array<string>;
-}
-
-export interface PaletteMapType {
-  [key: string]: string;
 }
 
 interface PositionType {
@@ -21,12 +17,11 @@ interface IndexSetType {
 
 interface TextColourizerProps extends TypographyProps {
   text: string;
-  colouredWordMap: ColouredWordMapSet;
-  paletteMap: PaletteMapType;
+  colourMap: ColourMap;
 }
 
 export const TextColourizer: FC<TextColourizerProps> = (props) => {
-  const { text, colouredWordMap, paletteMap } = props;
+  const { text, colourMap: colouredWordMap } = props;
   const [final, setFinal] = useState<Array<JSX.Element>>([]);
 
   useEffect(() => {
@@ -73,14 +68,14 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
       const phrase = indexSet[colour!].find((e) => e.start === i);
 
       result.push(
-        <span style={{ color: paletteMap[colour!] }}>
+        <span style={{ color: colour! }}>
           {text.substring(phrase!.start, phrase!.end)}
         </span>
       );
       i = phrase!.end;
       setFinal(result);
     }
-  }, [colouredWordMap, paletteMap, text]);
+  }, [colouredWordMap, text]);
 
   return <Typography {...props}>{final.map((elem) => elem)}</Typography>;
 };
