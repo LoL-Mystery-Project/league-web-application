@@ -59,6 +59,27 @@ const Wrapper = styled.div`
     color: ${mainColour.purple};
   }
 
+  .abilitiesTitleStyle {
+    font-family: Friz Quadrata;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+
+    /* purple/main */
+    color: ${mainColour.yellow};
+  }
+
+  .SubAbilitiesStyle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 15px;
+    white-space: nowrap;
+  }
+
   .abilitiesSubHeaderStyle {
     font-family: Friz Quadrata;
     font-style: normal;
@@ -611,31 +632,33 @@ export const Baron: FC<BaronProps> = ({}) => {
         </Grid>
         {/* ABILITIES */}
         <Grid>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            {/* ABILITES HEADER */}
-            <Typography className="infoHeaderText">Abilites</Typography>
-            <Typography
-              className="effectsDescription"
-              style={{ marginLeft: 25 }}
-            ></Typography>
-          </div>
-          {/* ABILITIES INFO */}
+          {/* ABILITES HEADER */}
+          <Typography className="infoHeaderText">Abilites</Typography>
+          {/* ABILITIES INFO - BASIC ATTACKS*/}
           <Grid>
-            <Typography>
-              Basic Attacks Baron will attack the unit closest to him
-            </Typography>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                marginTop: 15,
+              }}
+            >
+              <Typography className="abilitiesTitleStyle">
+                Basic Attacks
+              </Typography>
+              <Typography
+                className="effectsDescription"
+                style={{ marginLeft: 25 }}
+              >
+                Baron will attack the unit closest to him
+              </Typography>
+            </div>
           </Grid>
           <Grid
             container
             spacing={1}
             style={{ display: "flex", flexDirection: "column" }}
-            className="bottomBorder"
           >
             <Grid item>
               <div className="effectsStyles">
@@ -715,6 +738,127 @@ export const Baron: FC<BaronProps> = ({}) => {
                           100% AD physical damage
                         </span>{" "}
                         to the target.{" "}
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+          </Grid>
+
+          {/* ABILITIES INFO - PASSIVES*/}
+          <Grid>
+            <div
+              style={{
+                marginTop: 15,
+              }}
+            >
+              <Typography className="abilitiesTitleStyle">Passives</Typography>
+            </div>
+          </Grid>
+          <Grid
+            container
+            spacing={1}
+            style={{ display: "flex", flexDirection: "column" }}
+          >
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Presence of the Baron
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        While Baron Nashor is alive, all obstructing Champion,
+                        Pets and Wards that are on top of him are pushed to a
+                        location in front of him. Baron Nashor is immune to
+                        Ghost effects (ghosted units cannot pass through him).
+                      </Typography>
+                    </li>
+                    <li className="listStyles">
+                      <Typography>
+                        Upon spawning, Baron Nashor knocks back all units that
+                        are within his collision radius
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Debuff Immunity
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        Immune to all forms of crowd control except stasis.
+                        Additionally, Baron Nashor's stats cannot be reduced by
+                        any means.
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Baron's Gaze
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        Baron Nashor has 50% damage reduction from the unit that
+                        it has most recently basic attacked for 8s, reduced to
+                        4.5s after Baron Nashor is slain.
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Voracious Corrosion
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        Reduces the target's armor and magic resistence by 0.5,
+                        stacking up to 100 times for a total of 50 maximum
+                        resistences reduction. Lasts for 8s, reduced to 4.5s
+                        after Baron Nashor is slain.
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Void Corruption
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        Basic attacks cause another burst of 60 (+ 20% AD) bonus
+                        magic damage that can occur every 0.75s. This attack
+                        targets the nearest champion with the lowest number of
+                        Voracious Corrosion stacks, applying another stack.
                       </Typography>
                     </li>
                   </ul>
