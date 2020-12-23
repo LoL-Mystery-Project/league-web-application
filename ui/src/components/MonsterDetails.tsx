@@ -15,14 +15,13 @@ export const MonsterDetails: FC = () => {
       <div style={{ paddingTop: 20 }}>
         <Typography className="infoHeaderText">Overview</Typography>
         <ul style={{ margin: 0 }}>
-          {colouredDescription?.map((element: ColouredDescription, index) => {
-            const { text, colourMap } = element;
-            return (
+          {colouredDescription?.map(
+            ({ text, colourMap }: ColouredDescription, index) => (
               <li key={index}>
                 {<TextColourizer text={text} colourMap={colourMap} />}
               </li>
-            );
-          })}
+            )
+          )}
         </ul>
       </div>
       <Grid
