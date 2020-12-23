@@ -108,7 +108,7 @@ export const ImageGallery: FC = ({}) => {
 
   return (
     <Wrapper>
-      <Grid container style={{ margin: 20 }}>
+      <Grid container style={{ margin: 20 }} className="containerStyles">
         <Grid item xs={6}>
           <h1>Image Gallery (dev mode only)</h1>
         </Grid>
@@ -120,7 +120,7 @@ export const ImageGallery: FC = ({}) => {
             justifyContent: "flex-end",
           }}
         >
-          <div style={{ paddingTop: 15, paddingRight: 60 }}>
+          <div style={{ paddingTop: 15 }}>
             <Paper component="form" className={classes.root}>
               <div className={classes.iconButton} aria-label="menu">
                 <SearchIcon />
