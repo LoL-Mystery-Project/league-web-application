@@ -1,3 +1,5 @@
+import { ColourMap } from "../utils/TextColourizer";
+
 export interface RootState {
   page: PageState;
   dragon: DragonState;
@@ -47,6 +49,7 @@ export interface MonsterType {
   stats: MonsterStats;
   location: MonsterLocation;
   patchHistory?: Array<MonsterPatchObject>;
+  colouredDescription?: Array<ColouredDescription>;
   splashArt: Array<string>;
 }
 
@@ -76,4 +79,9 @@ export interface MonsterStats {
 export interface MonsterPatchObject {
   release: string;
   details: Array<string>;
+}
+
+export interface ColouredDescription {
+  text: string;
+  colourMap: ColourMap;
 }

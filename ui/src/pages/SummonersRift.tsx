@@ -5,9 +5,6 @@ import SummonersRiftMap from "../components/SummonersRiftMap";
 
 import baronIcon from "../assets/assetPanel/baronnashor.svg";
 
-import lineSeparator from "../assets/assetPanel/lineSeparator.svg";
-import lineSeparatorShort from "../assets/assetPanel/lineSeparatorShort.svg";
-
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/ButtonGroup";
@@ -120,7 +117,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                   <Typography className={classes.headerText}>
                     Neutral Monsters
                   </Typography>
-                  <img src={lineSeparator} alt="line" />
+                  <ImageAsset alt="lineSeparator.svg" />
                   <Grid
                     container
                     style={{ display: "flex", flexDirection: "row", margin: 5 }}
@@ -173,7 +170,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                   <Typography className={classes.headerText}>
                     Minions
                   </Typography>
-                  <img src={lineSeparator} alt="line" />
+                  <ImageAsset alt="lineSeparator.svg" />
                   <Grid
                     container
                     style={{ display: "flex", flexDirection: "row" }}
@@ -226,7 +223,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         <Typography className={classes.headerText}>
                           Jungle Plants
                         </Typography>
-                        <img src={lineSeparatorShort} alt="lineShort" />
+                        <ImageAsset alt="lineSeparatorShort.svg" />
                         {[1, 1].map(() => (
                           <div
                             style={{ display: "flex", flexDirection: "row" }}
@@ -249,7 +246,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         <Typography className={classes.headerText}>
                           Buildings
                         </Typography>
-                        <img src={lineSeparatorShort} alt="lineShort" />
+                        <ImageAsset alt="lineSeparatorShort.svg" />
                         {[1, 1].map(() => (
                           <div
                             style={{ display: "flex", flexDirection: "row" }}
@@ -282,7 +279,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             item
             xs={7}
             style={{
-              background: `linear-gradient(180deg, #010A13 0%, #041722 100%)`,
+              background: `transparent`,
             }}
           >
             <InfoDrawer

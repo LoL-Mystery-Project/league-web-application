@@ -3,8 +3,39 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { mainColour } from "../../styles/palette";
 import styled from "styled-components";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 import { ImageAsset } from "../ImageAsset";
 import { MonsterDetails } from "../MonsterDetails";
+
+const StyledTabs = withStyles({
+  root: {
+    color: mainColour.white,
+  },
+})(Tabs);
+
+const useStyles = makeStyles({
+  indicator: {
+    color: mainColour.blue,
+  },
+  root: {
+    color: mainColour.white,
+    fontFamily: "Friz Quadrata",
+  },
+  footerText: {
+    fontFamily: "Friz Quadrata",
+    fontSize: 20,
+    textTransform: "none",
+  },
+  closeArrow: {
+    position: "absolute",
+    right: 20,
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+});
 
 export const MonsterWrapper = styled.div`
   .infoHeaderText {
@@ -69,7 +100,7 @@ export const MonsterWrapper = styled.div`
     display: flex;
     align-items: center;
 
-    /* purple/main */
+    /* yellow/main */
     color: ${mainColour.yellow};
   }
 
@@ -145,14 +176,6 @@ export const MonsterWrapper = styled.div`
     color: ${mainColour.white};
   }
 
-  .bottomBorder {
-    border-bottom: 2px solid transparent;
-    border-image-source: url("https://league-icons.s3-us-west-2.amazonaws.com/patchNotesLineSeparator.svg");
-    border-image-repeat: initial;
-    border-image-slice: 1;
-    margin-bottom: 15px;
-  }
-
   .leftBorder {
     position: absolute;
   }
@@ -181,6 +204,7 @@ export const MonsterWrapper = styled.div`
 interface BaronProps {}
 
 export const Baron: FC<BaronProps> = ({}) => {
+  const classes = useStyles();
   const [baronData, setBaronData] = useState<any>({});
 
   useEffect(() => {
@@ -236,7 +260,6 @@ export const Baron: FC<BaronProps> = ({}) => {
             container
             spacing={1}
             style={{ display: "flex", flexDirection: "column" }}
-            // className="bottomBorder"
           >
             <Grid item>
               <div className="effectsStyles">
@@ -322,6 +345,7 @@ export const Baron: FC<BaronProps> = ({}) => {
             </Grid>
           </Grid>
         </Grid>
+
         {/* ABILITIES */}
         <Grid>
           {/* ABILITIES LINE SEPARATOR */}
@@ -329,7 +353,14 @@ export const Baron: FC<BaronProps> = ({}) => {
             <ImageAsset alt="line.svg" />
           </Grid>
           {/* ABILITES HEADER */}
-          <Typography className="infoHeaderText">Abilities</Typography>
+          <Grid container>
+            <Grid item xs={9}>
+              <Typography className="infoHeaderText">Abilities</Typography>
+            </Grid>
+            <Grid item>
+              <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
+            </Grid>
+          </Grid>
           {/* ABILITIES INFO - BASIC ATTACKS*/}
           <Grid>
             <div
@@ -561,6 +592,249 @@ export const Baron: FC<BaronProps> = ({}) => {
                 </span>
               </div>
             </Grid>
+          </Grid>
+
+          {/* ABILITIES INFO - ACTIVES*/}
+          <Grid>
+            <div
+              style={{
+                marginTop: 15,
+              }}
+            >
+              <Typography className="abilitiesTitleStyle">Actives</Typography>
+            </div>
+          </Grid>
+          <Grid
+            container
+            spacing={1}
+            style={{ display: "flex", flexDirection: "column" }}
+          >
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Acid Pool
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        After winding up for 2s, Baron Nashor spits out 3 pools
+                        of acid in a cone in front of him, landing over 0.75s
+                        and dealing 10% AD magic damage to all champions upon
+                        impact as well as creating a field for 2.5s that slows
+                        by 50%.
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Acid Shot
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        After winding up for 2s, Baron Nashor spits acid down a
+                        straight line over 2s, dealing 20% AD magic damage to
+                        all units it hits.
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Tentacle Knockup
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        Baron Nashor summons a tremor beneath the target's
+                        location that erupts with a tentacle after 1.25s,
+                        dealing 25% AD magic damage to units within and knocking
+                        them up for a duration based on their proximity to the
+                        areas center. Units near the area's edge are also
+                        slightly knocked away.
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+            <Grid item>
+              <div className="effectsStyles">
+                <ImageAsset alt="unknown.svg" />
+                <span style={{ paddingLeft: 20, paddingTop: 30 }}>
+                  <Typography className="abilitiesSubHeaderStyle">
+                    Area-of-Effect Rear Attack
+                  </Typography>
+                  <ul style={{ margin: 0 }}>
+                    <li className="listStyles">
+                      <Typography>
+                        Erects a cluster of spikes dealing 50% AD physical
+                        damage and stunning for 0.5s
+                      </Typography>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        {/* Strategy */}
+        <Grid>
+          <Grid item style={{ paddingTop: 10 }}>
+            <ImageAsset alt="line.svg" />
+          </Grid>
+          {/* STRATEGY HEADER */}
+          <Grid container>
+            <Grid item xs={9}>
+              <Typography className="infoHeaderText">Strategy</Typography>
+            </Grid>
+            <Grid item>
+              <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
+            </Grid>
+          </Grid>
+
+          <Grid>
+            <ul style={{ margin: 10 }}>
+              <li className="listStyles">
+                <Typography>
+                  Baron Nashor is a highly coveted objective that is difficult
+                  to fight without proper strength and personnel. A tank to
+                  endure the damage is almost always required, otherwise there
+                  are few champions that can battle the monster
+                  self-sufficiently, mainly utilizing immense sustainability and
+                  DPS.
+                </Typography>
+              </li>
+            </ul>
+          </Grid>
+        </Grid>
+
+        {/* TRIVIA */}
+        <Grid>
+          <Grid item style={{ paddingTop: 10 }}>
+            <ImageAsset alt="line.svg" />
+          </Grid>
+          {/* TRIVIA HEADER */}
+          <Grid container>
+            <Grid item xs={9}>
+              <Typography className="infoHeaderText">Trivia</Typography>
+            </Grid>
+            <Grid item>
+              <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
+            </Grid>
+          </Grid>
+          <Grid className="listStyles">
+            <ul style={{ margin: 10 }}>
+              <li>
+                <Typography>
+                  During Snowdown Showdown 2012, players could earn a summoner
+                  icon featuring old Baron Nashor's main head with a santa hat
+                  on Baron Nashor's main head with a santa hat on.
+                </Typography>
+              </li>
+              <li>
+                <Typography>
+                  Nashor is an anagram for Roshan, being a tribute to the
+                  monster filling a similar role in Defense of the Ancients.
+                </Typography>
+              </li>
+              <li>
+                <Typography>
+                  A box labeled 'Baron Acid' can be seen in the preview video
+                  for the launch of the League of Legends' Mac Version.
+                </Typography>
+              </li>
+              <li>
+                <Typography>
+                  Old Baron Nashor's skull was placed within his modern
+                  counterpart's pit in patch V5.7.
+                </Typography>
+              </li>
+              <li>
+                <Typography>
+                  In the Death Recap screen, Voracious Corrosion is labeled as
+                  'WormAttack' and Wrath of the Ancients 'wrathdamage'.
+                </Typography>
+              </li>
+              <li>
+                <Typography>
+                  Voracious Corrosion old icon was recycled from Tabu's Soul
+                  Drain.
+                </Typography>
+              </li>
+              <li>
+                <Typography>
+                  If Baron and Elder Dragon Elder Dragon had a duel, Baron
+                  Nashor will lose. Elder Dragon's HP regen is so high (250
+                  HP/s) that Baron can't even deal damage to him.
+                </Typography>
+              </li>
+            </ul>
+          </Grid>
+        </Grid>
+
+        {/* FOOTER */}
+        <Grid>
+          <Grid item style={{ paddingTop: 10 }}>
+            <ImageAsset alt="line.svg" />
+          </Grid>
+
+          <StyledTabs
+            // value={value}
+            // onChange={handleChange}
+            indicatorColor="primary"
+            centered
+          >
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Overview</Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Effects</Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>
+                  Abilities
+                </Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Strategy</Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Trivia</Typography>
+              }
+            />
+          </StyledTabs>
+
+          <Grid style={{ paddingTop: 30, textAlign: "center" }}>
+            <ImageAsset alt="ender.svg" />
           </Grid>
         </Grid>
       </Grid>
