@@ -141,8 +141,8 @@ export const InfoCardTabs: FC = () => {
         </div>
       )}
       {value === 2 && (
-        <div>
-          Show splash art <SplashArtCardPanel />
+        <div style={{paddingTop: 20}}>
+          <SplashArtCardPanel />
         </div>
       )}
     </Wrapper>
