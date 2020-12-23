@@ -1,14 +1,11 @@
-import React, { FC, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { Card } from "@material-ui/core";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/types";
 import { ImageAsset } from "./ImageAsset";
 
-import { mainColour, subColour } from "../styles/palette";
+import { mainColour } from "../styles/palette";
 
 const Wrapper = styled.div`
   .containerDonateImage {
@@ -26,7 +23,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: 30px;
     left: 36px;
-    font-family: Courier Prime;
+    font-family: Courier Prime; // TODO: import Courier Prime font
     font-style: normal;
     font-weight: normal;
     font-size: 30px;
@@ -37,7 +34,6 @@ const Wrapper = styled.div`
   }
 
   .linkTextStyles {
-    font-family: Roboto;
     font-style: normal;
     font-size: 16px;
     font-weight: normal;
@@ -47,7 +43,6 @@ const Wrapper = styled.div`
   }
 
   .linkHeaderTextStyles {
-    font-family: Roboto;
     font-style: normal;
     font-size: 20px;
     font-weight: bold;
@@ -92,26 +87,26 @@ export default function DonateInfoBox() {
 
         <Grid
           container
-          style={{ display: "flex", flexDirection: "row", margin: 5 }}
+          style={{ display: "flex", flexDirection: "row", marginTop: 40, marginLeft: 30}}
         >
           {/* COLUMN 1 */}
           <Grid item xs={6}>
             <Typography className="linkHeaderTextStyles">One HP</Typography>
-            <Typography className="linkTextStyles">About Us</Typography>
-            <Typography className="linkTextStyles">
+            <Typography style={{paddingTop: 10}} className="linkTextStyles">About Us</Typography>
+            <Typography style={{paddingTop: 5}} className="linkTextStyles">
               Advertise with Us
             </Typography>
-            <Typography className="linkTextStyles">Terms of Service</Typography>
-            <Typography className="linkTextStyles">Privacy Policy</Typography>
-            <Typography className="linkTextStyles">FAQ</Typography>
+            <Typography style={{paddingTop: 5}} className="linkTextStyles">Terms of Service</Typography>
+            <Typography style={{paddingTop: 5}} className="linkTextStyles">Privacy Policy</Typography>
+            <Typography style={{paddingTop: 5}} className="linkTextStyles">FAQ</Typography>
           </Grid>
           {/* COLUMN 2 */}
           <Grid item xs={6}>
             <Typography className="linkHeaderTextStyles">Social</Typography>
-            <Typography className="linkTextStyles">Instagram</Typography>
-            <Typography className="linkTextStyles">Facebook</Typography>
-            <Typography className="linkTextStyles">Discord</Typography>
-            <Typography className="linkTextStyles">Twitter</Typography>
+            <Typography style={{paddingTop: 10}} className="linkTextStyles">Instagram</Typography>
+            <Typography style={{paddingTop: 5}} className="linkTextStyles">Facebook</Typography>
+            <Typography style={{paddingTop: 5}} className="linkTextStyles">Discord</Typography>
+            <Typography style={{paddingTop: 5}} className="linkTextStyles">Twitter</Typography>
           </Grid>
         </Grid>
         <div
@@ -119,10 +114,12 @@ export default function DonateInfoBox() {
             display: "flex",
             flexDirection: "row",
             margin: 10,
+            justifyContent: "center",
+            paddingTop: 30,
           }}
         >
           <ImageAsset alt="compliance.svg" />
-          <Typography className="linkTextStyles">
+          <Typography style={{paddingLeft: 10}} className="linkTextStyles">
             Riot Games Compliant
           </Typography>
         </div>
