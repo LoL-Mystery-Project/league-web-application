@@ -29,7 +29,6 @@ export const MonsterDetails: FC = () => {
           paddingTop: 30,
           paddingBottom: 20,
         }}
-        // className="bottomBorder"
       >
         {/* BOUNTY */}
         <Grid item xs={3}>
