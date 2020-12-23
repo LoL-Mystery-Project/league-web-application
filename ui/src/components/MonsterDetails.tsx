@@ -33,7 +33,6 @@ export const MonsterDetails: FC = () => {
           paddingTop: 30,
           paddingBottom: 20,
         }}
-        // className="bottomBorder"
       >
         {/* BOUNTY */}
         <Grid item xs={3}>
@@ -127,7 +126,7 @@ export const MonsterDetails: FC = () => {
           >
             <Grid item>
               {/* STAT COL 1 */}
-              <Grid container style={{ display: "flex", flexDirection: "row" }}>
+              <Grid container className="bountyStyles">
                 <Grid item xs={4}>
                   {/* HP */}
 
@@ -174,7 +173,7 @@ export const MonsterDetails: FC = () => {
             </Grid>
             <Grid item>
               {/* STAT COL 2 */}
-              <Grid container style={{ display: "flex", flexDirection: "row" }}>
+              <Grid container className="bountyStyles">
                 <Grid item xs={4}>
                   {/* REGEN */}
 
@@ -217,7 +216,7 @@ export const MonsterDetails: FC = () => {
             </Grid>
             <Grid item>
               {/* STAT COL 3 */}
-              <Grid container style={{ display: "flex", flexDirection: "row" }}>
+              <Grid container className="bountyStyles">
                 <Grid item xs={4}>
                   {/* SPEED */}
                   <Typography style={{ display: "flex", alignItems: "center" }}>
@@ -247,7 +246,7 @@ export const MonsterDetails: FC = () => {
           </Grid>
         </Grid>
         {/* SPAWN */}
-        <Grid item xs={3}>
+        <Grid item xs={3} style={{ marginLeft: -30 }}>
           <Typography
             className="overViewSubTextStyling"
             style={{ paddingBottom: 10 }}
@@ -255,42 +254,20 @@ export const MonsterDetails: FC = () => {
             Spawn
           </Typography>
           <ImageAsset alt="line2.svg" className="leftBorder" />
-          <Grid
-            container
-            spacing={3}
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              paddingLeft: 15,
-            }}
-          >
-            <Grid item>
-              {/* Spawn Header Text */}
-              <Grid
-                container
-                style={{ display: "flex", flexDirection: "column" }}
-              >
-                <Grid item>
-                  <Typography className="greyText">Initial</Typography>
-                </Grid>
-                <Grid item>
-                  <Typography className="greyText">Respawn</Typography>
-                </Grid>
-              </Grid>
+          <Grid container className="bountyStyles" style={{ paddingLeft: 10 }}>
+            <Grid item xs={4}>
+              <Typography className="greyText">Initial</Typography>
             </Grid>
-            <Grid item>
-              {/* Spawn Info */}
-              <Grid
-                container
-                style={{ display: "flex", flexDirection: "column" }}
-              >
-                <Grid item>
-                  <Typography>{selectedMonster?.location?.initial}</Typography>
-                </Grid>
-                <Grid item>
-                  <Typography>{selectedMonster?.location?.respawn}</Typography>
-                </Grid>
-              </Grid>
+            <Grid item xs={4} style={{ paddingLeft: 10 }}>
+              <Typography>{selectedMonster?.location?.initial}</Typography>
+            </Grid>
+          </Grid>
+          <Grid container className="bountyStyles" style={{ paddingLeft: 10 }}>
+            <Grid item xs={4}>
+              <Typography className="greyText">Respawn</Typography>
+            </Grid>
+            <Grid item xs={4} style={{ paddingLeft: 10 }}>
+              <Typography>{selectedMonster?.location?.respawn}</Typography>
             </Grid>
           </Grid>
         </Grid>
