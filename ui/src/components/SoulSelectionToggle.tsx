@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React from "react";
 import cloud from "../assets/map/cloudFocused.svg";
 import ocean from "../assets/map/oceanFocused.svg";
 import infernal from "../assets/map/infernalFocused.svg";
@@ -19,7 +19,8 @@ import Button from "@material-ui/core/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/types";
 import { setSelectedDrag } from "../redux/actions/dragonActions";
-import { mainColour, subColour } from "../styles/palette";
+import { mainColour } from "../styles/palette";
+import { ImageAsset } from "./ImageAsset";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -60,43 +61,47 @@ export default function SoulSelectionToggle() {
       <Grid container justify="center" spacing={1} style={{ padding: 2 }}>
         <Grid item xs={6}>
           <Button onClick={() => handleClick("cloud")}>
-            <img
+            <ImageAsset
               className="soulIconHover"
-              src={selectedDragon === "cloud" ? cloud : cloudUnselected}
               height={dragHeight}
               width={dragWidth}
-              alt="cloud"
+              alt={
+                selectedDragon === "cloud" ? "cloudFocused.svg" : "cloud.svg"
+              }
             />
           </Button>
           <Button onClick={() => handleClick("ocean")}>
-            <img
+            <ImageAsset
               className="soulIconHover"
-              src={selectedDragon === "ocean" ? ocean : oceanUnselected}
               height={dragHeight}
               width={dragWidth}
-              alt="ocean"
+              alt={
+                selectedDragon === "ocean" ? "oceanFocused.svg" : "ocean.svg"
+              }
             />
           </Button>
           <Button onClick={() => handleClick("infernal")}>
-            <img
+            <ImageAsset
               className="soulIconHover"
-              src={
-                selectedDragon === "infernal" ? infernal : infernalUnselected
-              }
               height={dragHeight}
               width={dragWidth}
-              alt="infernal"
+              alt={
+                selectedDragon === "infernal"
+                  ? "infernalFocused.svg"
+                  : "infernal.svg"
+              }
             />
           </Button>
           <Button onClick={() => handleClick("mountain")}>
-            <img
+            <ImageAsset
               className="soulIconHover"
-              src={
-                selectedDragon === "mountain" ? mountain : mountainUnselected
-              }
               height={dragHeight}
               width={dragWidth}
-              alt="mountain"
+              alt={
+                selectedDragon === "mountain"
+                  ? "mountainFocused.svg"
+                  : "mountain.svg"
+              }
             />
           </Button>
         </Grid>
@@ -104,8 +109,8 @@ export default function SoulSelectionToggle() {
           <div style={{ display: "flex", flexDirection: "row" }}>
             <Checkbox
               style={{ width: 10, height: 10 }}
-              icon={<img src={CheckboxBorder} alt="bordered" />}
-              checkedIcon={<img src={CheckboxFilled} alt="not-bordered" />}
+              icon={<ImageAsset alt="checkboxborder.svg" />}
+              checkedIcon={<ImageAsset alt="checkbox.svg" />}
             />
             <Typography className={"toggleButtonStyles"}>
               Show neutral monsters
@@ -114,8 +119,8 @@ export default function SoulSelectionToggle() {
           <div style={{ display: "flex", flexDirection: "row" }}>
             <Checkbox
               style={{ width: 10, height: 10 }}
-              icon={<img src={CheckboxBorder} alt="bordered" />}
-              checkedIcon={<img src={CheckboxFilled} alt="not-bordered" />}
+              icon={<ImageAsset alt="checkboxborder.svg" />}
+              checkedIcon={<ImageAsset alt="checkbox.svg" />}
             />
             <Typography className={"toggleButtonStyles"}>
               Show jungle plants{" "}
@@ -126,8 +131,8 @@ export default function SoulSelectionToggle() {
           <div style={{ display: "flex", flexDirection: "row" }}>
             <Checkbox
               style={{ width: 10, height: 10 }}
-              icon={<img src={CheckboxBorder} alt="bordered" />}
-              checkedIcon={<img src={CheckboxFilled} alt="not-bordered" />}
+              icon={<ImageAsset alt="checkboxborder.svg" />}
+              checkedIcon={<ImageAsset alt="checkbox.svg" />}
             />
             <Typography className={"toggleButtonStyles"}>
               Show buildings
@@ -136,8 +141,8 @@ export default function SoulSelectionToggle() {
           <div style={{ display: "flex", flexDirection: "row" }}>
             <Checkbox
               style={{ width: 10, height: 10 }}
-              icon={<img src={CheckboxBorder} alt="bordered" />}
-              checkedIcon={<img src={CheckboxFilled} alt="not-bordered" />}
+              icon={<ImageAsset alt="checkboxborder.svg" />}
+              checkedIcon={<ImageAsset alt="checkbox.svg" />}
             />
             <Typography className={"toggleButtonStyles"}>
               Show brushes
