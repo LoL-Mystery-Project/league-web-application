@@ -20,8 +20,7 @@ const Wrapper = styled.div`
     width: 40px;
     margin-left: -45px;
     margin-top: 57px;
-    position: fixed;
-    text-align: center;
+    position: absolute;
   }
 
   .toggleButtonStyles {
