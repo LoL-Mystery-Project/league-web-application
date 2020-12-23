@@ -9,6 +9,8 @@ import Tab from "@material-ui/core/Tab";
 import { ImageAsset } from "../ImageAsset";
 import { MonsterDetails } from "../MonsterDetails";
 
+import { TextColourizer } from "../../utils/TextColourizer";
+
 const StyledTabs = withStyles({
   root: {
     color: mainColour.white,
@@ -270,20 +272,18 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        Gives
-                        <span className="textColorStylingOrange">
-                          {" "}
-                          12 - 48 (based on minutes) attack damage{" "}
-                        </span>
-                        and{" "}
-                        <span className="textColorStylingBlue">
-                          20 - 80 (based on minutes) ability power
-                        </span>{" "}
-                        determined   by the time the{" "}
-                        <span className="textColorStylingYellow">Baron</span> is
-                        slain.
-                      </Typography>
+                      <TextColourizer
+                        text="Gives 12 − 48 (based on minutes) bonus attack damage and 20 − 80 (based on minutes) ability power determined by the time the Baron is slain."
+                        colourMap={{
+                          [mainColour.orange]: [
+                            "12 − 48 (based on minutes) bonus attack damage",
+                          ],
+                          [mainColour.blue]: [
+                            "20 − 80 (based on minutes) ability power",
+                          ],
+                          [mainColour.yellow]: ["Baron"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -298,15 +298,12 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        After{" "}
-                        <span className="textColorStylingBlue">
-                          0.5s cast time
-                        </span>
-                        , channel for{" "}
-                        <span className="textColorStylingBlue">4s</span> to
-                        blink to their team’s fountain if not interrupted.
-                      </Typography>
+                      <TextColourizer
+                        text="After 0.5s cast time, channel for 4s to blink to their team's fountain if not interrupted."
+                        colourMap={{
+                          [mainColour.blue]: ["0.5s cast time", "4s"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -321,23 +318,17 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        Nearby allied minions gain: Slow Resist,{" "}
-                        <span className="textColorStylingBlue">
-                          75% damage reduction
-                        </span>
-                        from area of effect and damage over time   abilities and
-                        attacks (except for Super Minions),{" "}
-                        <span className="textColorStylingPurple">
-                          bonus movement speed
-                        </span>{" "}
-                        equal to{" "}
-                        <span className="textColorStylingPurple">
-                          90% averaged movement speed
-                        </span>{" "}
-                        of all nearby champions, capped at{" "}
-                        <span className="textColorStylingPurple">500</span>.{" "}
-                      </Typography>
+                      <TextColourizer
+                        text="Nearby allied minions gain: Slow Resist, 75% damage reduction from area of effect and damage over time abilities and attacks (except for Super Minions), bonus movement speed equal to 90% averaged movement speed of all nearby champions, capped at 500."
+                        colourMap={{
+                          [mainColour.blue]: ["75% damage reduction"],
+                          [mainColour.purple]: [
+                            "bonus movement speed",
+                            "90% averaged movement speed",
+                            "500",
+                          ],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -396,23 +387,16 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        If the target is in front of
-                        <span className="textColorStylingPurple">
-                          {" "}
-                          Baron Nashor{" "}
-                        </span>
-                        within about melee range, he occasionally uses a Melee
-                        attack instead of a Ranged attack, dealing{" "}
-                        <span className="textColorStylingOrange">
-                          100% AD physical damage
-                        </span>{" "}
-                        to the target and{" "}
-                        <span className="textColorStylingOrange">
-                          50% AD physical damage
-                        </span>{" "}
-                        to nearby units.
-                      </Typography>
+                      <TextColourizer
+                        text="If the target is in front of Baron Nashor within about melee range, he occasionally uses a Melee attack instead of a Ranged attack, dealing 100% AD physical damage to the target and 50% AD physical damage to nearby units."
+                        colourMap={{
+                          [mainColour.orange]: [
+                            "100% AD physical damage",
+                            "50% AD physical damage",
+                          ],
+                          [mainColour.purple]: ["Baron Nashor"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -427,19 +411,13 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        If the target is in front of
-                        <span className="textColorStylingPurple">
-                          {" "}
-                          Baron Nashor{" "}
-                        </span>
-                        , he deals{" "}
-                        <span className="textColorStylingOrange">
-                          100% AD physical damage
-                        </span>{" "}
-                        to the target and applies two stack of Voracious
-                        Corrosion{" "}
-                      </Typography>
+                      <TextColourizer
+                        text="If the target is in front of Baron Nashor, he deals 100% AD physical damage to the target and applies two stack of Voracious Corrosion."
+                        colourMap={{
+                          [mainColour.orange]: ["100% AD physical damage"],
+                          [mainColour.purple]: ["Baron Nashor"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -454,18 +432,13 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        If the target is behind
-                        <span className="textColorStylingPurple">
-                          {" "}
-                          Baron Nashor{" "}
-                        </span>
-                        , he erects a spike that deals{" "}
-                        <span className="textColorStylingOrange">
-                          100% AD physical damage
-                        </span>{" "}
-                        to the target.{" "}
-                      </Typography>
+                      <TextColourizer
+                        text="If the target is behind Baron Nashor, he erects a spike that deals 100% AD physical damage to the target."
+                        colourMap={{
+                          [mainColour.orange]: ["100% AD physical damage"],
+                          [mainColour.purple]: ["Baron Nashor"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -497,18 +470,20 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        While Baron Nashor is alive, all obstructing Champion,
-                        Pets and Wards that are on top of him are pushed to a
-                        location in front of him. Baron Nashor is immune to
-                        Ghost effects (ghosted units cannot pass through him).
-                      </Typography>
+                      <TextColourizer
+                        text="While Baron Nashor is alive, all obstructing Champion, Pets and Wards that are on top of him are pushed to a location in front of him. Baron Nashor is immune to Ghost effects (ghosted units cannot pass through him)."
+                        colourMap={{
+                          [mainColour.purple]: ["Baron Nashor"],
+                        }}
+                      />
                     </li>
                     <li className="listStyles">
-                      <Typography>
-                        Upon spawning, Baron Nashor knocks back all units that
-                        are within his collision radius
-                      </Typography>
+                      <TextColourizer
+                        text="Upon spawning, Baron Nashor knocks back all units that are within his collision radius."
+                        colourMap={{
+                          [mainColour.purple]: ["Baron Nashor"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -523,11 +498,12 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        Immune to all forms of crowd control except stasis.
-                        Additionally, Baron Nashor's stats cannot be reduced by
-                        any means.
-                      </Typography>
+                      <TextColourizer
+                        text="Immune to all forms of crowd control except stasis. Additionally, Baron Nashor's stats cannot be reduced by any means."
+                        colourMap={{
+                          [mainColour.purple]: ["Baron Nashor"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -542,11 +518,17 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        Baron Nashor has 50% damage reduction from the unit that
-                        it has most recently basic attacked for 8s, reduced to
-                        4.5s after Baron Nashor is slain.
-                      </Typography>
+                      <TextColourizer
+                        text="Baron Nashor has 50% damage reduction from the unit that it has most recently basic attacked for 8s, reduced to 4.5s after Baron Nashor is slain."
+                        colourMap={{
+                          [mainColour.purple]: ["Baron Nashor"],
+                          [mainColour.blue]: [
+                            "50% damage reduction",
+                            "8s",
+                            "4.5s",
+                          ],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -561,12 +543,22 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        Reduces the target's armor and magic resistence by 0.5,
-                        stacking up to 100 times for a total of 50 maximum
-                        resistences reduction. Lasts for 8s, reduced to 4.5s
-                        after Baron Nashor is slain.
-                      </Typography>
+                      <TextColourizer
+                        text="Reduces the target's armor and magic resistence by 0.5, stacking up to 100 times for a total of 50 maximum resistences reduction. Lasts for 8s, reduced to 4.5s after Baron Nashor is slain."
+                        colourMap={{
+                          [mainColour.blue]: [
+                            "resistences",
+                            "resistence",
+                            "0.5",
+                            "100",
+                            "50",
+                            "8s",
+                            "4.5s",
+                          ],
+                          [mainColour.purple]: ["Baron Nashor"],
+                          [mainColour.orange]: ["armor"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -581,12 +573,15 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        Basic attacks cause another burst of 60 (+ 20% AD) bonus
-                        magic damage that can occur every 0.75s. This attack
-                        targets the nearest champion with the lowest number of
-                        Voracious Corrosion stacks, applying another stack.
-                      </Typography>
+                      <TextColourizer
+                        text="Basic attacks cause another burst of 60 (+ 20% AD) bonus magic damage that can occur every 0.75s. This attack targets the nearest champion with the lowest number of Voracious Corrosion stacks, applying another stack."
+                        colourMap={{
+                          [mainColour.blue]: [
+                            "60 (+ 20% AD) bonus magic damage",
+                            "0.75s",
+                          ],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -618,13 +613,18 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        After winding up for 2s, Baron Nashor spits out 3 pools
-                        of acid in a cone in front of him, landing over 0.75s
-                        and dealing 10% AD magic damage to all champions upon
-                        impact as well as creating a field for 2.5s that slows
-                        by 50%.
-                      </Typography>
+                      <TextColourizer
+                        text="After winding up for 2s, Baron Nashor spits out 3 pools of acid in a cone in front of him, landing over 0.75s and dealing 10% AD magic damage to all champions upon impact as well as creating a field for 2.5s that slows by 50%."
+                        colourMap={{
+                          [mainColour.blue]: [
+                            "0.75s",
+                            "magic damage",
+                            "2.5s",
+                            "50%",
+                          ],
+                          [mainColour.purple]: ["Baron Nashor"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -639,11 +639,14 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        After winding up for 2s, Baron Nashor spits acid down a
-                        straight line over 2s, dealing 20% AD magic damage to
-                        all units it hits.
-                      </Typography>
+                      <TextColourizer
+                        text="After winding up for 2s, Baron Nashor spits acid down a straight line over 2s, dealing 20% AD magic damage to all units it hits."
+                        colourMap={{
+                          [mainColour.blue]: ["2s", "magic damage"],
+                          [mainColour.purple]: ["Baron Nashor"],
+                          [mainColour.orange]: ["20% AD"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -658,14 +661,14 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        Baron Nashor summons a tremor beneath the target's
-                        location that erupts with a tentacle after 1.25s,
-                        dealing 25% AD magic damage to units within and knocking
-                        them up for a duration based on their proximity to the
-                        areas center. Units near the area's edge are also
-                        slightly knocked away.
-                      </Typography>
+                      <TextColourizer
+                        text="Baron Nashor summons a tremor beneath the target's location that erupts with a tentacle after 1.25s, dealing 25% AD magic damage to units within and knocking them up for a duration based on their proximity to the areas center. Units near the area's edge are also slightly knocked away."
+                        colourMap={{
+                          [mainColour.blue]: ["1.25s", "magic damage"],
+                          [mainColour.purple]: ["Baron Nashor"],
+                          [mainColour.orange]: ["25% AD"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
@@ -680,10 +683,13 @@ export const Baron: FC<BaronProps> = ({}) => {
                   </Typography>
                   <ul style={{ margin: 0 }}>
                     <li className="listStyles">
-                      <Typography>
-                        Erects a cluster of spikes dealing 50% AD physical
-                        damage and stunning for 0.5s
-                      </Typography>
+                      <TextColourizer
+                        text="Erects a cluster of spikes dealing 50% AD physical damage and stunning for 0.5s"
+                        colourMap={{
+                          [mainColour.blue]: ["50% AD physical damage"],
+                          [mainColour.orange]: ["0.5s"],
+                        }}
+                      />
                     </li>
                   </ul>
                 </span>
