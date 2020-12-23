@@ -407,6 +407,277 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
             </Grid>
           </Grid>
         </Grid>
+
+        {/* SUMMONED LINE SEPARATOR */}
+        <Grid item style={{ paddingTop: 10 }}>
+          <ImageAsset alt="line.svg" />
+        </Grid>
+
+        {/* SUMMONED HEADER */}
+        <Typography style={{ paddingTop: 20 }} className="infoHeaderText">
+          Summoned
+        </Typography>
+
+        {/* SUMMONED BULLET POINTS */}
+        <Grid item>
+          <ul>
+            <li className="listStyles">
+              <TextColourizer
+                text="The Eye of The Herald can be crushed to summon Rift Herald (with different stats, effects and abilities than pit Herald) that relentlessly pushes her way to the enemy Nexus."
+                colourMap={{
+                  [mainColour.purple]: ["The Eye of The Herald", "Rift Herald"],
+                }}
+              />
+            </li>
+            <br />
+            <li className="listStyles">
+              She heads to the closest lane and starts pushing it.
+            </li>
+            <br />
+            <li className="listStyles">
+              She focuses mainly on the closest minions and targetable
+              structures.
+            </li>
+            <br />
+            <li className="listStyles">
+              She only targets champions if they attack her first.
+            </li>
+            <br />
+            <li className="listStyles">
+              <TextColourizer
+                text="Her level is the average of the levels of the champions of both teams the moment The Eye is picked up."
+                colourMap={{
+                  [mainColour.purple]: ["The Eye"],
+                }}
+              />
+            </li>
+            <br />
+            <li className="listStyles">
+              The summoner receives full gold credit by her, including kills on
+              minions or champions and destroyed turret plates.
+            </li>
+            <br />
+          </ul>
+        </Grid>
+
+        <Grid item>
+          {/* SUMMONED SUBHEADER: BASIC ATTACKS */}
+          <Typography
+            style={{ paddingTop: 20, paddingBottom: 20 }}
+            className="abilitiesTitleStyle"
+          >
+            Basic Attacks
+          </Typography>
+
+          {/* BASIC ATTACKS: MELEE ATTACK */}
+          <Grid
+            container
+            spacing={3}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              paddingLeft: 20,
+            }}
+          >
+            <Grid item>
+              <ImageAsset alt="unknown.svg" />
+            </Grid>
+            <Grid item style={{ width: 770 }}>
+              <Typography className="abilitiesSubHeaderStyle">
+                Melee Attack
+              </Typography>
+              <div className="effectsStyles">
+                <ul style={{ marginTop: 5, marginLeft: -18 }}>
+                  <li className="listStyles">
+                    <TextColourizer
+                      text="Her basic attacks deal 1.75% of Herald's current health as bonus physical damage."
+                      colourMap={{
+                        [mainColour.green]: [
+                          "1.75% of Herald's current health",
+                        ],
+                        [mainColour.orange]: ["bonus physical damage"],
+                      }}
+                    />
+                  </li>
+                </ul>
+              </div>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        {/* ABILITIES SUBHEADER: PASSIVES */}
+        <Grid item>
+          <Typography
+            style={{ paddingTop: 20, paddingBottom: 20 }}
+            className="abilitiesTitleStyle"
+          >
+            Passives
+          </Typography>
+
+          {/* PASSIVES: THE EYE OF BARON */}
+          <Grid item>
+            <Grid
+              container
+              spacing={3}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                paddingLeft: 20,
+              }}
+            >
+              <Grid item>
+                <ImageAsset alt="theeyeofbaron.svg" />
+              </Grid>
+              <Grid item style={{ width: 770 }}>
+                <Typography className="abilitiesSubHeaderStyle">
+                  The Eye of Baron
+                </Typography>
+                <div className="effectsStyles">
+                  <ul style={{ marginTop: 5, marginLeft: -18 }}>
+                    <li className="listStyles">
+                      <TextColourizer
+                        text="Every 3s, the eye on Rift Herald's back will open. Champion basic attacks against the eye deal 40% of Rift Herald's maximum health as bonus true damage."
+                        colourMap={{
+                          [mainColour.green]: [
+                            "3s",
+                            "40% of Rift Herald's maximum health",
+                          ],
+                          [mainColour.purple]: ["Rift Herald"],
+                          [mainColour.orange]: ["bonus true damage"],
+                        }}
+                      />
+                    </li>
+                  </ul>
+                </div>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid item>
+          {/* SUMMONED SUBHEADER: ACTIVES */}
+          <Typography
+            style={{ paddingTop: 20, paddingBottom: 20 }}
+            className="abilitiesTitleStyle"
+          >
+            Actives
+          </Typography>
+
+          {/* ACTIVES: LEAP ATTACK */}
+          <Grid
+            container
+            spacing={3}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              paddingLeft: 20,
+            }}
+          >
+            <Grid item>
+              <ImageAsset alt="unknown.svg" />
+            </Grid>
+            <Grid item style={{ width: 770 }}>
+              <Typography className="abilitiesSubHeaderStyle">
+                Leap Attack
+              </Typography>
+              <div className="effectsStyles">
+                <ul style={{ marginTop: 5, marginLeft: -18 }}>
+                  <li className="listStyles">
+                    <TextColourizer
+                      text="When Rift Herald approaches a targetable structure, she winds up for a few seconds and leaps into melee range, dealing 2000 − 2750 true damage to the structure, 200% AD physical damage to nearby champions and 66% of her current health as true damage to herself if she damaged the structure."
+                      colourMap={{
+                        [mainColour.purple]: [
+                          "Rift Herald",
+                        ],
+                        [mainColour.green]: [
+                          "66% of her current health",
+                        ],
+                        [mainColour.orange]: ["2000 − 2750 true damage", "200% AD physical damage", "true damage"],
+                      }}
+                    />
+                  </li>
+                  <li className="listStyles">
+                    <Typography>She is displacement immune during the wind up and the leap.</Typography>
+                  </li>
+                  <li className="listStyles">
+                    <TextColourizer
+                      text="If the Rift Herald's current target dies while winding up, she will switch to charge toward the nearest target. If there is no nearby target, she will not cancel her charge."
+                      colourMap={{
+                        [mainColour.purple]: [
+                          "Rift Herald",
+                        ],
+                      }}
+                    />
+                  </li>
+                </ul>
+              </div>
+            </Grid>
+          </Grid>
+
+          {/* ACTIVES: ENRAGE */}
+          <Grid
+            container
+            spacing={3}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              paddingLeft: 20,
+            }}
+          >
+            <Grid item>
+              <ImageAsset alt="unknown.svg" />
+            </Grid>
+            <Grid item style={{ width: 770 }}>
+              <Typography className="abilitiesSubHeaderStyle">
+                Enrage
+              </Typography>
+              <div className="effectsStyles">
+                <ul style={{ marginTop: 5, marginLeft: -18 }}>
+                  <li className="listStyles">
+                    <TextColourizer
+                      text="At 65.75% and 32.75% of Rift Herald's maximum health, she winds up for an attack that deals 200% AD physical damage in a cone in front of her."
+                      colourMap={{
+                        [mainColour.green]: [
+                          "65.75%",
+                          "32.75% of Rift Herald's maximum health",
+                        ],
+                        [mainColour.orange]: ["200% AD physical damage"],
+                      }}
+                    />
+                  </li>
+                </ul>
+              </div>
+            </Grid>
+          </Grid>
+
+          {/* ACTIVES: DUCHESS SMASH */}
+          <Grid
+            container
+            spacing={3}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              paddingLeft: 20,
+            }}
+          >
+            <Grid item>
+              <ImageAsset alt="unknown.svg" />
+            </Grid>
+            <Grid item style={{ width: 770 }}>
+              <Typography className="abilitiesSubHeaderStyle">
+                Duchess Smash
+              </Typography>
+              <div className="effectsStyles">
+                <ul style={{ marginTop: 5, marginLeft: -18 }}>
+                  <li className="listStyles">
+                    <Typography>She disables the Reinforced Armor of nearby enemy turrets.</Typography>
+                  </li>
+                </ul>
+              </div>
+            </Grid>
+          </Grid>
+        </Grid>
+
       </Grid>
     </MonsterWrapper>
   );
