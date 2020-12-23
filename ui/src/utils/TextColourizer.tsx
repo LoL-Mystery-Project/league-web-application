@@ -2,17 +2,16 @@ import Typography, { TypographyProps } from "@material-ui/core/Typography";
 import React, { FC, useEffect, useState } from "react";
 import { findKey } from "lodash";
 
+interface Position {
+  start: number;
+  end: number;
+}
 export interface ColourMap {
   [key: string]: Array<string>;
 }
 
-interface PositionType {
-  start: number;
-  end: number;
-}
-
-interface IndexSetType {
-  [key: string]: Array<PositionType>;
+interface IndexMap {
+  [key: string]: Array<Position>;
 }
 
 interface TextColourizerProps extends TypographyProps {
@@ -25,8 +24,8 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
   const [final, setFinal] = useState<Array<JSX.Element>>([]);
 
   useEffect(() => {
-    const indexSet: IndexSetType = {};
-    let set = new Set();
+    const indexMap: IndexMap = {};
+    let setOfStartingPositions = new Set();
 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#Finding_all_the_occurrences_of_an_element
     Object.keys(colourMap).forEach((colour) => {
@@ -34,15 +33,15 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
         let indices = [];
         let idx = text.indexOf(phrase);
         while (idx !== -1) {
-          set.add(idx);
+          setOfStartingPositions.add(idx);
           indices.push({
             start: idx,
             end: idx + phrase.length,
           });
           idx = text.indexOf(phrase, idx + 1);
         }
-        indexSet[colour] = indexSet[colour]
-          ? [...indexSet[colour], ...indices]
+        indexMap[colour] = indexMap[colour]
+          ? [...indexMap[colour], ...indices]
           : indices;
       });
     });
@@ -53,7 +52,7 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
 
       for (let i = 0; i <= text.length; ) {
         let curr = [];
-        while (!set.has(i) && i !== text.length) {
+        while (!setOfStartingPositions.has(i) && i !== text.length) {
           curr.push(text[i]);
           i++;
         }
@@ -62,8 +61,8 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
         result.push(<span key={key++}>{normalPhrase}</span>);
         if (i === text.length) return result;
 
-        const colour = findKey(indexSet, (e) => e.some((x) => x.start === i));
-        const phrase = indexSet[colour!].find((e) => e.start === i);
+        const colour = findKey(indexMap, (e) => e.some((x) => x.start === i));
+        const phrase = indexMap[colour!].find((e) => e.start === i);
 
         result.push(
           <span key={key++} style={{ color: colour! }}>
