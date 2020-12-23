@@ -48,14 +48,6 @@ const Wrapper = styled.div`
     transform: rotate(45deg);
   }
 
-  .textselected: {
-    color: ${mainColour.red};
-  }
-
-  .textunselected: {
-    color: ${mainColour.grey};
-  }
-
   .bottomBorder {
     border-bottom: 2px solid transparent;
     border-image-source: url("https://league-icons.s3-us-west-2.amazonaws.com/line.svg");
