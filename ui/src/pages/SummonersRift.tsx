@@ -279,7 +279,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             item
             xs={7}
             style={{
-              background: `linear-gradient(180deg, #010A13 0%, #041722 100%)`,
+              background: `transparent`,
             }}
           >
             <InfoDrawer
