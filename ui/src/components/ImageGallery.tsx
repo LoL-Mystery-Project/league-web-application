@@ -1,4 +1,12 @@
-import { Dialog, GridListTileBar, Typography } from "@material-ui/core";
+import {
+  createStyles,
+  Dialog,
+  Grid,
+  GridListTileBar,
+  makeStyles,
+  Theme,
+  Typography,
+} from "@material-ui/core";
 import DialogContent from "@material-ui/core/DialogContent";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
@@ -9,6 +17,12 @@ import { RootState } from "../redux/types";
 import { mainColour } from "../styles/palette";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { ImageAsset } from "./ImageAsset";
+import SearchIcon from "@material-ui/icons/Search";
+import Paper from "@material-ui/core/Paper";
+import IconButton from "@material-ui/core/IconButton";
+import InputBase from "@material-ui/core/InputBase";
+import Divider from "@material-ui/core/Divider";
 
 const Wrapper = styled.div`
   .containerStyles {
@@ -44,26 +58,89 @@ interface ImageDialogProps {
   setOpen: Function;
 }
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      padding: "2px 4px",
+      display: "flex",
+      backgroundColor: mainColour.bgBlack,
+      alignItems: "center",
+      width: 600,
+      height: 50,
+    },
+    input: {
+      marginLeft: theme.spacing(1),
+      color: "white",
+      flex: 1,
+    },
+    iconButton: {
+      color: "white",
+      padding: 10,
+    },
+    divider: {
+      height: 28,
+      margin: 4,
+      backgroundColor: mainColour.white,
+    },
+  })
+);
+
 export const ImageGallery: FC = ({}) => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
+  const [searchState, setSearchState] = useState("");
   const [dialogProps, setDialogProps] = useState<ImageProps>({
     imageKey: "",
     url: "",
   });
   const { imageList } = useSelector((state: RootState) => state.images);
+  const classes = useStyles();
 
   const handleClick = (imageKey: string, url: string) => {
     setDialogProps({ imageKey, url });
     setIsDialogOpen(true);
   };
 
+  const handleChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    setSearchState(event.target.value);
+  };
+
   return (
     <Wrapper>
-      <h1>Image Gallery (dev mode only)</h1>
+      <Grid container style={{ margin: 20 }}>
+        <Grid item xs={6}>
+          <h1>Image Gallery (dev mode only)</h1>
+        </Grid>
+        <Grid
+          item
+          xs={6}
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <div style={{ paddingTop: 15, paddingRight: 60 }}>
+            <Paper component="form" className={classes.root}>
+              <div className={classes.iconButton} aria-label="menu">
+                <SearchIcon />
+              </div>
+              <Divider className={classes.divider} orientation="vertical" />
+              <InputBase
+                className={classes.input}
+                onChange={handleChange}
+                placeholder="Search images"
+                inputProps={{ "aria-label": "search images" }}
+              />
+            </Paper>
+          </div>
+        </Grid>
+      </Grid>
       <div className="containerStyles">
         <GridList cellHeight={150} cols={8} style={{ width: "70%" }}>
-          {imageList &&
-            imageList.map((image) => (
+          {imageList
+            ?.filter((e) => e.key.includes(searchState))
+            .map((image) => (
               <GridListTile key={image.key}>
                 <div
                   className="gridCell"
@@ -127,8 +204,7 @@ const ImageDialog: FC<ImageDialogProps> = ({
         <Typography variant="h5" style={{ marginBottom: 20 }}>
           {imageKey}
         </Typography>
-        <img
-          src={url}
+        <ImageAsset
           alt={imageKey}
           style={{
             minHeight: 120,
