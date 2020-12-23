@@ -14,7 +14,7 @@ export const MonsterDetails: FC = () => {
     <MonsterWrapper>
       <div style={{ paddingTop: 20 }}>
         <Typography className="infoHeaderText">Overview</Typography>
-        <ul style={{ margin: 0 }}>
+        <ul style={{ margin: 0, width: 820 }}>
           {colouredDescription?.map(
             ({ text, colourMap }: ColouredDescription, index) => (
               <li key={index}>
