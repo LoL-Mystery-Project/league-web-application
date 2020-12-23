@@ -14,7 +14,7 @@ interface IndexMap {
   [key: string]: Array<Position>;
 }
 
-interface TextColourizerProps extends TypographyProps {
+export interface TextColourizerProps extends TypographyProps {
   text: string;
   colourMap: ColourMap;
 }
