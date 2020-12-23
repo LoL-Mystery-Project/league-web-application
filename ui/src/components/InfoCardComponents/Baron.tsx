@@ -211,6 +211,10 @@ export const Baron: FC<BaronProps> = ({}) => {
         </Grid>
         {/* EFFECTS: HEADER AND INFO */}
         <Grid>
+          {/* EFFECTS LINE SEPARATOR */}
+          <Grid item style={{ paddingTop: 10 }}>
+            <ImageAsset alt="line.svg" />
+          </Grid>
           <div
             style={{
               display: "flex",
@@ -232,7 +236,7 @@ export const Baron: FC<BaronProps> = ({}) => {
             container
             spacing={1}
             style={{ display: "flex", flexDirection: "column" }}
-            className="bottomBorder"
+            // className="bottomBorder"
           >
             <Grid item>
               <div className="effectsStyles">
@@ -320,8 +324,12 @@ export const Baron: FC<BaronProps> = ({}) => {
         </Grid>
         {/* ABILITIES */}
         <Grid>
+          {/* ABILITIES LINE SEPARATOR */}
+          <Grid item style={{ paddingTop: 10 }}>
+            <ImageAsset alt="line.svg" />
+          </Grid>
           {/* ABILITES HEADER */}
-          <Typography className="infoHeaderText">Abilites</Typography>
+          <Typography className="infoHeaderText">Abilities</Typography>
           {/* ABILITIES INFO - BASIC ATTACKS*/}
           <Grid>
             <div

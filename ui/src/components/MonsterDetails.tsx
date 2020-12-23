@@ -10,7 +10,7 @@ export const MonsterDetails: FC = () => {
 
   return (
     <MonsterWrapper>
-      <div>
+      <div style={{paddingTop: 20}}>
         <Typography className="infoHeaderText">Overview</Typography>
         <Typography className="infoText">
           <ul style={{ margin: 0 }}>
@@ -29,7 +29,7 @@ export const MonsterDetails: FC = () => {
           paddingTop: 30,
           paddingBottom: 20,
         }}
-        className="bottomBorder"
+        // className="bottomBorder"
       >
         {/* BOUNTY */}
         <Grid item xs={3}>
