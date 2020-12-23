@@ -10,7 +10,7 @@ export const MonsterDetails: FC = () => {
 
   return (
     <MonsterWrapper>
-      <div style={{paddingTop: 20}}>
+      <div style={{ paddingTop: 20 }}>
         <Typography className="infoHeaderText">Overview</Typography>
         <Typography className="infoText">
           <ul style={{ margin: 0 }}>
@@ -170,121 +170,103 @@ export const MonsterDetails: FC = () => {
             <Grid item>
               {/* STAT COL 2 */}
               <Grid container className="bountyStyles">
-                    <Grid item xs={4}>
-                      {/* REGEN */}
+                <Grid item xs={4}>
+                  {/* REGEN */}
 
-                      <Typography
-                        style={{ display: "flex", alignItems: "center" }}
-                      >
-                        <ImageAsset alt="hpregeneration.svg" />{" "}
-                        <span
-                          className="textColorStylingGreen"
-                          style={{ paddingLeft: 10 }}
-                        >
-                          {selectedMonster?.stats.healthRegen || "n/a"}
-                        </span>{" "}
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                      {/* ATK.SPD */}
+                  <Typography style={{ display: "flex", alignItems: "center" }}>
+                    <ImageAsset alt="hpregeneration.svg" />{" "}
+                    <span
+                      className="textColorStylingGreen"
+                      style={{ paddingLeft: 10 }}
+                    >
+                      {selectedMonster?.stats.healthRegen || "n/a"}
+                    </span>{" "}
+                  </Typography>
+                </Grid>
+                <Grid item xs={4}>
+                  {/* ATK.SPD */}
 
-                      <Typography
-                        style={{ display: "flex", alignItems: "center" }}
-                      >
-                        <ImageAsset alt="attackspd.svg" />{" "}
-                        <span
-                          className="textColorStylingOrange"
-                          style={{ paddingLeft: 10 }}
-                        >
-                          {selectedMonster?.stats.attackSpeed}{" "}
-                        </span>{" "}
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                      {/* MR */}
-                      <Typography
-                        style={{ display: "flex", alignItems: "center" }}
-                      >
-                        <ImageAsset alt="shield_blue.svg" />{" "}
-                        <span
-                          className="textColorStylingBlue"
-                          style={{ paddingLeft: 10 }}
-                        >
-                          {selectedMonster?.stats.magicResist}
-                        </span>{" "}
-                      </Typography>
-                    </Grid>
+                  <Typography style={{ display: "flex", alignItems: "center" }}>
+                    <ImageAsset alt="attackspd.svg" />{" "}
+                    <span
+                      className="textColorStylingOrange"
+                      style={{ paddingLeft: 10 }}
+                    >
+                      {selectedMonster?.stats.attackSpeed}{" "}
+                    </span>{" "}
+                  </Typography>
+                </Grid>
+                <Grid item xs={4}>
+                  {/* MR */}
+                  <Typography style={{ display: "flex", alignItems: "center" }}>
+                    <ImageAsset alt="shield_blue.svg" />{" "}
+                    <span
+                      className="textColorStylingBlue"
+                      style={{ paddingLeft: 10 }}
+                    >
+                      {selectedMonster?.stats.magicResist}
+                    </span>{" "}
+                  </Typography>
+                </Grid>
               </Grid>
             </Grid>
             <Grid item>
               {/* STAT COL 3 */}
               <Grid container className="bountyStyles">
-                    <Grid item xs={4}>
-                      {/* SPEED */}
-                      <Typography
-                        style={{ display: "flex", alignItems: "center" }}
-                      >
-                        <ImageAsset alt="movement.svg" />{" "}
-                        <span
-                          className="textColorStylingPurple"
-                          style={{ paddingLeft: 10 }}
-                        >
-                          {selectedMonster?.stats.movSpeed}
-                        </span>{" "}
-                      </Typography>{" "}
-                    </Grid>
-                    <Grid item xs={4}>
-                      {/* RANGE */}
-                      <Typography
-                        style={{ display: "flex", alignItems: "center" }}
-                      >
-                        <ImageAsset alt="range.svg" />{" "}
-                        <span
-                          className="textColorStylingWhite"
-                          style={{ paddingLeft: 10 }}
-                        >
-                          {selectedMonster?.stats.range}
-                        </span>{" "}
-                      </Typography>{" "}
-                    </Grid>
-                  </Grid>
+                <Grid item xs={4}>
+                  {/* SPEED */}
+                  <Typography style={{ display: "flex", alignItems: "center" }}>
+                    <ImageAsset alt="movement.svg" />{" "}
+                    <span
+                      className="textColorStylingPurple"
+                      style={{ paddingLeft: 10 }}
+                    >
+                      {selectedMonster?.stats.movSpeed}
+                    </span>{" "}
+                  </Typography>{" "}
+                </Grid>
+                <Grid item xs={4}>
+                  {/* RANGE */}
+                  <Typography style={{ display: "flex", alignItems: "center" }}>
+                    <ImageAsset alt="range.svg" />{" "}
+                    <span
+                      className="textColorStylingWhite"
+                      style={{ paddingLeft: 10 }}
+                    >
+                      {selectedMonster?.stats.range}
+                    </span>{" "}
+                  </Typography>{" "}
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-            {/* SPAWN */}
-            <Grid item xs={3} style={{marginLeft: -30}}>
-              <Typography
-                className="overViewSubTextStyling"
-                style={{ paddingBottom: 10 }}
-              >
-                Spawn
-              </Typography>
-              <ImageAsset alt="line2.svg" className="leftBorder" />
-              <Grid
-                container
-                className="bountyStyles"
-                style={{ paddingLeft: 10 }}
-              >
-                <Grid item xs={4}>
-                  <Typography className="greyText">Initial</Typography>
-                </Grid>
-                <Grid item xs={4} style={{ paddingLeft: 10 }}>
-                  <Typography>{selectedMonster?.location?.initial}</Typography>
-                </Grid>
-              </Grid>
-              <Grid
-                container
-                className="bountyStyles"
-                style={{ paddingLeft: 10 }}
-              >
-                <Grid item xs={4}>
-                  <Typography className="greyText">Respawn</Typography>
-                </Grid>
-                <Grid item xs={4} style={{ paddingLeft: 10 }}>
-                  <Typography>{selectedMonster?.location?.respawn}</Typography>
-                </Grid>
-              </Grid>
+        {/* SPAWN */}
+        <Grid item xs={3} style={{ marginLeft: -30 }}>
+          <Typography
+            className="overViewSubTextStyling"
+            style={{ paddingBottom: 10 }}
+          >
+            Spawn
+          </Typography>
+          <ImageAsset alt="line2.svg" className="leftBorder" />
+          <Grid container className="bountyStyles" style={{ paddingLeft: 10 }}>
+            <Grid item xs={4}>
+              <Typography className="greyText">Initial</Typography>
             </Grid>
+            <Grid item xs={4} style={{ paddingLeft: 10 }}>
+              <Typography>{selectedMonster?.location?.initial}</Typography>
+            </Grid>
+          </Grid>
+          <Grid container className="bountyStyles" style={{ paddingLeft: 10 }}>
+            <Grid item xs={4}>
+              <Typography className="greyText">Respawn</Typography>
+            </Grid>
+            <Grid item xs={4} style={{ paddingLeft: 10 }}>
+              <Typography>{selectedMonster?.location?.respawn}</Typography>
+            </Grid>
+          </Grid>
+        </Grid>
       </Grid>
     </MonsterWrapper>
   );
