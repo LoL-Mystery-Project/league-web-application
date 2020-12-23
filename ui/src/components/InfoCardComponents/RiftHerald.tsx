@@ -431,16 +431,22 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
             </li>
             <br />
             <li className="listStyles">
-              She heads to the closest lane and starts pushing it.
+              <Typography>
+                She heads to the closest lane and starts pushing it.
+              </Typography>
             </li>
             <br />
             <li className="listStyles">
-              She focuses mainly on the closest minions and targetable
-              structures.
+              <Typography>
+                She focuses mainly on the closest minions and targetable
+                structures.
+              </Typography>
             </li>
             <br />
             <li className="listStyles">
-              She only targets champions if they attack her first.
+              <Typography>
+                She only targets champions if they attack her first.
+              </Typography>
             </li>
             <br />
             <li className="listStyles">
@@ -453,8 +459,10 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
             </li>
             <br />
             <li className="listStyles">
-              The summoner receives full gold credit by her, including kills on
-              minions or champions and destroyed turret plates.
+              <Typography>
+                The summoner receives full gold credit by her, including kills
+                on minions or champions and destroyed turret plates.
+              </Typography>
             </li>
             <br />
           </ul>
@@ -705,7 +713,7 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
             <br />
             <li className="listStyles">
               <TextColourizer
-                text="Since a summoned Rift Herald prioritizes minions and structures, it is not possible to distract it from smashing   towers. The only way to stop the Rift Herald is to take it down."
+                text="Since a summoned Rift Herald prioritizes minions and structures, it is not possible to distract it from smashing towers. The only way to stop the Rift Herald is to take it down."
                 colourMap={{
                   [mainColour.purple]: ["Rift Herald"],
                 }}
@@ -746,10 +754,10 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
             <li className="listStyles">
               <Typography>
                 The Rift Herald's charge attacks against towers or other
-                structures can be blocked by Champions if they stand   between
-                the Rift Herald and the attacked structure. This causes the
-                charge attack to deal very little damage against the initial
-                target but instead damages the blocking champion.
+                structures can be blocked by Champions if they stand between the
+                Rift Herald and the attacked structure. This causes the charge
+                attack to deal very little damage against the initial target but
+                instead damages the blocking champion.
               </Typography>
             </li>
             <br />
