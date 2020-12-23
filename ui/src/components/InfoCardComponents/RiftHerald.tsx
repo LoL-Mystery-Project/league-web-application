@@ -413,14 +413,14 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
           <ImageAsset alt="line.svg" />
         </Grid>
 
-        {/* SUMMONED HEADER */}
-        <Typography style={{ paddingTop: 20 }} className="infoHeaderText">
-          Summoned
-        </Typography>
-
-        {/* SUMMONED BULLET POINTS */}
         <Grid item>
-          <ul>
+          {/* SUMMONED HEADER */}
+          <Typography style={{ paddingTop: 20 }} className="infoHeaderText">
+            Summoned
+          </Typography>
+
+          {/* SUMMONED BULLET POINTS */}
+          <ul style={{ width: 820 }}>
             <li className="listStyles">
               <TextColourizer
                 text="The Eye of The Herald can be crushed to summon Rift Herald (with different stats, effects and abilities than pit Herald) that relentlessly pushes her way to the enemy Nexus."
@@ -586,26 +586,27 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
                     <TextColourizer
                       text="When Rift Herald approaches a targetable structure, she winds up for a few seconds and leaps into melee range, dealing 2000 − 2750 true damage to the structure, 200% AD physical damage to nearby champions and 66% of her current health as true damage to herself if she damaged the structure."
                       colourMap={{
-                        [mainColour.purple]: [
-                          "Rift Herald",
+                        [mainColour.purple]: ["Rift Herald"],
+                        [mainColour.green]: ["66% of her current health"],
+                        [mainColour.orange]: [
+                          "2000 − 2750 true damage",
+                          "200% AD physical damage",
+                          "true damage",
                         ],
-                        [mainColour.green]: [
-                          "66% of her current health",
-                        ],
-                        [mainColour.orange]: ["2000 − 2750 true damage", "200% AD physical damage", "true damage"],
                       }}
                     />
                   </li>
                   <li className="listStyles">
-                    <Typography>She is displacement immune during the wind up and the leap.</Typography>
+                    <Typography>
+                      She is displacement immune during the wind up and the
+                      leap.
+                    </Typography>
                   </li>
                   <li className="listStyles">
                     <TextColourizer
                       text="If the Rift Herald's current target dies while winding up, she will switch to charge toward the nearest target. If there is no nearby target, she will not cancel her charge."
                       colourMap={{
-                        [mainColour.purple]: [
-                          "Rift Herald",
-                        ],
+                        [mainColour.purple]: ["Rift Herald"],
                       }}
                     />
                   </li>
@@ -670,7 +671,9 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
               <div className="effectsStyles">
                 <ul style={{ marginTop: 5, marginLeft: -18 }}>
                   <li className="listStyles">
-                    <Typography>She disables the Reinforced Armor of nearby enemy turrets.</Typography>
+                    <Typography>
+                      She disables the Reinforced Armor of nearby enemy turrets.
+                    </Typography>
                   </li>
                 </ul>
               </div>
@@ -678,6 +681,86 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
           </Grid>
         </Grid>
 
+        {/* STRATEGY LINE SEPARATOR */}
+        <Grid item style={{ paddingTop: 10 }}>
+          <ImageAsset alt="line.svg" />
+        </Grid>
+
+        <Grid item>
+          {/* STRATEGY HEADER */}
+          <Typography style={{ paddingTop: 20 }} className="infoHeaderText">
+            Strategy
+          </Typography>
+
+          {/* SUMMONED BULLET POINTS */}
+          <ul style={{ width: 820 }}>
+            <li className="listStyles">
+              <TextColourizer
+                text="The summoned Rift Herald has a hefty amount of health and damage and several skills focused on taking down towers. The leap deals the same amount of damage regardless of current health, enabling the Rift Herald to rapidly destroy multiple turrets if left unchallenged."
+                colourMap={{
+                  [mainColour.purple]: ["Rift Herald"],
+                }}
+              />
+            </li>
+            <br />
+            <li className="listStyles">
+              <TextColourizer
+                text="Since a summoned Rift Herald prioritizes minions and structures, it is not possible to distract it from smashing   towers. The only way to stop the Rift Herald is to take it down."
+                colourMap={{
+                  [mainColour.purple]: ["Rift Herald"],
+                }}
+              />
+            </li>
+          </ul>
+        </Grid>
+
+        {/* TRIVIA LINE SEPARATOR */}
+        <Grid item style={{ paddingTop: 10 }}>
+          <ImageAsset alt="line.svg" />
+        </Grid>
+
+        <Grid item>
+          {/* TRIVIA HEADER */}
+          <Typography style={{ paddingTop: 20 }} className="infoHeaderText">
+            Trivia
+          </Typography>
+
+          {/* TRIVIA BULLET POINTS */}
+          <ul style={{ width: 820 }}>
+            <li className="listStyles">
+              <Typography>
+                The Rift Herald was once a Rift Scuttler that has since mutated
+                due to the Void energy emanating from Baron Nashor's pit.
+              </Typography>
+            </li>
+            <br />
+            <li className="listStyles">
+              <Typography>
+                In its neutral monster form, the Rift Herald will dance if a
+                champion dances nearby. In its summoned form, she will dance she
+                is still alive and is near a Nexus (either team) when it is
+                destroyed.
+              </Typography>
+            </li>
+            <br />
+            <li className="listStyles">
+              <Typography>
+                The Rift Herald's charge attacks against towers or other
+                structures can be blocked by Champions if they stand   between
+                the Rift Herald and the attacked structure. This causes the
+                charge attack to deal very little damage against the initial
+                target but instead damages the blocking champion.
+              </Typography>
+            </li>
+            <br />
+            <li className="listStyles">
+              <Typography>
+                In patch V7.9, it was stated that Rift Heralds were exclusively
+                female.
+              </Typography>
+            </li>
+          </ul>
+        </Grid>
       </Grid>
     </MonsterWrapper>
   );
