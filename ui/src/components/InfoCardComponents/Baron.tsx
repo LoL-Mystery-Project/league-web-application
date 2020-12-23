@@ -28,6 +28,13 @@ const useStyles = makeStyles({
     fontSize: 20,
     textTransform: "none",
   },
+  closeArrow: {
+    position: "absolute",
+    right: 20,
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
 });
 
 export const MonsterWrapper = styled.div`
@@ -346,7 +353,14 @@ export const Baron: FC<BaronProps> = ({}) => {
             <ImageAsset alt="line.svg" />
           </Grid>
           {/* ABILITES HEADER */}
-          <Typography className="infoHeaderText">Abilities</Typography>
+          <Grid container>
+            <Grid item xs={9}>
+              <Typography className="infoHeaderText">Abilities</Typography>
+            </Grid>
+            <Grid item>
+              <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
+            </Grid>
+          </Grid>
           {/* ABILITIES INFO - BASIC ATTACKS*/}
           <Grid>
             <div
@@ -684,7 +698,15 @@ export const Baron: FC<BaronProps> = ({}) => {
             <ImageAsset alt="line.svg" />
           </Grid>
           {/* STRATEGY HEADER */}
-          <Typography className="infoHeaderText">Strategy</Typography>
+          <Grid container>
+            <Grid item xs={9}>
+              <Typography className="infoHeaderText">Strategy</Typography>
+            </Grid>
+            <Grid item>
+              <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
+            </Grid>
+          </Grid>
+
           <Grid>
             <ul style={{ margin: 10 }}>
               <li className="listStyles">
@@ -707,7 +729,14 @@ export const Baron: FC<BaronProps> = ({}) => {
             <ImageAsset alt="line.svg" />
           </Grid>
           {/* TRIVIA HEADER */}
-          <Typography className="infoHeaderText">Trivia</Typography>
+          <Grid container>
+            <Grid item xs={9}>
+              <Typography className="infoHeaderText">Trivia</Typography>
+            </Grid>
+            <Grid item>
+              <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
+            </Grid>
+          </Grid>
           <Grid className="listStyles">
             <ul style={{ margin: 10 }}>
               <li>
