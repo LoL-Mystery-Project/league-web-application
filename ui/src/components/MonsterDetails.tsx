@@ -5,15 +5,39 @@ import { ColouredDescription, RootState } from "../redux/types";
 import { TextColourizer } from "../utils/TextColourizer";
 import { ImageAsset } from "./ImageAsset";
 import { MonsterWrapper } from "./InfoCardComponents/Baron";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  closeArrow: {
+    position: "absolute",
+    right: 20,
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+});
 
 export const MonsterDetails: FC = () => {
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
   const { colouredDescription } = selectedMonster!;
+  const classes = useStyles();
 
   return (
     <MonsterWrapper>
-      <div style={{ paddingTop: 20 }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          paddingTop: 20,
+        }}
+      >
+        {/* OVERVIEW HEADER */}
         <Typography className="infoHeaderText">Overview</Typography>
+        {/* OVERVIEW SHOW/HIDE BUTTON */}
+        <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
+      </div>
+      <div style={{ paddingTop: 20 }}>
         <ul style={{ margin: 0, width: 820 }}>
           {colouredDescription?.map(
             ({ text, colourMap }: ColouredDescription, index) => (

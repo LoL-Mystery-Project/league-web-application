@@ -1,15 +1,41 @@
 import { Grid } from "@material-ui/core";
 import React, { FC } from "react";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { MonsterDetails } from "../MonsterDetails";
 import { MonsterWrapper } from "./Baron";
 import Typography from "@material-ui/core/Typography";
 import { ImageAsset } from "../ImageAsset";
 import { TextColourizer } from "../../utils/TextColourizer";
 import { mainColour } from "../../styles/palette";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+
+const StyledTabs = withStyles({
+  root: {
+    color: mainColour.white,
+  },
+})(Tabs);
+
+const useStyles = makeStyles({
+  footerText: {
+    fontFamily: "Friz Quadrata",
+    fontSize: 20,
+    textTransform: "none",
+  },
+  closeArrow: {
+    position: "absolute",
+    right: 20,
+    "&:hover": {
+      cursor: "pointer",
+    },
+  },
+});
 
 interface RiftHeraldProps {}
 
 export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
+  const classes = useStyles();
+
   return (
     <MonsterWrapper>
       <Grid container>
@@ -40,6 +66,8 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
             >
               When killed, grants slayer and their living teammates:
             </Typography>
+            {/* EFFECTS SHOW/HIDE BUTTON */}
+            <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
           </div>
           {/* EFFECTS INFO */}
           <Grid
@@ -147,14 +175,25 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
             <ImageAsset alt="line.svg" />
           </Grid>
 
-          {/* ABILITIES HEADER */}
-          <Typography style={{ paddingTop: 20 }} className="infoHeaderText">
-            Abilities
-          </Typography>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              paddingTop: 20,
+              paddingBottom: 20,
+            }}
+          >
+            {/* ABILITIES HEADER */}
+            <Typography className="infoHeaderText">Abilities</Typography>
+
+            {/* ABILITIES SHOW/HIDE BUTTON */}
+            <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
+          </div>
 
           {/* ABILITIES SUBHEADER: BASIC ATTACKS */}
           <Typography
-            style={{ paddingTop: 20, paddingBottom: 20 }}
+            style={{ paddingBottom: 20 }}
             className="abilitiesTitleStyle"
           >
             Basic Attacks
@@ -413,14 +452,25 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
           <ImageAsset alt="line.svg" />
         </Grid>
 
-        <Grid item>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            paddingTop: 20,
+            paddingBottom: 20,
+          }}
+        >
           {/* SUMMONED HEADER */}
-          <Typography style={{ paddingTop: 20 }} className="infoHeaderText">
-            Summoned
-          </Typography>
+          <Typography className="infoHeaderText">Summoned</Typography>
 
+          {/* SUMMONED SHOW/HIDE BUTTON */}
+          <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
+        </div>
+
+        <Grid item style={{ paddingLeft: 20 }}>
           {/* SUMMONED BULLET POINTS */}
-          <ul style={{ width: 820 }}>
+          <ul style={{ margin: 0, width: 820 }}>
             <li className="listStyles">
               <TextColourizer
                 text="The Eye of The Herald can be crushed to summon Rift Herald (with different stats, effects and abilities than pit Herald) that relentlessly pushes her way to the enemy Nexus."
@@ -431,16 +481,22 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
             </li>
             <br />
             <li className="listStyles">
-              She heads to the closest lane and starts pushing it.
+              <Typography>
+                She heads to the closest lane and starts pushing it.
+              </Typography>
             </li>
             <br />
             <li className="listStyles">
-              She focuses mainly on the closest minions and targetable
-              structures.
+              <Typography>
+                She focuses mainly on the closest minions and targetable
+                structures.
+              </Typography>
             </li>
             <br />
             <li className="listStyles">
-              She only targets champions if they attack her first.
+              <Typography>
+                She only targets champions if they attack her first.
+              </Typography>
             </li>
             <br />
             <li className="listStyles">
@@ -453,8 +509,10 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
             </li>
             <br />
             <li className="listStyles">
-              The summoner receives full gold credit by her, including kills on
-              minions or champions and destroyed turret plates.
+              <Typography>
+                The summoner receives full gold credit by her, including kills
+                on minions or champions and destroyed turret plates.
+              </Typography>
             </li>
             <br />
           </ul>
@@ -686,14 +744,25 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
           <ImageAsset alt="line.svg" />
         </Grid>
 
-        <Grid item>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            paddingTop: 20,
+            paddingBottom: 20,
+          }}
+        >
           {/* STRATEGY HEADER */}
-          <Typography style={{ paddingTop: 20 }} className="infoHeaderText">
-            Strategy
-          </Typography>
+          <Typography className="infoHeaderText">Strategy</Typography>
 
+          {/* STRATEGY SHOW/HIDE BUTTON */}
+          <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
+        </div>
+
+        <Grid item style={{ paddingLeft: 20 }}>
           {/* SUMMONED BULLET POINTS */}
-          <ul style={{ width: 820 }}>
+          <ul style={{ margin: 0, width: 820 }}>
             <li className="listStyles">
               <TextColourizer
                 text="The summoned Rift Herald has a hefty amount of health and damage and several skills focused on taking down towers. The leap deals the same amount of damage regardless of current health, enabling the Rift Herald to rapidly destroy multiple turrets if left unchallenged."
@@ -705,7 +774,7 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
             <br />
             <li className="listStyles">
               <TextColourizer
-                text="Since a summoned Rift Herald prioritizes minions and structures, it is not possible to distract it from smashing   towers. The only way to stop the Rift Herald is to take it down."
+                text="Since a summoned Rift Herald prioritizes minions and structures, it is not possible to distract it from smashing towers. The only way to stop the Rift Herald is to take it down."
                 colourMap={{
                   [mainColour.purple]: ["Rift Herald"],
                 }}
@@ -720,46 +789,117 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
         </Grid>
 
         <Grid item>
-          {/* TRIVIA HEADER */}
-          <Typography style={{ paddingTop: 20 }} className="infoHeaderText">
-            Trivia
-          </Typography>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              paddingTop: 20,
+              paddingBottom: 20,
+            }}
+          >
+            {/* TRIVIA HEADER */}
+            <Typography className="infoHeaderText">Trivia</Typography>
+
+            {/* TRIVIA SHOW/HIDE BUTTON */}
+            <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
+          </div>
 
           {/* TRIVIA BULLET POINTS */}
-          <ul style={{ width: 820 }}>
-            <li className="listStyles">
-              <Typography>
-                The Rift Herald was once a Rift Scuttler that has since mutated
-                due to the Void energy emanating from Baron Nashor's pit.
-              </Typography>
-            </li>
-            <br />
-            <li className="listStyles">
-              <Typography>
-                In its neutral monster form, the Rift Herald will dance if a
-                champion dances nearby. In its summoned form, she will dance she
-                is still alive and is near a Nexus (either team) when it is
-                destroyed.
-              </Typography>
-            </li>
-            <br />
-            <li className="listStyles">
-              <Typography>
-                The Rift Herald's charge attacks against towers or other
-                structures can be blocked by Champions if they stand   between
-                the Rift Herald and the attacked structure. This causes the
-                charge attack to deal very little damage against the initial
-                target but instead damages the blocking champion.
-              </Typography>
-            </li>
-            <br />
-            <li className="listStyles">
-              <Typography>
-                In patch V7.9, it was stated that Rift Heralds were exclusively
-                female.
-              </Typography>
-            </li>
-          </ul>
+          <Grid item style={{ paddingLeft: 20 }}>
+            <ul style={{ margin: 0, width: 820 }}>
+              <li className="listStyles">
+                <Typography>
+                  The Rift Herald was once a Rift Scuttler that has since
+                  mutated due to the Void energy emanating from Baron Nashor's
+                  pit.
+                </Typography>
+              </li>
+              <br />
+              <li className="listStyles">
+                <Typography>
+                  In its neutral monster form, the Rift Herald will dance if a
+                  champion dances nearby. In its summoned form, she will dance
+                  she is still alive and is near a Nexus (either team) when it
+                  is destroyed.
+                </Typography>
+              </li>
+              <br />
+              <li className="listStyles">
+                <Typography>
+                  The Rift Herald's charge attacks against towers or other
+                  structures can be blocked by Champions if they stand between
+                  the Rift Herald and the attacked structure. This causes the
+                  charge attack to deal very little damage against the initial
+                  target but instead damages the blocking champion.
+                </Typography>
+              </li>
+              <br />
+              <li className="listStyles">
+                <Typography>
+                  In patch V7.9, it was stated that Rift Heralds were
+                  exclusively female.
+                </Typography>
+              </li>
+            </ul>
+          </Grid>
+        </Grid>
+
+        {/* FOOTER */}
+        <Grid>
+          <Grid item style={{ paddingTop: 20 }}>
+            <ImageAsset alt="line.svg" />
+          </Grid>
+
+          <StyledTabs
+            // value={value}
+            // onChange={handleChange}
+            indicatorColor="primary"
+            centered
+          >
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Overview</Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Effects</Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>
+                  Abilities
+                </Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Summoned</Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Strategy</Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Trivia</Typography>
+              }
+            />
+          </StyledTabs>
+
+          <Grid style={{ paddingTop: 30, textAlign: "center" }}>
+            <ImageAsset alt="ender.svg" />
+          </Grid>
         </Grid>
       </Grid>
     </MonsterWrapper>
