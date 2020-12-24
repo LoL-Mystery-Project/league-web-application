@@ -36,12 +36,12 @@ const Wrapper = styled.div`
 
   .selectedPage {
     color: #ffffff;
-    background: linear-gradient(transparent, ${mainColour.white} 500%);
+    background: linear-gradient(rgba(255,255,255,0.001), ${mainColour.white} 500%);
   }
 
   .selectedPage:hover {
     color: #ffffff;
-    background-image: linear-gradient(transparent, ${mainColour.white} 500%),
+    background-image: linear-gradient(rgba(255,255,255,0.001), ${mainColour.white} 500%),
       radial-gradient(ellipse at bottom, white 10%, transparent 75%) !important;
     background-position: center, center bottom;
     background-size: 100% 100%, 75% 8%;
