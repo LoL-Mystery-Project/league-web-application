@@ -54,7 +54,7 @@ export const PatchNoteCardPanel: FC = () => {
           style={{ display: "flex", flexDirection: "column", width: 940 }}
         >
           {/* Only display patch note if details array is not empty */}
-          {patchNote.details.length > 0 ? (
+          {patchNote.details.length > 0 && (
             <Grid item style={{ marginLeft: 22 }}>
               {/* LINE SEPARATOR AND VERSION NUMBER */}
               {/* If it is the first patch note, do not display line separator */}
@@ -90,7 +90,7 @@ export const PatchNoteCardPanel: FC = () => {
                 </ul>
               </Grid>
             </Grid>
-          ) : null}
+          )}
         </Grid>
       ))}
     </Wrapper>
