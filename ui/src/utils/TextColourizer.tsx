@@ -32,7 +32,7 @@ export type TextColourizerProps = PropsWithChildren | PropsWithText;
 
 export const TextColourizer: FC<TextColourizerProps> = (props) => {
   const { text, colourMap, children, ...typographyProps } = props;
-  const [final, setFinal] = useState<Array<JSX.Element>>([]);
+  const [rendered, setRendered] = useState<JSX.Element>();
 
   useEffect(() => {
     const originalText = text || children!.toString();
@@ -87,10 +87,12 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
       return result;
     };
 
-    setFinal(getFinalJSX());
+    setRendered(<>{getFinalJSX().map((elem) => elem)}</>);
   }, [children, colourMap, text]);
 
   return (
-    <Typography {...typographyProps}>{final.map((elem) => elem)}</Typography>
+    <Typography display="inline" {...typographyProps}>
+      {rendered}
+    </Typography>
   );
 };
