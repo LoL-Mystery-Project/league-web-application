@@ -14,31 +14,43 @@ interface IndexMap {
   [key: string]: Array<Position>;
 }
 
-export interface TextColourizerProps extends TypographyProps {
-  text: string;
+interface BaseProps extends TypographyProps {
   colourMap: ColourMap;
 }
 
+interface PropsWithChildren extends BaseProps {
+  text?: never;
+  children: React.ReactNode;
+}
+
+interface PropsWithText extends BaseProps {
+  text: string;
+  children?: never;
+}
+
+export type TextColourizerProps = PropsWithChildren | PropsWithText;
+
 export const TextColourizer: FC<TextColourizerProps> = (props) => {
-  const { text, colourMap, ...typographyProps } = props;
+  const { text, colourMap, children, ...typographyProps } = props;
   const [final, setFinal] = useState<Array<JSX.Element>>([]);
 
   useEffect(() => {
+    const originalText = text || children!.toString();
     const indexMap: IndexMap = {};
-    let setOfStartingPositions = new Set();
+    let setOfStartingPositions: Set<number> = new Set();
 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#Finding_all_the_occurrences_of_an_element
     Object.keys(colourMap).forEach((colour) => {
       colourMap[colour].forEach((phrase) => {
         let indices = [];
-        let idx = text.indexOf(phrase);
+        let idx = originalText.indexOf(phrase);
         while (idx !== -1) {
           setOfStartingPositions.add(idx);
           indices.push({
             start: idx,
             end: idx + phrase.length,
           });
-          idx = text.indexOf(phrase, idx + 1);
+          idx = originalText.indexOf(phrase, idx + 1);
         }
         indexMap[colour] = indexMap[colour]
           ? [...indexMap[colour], ...indices]
@@ -46,27 +58,27 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
       });
     });
 
-    const getFinalJSX = () => {
+    const getFinalJSX = (): Array<JSX.Element> => {
       let result: Array<JSX.Element> = [];
       let key = 0;
 
-      for (let i = 0; i <= text.length; ) {
+      for (let i = 0; i <= originalText.length; ) {
         let curr = [];
-        while (!setOfStartingPositions.has(i) && i !== text.length) {
-          curr.push(text[i]);
+        while (!setOfStartingPositions.has(i) && i !== originalText.length) {
+          curr.push(originalText[i]);
           i++;
         }
 
         const normalPhrase = curr.join("");
         result.push(<span key={key++}>{normalPhrase}</span>);
-        if (i === text.length) return result;
+        if (i === originalText.length) return result;
 
         const colour = findKey(indexMap, (e) => e.some((x) => x.start === i));
         const phrase = indexMap[colour!].find((e) => e.start === i);
 
         result.push(
           <span key={key++} style={{ color: colour! }}>
-            {text.substring(phrase!.start, phrase!.end)}
+            {originalText.substring(phrase!.start, phrase!.end)}
           </span>
         );
         i = phrase!.end;
@@ -76,7 +88,7 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
     };
 
     setFinal(getFinalJSX());
-  }, [colourMap, text]);
+  }, [children, colourMap, text]);
 
   return (
     <Typography {...typographyProps}>{final.map((elem) => elem)}</Typography>

@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       backgroundColor: mainColour.bgBlack,
       alignItems: "center",
-      width: 600,
+      width: 400,
       height: 50,
     },
     input: {
@@ -108,12 +108,12 @@ export const ImageGallery: FC = ({}) => {
   return (
     <Wrapper>
       <Grid container style={{ margin: 20 }} className="containerStyles">
-        <Grid item xs={6}>
+        <Grid item xs={12}>
           <h1>Image Gallery (dev mode only)</h1>
         </Grid>
         <Grid
           item
-          xs={6}
+          xs={12}
           style={{
             display: "flex",
             justifyContent: "flex-end",
@@ -128,6 +128,7 @@ export const ImageGallery: FC = ({}) => {
               <InputBase
                 className={classes.input}
                 onChange={handleChange}
+                onKeyDown={e => e.key === 'Enter' && e.preventDefault()}
                 placeholder="Search images"
                 inputProps={{ "aria-label": "search images" }}
               />
@@ -213,7 +214,15 @@ const ImageDialog: FC<ImageDialogProps> = ({
           }}
         />
         <Typography>
-          <b>Source:</b> {url}
+          <b>Source:</b>{" "}
+          <a
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: "inherit" }}
+          >
+            <u>{url}</u>
+          </a>
         </Typography>
         <Typography>
           <b>Original dimensions:</b>{" "}
