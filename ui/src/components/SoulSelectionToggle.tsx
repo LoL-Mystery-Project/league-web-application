@@ -1,18 +1,6 @@
-import React from "react";
-import cloud from "../assets/map/cloudFocused.svg";
-import ocean from "../assets/map/oceanFocused.svg";
-import infernal from "../assets/map/infernalFocused.svg";
-import mountain from "../assets/map/mountainFocused.svg";
-
-import cloudUnselected from "../assets/map/cloud.svg";
-import oceanUnselected from "../assets/map/ocean.svg";
-import infernalUnselected from "../assets/map/infernal.svg";
-import mountainUnselected from "../assets/map/mountain.svg";
-
-import CheckboxFilled from "../assets/map/checkbox.svg";
-import CheckboxBorder from "../assets/map/checkboxborder.svg";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid/Grid";
-import { Typography } from "@material-ui/core";
+import { IconButton, Typography } from "@material-ui/core";
 import styled from "styled-components";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
@@ -23,9 +11,16 @@ import { mainColour } from "../styles/palette";
 import { ImageAsset } from "./ImageAsset";
 
 const Wrapper = styled.div`
-  .soulIconHover:hover {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
+  .dragIcon {
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  .mapIcon {
+    width: 40px;
+    margin-left: -45px;
+    margin-top: 57px;
+    position: absolute;
   }
 
   .toggleButtonStyles {
@@ -44,66 +39,104 @@ const Wrapper = styled.div`
   }
 `;
 
-const dragHeight = 40;
-const dragWidth = 40;
+const dragHeight = 50;
+const dragWidth = 50;
 
 export default function SoulSelectionToggle() {
+  const [hoverDrag, setHoverDrag] = useState("");
   const dispatch = useDispatch();
   const dragState = useSelector((state: RootState) => state.dragon);
   const { selectedDragon } = dragState;
 
-  const handleClick = (dragType: string) => {
+  const updateSelectedDrag = (dragType: string) => {
     dispatch(setSelectedDrag(dragType));
   };
 
   return (
     <Wrapper>
-      <Grid container justify="center" spacing={1} style={{ padding: 2 }}>
-        <Grid item xs={6}>
-          <Button onClick={() => handleClick("cloud")}>
+      <Grid container justify="center" style={{ padding: 2 }}>
+        <Grid item xs={6} style={{ display: "flex", paddingLeft: 10 }}>
+          <span
+            onClick={() => updateSelectedDrag("cloud")}
+            onMouseEnter={() => setHoverDrag("cloud")}
+            onMouseLeave={() => setHoverDrag("")}
+            className="dragIcon"
+          >
             <ImageAsset
-              className="soulIconHover"
               height={dragHeight}
               width={dragWidth}
               alt={
-                selectedDragon === "cloud" ? "cloudFocused.svg" : "cloud.svg"
+                selectedDragon === "cloud" || hoverDrag === "cloud"
+                  ? "cloudFocused.svg"
+                  : "cloud.svg"
               }
             />
-          </Button>
-          <Button onClick={() => handleClick("ocean")}>
+            {selectedDragon === "cloud" && (
+              <ImageAsset className="mapIcon" alt="mapindicator.svg" />
+            )}
+          </span>
+
+          <span
+            onClick={() => updateSelectedDrag("ocean")}
+            onMouseEnter={() => setHoverDrag("ocean")}
+            onMouseLeave={() => setHoverDrag("")}
+            className="dragIcon"
+          >
             <ImageAsset
               className="soulIconHover"
               height={dragHeight}
               width={dragWidth}
               alt={
-                selectedDragon === "ocean" ? "oceanFocused.svg" : "ocean.svg"
+                selectedDragon === "ocean" || hoverDrag === "ocean"
+                  ? "oceanFocused.svg"
+                  : "ocean.svg"
               }
             />
-          </Button>
-          <Button onClick={() => handleClick("infernal")}>
+            {selectedDragon === "ocean" && (
+              <ImageAsset className="mapIcon" alt="mapindicator.svg" />
+            )}
+          </span>
+
+          <span
+            onClick={() => updateSelectedDrag("infernal")}
+            onMouseEnter={() => setHoverDrag("infernal")}
+            onMouseLeave={() => setHoverDrag("")}
+            className="dragIcon"
+          >
             <ImageAsset
               className="soulIconHover"
               height={dragHeight}
               width={dragWidth}
               alt={
-                selectedDragon === "infernal"
+                selectedDragon === "infernal" || hoverDrag === "infernal"
                   ? "infernalFocused.svg"
                   : "infernal.svg"
               }
             />
-          </Button>
-          <Button onClick={() => handleClick("mountain")}>
+            {selectedDragon === "infernal" && (
+              <ImageAsset className="mapIcon" alt="mapindicator.svg" />
+            )}
+          </span>
+          <span
+            onClick={() => updateSelectedDrag("mountain")}
+            onMouseEnter={() => setHoverDrag("mountain")}
+            onMouseLeave={() => setHoverDrag("")}
+            className="dragIcon"
+          >
             <ImageAsset
               className="soulIconHover"
               height={dragHeight}
               width={dragWidth}
               alt={
-                selectedDragon === "mountain"
+                selectedDragon === "mountain" || hoverDrag === "mountain"
                   ? "mountainFocused.svg"
                   : "mountain.svg"
               }
             />
-          </Button>
+            {selectedDragon === "mountain" && (
+              <ImageAsset className="mapIcon" alt="mapindicator.svg" />
+            )}
+          </span>
         </Grid>
         <Grid item xs={3}>
           <div style={{ display: "flex", flexDirection: "row" }}>

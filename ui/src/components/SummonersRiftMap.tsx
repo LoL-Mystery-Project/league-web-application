@@ -49,7 +49,7 @@ export default function SummonersRiftMap() {
     <>
       <SoulSelectionToggle />
       <div className="Map">
-        <ImageAsset alt="fullmap.svg" height="100%" width="100%" />;
+        <ImageAsset alt="fullmap.svg" height="100%" width="100%" style={{ marginTop: 5 }} />;
       </div>
     </>
   );
