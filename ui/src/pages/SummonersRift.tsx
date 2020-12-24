@@ -235,9 +235,45 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                     container
                     style={{ display: "flex", flexDirection: "row" }}
                   >
-                    {/* COLUMN 1 */}
+                    {/* MINIONS: COLUMN 1 */}
                     <Grid item xs={6}>
-                      {[1, 1].map(() => (
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          paddingTop: 10,
+                        }}
+                      >
+                        <ImageAsset
+                          style={{ paddingRight: 5 }}
+                          alt="superminion.svg"
+                        />
+                        <p
+                          className={classes.assetText}
+                          style={{ paddingLeft: 10 }}
+                        >
+                          Super Minions
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          paddingTop: 10,
+                        }}
+                      >
+                        <ImageAsset
+                          style={{ paddingRight: 5 }}
+                          alt="meleeminion.svg"
+                        />
+                        <p
+                          className={classes.assetText}
+                          style={{ paddingLeft: 10 }}
+                        >
+                          Melee Minions
+                        </p>
+                      </div>
+                      {/* {[1, 1].map(() => (
                         <div
                           style={{
                             display: "flex",
@@ -259,33 +295,46 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                             Baron Nashor
                           </p>
                         </div>
-                      ))}
+                      ))} */}
                     </Grid>
                     {/* COLUMN 2 */}
                     <Grid item xs={6}>
-                      {[1, 1].map(() => (
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            paddingTop: 10,
-                          }}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          paddingTop: 10,
+                        }}
+                      >
+                        <ImageAsset
+                          style={{ paddingRight: 5 }}
+                          alt="canonminion.svg"
+                        />
+                        <p
+                          className={classes.assetText}
+                          style={{ paddingLeft: 10 }}
                         >
-                          <img
-                            className=""
-                            src={baronIcon}
-                            height={ICON_SIZE}
-                            style={{ paddingRight: 5 }}
-                            alt="baronIcon"
-                          />{" "}
-                          <p
-                            className={classes.assetText}
-                            style={{ paddingLeft: 10 }}
-                          >
-                            Baron Nashor
-                          </p>
-                        </div>
-                      ))}
+                          Cannon Minions
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          paddingTop: 10,
+                        }}
+                      >
+                        <ImageAsset
+                          style={{ paddingRight: 5 }}
+                          alt="casterminion.svg"
+                        />
+                        <p
+                          className={classes.assetText}
+                          style={{ paddingLeft: 10 }}
+                        >
+                          Caster Minions
+                        </p>
+                      </div>
                     </Grid>
                   </Grid>
                   <Grid
@@ -300,65 +349,127 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         paddingTop: 20,
                       }}
                     >
-                      {/* COLUMN 1 */}
+                      {/* JUNGLE PLANTS*/}
                       <Grid item xs={6}>
                         <Typography className={classes.headerText}>
                           Jungle Plants
                         </Typography>
                         <ImageAsset width={220} alt="lineSeparatorShort.svg" />
-                        {[1, 1, 1].map(() => (
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                              paddingTop: 10,
-                            }}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="blastcone.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
                           >
-                            <img
-                              className=""
-                              src={baronIcon}
-                              height={ICON_SIZE}
-                              style={{ paddingRight: 5 }}
-                              alt="baronIcon"
-                            />{" "}
-                            <p
-                              className={classes.assetText}
-                              style={{ paddingLeft: 10 }}
-                            >
-                              Baron Nashor
-                            </p>
-                          </div>
-                        ))}
+                            Blast Cone
+                          </p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="honeyfruit.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
+                          >
+                            Honey Fruit
+                          </p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="scryersbloom.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
+                          >
+                            Scryer's Bloom
+                          </p>
+                        </div>
                       </Grid>
-                      {/* COLUMN 2 */}
+                      {/* BUILDINGS */}
                       <Grid item xs={6}>
                         <Typography className={classes.headerText}>
                           Buildings
                         </Typography>
                         <ImageAsset width={220} alt="lineSeparatorShort.svg" />
-                        {[1, 1, 1].map(() => (
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                              paddingTop: 10,
-                            }}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="turret.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
                           >
-                            <img
-                              className=""
-                              src={baronIcon}
-                              height={ICON_SIZE}
-                              style={{ paddingRight: 5 }}
-                              alt="baronIcon"
-                            />{" "}
-                            <p
-                              className={classes.assetText}
-                              style={{ paddingLeft: 10 }}
-                            >
-                              Baron Nashor
-                            </p>
-                          </div>
-                        ))}
+                            Turrets
+                          </p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="inhibitor.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
+                          >
+                            Inhibitors
+                          </p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="nexus.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
+                          >
+                            Nexus
+                          </p>
+                        </div>
                       </Grid>
                     </Grid>
                   </Grid>
