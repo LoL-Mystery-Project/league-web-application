@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
     assetText: {
       color: mainColour.white,
       fontFamily: "Friz Quadrata",
-      fontSize: 14,
+      fontSize: 16,
     },
 
     drawerStyle: {
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface SummonersRiftProps {}
 
-const ICON_SIZE = 30;
+const ICON_SIZE = 40;
 
 export interface MonsterObject {
   name: string;
@@ -88,7 +88,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
         className={classes.root}
         justify="center"
         spacing={1}
-        style={{ padding: 10 }}
+        style={{ paddingTop: 30 }}
       >
         {/* MAP */}
         <Grid item xs={5}>
@@ -103,8 +103,8 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
         </Grid>
 
         {!showInfoDrawer ? (
-          <Grid item xs={7}>
-            <Grid container spacing={1}>
+          <Grid>
+            <Grid container style={{ paddingLeft: 60 }}>
               {/* MONSTER LIST */}
               <Grid item xs={7}>
                 <Paper
@@ -114,71 +114,173 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                   }}
                 >
                   <SummonerSearchBar />
-                  <Typography className={classes.headerText}>
+                  <Typography
+                    style={{ paddingTop: 30 }}
+                    className={classes.headerText}
+                  >
                     Neutral Monsters
                   </Typography>
-                  <ImageAsset alt="lineSeparator.svg" />
+                  <ImageAsset width={460} alt="lineSeparator.svg" />
                   <Grid
                     container
-                    style={{ display: "flex", flexDirection: "row", margin: 5 }}
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      margin: 5,
+                    }}
                   >
-                    {/* COLUMN 1 */}
+                    {/* NEUTRAL MONSTERS: COLUMN 1 */}
                     <Grid item xs={6}>
                       {allMonsters?.map((elem: MonsterType) => (
-                        <Button
-                          onClick={() => {
-                            handleToggleInfoDrawer(elem);
-                            dispatch(setSelectedMonster(elem.name));
-                          }}
-                        >
-                          <div
-                            style={{ display: "flex", flexDirection: "row" }}
-                            className={classes.listItem}
-                          >
-                            <ImageAsset
-                              className=""
-                              height={ICON_SIZE}
-                              width={ICON_SIZE}
-                              style={{ paddingRight: 5 }}
-                              alt={elem.icon}
-                            />{" "}
-                            <Typography className={classes.assetText}>
-                              {elem.name}
-                            </Typography>
-                          </div>
-                        </Button>
+                        <div>
+                          {allMonsters?.indexOf(elem) < 7 && (
+                            <Grid
+                              container
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignContent: "center",
+                                paddingTop: 10,
+                              }}
+                            >
+                              <Button
+                                onClick={() => {
+                                  handleToggleInfoDrawer(elem);
+                                  dispatch(setSelectedMonster(elem.name));
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                  }}
+                                  className={classes.listItem}
+                                >
+                                  <ImageAsset
+                                    className=""
+                                    height={ICON_SIZE}
+                                    width={ICON_SIZE}
+                                    style={{ paddingRight: 5 }}
+                                    alt={elem.icon}
+                                  />{" "}
+                                  <p
+                                    className={classes.assetText}
+                                    style={{ paddingLeft: 10 }}
+                                  >
+                                    {elem.name}
+                                  </p>
+                                </div>
+                              </Button>
+                            </Grid>
+                          )}
+                        </div>
                       ))}
                     </Grid>
-                    {/* COLUMN 2 */}
+                    {/* NEUTRAL MONSTERS: COLUMN 2 */}
                     <Grid item xs={6}>
-                      {[1, 1, 1, 1, 1, 1].map(() => (
-                        <div style={{ display: "flex", flexDirection: "row" }}>
-                          <img
-                            className=""
-                            src={baronIcon}
-                            height={ICON_SIZE}
-                            style={{ paddingRight: 5 }}
-                            alt="baronIcon"
-                          />{" "}
-                          <Typography className={classes.assetText}>
-                            Baron Nashor
-                          </Typography>
+                      {allMonsters?.map((elem: MonsterType) => (
+                        <div>
+                          {allMonsters?.indexOf(elem) > 6 && (
+                            <Grid
+                              container
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignContent: "center",
+                                paddingTop: 10,
+                              }}
+                            >
+                              <Button
+                                onClick={() => {
+                                  handleToggleInfoDrawer(elem);
+                                  dispatch(setSelectedMonster(elem.name));
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                  }}
+                                  className={classes.listItem}
+                                >
+                                  <ImageAsset
+                                    className=""
+                                    height={ICON_SIZE}
+                                    width={ICON_SIZE}
+                                    style={{ paddingRight: 5 }}
+                                    alt={elem.icon}
+                                  />{" "}
+                                  <p
+                                    className={classes.assetText}
+                                    style={{ paddingLeft: 10 }}
+                                  >
+                                    {elem.name}
+                                  </p>
+                                </div>
+                              </Button>
+                            </Grid>
+                          )}
                         </div>
                       ))}
                     </Grid>
                   </Grid>
-                  <Typography className={classes.headerText}>
+                  <Typography
+                    style={{ paddingTop: 20 }}
+                    className={classes.headerText}
+                  >
                     Minions
                   </Typography>
-                  <ImageAsset alt="lineSeparator.svg" />
+                  <ImageAsset width={460} alt="lineSeparator.svg" />
                   <Grid
                     container
                     style={{ display: "flex", flexDirection: "row" }}
                   >
-                    {/* COLUMN 1 */}
+                    {/* MINIONS: COLUMN 1 */}
                     <Grid item xs={6}>
-                      {[1, 1].map(() => (
-                        <div style={{ display: "flex", flexDirection: "row" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          paddingTop: 10,
+                        }}
+                      >
+                        <ImageAsset
+                          style={{ paddingRight: 5 }}
+                          alt="superminion.svg"
+                        />
+                        <p
+                          className={classes.assetText}
+                          style={{ paddingLeft: 10 }}
+                        >
+                          Super Minions
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          paddingTop: 10,
+                        }}
+                      >
+                        <ImageAsset
+                          style={{ paddingRight: 5 }}
+                          alt="meleeminion.svg"
+                        />
+                        <p
+                          className={classes.assetText}
+                          style={{ paddingLeft: 10 }}
+                        >
+                          Melee Minions
+                        </p>
+                      </div>
+                      {/* {[1, 1].map(() => (
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
                           <img
                             className=""
                             src={baronIcon}
@@ -186,28 +288,53 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                             style={{ paddingRight: 5 }}
                             alt="baronIcon"
                           />{" "}
-                          <Typography className={classes.assetText}>
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
+                          >
                             Baron Nashor
-                          </Typography>
+                          </p>
                         </div>
-                      ))}
+                      ))} */}
                     </Grid>
                     {/* COLUMN 2 */}
                     <Grid item xs={6}>
-                      {[1, 1].map(() => (
-                        <div style={{ display: "flex", flexDirection: "row" }}>
-                          <img
-                            className=""
-                            src={baronIcon}
-                            height={ICON_SIZE}
-                            style={{ paddingRight: 5 }}
-                            alt="baronIcon"
-                          />{" "}
-                          <Typography className={classes.assetText}>
-                            Baron Nashor
-                          </Typography>
-                        </div>
-                      ))}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          paddingTop: 10,
+                        }}
+                      >
+                        <ImageAsset
+                          style={{ paddingRight: 5 }}
+                          alt="canonminion.svg"
+                        />
+                        <p
+                          className={classes.assetText}
+                          style={{ paddingLeft: 10 }}
+                        >
+                          Cannon Minions
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          paddingTop: 10,
+                        }}
+                      >
+                        <ImageAsset
+                          style={{ paddingRight: 5 }}
+                          alt="casterminion.svg"
+                        />
+                        <p
+                          className={classes.assetText}
+                          style={{ paddingLeft: 10 }}
+                        >
+                          Caster Minions
+                        </p>
+                      </div>
                     </Grid>
                   </Grid>
                   <Grid
@@ -216,53 +343,133 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                   >
                     <Grid
                       container
-                      style={{ display: "flex", flexDirection: "row" }}
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        paddingTop: 20,
+                      }}
                     >
-                      {/* COLUMN 1 */}
+                      {/* JUNGLE PLANTS*/}
                       <Grid item xs={6}>
                         <Typography className={classes.headerText}>
                           Jungle Plants
                         </Typography>
-                        <ImageAsset alt="lineSeparatorShort.svg" />
-                        {[1, 1].map(() => (
-                          <div
-                            style={{ display: "flex", flexDirection: "row" }}
+                        <ImageAsset width={220} alt="lineSeparatorShort.svg" />
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="blastcone.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
                           >
-                            <img
-                              className=""
-                              src={baronIcon}
-                              height={ICON_SIZE}
-                              style={{ paddingRight: 5 }}
-                              alt="baronIcon"
-                            />{" "}
-                            <Typography className={classes.assetText}>
-                              Baron Nashor
-                            </Typography>
-                          </div>
-                        ))}
+                            Blast Cone
+                          </p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="honeyfruit.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
+                          >
+                            Honey Fruit
+                          </p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="scryersbloom.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
+                          >
+                            Scryer's Bloom
+                          </p>
+                        </div>
                       </Grid>
-                      {/* COLUMN 2 */}
+                      {/* BUILDINGS */}
                       <Grid item xs={6}>
                         <Typography className={classes.headerText}>
                           Buildings
                         </Typography>
-                        <ImageAsset alt="lineSeparatorShort.svg" />
-                        {[1, 1].map(() => (
-                          <div
-                            style={{ display: "flex", flexDirection: "row" }}
+                        <ImageAsset width={220} alt="lineSeparatorShort.svg" />
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="turret.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
                           >
-                            <img
-                              className=""
-                              src={baronIcon}
-                              height={ICON_SIZE}
-                              style={{ paddingRight: 5 }}
-                              alt="baronIcon"
-                            />{" "}
-                            <Typography className={classes.assetText}>
-                              Baron Nashor
-                            </Typography>
-                          </div>
-                        ))}
+                            Turrets
+                          </p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="inhibitor.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
+                          >
+                            Inhibitors
+                          </p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
+                          <ImageAsset
+                            style={{ paddingRight: 5 }}
+                            alt="nexus.svg"
+                          />
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
+                          >
+                            Nexus
+                          </p>
+                        </div>
                       </Grid>
                     </Grid>
                   </Grid>
