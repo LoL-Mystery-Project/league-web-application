@@ -1,14 +1,27 @@
 import { Grid } from "@material-ui/core";
 import React, { FC } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { MonsterDetails } from "../MonsterDetails";
 import { MonsterWrapper } from "./Baron";
 import Typography from "@material-ui/core/Typography";
 import { ImageAsset } from "../ImageAsset";
 import { TextColourizer } from "../../utils/TextColourizer";
 import { mainColour } from "../../styles/palette";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+
+const StyledTabs = withStyles({
+  root: {
+    color: mainColour.white,
+  },
+})(Tabs);
 
 const useStyles = makeStyles({
+  footerText: {
+    fontFamily: "Friz Quadrata",
+    fontSize: 20,
+    textTransform: "none",
+  },
   closeArrow: {
     position: "absolute",
     right: 20,
@@ -829,6 +842,63 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
                 </Typography>
               </li>
             </ul>
+          </Grid>
+        </Grid>
+
+        {/* FOOTER */}
+        <Grid>
+          <Grid item style={{ paddingTop: 20 }}>
+            <ImageAsset alt="line.svg" />
+          </Grid>
+
+          <StyledTabs
+            // value={value}
+            // onChange={handleChange}
+            indicatorColor="primary"
+            centered
+          >
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Overview</Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Effects</Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>
+                  Abilities
+                </Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Summoned</Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Strategy</Typography>
+              }
+            />
+            <Tab
+              disableRipple
+              label={
+                <Typography className={classes.footerText}>Trivia</Typography>
+              }
+            />
+          </StyledTabs>
+
+          <Grid style={{ paddingTop: 30, textAlign: "center" }}>
+            <ImageAsset alt="ender.svg" />
           </Grid>
         </Grid>
       </Grid>
