@@ -160,7 +160,8 @@ export default function SoulSelectionToggle() {
             </Typography>
           </div>
         </Grid>
-        <Grid item xs={3}>
+        {/* TODO: set paddingLeft to 55 later */}
+        <Grid item xs={3} style={{paddingLeft: 20}}>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <Checkbox
               style={{ width: 10, height: 10 }}
