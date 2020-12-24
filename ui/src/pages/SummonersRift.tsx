@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
     assetText: {
       color: mainColour.white,
       fontFamily: "Friz Quadrata",
-      fontSize: 14,
+      fontSize: 16,
     },
 
     drawerStyle: {
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface SummonersRiftProps {}
 
-const ICON_SIZE = 30;
+const ICON_SIZE = 40;
 
 export interface MonsterObject {
   name: string;
@@ -114,60 +114,120 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                   }}
                 >
                   <SummonerSearchBar />
-                  <Typography className={classes.headerText}>
+                  <Typography
+                    style={{ paddingTop: 30 }}
+                    className={classes.headerText}
+                  >
                     Neutral Monsters
                   </Typography>
                   <ImageAsset alt="lineSeparator.svg" />
                   <Grid
                     container
-                    style={{ display: "flex", flexDirection: "row", margin: 5 }}
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      margin: 5,
+                    }}
                   >
-                    {/* COLUMN 1 */}
+                    {/* NEUTRAL MONSTERS: COLUMN 1 */}
                     <Grid item xs={6}>
                       {allMonsters?.map((elem: MonsterType) => (
-                        <Button
-                          onClick={() => {
-                            handleToggleInfoDrawer(elem);
-                            dispatch(setSelectedMonster(elem.name));
-                          }}
-                        >
-                          <div
-                            style={{ display: "flex", flexDirection: "row" }}
-                            className={classes.listItem}
-                          >
-                            <ImageAsset
-                              className=""
-                              height={ICON_SIZE}
-                              width={ICON_SIZE}
-                              style={{ paddingRight: 5 }}
-                              alt={elem.icon}
-                            />{" "}
-                            <Typography className={classes.assetText}>
-                              {elem.name}
-                            </Typography>
-                          </div>
-                        </Button>
+                        <div>
+                          {allMonsters?.indexOf(elem) < 7 && (
+                            <Grid
+                              container
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignContent: "center",
+                                paddingTop: 10,
+                              }}
+                            >
+                              <Button
+                                onClick={() => {
+                                  handleToggleInfoDrawer(elem);
+                                  dispatch(setSelectedMonster(elem.name));
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                  }}
+                                  className={classes.listItem}
+                                >
+                                  <ImageAsset
+                                    className=""
+                                    height={ICON_SIZE}
+                                    width={ICON_SIZE}
+                                    style={{ paddingRight: 5 }}
+                                    alt={elem.icon}
+                                  />{" "}
+                                  <p
+                                    className={classes.assetText}
+                                    style={{ paddingLeft: 10 }}
+                                  >
+                                    {elem.name}
+                                  </p>
+                                </div>
+                              </Button>
+                            </Grid>
+                          )}
+                        </div>
                       ))}
                     </Grid>
-                    {/* COLUMN 2 */}
+                    {/* NEUTRAL MONSTERS: COLUMN 2 */}
                     <Grid item xs={6}>
-                      {[1, 1, 1, 1, 1, 1].map(() => (
-                        <div style={{ display: "flex", flexDirection: "row" }}>
-                          <img
-                            className=""
-                            src={baronIcon}
-                            height={ICON_SIZE}
-                            style={{ paddingRight: 5 }}
-                            alt="baronIcon"
-                          />{" "}
-                          <Typography className={classes.assetText}>
-                            Baron Nashor
-                          </Typography>
+                      {allMonsters?.map((elem: MonsterType) => (
+                        <div>
+                          {allMonsters?.indexOf(elem) > 6 && (
+                            <Grid
+                              container
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignContent: "center",
+                                paddingTop: 10,
+                              }}
+                            >
+                              <Button
+                                onClick={() => {
+                                  handleToggleInfoDrawer(elem);
+                                  dispatch(setSelectedMonster(elem.name));
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                  }}
+                                  className={classes.listItem}
+                                >
+                                  <ImageAsset
+                                    className=""
+                                    height={ICON_SIZE}
+                                    width={ICON_SIZE}
+                                    style={{ paddingRight: 5 }}
+                                    alt={elem.icon}
+                                  />{" "}
+                                  <p
+                                    className={classes.assetText}
+                                    style={{ paddingLeft: 10 }}
+                                  >
+                                    {elem.name}
+                                  </p>
+                                </div>
+                              </Button>
+                            </Grid>
+                          )}
                         </div>
                       ))}
                     </Grid>
                   </Grid>
-                  <Typography className={classes.headerText}>
+                  <Typography
+                    style={{ paddingTop: 20 }}
+                    className={classes.headerText}
+                  >
                     Minions
                   </Typography>
                   <ImageAsset alt="lineSeparator.svg" />
@@ -178,7 +238,13 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                     {/* COLUMN 1 */}
                     <Grid item xs={6}>
                       {[1, 1].map(() => (
-                        <div style={{ display: "flex", flexDirection: "row" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
                           <img
                             className=""
                             src={baronIcon}
@@ -186,16 +252,25 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                             style={{ paddingRight: 5 }}
                             alt="baronIcon"
                           />{" "}
-                          <Typography className={classes.assetText}>
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
+                          >
                             Baron Nashor
-                          </Typography>
+                          </p>
                         </div>
                       ))}
                     </Grid>
                     {/* COLUMN 2 */}
                     <Grid item xs={6}>
                       {[1, 1].map(() => (
-                        <div style={{ display: "flex", flexDirection: "row" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            paddingTop: 10,
+                          }}
+                        >
                           <img
                             className=""
                             src={baronIcon}
@@ -203,9 +278,12 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                             style={{ paddingRight: 5 }}
                             alt="baronIcon"
                           />{" "}
-                          <Typography className={classes.assetText}>
+                          <p
+                            className={classes.assetText}
+                            style={{ paddingLeft: 10 }}
+                          >
                             Baron Nashor
-                          </Typography>
+                          </p>
                         </div>
                       ))}
                     </Grid>
@@ -216,7 +294,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                   >
                     <Grid
                       container
-                      style={{ display: "flex", flexDirection: "row" }}
+                      style={{ display: "flex", flexDirection: "row", paddingTop: 20 }}
                     >
                       {/* COLUMN 1 */}
                       <Grid item xs={6}>
@@ -226,7 +304,11 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         <ImageAsset alt="lineSeparatorShort.svg" />
                         {[1, 1].map(() => (
                           <div
-                            style={{ display: "flex", flexDirection: "row" }}
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              paddingTop: 10,
+                            }}
                           >
                             <img
                               className=""
@@ -235,9 +317,12 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                               style={{ paddingRight: 5 }}
                               alt="baronIcon"
                             />{" "}
-                            <Typography className={classes.assetText}>
+                            <p
+                              className={classes.assetText}
+                              style={{ paddingLeft: 10 }}
+                            >
                               Baron Nashor
-                            </Typography>
+                            </p>
                           </div>
                         ))}
                       </Grid>
@@ -249,7 +334,11 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         <ImageAsset alt="lineSeparatorShort.svg" />
                         {[1, 1].map(() => (
                           <div
-                            style={{ display: "flex", flexDirection: "row" }}
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              paddingTop: 10,
+                            }}
                           >
                             <img
                               className=""
@@ -258,9 +347,12 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                               style={{ paddingRight: 5 }}
                               alt="baronIcon"
                             />{" "}
-                            <Typography className={classes.assetText}>
+                            <p
+                              className={classes.assetText}
+                              style={{ paddingLeft: 10 }}
+                            >
                               Baron Nashor
-                            </Typography>
+                            </p>
                           </div>
                         ))}
                       </Grid>
