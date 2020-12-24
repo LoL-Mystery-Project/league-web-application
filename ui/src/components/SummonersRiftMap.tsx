@@ -40,15 +40,176 @@ const Wrapper = styled.div`
     top: 27%;
     left: 31.7%;
   }
-`;
-export default function SummonersRiftMap() {
-  return (
-    // div col1
-    // put into a div / row
-    // The selection thingy with the cloud drakes <separate component>
-    // the toggles <separate component>
 
-    // the map below
+  .dragonPosition {
+    position: absolute;
+    top: 68%;
+    left: 65%;
+  }
+
+  .redKrugPosition {
+    position: absolute;
+    top: 15.5%;
+    left: 42.2%;
+  }
+
+  .blueKrugPosition {
+    position: absolute;
+    top: 81.8%;
+    left: 56.6%;
+  }
+
+  .redRaptorPosition {
+    position: absolute;
+    top: 33.8%;
+    left: 52.3%;
+  }
+
+  .blueRaptorPosition {
+    position: absolute;
+    top: 62.8%;
+    left: 46.8%;
+  }
+
+  .topScuttlePos {
+    position: absolute;
+    top: 32%;
+    left: 28%;
+  }
+
+  .botScuttlePos {
+    position: absolute;
+    top: 65%;
+    left: 72%;
+  }
+
+  .redWolfPos {
+    position: absolute;
+    top: 42%;
+    left: 73%;
+  }
+
+  .blueWolfPos {
+    position: absolute;
+    top: 54%;
+    left: 24%;
+  }
+
+  .redNexusPos {
+    position: absolute;
+    top: 9%;
+    right: 9%;
+  }
+
+  .blueNexusPos {
+    position: absolute;
+    bottom: 9%;
+    left: 9%;
+  }
+
+  .redInhibPosTop {
+    position: absolute;
+    top: 7%;
+    right: 25%;
+  }
+
+  .redInhibPosMid {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+  }
+
+  .redInhibPosBot {
+    position: absolute;
+    top: 25%;
+    right: 7%;
+  }
+
+  .blueInhibPosTop {
+    position: absolute;
+    bottom: 7%;
+    left: 25%;
+  }
+
+  .blueInhibPosMid {
+    position: absolute;
+    bottom: 20%;
+    left: 20%;
+  }
+
+  .blueInhibPosBot {
+    position: absolute;
+    bottom: 25%;
+    left: 7%;
+  }
+
+  .redOuterTurretTop {
+    position: absolute;
+    top: 6.5%;
+    left: 29%;
+  }
+
+  .redOuterTurretBot {
+    position: absolute;
+    top: 70%;
+    left: 92%;
+  }
+
+  .redNexusTurretTop {
+    position: absolute;
+    top: 13%;
+    right: 16%;
+  }
+  .redNexusTurretBot {
+    position: absolute;
+    top: 16%;
+    right: 13%;
+  }
+
+  .blueOuterTurretTop {
+    position: absolute;
+    bottom: 70%;
+    right: 92%;
+  }
+
+  .blueOuterTurretBot {
+    position: absolute;
+    bottom: 6%;
+    right: 29%;
+  }
+
+  .blueNexusTurretTop {
+    position: absolute;
+    bottom: 13%;
+    left: 16%;
+  }
+  .blueNexusTurretBot {
+    position: absolute;
+    bottom: 16%;
+    left: 13%;
+  }
+`;
+
+// interface mapElement {
+//   imgName: String;
+//   top: String;
+//   left: String;
+//   width: number;
+//   height: number;
+// }
+
+export default function SummonersRiftMap() {
+  // const placeMapElements = (mapArray: mapElement[]) => {
+  //   for (const a of mapArray) {
+  //     a.
+  //   }
+
+  //   return (
+  //     <ImageAsset alt={imgName} className={classPos} width={w} height={h} />
+  //   );
+  // };
+
+  return (
     <>
       <SoulSelectionToggle />
       <Wrapper>
@@ -59,6 +220,181 @@ export default function SummonersRiftMap() {
             width="4%"
             height="4%"
           />
+          <ImageAsset
+            alt="dragon.svg"
+            className="dragonPosition"
+            width="4%"
+            height="4%"
+          />
+
+          <ImageAsset
+            alt="krug.svg"
+            className="redKrugPosition"
+            width="2.5%"
+            height="2.5%"
+          />
+
+          <ImageAsset
+            alt="krug.svg"
+            className="blueKrugPosition"
+            width="2.5%"
+            height="2.5%"
+          />
+
+          <ImageAsset
+            alt="raptor.svg"
+            className="redRaptorPosition"
+            width="2.5%"
+            height="2.5%"
+          />
+
+          <ImageAsset
+            alt="raptor.svg"
+            className="blueRaptorPosition"
+            width="2.5%"
+            height="2.5%"
+          />
+
+          <ImageAsset
+            alt="scuttlercrab.svg"
+            className="topScuttlePos"
+            width="3%"
+            height="3%"
+          />
+
+          <ImageAsset
+            alt="scuttlercrab.svg"
+            className="botScuttlePos"
+            width="3%"
+            height="3%"
+          />
+
+          <ImageAsset
+            alt="wolf.svg"
+            className="redWolfPos"
+            width="3%"
+            height="3%"
+          />
+
+          <ImageAsset
+            alt="wolf.svg"
+            className="blueWolfPos"
+            width="3%"
+            height="3%"
+          />
+
+          <ImageAsset
+            alt="rednexus.svg"
+            className="redNexusPos"
+            width="6%"
+            height="6%"
+          />
+
+          <ImageAsset
+            alt="bluenexus.svg"
+            className="blueNexusPos"
+            width="6%"
+            height="6%"
+          />
+
+          <ImageAsset
+            alt="redinhib.svg"
+            className="redInhibPosTop"
+            width="3.5%"
+            height="3.5%"
+          />
+
+          <ImageAsset
+            alt="redinhib.svg"
+            className="redInhibPosMid"
+            width="3.5%"
+            height="3.5%"
+          />
+
+          <ImageAsset
+            alt="redinhib.svg"
+            className="redInhibPosBot"
+            width="3.5%"
+            height="3.5%"
+          />
+
+          <ImageAsset
+            alt="blueinhib.svg"
+            className="blueInhibPosTop"
+            width="3.5%"
+            height="3.5%"
+          />
+
+          <ImageAsset
+            alt="blueinhib.svg"
+            className="blueInhibPosMid"
+            width="3.5%"
+            height="3.5%"
+          />
+
+          <ImageAsset
+            alt="blueinhib.svg"
+            className="blueInhibPosBot"
+            width="3.5%"
+            height="3.5%"
+          />
+
+          <ImageAsset
+            alt="redtower.svg"
+            className="redOuterTurretTop"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="redtower.svg"
+            className="redOuterTurretBot"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="redtower.svg"
+            className="redNexusTurretTop"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="redtower.svg"
+            className="redNexusTurretBot"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="bluetower.svg"
+            className="blueOuterTurretTop"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="bluetower.svg"
+            className="blueOuterTurretBot"
+            width="2%"
+            height="2%"
+          />
+          <ImageAsset
+            alt="bluetower.svg"
+            className="blueNexusTurretTop"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="bluetower.svg"
+            className="blueNexusTurretBot"
+            width="2%"
+            height="2%"
+          />
+
+          {/* Map */}
           <ImageAsset
             alt="fullmap.svg"
             height="100%"
