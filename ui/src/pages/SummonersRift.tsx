@@ -88,7 +88,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
         className={classes.root}
         justify="center"
         spacing={1}
-        style={{ padding: 10 }}
+        style={{ paddingTop: 30 }}
       >
         {/* MAP */}
         <Grid item xs={5}>
@@ -103,8 +103,8 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
         </Grid>
 
         {!showInfoDrawer ? (
-          <Grid item xs={7}>
-            <Grid container spacing={1}>
+          <Grid>
+            <Grid container style={{ paddingLeft: 60 }}>
               {/* MONSTER LIST */}
               <Grid item xs={7}>
                 <Paper
@@ -120,7 +120,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                   >
                     Neutral Monsters
                   </Typography>
-                  <ImageAsset alt="lineSeparator.svg" />
+                  <ImageAsset width={460} alt="lineSeparator.svg" />
                   <Grid
                     container
                     style={{
@@ -230,7 +230,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                   >
                     Minions
                   </Typography>
-                  <ImageAsset alt="lineSeparator.svg" />
+                  <ImageAsset width={460} alt="lineSeparator.svg" />
                   <Grid
                     container
                     style={{ display: "flex", flexDirection: "row" }}
@@ -294,15 +294,19 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                   >
                     <Grid
                       container
-                      style={{ display: "flex", flexDirection: "row", paddingTop: 20 }}
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        paddingTop: 20,
+                      }}
                     >
                       {/* COLUMN 1 */}
                       <Grid item xs={6}>
                         <Typography className={classes.headerText}>
                           Jungle Plants
                         </Typography>
-                        <ImageAsset alt="lineSeparatorShort.svg" />
-                        {[1, 1].map(() => (
+                        <ImageAsset width={220} alt="lineSeparatorShort.svg" />
+                        {[1, 1, 1].map(() => (
                           <div
                             style={{
                               display: "flex",
@@ -331,8 +335,8 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         <Typography className={classes.headerText}>
                           Buildings
                         </Typography>
-                        <ImageAsset alt="lineSeparatorShort.svg" />
-                        {[1, 1].map(() => (
+                        <ImageAsset width={220} alt="lineSeparatorShort.svg" />
+                        {[1, 1, 1].map(() => (
                           <div
                             style={{
                               display: "flex",
