@@ -15,12 +15,11 @@ const HeaderStyles = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
   }
 
   .infoHeaderText {
     font-family: Friz Quadrata;
+    padding-top: 20px;
     font-size: 30px;
     color: ${mainColour.yellow};
   }
@@ -30,8 +29,6 @@ const HeaderStyles = styled.div`
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
-    display: flex;
-    align-items: center;
     color: #808080;
   }
 
@@ -41,16 +38,16 @@ const HeaderStyles = styled.div`
     font-weight: normal;
     font-size: 20px;
     line-height: 18px;
-    display: flex;
-    align-items: center;
-
-    /* yellow/main */
+    padding-top: 10px;
     color: ${mainColour.yellow};
   }
 
   .closeArrow {
-    position: absolute;
-    right: 20px;
+    z-index: 10000;
+    display: flex;
+    margin-top: -40px;
+    padding-right: 20px;
+    float: right;
   }
 
   .closeArrow:hover {
@@ -72,8 +69,12 @@ export const InfoHeader: FC<InfoHeaderProps> = (props) => {
         <Typography className="effectsDescription" style={{ marginLeft: 25 }}>
           {subtitle}
         </Typography>
-        {!isSubheader && <ImageAsset className="closeArrow" alt="arrow.svg" />}
       </div>
+      {!isSubheader && (
+        <div className="closeArrow">
+          <ImageAsset alt="arrow.svg" />
+        </div>
+      )}
     </HeaderStyles>
   );
 };

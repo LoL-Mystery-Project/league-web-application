@@ -7,7 +7,6 @@ import { RootState } from "../redux/ReduxTypes";
 import { mainColour } from "../styles/palette";
 import { Baron } from "./InfoCardComponents/Baron";
 import { ElderDragon } from "./InfoCardComponents/ElderDragon";
-import { MountainDragon } from "./InfoCardComponents/MountainDragon";
 import { RiftHerald } from "./InfoCardComponents/RiftHerald";
 
 const Wrapper = styled.div`
@@ -37,10 +36,8 @@ export const InfoCardPanel: FC = () => {
         case "Elder Dragon":
           setSelectedComponent(<ElderDragon />);
           break;
-        case "Mountain Dragon":
-          setSelectedComponent(<MonsterCard />);
-          break;
         default:
+          setSelectedComponent(<MonsterCard />);
           return;
       }
     }

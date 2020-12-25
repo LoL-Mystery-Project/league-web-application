@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 import React, { FC } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { MonsterDetails } from "../MonsterDetails";
+import { MonsterDetails } from "../../monster-layout/MonsterDetails";
 import { MonsterWrapper } from "./Baron";
 import Typography from "@material-ui/core/Typography";
 import { ImageAsset } from "../ImageAsset";

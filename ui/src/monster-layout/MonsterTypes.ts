@@ -3,16 +3,16 @@ import { TextColourizerTypes } from "../utils/TextColourizer";
 export interface MonsterType {
   name: string;
   icon: string;
-  description?: Array<string>; // deprecated in favour of overview
   bounty: MonsterBounty;
   stats: MonsterStats;
   location: MonsterLocation;
-  patchHistory?: Array<MonsterPatchObject>; // deprecated but still usable
-  colouredDescription?: Array<TextColourizerTypes>; // deprecated but still usable
+  description?: Array<string>; // deprecated in favour of overview
+  colouredDescription?: Array<TextColourizerTypes>; // deprecated in favour of overview
   overview?: Array<TextColourizerTypes>; // use this one!
   splashArt: Array<string>;
   informationText?: Array<MonsterInfo>;
-  patchNotes?: Array<PatchRelease>;
+  patchHistory?: Array<MonsterPatchObject>;  // depcrecated in favour of patchNotes
+  patchNotes?: Array<PatchRelease>; // use this one!
 }
 
 export interface MonsterLocation {

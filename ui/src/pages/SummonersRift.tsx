@@ -19,7 +19,12 @@ import { MonsterType } from "../monster-layout/MonsterTypes";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {},
+    root: {
+      height: "100%",
+      width: "100%",
+      overflowY: "hidden",
+      overflowX: "hidden",
+    },
     paper: {
       background: "transparent", // TODO: change this later
     },
@@ -36,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
 
     drawerStyle: {
-      zIndex: 9999,
+      // zIndex: 9999,
       color: mainColour.white,
     },
 
@@ -81,7 +86,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
 
   const classes = useStyles();
   return (
-    <>
+    <div style={{ height: windowHeight }}>
       <Grid
         container
         className={classes.root}
@@ -496,6 +501,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
           </Grid>
         )}
       </Grid>
-    </>
+    </div>
   );
 };
