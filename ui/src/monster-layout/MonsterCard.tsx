@@ -5,6 +5,7 @@ import mountainDrake from "../assets/infoCardData/mountainDrake.json";
 import { ImageAsset } from "../components/ImageAsset";
 import { mainColour } from "../styles/palette";
 import { TextColourizer } from "../utils/TextColourizer";
+import { Footer } from "./Footer";
 import { InfoHeader } from "./InfoHeader";
 import { MonsterType } from "./MonsterTypes";
 
@@ -34,6 +35,8 @@ const MonsterCardStyles = styled.div`
     margin-left: -20px;
   }
 `;
+
+const ICON_SIZE = 35;
 
 export const MonsterCard: FC = () => {
   const selectedMonster: MonsterType = mountainDrake;
@@ -66,12 +69,16 @@ export const MonsterCard: FC = () => {
                           <Grid item>
                             <div className="effectsStyles">
                               {ability.icon && (
-                                <ImageAsset alt={ability.icon} />
+                                <ImageAsset
+                                  alt={ability.icon}
+                                  height={ICON_SIZE}
+                                  width={ICON_SIZE}
+                                />
                               )}
                               <span
                                 style={{
                                   paddingLeft: 20,
-                                  paddingTop: ability.icon && 20,
+                                  marginTop: ability.icon ? 20 : -15,
                                 }}
                               >
                                 <Typography
@@ -111,6 +118,7 @@ export const MonsterCard: FC = () => {
           );
         })}
       </Grid>
+      <Footer />
     </MonsterCardStyles>
   );
 };
