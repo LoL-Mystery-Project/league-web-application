@@ -13,7 +13,7 @@ import GridListTile from "@material-ui/core/GridListTile";
 import React, { FC, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { RootState } from "../redux/types";
+import { RootState } from "../redux/ReduxTypes";
 import { mainColour } from "../styles/palette";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";

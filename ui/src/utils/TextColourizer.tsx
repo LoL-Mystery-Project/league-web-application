@@ -1,6 +1,6 @@
 import Typography, { TypographyProps } from "@material-ui/core/Typography";
 import React, { FC, useEffect, useState } from "react";
-import { findKey } from "lodash";
+import { findKey, isEmpty } from "lodash";
 
 interface Position {
   start: number;
@@ -28,6 +28,16 @@ interface PropsWithText extends BaseProps {
   children?: never;
 }
 
+/**
+ * For use with API data
+ * @param {string} text
+ * @param {Object<string, Array<string>>} colourMap
+ */
+export interface TextColourizerTypes {
+  text: string;
+  colourMap: ColourMap | {};
+}
+
 export type TextColourizerProps = PropsWithChildren | PropsWithText;
 
 export const TextColourizer: FC<TextColourizerProps> = (props) => {
@@ -36,6 +46,12 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
 
   useEffect(() => {
     const originalText = text || children!.toString();
+
+    if (isEmpty(colourMap)) {
+      setRendered(<>{originalText}</>);
+      return;
+    }
+
     const indexMap: IndexMap = {};
     let setOfStartingPositions: Set<number> = new Set();
 
@@ -91,8 +107,10 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
   }, [children, colourMap, text]);
 
   return (
-    <Typography display="inline" {...typographyProps}>
-      {rendered}
-    </Typography>
+    <div>
+      <Typography display="inline" {...typographyProps}>
+        {rendered}
+      </Typography>
+    </div>
   );
 };

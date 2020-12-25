@@ -2,10 +2,12 @@
 import React, { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { RootState } from "../redux/types";
+import { MonsterCard } from "../monster-layout/MonsterCard";
+import { RootState } from "../redux/ReduxTypes";
 import { mainColour } from "../styles/palette";
 import { Baron } from "./InfoCardComponents/Baron";
 import { ElderDragon } from "./InfoCardComponents/ElderDragon";
+import { MountainDragon } from "./InfoCardComponents/MountainDragon";
 import { RiftHerald } from "./InfoCardComponents/RiftHerald";
 
 const Wrapper = styled.div`
@@ -34,6 +36,9 @@ export const InfoCardPanel: FC = () => {
           break;
         case "Elder Dragon":
           setSelectedComponent(<ElderDragon />);
+          break;
+        case "Mountain Dragon":
+          setSelectedComponent(<MonsterCard />);
           break;
         default:
           return;

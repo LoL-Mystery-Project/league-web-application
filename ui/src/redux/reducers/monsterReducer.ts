@@ -1,4 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { MonsterType } from "../../monster-layout/MonsterTypes";
 import {
   FETCHING_ALL_MONSTERS,
   SET_ALL_MONSTERS,
@@ -6,7 +7,7 @@ import {
   FETCHING_MONSTERS_FAILED,
   CLEAR_SELECTED_MONSTER,
 } from "../actions/monsterActions";
-import { MonsterState, MonsterType } from "../types";
+import { MonsterState } from "../ReduxTypes";
 
 interface MonsterAction {
   type: string;

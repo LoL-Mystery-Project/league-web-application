@@ -11,10 +11,11 @@ import Typography from "@material-ui/core/Typography";
 import { MonsterObject } from "../pages/SummonersRift";
 
 import { useDispatch, useSelector } from "react-redux";
-import { MonsterType, RootState } from "../redux/types";
+import { RootState } from "../redux/ReduxTypes";
 import { InfoCardTabs } from "./InfoCardTabs";
 import { ImageAsset } from "./ImageAsset";
 import { clearSelectedMonster } from "../redux/actions/monsterActions";
+import { MonsterType } from "../monster-layout/MonsterTypes";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {

@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/types";
+import { RootState } from "../redux/ReduxTypes";
 import { setSelectedDrag } from "../redux/actions/dragonActions";
 import { mainColour } from "../styles/palette";
 import { ImageAsset } from "./ImageAsset";

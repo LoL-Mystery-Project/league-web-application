@@ -1,4 +1,4 @@
-import { MonsterType } from "../types";
+import { MonsterType } from "../../monster-layout/MonsterTypes";
 
 export const FETCHING_ALL_MONSTERS = "@@MONSTER_ACTION/FETCHING_ALL_MONSTERS";
 export const FETCHING_MONSTERS_FAILED =

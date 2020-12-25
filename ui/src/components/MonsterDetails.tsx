@@ -1,8 +1,8 @@
 import { Typography, Grid } from "@material-ui/core";
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
-import { ColouredDescription, RootState } from "../redux/types";
-import { TextColourizer } from "../utils/TextColourizer";
+import { RootState } from "../redux/ReduxTypes";
+import { TextColourizer, TextColourizerTypes } from "../utils/TextColourizer";
 import { ImageAsset } from "./ImageAsset";
 import { MonsterWrapper } from "./InfoCardComponents/Baron";
 import { makeStyles } from "@material-ui/core/styles";
@@ -40,7 +40,7 @@ export const MonsterDetails: FC = () => {
       <div style={{ paddingTop: 20 }}>
         <ul style={{ margin: 0, width: 820 }}>
           {colouredDescription?.map(
-            ({ text, colourMap }: ColouredDescription, index) => (
+            ({ text, colourMap }: TextColourizerTypes, index) => (
               <li key={index}>
                 {<TextColourizer text={text} colourMap={colourMap} />}
               </li>

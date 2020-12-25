@@ -2,7 +2,7 @@ import React, { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { MonsterObject } from "../pages/SummonersRift";
-import { RootState } from "../redux/types";
+import { RootState } from "../redux/ReduxTypes";
 import { mainColour, subColour } from "../styles/palette";
 import { ImageAsset } from "./ImageAsset";
 

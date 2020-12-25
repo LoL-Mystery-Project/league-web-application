@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../redux/types";
+import { RootState } from "../redux/ReduxTypes";
 
 interface ExtendedImageProps extends React.ComponentProps<"img"> {
   alt: string;
