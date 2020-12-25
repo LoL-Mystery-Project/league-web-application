@@ -188,6 +188,42 @@ const Wrapper = styled.div`
     bottom: 16%;
     left: 13%;
   }
+
+  .redSideBlueBuff {
+    position: absolute;
+    top: 51%;
+    right: 23%;
+  }
+
+  .redSideRedBuff {
+    position: absolute;
+    top: 24.5%;
+    right: 51%;
+  }
+
+  .blueSideBlueBuff {
+    position: absolute;
+    bottom: 51%;
+    left: 23%;
+  }
+
+  .blueSideRedBuff {
+    position: absolute;
+    bottom: 24.5%;
+    left: 51%;
+  }
+
+  .redSideGromp {
+    position: absolute;
+    top: 55.5%;
+    right: 13%;
+  }
+
+  .blueSideGromp {
+    position: absolute;
+    bottom: 55.5%;
+    left: 13%;
+  }
 `;
 
 // interface mapElement {
@@ -393,10 +429,51 @@ export default function SummonersRiftMap() {
             width="2%"
             height="2%"
           />
+          <ImageAsset
+            alt="bluesentinelIcon.svg"
+            className="redSideBlueBuff"
+            width="3%"
+            height="3%"
+          />
+
+          <ImageAsset
+            alt="bluesentinelIcon.svg"
+            className="blueSideBlueBuff"
+            width="3%"
+            height="3%"
+          />
+
+          <ImageAsset
+            alt="redbramblebackIcon.svg"
+            className="redSideRedBuff"
+            width="3%"
+            height="3%"
+          />
+
+          <ImageAsset
+            alt="redbramblebackIcon.svg"
+            className="blueSideRedBuff"
+            width="3%"
+            height="3%"
+          />
+
+          <ImageAsset
+            alt="grompIcon.svg"
+            className="redSideGromp"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="grompIcon.svg"
+            className="blueSideGromp"
+            width="2%"
+            height="2%"
+          />
 
           {/* Map */}
           <ImageAsset
-            alt="fullmap.svg"
+            alt="map-cloud.svg"
             height="100%"
             width="100%"
             style={{ marginTop: 5 }}
