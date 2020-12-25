@@ -38,6 +38,7 @@ const HeaderStyles = styled.div`
     font-weight: normal;
     font-size: 20px;
     line-height: 18px;
+    margin-left: 5px;
     padding-top: 10px;
     color: ${mainColour.yellow};
   }
@@ -66,9 +67,7 @@ export const InfoHeader: FC<InfoHeaderProps> = (props) => {
         >
           {title}
         </Typography>
-        <Typography className="effectsDescription" style={{ marginLeft: 25 }}>
-          {subtitle}
-        </Typography>
+        <Typography className="effectsDescription">{subtitle}</Typography>
       </div>
       {!isSubheader && (
         <div className="closeArrow">

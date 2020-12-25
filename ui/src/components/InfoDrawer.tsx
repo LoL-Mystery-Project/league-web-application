@@ -168,7 +168,13 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
           </Grid>
         </Grid>
         {/* EVERYTHING ELSE */}
-        <div style={{ overflowY: "scroll", overflowX: 'hidden', height: windowHeight }}>
+        <div
+          style={{
+            overflowY: "scroll",
+            overflowX: "hidden",
+            height: windowHeight,
+          }}
+        >
           <Grid item xs={12} style={{ backgroundColor: "transparent" }}>
             <InfoCardTabs />
           </Grid>

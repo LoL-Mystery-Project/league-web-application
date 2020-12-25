@@ -2,7 +2,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { MonsterCard } from "../monster-layout/MonsterCard";
+import { ModularMonsterCard } from "../monster-layout/ModularMonsterCard";
 import { RootState } from "../redux/ReduxTypes";
 import { mainColour } from "../styles/palette";
 import { Baron } from "./InfoCardComponents/Baron";
@@ -37,7 +37,7 @@ export const InfoCardPanel: FC = () => {
           setSelectedComponent(<ElderDragon />);
           break;
         default:
-          setSelectedComponent(<MonsterCard />);
+          setSelectedComponent(<ModularMonsterCard />);
           return;
       }
     }
