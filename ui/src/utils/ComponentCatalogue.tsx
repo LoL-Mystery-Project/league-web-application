@@ -268,7 +268,7 @@ const subtitle = "This is a subtitle";
             >
               {`/** First example */
 const firstExample: InfoSectionProps = {
-  title: "This is coloured title",
+  title: "This is a coloured title",
   titleColour: "#b67f15",
   icon: "elderdrake.svg",
   effects: [
@@ -297,7 +297,7 @@ const firstExample: InfoSectionProps = {
 /** Second example */
 <InfoSection
   item={{
-    title: "This the title with an icon (eg. for an ability)",
+    title: "This is a title with an icon (eg. for an ability)",
     titleColour: "",
     icon: "cat.svg",
     effects: [
@@ -314,7 +314,7 @@ const firstExample: InfoSectionProps = {
 <InfoSection
   item={{
     title:
-      "This the title without an icon (eg. a trivia section)",
+      "This is a title without an icon (eg. a trivia section)",
     titleColour: "",
     icon: "",
     effects: [
@@ -362,7 +362,7 @@ interface TextColourizerTypes {
             <div style={{ margin: 20 }}>
               <InfoSection
                 item={{
-                  title: "This is coloured title",
+                  title: "This is a coloured title",
                   titleColour: "#b67f15",
                   icon: "elderdrake.svg",
                   effects: [
@@ -389,7 +389,7 @@ interface TextColourizerTypes {
               <br />
               <InfoSection
                 item={{
-                  title: "This the title with an icon (eg. for an ability)",
+                  title: "This is a title with an icon (eg. for an ability)",
                   titleColour: "",
                   icon: "cat.svg",
                   effects: [
@@ -405,7 +405,7 @@ interface TextColourizerTypes {
               <InfoSection
                 item={{
                   title:
-                    "This the title without an icon (eg. a trivia section)",
+                    "This is a title without an icon (eg. a trivia section)",
                   titleColour: "",
                   icon: "",
                   effects: [
