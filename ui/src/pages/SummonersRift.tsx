@@ -100,6 +100,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             className={classes.paper}
             style={{
               height: windowHeight,
+              textAlign: "center",
             }}
           >
             <SummonersRiftMap />

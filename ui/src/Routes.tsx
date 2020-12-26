@@ -9,7 +9,7 @@ import { Home } from "./pages/Home";
 import { RiftMap } from "./pages/RiftMap";
 import { SummonersRift } from "./pages/SummonersRift";
 import { WatchLive } from "./pages/WatchLive";
-import { Ranking } from "./pages/Ranking";
+import { Leaderboard } from "./pages/Leaderboard";
 import { Stats } from "./pages/Stats";
 import { Guides } from "./pages/Guides";
 import { ImageGallery } from "./components/ImageGallery";
@@ -23,7 +23,7 @@ export const Routes: FC = () => {
         <Route path="/test" component={RiftMap} />
         <Route path="/home" component={Home} />
         <Route path="/watchlive" component={WatchLive} />
-        <Route path="/ranking" component={Ranking} />
+        <Route path="/leaderboards" component={Leaderboard} />
         <Route path="/stats" component={Stats} />
         <Route path="/guides" component={Guides} />
         <Route path="/summonersrift" component={SummonersRift} />
