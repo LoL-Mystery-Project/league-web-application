@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { InfoHeader } from "../../monster-layout/InfoHeader";
+import { InfoHeader } from "../../layout/InfoHeader";
 
 interface MountainDragonProps {}
 

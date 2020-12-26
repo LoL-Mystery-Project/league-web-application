@@ -28,7 +28,7 @@ export const ColouredList: FC<ColouredListProps> = (props) => {
     <ColouredListStyles>
       <div {...divProps}>
         <ul>
-          {listItems.map((listItem) => {
+          {listItems?.map((listItem) => {
             return (
               <li className="listStyles">
                 <TextColourizer colourMap={listItem.colourMap}>

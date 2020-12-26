@@ -17,28 +17,29 @@ const HeaderStyles = styled.div`
     align-items: center;
   }
 
-  .infoHeaderText {
+  .effectsDescription {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #808080;
+  }
+
+  .titleStyle {
     font-family: Friz Quadrata;
     padding-top: 20px;
     font-size: 30px;
     color: ${mainColour.yellow};
   }
 
-  .effectsDescription {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    color: #808080;
-  }
-
-  .abilitiesTitleStyle {
+  .subheaderStyle {
     font-family: Friz Quadrata;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 18px;
-    margin-left: 5px;
     padding-top: 10px;
     color: ${mainColour.yellow};
   }
@@ -62,9 +63,7 @@ export const InfoHeader: FC<InfoHeaderProps> = (props) => {
   return (
     <HeaderStyles>
       <div {...divProps}>
-        <Typography
-          className={isSubheader ? "abilitiesTitleStyle" : "infoHeaderText"}
-        >
+        <Typography className={isSubheader ? "subheaderStyle" : "titleStyle"}>
           {title}
         </Typography>
         <Typography className="effectsDescription">{subtitle}</Typography>
