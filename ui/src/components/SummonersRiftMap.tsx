@@ -162,6 +162,47 @@ const Wrapper = styled.div`
     left: 92%;
   }
 
+  .redOuterTurretMid {
+    // mid lane red turret outer
+    position: absolute;
+    top: 43%;
+    left: 59%;
+  }
+
+  .redInnerTurretMid {
+    // mid lane red turret inner
+    position: absolute;
+    top: 31%;
+    left: 64%;
+  }
+
+  .redInnerTurretTop {
+    position: absolute;
+    top: 8%;
+    left: 53%;
+  }
+  .redInnerTurretBot {
+    position: absolute;
+    top: 45%;
+    left: 91%;
+  }
+
+  .redInhibTurretTop {
+    position: absolute;
+    top: 7%;
+    left: 67%;
+  }
+  .redInhibTurretMid {
+    position: absolute;
+    top: 24%;
+    left: 74%;
+  }
+  .redInhibTurretBot {
+    position: absolute;
+    top: 30.5%;
+    left: 90.5%;
+  }
+
   .redNexusTurretTop {
     position: absolute;
     top: 13%;
@@ -183,6 +224,47 @@ const Wrapper = styled.div`
     position: absolute;
     bottom: 6%;
     right: 29%;
+  }
+
+  .blueOuterTurretMid {
+    // mid lane blue turret outer
+    position: absolute;
+    bottom: 43%;
+    right: 59%;
+  }
+
+  .blueInnerTurretMid {
+    // mid lane blue turret inner
+    position: absolute;
+    bottom: 31%;
+    right: 64%;
+  }
+
+  .blueInnerTurretTop {
+    position: absolute;
+    bottom: 45%;
+    right: 91%;
+  }
+  .blueInnerTurretBot {
+    position: absolute;
+    bottom: 8%;
+    right: 53%;
+  }
+
+  .blueInhibTurretTop {
+    position: absolute;
+    bottom: 7%;
+    right: 67%;
+  }
+  .blueInhibTurretMid {
+    position: absolute;
+    bottom: 24%;
+    right: 74%;
+  }
+  .blueInhibTurretBot {
+    position: absolute;
+    bottom: 30.5%;
+    right: 90.5%;
   }
 
   .blueNexusTurretTop {
@@ -406,6 +488,54 @@ export default function SummonersRiftMap() {
             width="2%"
             height="2%"
           />
+          <ImageAsset // ben
+            alt="redtower.svg"
+            className="redOuterTurretMid"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset // ben
+            alt="redtower.svg"
+            className="redInnerTurretMid"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset // Steve
+            alt="redtower.svg"
+            className="redInnerTurretTop"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset // Steve
+            alt="redtower.svg"
+            className="redInnerTurretBot"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="redtower.svg"
+            className="redInhibTurretTop"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="redtower.svg"
+            className="redInhibTurretMid"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="redtower.svg"
+            className="redInhibTurretBot"
+            width="2%"
+            height="2%"
+          />
 
           <ImageAsset
             alt="redtower.svg"
@@ -431,6 +561,54 @@ export default function SummonersRiftMap() {
           <ImageAsset
             alt="bluetower.svg"
             className="blueOuterTurretBot"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset // ben
+            alt="bluetower.svg"
+            className="blueOuterTurretMid"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset // ben
+            alt="bluetower.svg"
+            className="blueInnerTurretMid"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset // Steve
+            alt="bluetower.svg"
+            className="blueInnerTurretTop"
+            width="2%"
+            height="2%"
+          />
+          <ImageAsset // Steve
+            alt="bluetower.svg"
+            className="blueInnerTurretBot"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="bluetower.svg"
+            className="blueInhibTurretTop"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="bluetower.svg"
+            className="blueInhibTurretMid"
+            width="2%"
+            height="2%"
+          />
+
+          <ImageAsset
+            alt="bluetower.svg"
+            className="blueInhibTurretBot"
             width="2%"
             height="2%"
           />
