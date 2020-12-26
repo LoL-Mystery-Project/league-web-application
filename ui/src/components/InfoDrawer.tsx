@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
 import { mainColour } from "../styles/palette";
@@ -60,7 +60,7 @@ const useStyles = makeStyles({
   },
   infoCard: {
     // width: 800,
-    height: 500,
+    // height: 500,
     background: "transparent",
     color: mainColour.white,
   },
@@ -95,6 +95,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
   showInfoDrawer,
   asset,
 }) => {
+  const [windowHeight, setWindowHeight] = useState(0);
   const dispatch = useDispatch();
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
   const classes = useStyles();
@@ -103,10 +104,20 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
     handleClose(asset);
   };
 
+  useEffect(() => {
+    window.addEventListener("resize", updateWindowDimensions);
+    updateWindowDimensions();
+  }, []);
+
+  const updateWindowDimensions = () => {
+    setWindowHeight(window.innerHeight - 215);
+  };
+
   return (
     // <Drawer anchor="right" open={showInfoDrawer} onClose={() => handleClose(false)}>
     //   Hello
     // </Drawer>
+
     <Fade in={showInfoDrawer}>
       <Grid container style={{ display: "flex", flexDirection: "column" }}>
         {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
@@ -157,9 +168,17 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
           </Grid>
         </Grid>
         {/* EVERYTHING ELSE */}
-        <Grid item xs={12} style={{ backgroundColor: "transparent" }}>
-          <InfoCardTabs />
-        </Grid>
+        <div
+          style={{
+            overflowY: "scroll",
+            overflowX: "hidden",
+            height: windowHeight,
+          }}
+        >
+          <Grid item xs={12} style={{ backgroundColor: "transparent" }}>
+            <InfoCardTabs />
+          </Grid>
+        </div>
       </Grid>
     </Fade>
   );

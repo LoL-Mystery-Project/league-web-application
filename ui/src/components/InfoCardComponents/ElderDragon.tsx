@@ -1,6 +1,6 @@
 import { Grid } from "@material-ui/core";
 import React, { FC } from "react";
-import { MonsterDetails } from "../MonsterDetails";
+import { MonsterDetails } from "../../monster-layout/MonsterDetails";
 
 export const ElderDragon: FC = () => {
   return (

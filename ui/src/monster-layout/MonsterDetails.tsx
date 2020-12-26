@@ -3,49 +3,24 @@ import React, { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/ReduxTypes";
 import { TextColourizer, TextColourizerTypes } from "../utils/TextColourizer";
-import { ImageAsset } from "./ImageAsset";
-import { MonsterWrapper } from "./InfoCardComponents/Baron";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles({
-  closeArrow: {
-    position: "absolute",
-    right: 20,
-    "&:hover": {
-      cursor: "pointer",
-    },
-  },
-});
+import { ImageAsset } from "../components/ImageAsset";
+import { MonsterWrapper } from "../components/InfoCardComponents/Baron";
+import { InfoHeader } from "./InfoHeader";
 
 export const MonsterDetails: FC = () => {
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
-  const { colouredDescription } = selectedMonster!;
-  const classes = useStyles();
+  const { overview } = selectedMonster!;
 
   return (
     <MonsterWrapper>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          paddingTop: 20,
-        }}
-      >
-        {/* OVERVIEW HEADER */}
-        <Typography className="infoHeaderText">Overview</Typography>
-        {/* OVERVIEW SHOW/HIDE BUTTON */}
-        <ImageAsset className={classes.closeArrow} alt="arrow.svg" />
-      </div>
-      <div style={{ paddingTop: 20 }}>
-        <ul style={{ margin: 0, width: 820 }}>
-          {colouredDescription?.map(
-            ({ text, colourMap }: TextColourizerTypes, index) => (
-              <li key={index}>
-                {<TextColourizer text={text} colourMap={colourMap} />}
-              </li>
-            )
-          )}
+      <InfoHeader title="Overview" />
+      <div style={{ width: "100%" }}>
+        <ul style={{ margin: 0 }}>
+          {overview?.map(({ text, colourMap }: TextColourizerTypes, index) => (
+            <li key={index}>
+              {<TextColourizer text={text} colourMap={colourMap} />}
+            </li>
+          ))}
         </ul>
       </div>
       <Grid

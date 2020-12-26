@@ -1,21 +1,30 @@
 import { Grid, Typography } from "@material-ui/core";
 import React, { FC } from "react";
 import styled from "styled-components";
-import mountainDrake from "../assets/infoCardData/mountainDrake.json";
 import { ImageAsset } from "../components/ImageAsset";
+import { MonsterDetails } from "./MonsterDetails";
 import { mainColour } from "../styles/palette";
 import { TextColourizer } from "../utils/TextColourizer";
 import { Footer } from "./Footer";
 import { InfoHeader } from "./InfoHeader";
-import { MonsterType } from "./MonsterTypes";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/ReduxTypes";
 
 const MonsterCardStyles = styled.div`
+  li {
+    margin-right: 160px;
+  }
+
+  ul {
+    margin-top: 5px;
+    width: 100%;
+  }
+
   .effectsStyles {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 5px;
   }
 
   .abilitiesSubHeaderStyle {
@@ -34,17 +43,33 @@ const MonsterCardStyles = styled.div`
   .listStyles {
     margin-left: -20px;
   }
+
+  .spanWithIcon {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .spanWithoutIcon {
+    padding-left: 20px;
+    margin-top: -5px;
+  }
+
+  .divWithIcon {
+    margin-left: 30px;
+  }
 `;
 
 const ICON_SIZE = 35;
 
 export const MonsterCard: FC = () => {
-  const selectedMonster: MonsterType = mountainDrake;
+  const { selectedMonster } = useSelector((state: RootState) => state.monsters);
 
   return (
     <MonsterCardStyles>
+      <MonsterDetails />
+      <ImageAsset alt="line.svg" />
       <Grid container style={{ display: "flex", flexDirection: "column" }}>
-        {selectedMonster.informationText!.map((section) => {
+        {selectedMonster?.informationText?.map((section) => {
           return (
             <>
               <Grid item>
@@ -67,7 +92,11 @@ export const MonsterCard: FC = () => {
                       {subcategory.data.map((ability) => {
                         return (
                           <Grid item>
-                            <div className="effectsStyles">
+                            <div
+                              className={`effectsStyles ${
+                                ability.icon && "divWithIcon"
+                              }`}
+                            >
                               {ability.icon && (
                                 <ImageAsset
                                   alt={ability.icon}
@@ -76,10 +105,11 @@ export const MonsterCard: FC = () => {
                                 />
                               )}
                               <span
-                                style={{
-                                  paddingLeft: 20,
-                                  marginTop: ability.icon ? 20 : -15,
-                                }}
+                                className={
+                                  ability.icon
+                                    ? "spanWithIcon"
+                                    : "spanWithoutIcon"
+                                }
                               >
                                 <Typography
                                   className="abilitiesSubHeaderStyle"
@@ -93,7 +123,7 @@ export const MonsterCard: FC = () => {
                                 >
                                   {ability.title}
                                 </Typography>
-                                <ul style={{ marginTop: 5 }}>
+                                <ul>
                                   {ability.effects.map((effect) => {
                                     return (
                                       <li className="listStyles">
@@ -113,6 +143,9 @@ export const MonsterCard: FC = () => {
                     </Grid>
                   );
                 })}
+                <Grid item>
+                  <ImageAsset alt="line.svg" />
+                </Grid>
               </Grid>
             </>
           );

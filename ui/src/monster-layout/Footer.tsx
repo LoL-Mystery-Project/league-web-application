@@ -31,10 +31,6 @@ export const Footer: FC = () => {
   return (
     <Grid>
       <Grid>
-        <Grid item style={{ paddingTop: 10 }}>
-          <ImageAsset alt="line.svg" />
-        </Grid>
-
         <StyledTabs
           // value={value}
           // onChange={handleChange}

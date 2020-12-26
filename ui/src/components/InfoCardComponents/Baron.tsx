@@ -7,7 +7,7 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { ImageAsset } from "../ImageAsset";
-import { MonsterDetails } from "../MonsterDetails";
+import { MonsterDetails } from "../../monster-layout/MonsterDetails";
 
 import { TextColourizer } from "../../utils/TextColourizer";
 
