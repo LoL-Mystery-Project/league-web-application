@@ -1,0 +1,379 @@
+{
+  "name": "Mountain Dragon",
+  "icon": "mountaindrake.svg",
+  "bounty": {
+    "gold": "25",
+    "exp": "150 - 330",
+    "cs": "4"
+  },
+  "stats": {
+    "health": "490 - 6970 / 5790 - 8670",
+    "healthRegen": "",
+    "attackDamage": "150",
+    "attackSpeed": "0.25",
+    "range": "500",
+    "armor": "41",
+    "magicResist": "50",
+    "movSpeed": "300",
+    "monsterType": ["epic", "large"]
+  },
+  "location": {
+    "initial": "5:00",
+    "respawn": "5:00"
+  },
+  "splashArt": ["mountain_dragon_splash.svg"],
+  "overview": [
+    {
+      "text": "Mountain Drake is one of the powerful Elemental Dragons that can be found in the dragon pit. Killing it grants the slayer's team permanent percentage increase of armor and magic resist.",
+      "colourMap": {
+        "#D10017": ["Mountain Drake", "Elemental Dragons"],
+        "#FF6B00": ["armor"],
+        "#108B94": ["magic resist"]
+      }
+    },
+    {
+      "text": "It has the highest amount of armor and magic resist out of all Elemental Dragons",
+      "colourMap": {
+        "#FF6B00": ["armor"],
+        "#108B94": ["magic resist"]
+      }
+    },
+    {
+      "text": "Its attacks are slow however powerful and can damage multiple champions.",
+      "colourMap": {}
+    }
+  ],
+  "informationText": [
+    {
+      "title": "Effects",
+      "subtitle": "",
+      "subcategories": [
+        {
+          "title": "noSubcategory",
+          "data": [
+            {
+              "title": "Mountainous Vigor",
+              "titleColour": "#b67f15",
+              "icon": "unknown.svg",
+              "effects": [
+                {
+                  "text": "Grants slayer and their teammates permanent 6% increase of armor and magic resist per Mountain Drake slain.",
+                  "colourMap": {
+                    "#FF6B00": ["armor"],
+                    "#108B94": ["magic resist"],
+                    "#b67f15": ["Mountain Drake"]
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Mountain Soul",
+              "titleColour": "#b67f15",
+              "icon": "mountain_noborder.svg",
+              "effects": [
+                {
+                  "text": "Grants obtained team a shield for 200 (+18% bonus AD) (13.5% bonus AP) (13.5% bonus HP)",
+                  "colourMap": {
+                    "#108b94": ["200", "(13.5% bonus AP)"],
+                    "#0d9e35": ["(13.5% bonus HP)"],
+                    "#FF6B00": ["(+18% bonus AD)"],
+                    "#108B94": ["magic resist"]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Abilities",
+      "subtitle": "",
+      "subcategories": [
+        {
+          "title": "Passives",
+          "data": [
+            {
+              "title": "Resistant Skin",
+              "titleColour": "",
+              "icon": "resistantskin.svg",
+              "effects": [
+                {
+                  "text": "Dragons are immune to all kinds of crowd control, except stasis. Additionally, their stats can not be reduced by any means.",
+                  "colourMap": {}
+                }
+              ]
+            },
+            {
+              "title": "Ancient Grudge",
+              "titleColour": "",
+              "icon": "dragonslayer.svg",
+              "effects": [
+                {
+                  "text": "Elemental Dragons gain 20% bonus damage and 7% damage reduction per enemies' Dragon Slayer stack.",
+                  "colourMap": {
+                    "#ff6b00": ["20% bonus damage", "7% damage reduction"]
+                  }
+                }
+              ]
+            },
+            {
+              "title": "Dragon Breath",
+              "titleColour": "",
+              "icon": "unknown.svg",
+              "effects": [
+                {
+                  "text": "Dragons deal 7% of the target's current health as bonus AD with their basic attacks. Additionally, Dragons gain 30% armor penetration.",
+                  "colourMap": {
+                    "#ff6b00": ["bonus AD", "30% armor penetration"],
+                    "#0d9e35": ["7%", "the target's current health"]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Actives",
+          "data": [
+            {
+              "title": "Resistant Skin",
+              "titleColour": "",
+              "icon": "resistantskin.svg",
+              "effects": [
+                {
+                  "text": "Dragons are immune to all kinds of crowd control, except stasis. Additionally, their stats can not be reduced by any means.",
+                  "colourMap": {}
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Notes",
+      "subtitle": "",
+      "subcategories": [
+        {
+          "title": "noSubcategory",
+          "data": [
+            {
+              "title": "",
+              "titleColour": "",
+              "icon": "",
+              "effects": [
+                {
+                  "text": "Dragons' basic attacks are considered spells - they're unaffected by any effect that would behave with basic attacks, and can be negated by spell shields.",
+                  "colourMap": {}
+                }
+              ]
+            },
+            {
+              "title": "",
+              "titleColour": "",
+              "icon": "",
+              "effects": [
+                {
+                  "text": "Dragons cannot damage other monsters.",
+                  "colourMap": {}
+                }
+              ]
+            },
+            {
+              "title": "",
+              "titleColour": "",
+              "icon": "",
+              "effects": [
+                {
+                  "text": "If the team that slays a dragon has a lower average level than that of their opponents, they receive 25% bonus experience per average level difference. The bonus experience is sharply increased for the lowest level members of the team, equal to 15% per number of levels behind the dragon squared, up to a maximum of 200%.",
+                  "colourMap": {
+                    "#108b94": ["25%", "15%", "200%"]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Strategy",
+      "subtitle": "",
+      "subcategories": [
+        {
+          "title": "noSubcategory",
+          "data": [
+            {
+              "title": "",
+              "titleColour": "",
+              "icon": "",
+              "effects": [
+                {
+                  "text": "If you are in the Red team, lure the dragon out of its pit. This makes the dragon chase you into the river, making it harder for the enemy team to steal it by engaging over the wall of the dragon pit.",
+                  "colourMap": {}
+                }
+              ]
+            },
+            {
+              "title": "",
+              "titleColour": "",
+              "icon": "",
+              "effects": [
+                {
+                  "text": "The buff provided by Mountain Drake allows teams more durability for extended fights, and its effectiveness increases the more resistances the team builds - it can be useful to build more armor and magic resistance when you have multiple of this buff.",
+                  "colourMap": {}
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "patchNotes": [
+    {
+      "release": "V9.24b",
+      "data": [
+        {
+          "type": "NERF",
+          "list": [
+            {
+              "ability": "Mountain Soul",
+              "changes": [
+                {
+                  "text": "Base shield reduced from 225 to 200",
+                  "colourMap": {
+                    "#108b94": ["225", "200"]
+                  }
+                },
+                {
+                  "text": "AD ratio reduced from 20% to 18% bonus AD.",
+                  "colourMap": {
+                    "#ff6b00": ["AD ratio", "20%", "18% bonus AD"]
+                  }
+                },
+                {
+                  "text": "AP ratio reduced from 15% to 13.5% bonus AP.",
+                  "colourMap": {
+                    "#ff6b00": ["AP ratio", "15%", "13.5% bonus AP"]
+                  }
+                },
+                {
+                  "text": "Health ratio reduced from 15% to 13.5% bonus health",
+                  "colourMap": {
+                    "#0d9e35": ["Health ratio", "15%", "13.5% bonus health"]
+                  }
+                }
+              ]
+            },
+            {
+              "ability": "Mountainous Vigor",
+              "changes": [
+                {
+                  "text": "Bonus armor and magic resistance reduced from 8/ 16/ 24/ 32% to 6/ 12/ 18/ 24%",
+                  "colourMap": {
+                    "#ff6b00": ["armor"],
+                    "#108b94": [
+                      "magic resistance",
+                      "8/ 16/ 24/ 32%",
+                      "6/ 12/ 18/ 24%"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "release": "V9.23",
+      "data": [
+        {
+          "type": "NEW",
+          "list": [
+            {
+              "ability": "Mountainous Vigor",
+              "changes": [
+                {
+                  "text": "+ 8/ 16/ 24/ 32% armor and magic resistance.",
+                  "colourMap": {
+                    "#ff6b00": ["armor"],
+                    "#108b94": ["magic resistance", "8/ 16/ 24/ 32%"]
+                  }
+                }
+              ]
+            },
+            {
+              "ability": "Mountain Soul",
+              "changes": [
+                {
+                  "text": "After not taking champion damage for 5s, gain a shield for 225 (+ 20% bonus AD) (+ 15% AP) (+ 15% bonus health).",
+                  "colourMap": {
+                    "#ff6b00": ["(+ 20% bonus AD)"],
+                    "#108b94": ["5s", "225", "(+ 15% AP)"],
+                    "#0d9e35": ["(+ 15% bonus health)"]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "release": "V8.25",
+      "data": [
+        {
+          "type": "BUFF",
+          "list": [
+            {
+              "ability": "",
+              "changes": [
+                {
+                  "text": "Mountain Drake changed from 10/ 20/ 30% to 16/ 23/ 30% bonus damage to objectives.",
+                  "colourMap": {
+                    "#ff6b00": ["10/ 20/ 30%", "16/ 23/ 30% bonus damage"]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "release": "V6.9",
+      "data": [
+        {
+          "type": "NEW",
+          "list": [
+            {
+              "ability": "",
+              "changes": [
+                {
+                  "text": "Mountain Drake: Grants +10/ 20/ 30% bonus true damage to epic monsters and turrets.",
+                  "colourMap": {
+                    "#ff6b00": ["+10/ 20/ 30% bonus true damage"]
+                  }
+                }
+              ]
+            },
+            {
+              "ability": "",
+              "changes": [
+                {
+                  "text": "Enhanced Mountain Drake: Grants +15/ 30/ 45% bonus true damage to epic monsters and turrets.",
+                  "colourMap": {
+                    "#ff6b00": ["+15/ 30/ 45% bonus true damage"]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

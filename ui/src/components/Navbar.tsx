@@ -9,7 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { PageState, RootState } from "../redux/types";
+import { PageState, RootState } from "../redux/ReduxTypes";
 import { setCurrentPage } from "../redux/actions/pageActions";
 import { mainColour } from "../styles/palette";
 import { ImageAsset } from "./ImageAsset";

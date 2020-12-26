@@ -1,4 +1,4 @@
-import { DragonOptions } from "../types";
+import { DragonOptions } from "../ReduxTypes";
 
 export const SET_SELECTED_DRAGON = "@@DRAGON_ACTION/SET_SELECTED_DRAGON";
 export const SET_DRAG_OPTIONS = "@@DRAGON_ACTION/SET_DRAG_OPTIONS";

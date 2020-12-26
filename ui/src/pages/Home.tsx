@@ -36,17 +36,7 @@ export const Home: FC = () => {
           ],
         }}
       />
-      <TextColourizer
-        colourMap={{
-          [mainColour.purple]: ["Elder Immolation"],
-          [mainColour.blue]: ["0.5s"],
-          [mainColour.orange]: ["true damage"],
-          [mainColour.green]: [
-            "20% of their maximum health",
-            "100% of their current health",
-          ],
-        }}
-      >
+      <TextColourizer colourMap={{}}>
         Damaging an enemy champion below 20% of their maximum health blasts them
         with Elder Immolation afer 0.5s, executing them, which deals 100% of
         their current health as true damage that pierces through shields.

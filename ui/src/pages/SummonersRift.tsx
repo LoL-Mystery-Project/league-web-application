@@ -3,20 +3,19 @@ import React, { FC, useEffect, useState } from "react";
 import SummonerSearchBar from "../components/SummonerSearchBar";
 import SummonersRiftMap from "../components/SummonersRiftMap";
 
-import baronIcon from "../assets/assetPanel/baronnashor.svg";
-
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/ButtonGroup";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { mainColour, glowColour } from "../styles/palette";
-import { InfoDrawer, InfoDrawerProps } from "../components/InfoDrawer";
+import { mainColour } from "../styles/palette";
+import { InfoDrawer } from "../components/InfoDrawer";
 import DonateInfoBox from "../components/DonateInfoBox";
 import { useDispatch, useSelector } from "react-redux";
-import { MonsterType, RootState } from "../redux/types";
+import { RootState } from "../redux/ReduxTypes";
 import { setSelectedMonster } from "../redux/actions/monsterActions";
 import { ImageAsset } from "../components/ImageAsset";
+import { MonsterType } from "../monster-layout/MonsterTypes";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
