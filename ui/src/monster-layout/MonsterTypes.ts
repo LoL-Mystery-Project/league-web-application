@@ -1,4 +1,5 @@
 import { TextColourizerTypes } from "../utils/TextColourizer";
+import { Category } from "../layout/layoutTypes";
 
 export interface MonsterType {
   name: string;
@@ -10,8 +11,8 @@ export interface MonsterType {
   colouredDescription?: Array<TextColourizerTypes>; // deprecated in favour of overview
   overview?: Array<TextColourizerTypes>; // use this one!
   splashArt: Array<string>;
-  informationText?: Array<MonsterInfo>;
-  patchHistory?: Array<MonsterPatchObject>;  // depcrecated in favour of patchNotes
+  informationText?: Array<Category>;
+  patchHistory?: Array<MonsterPatchObject>; // depcrecated in favour of patchNotes
   patchNotes?: Array<PatchRelease>; // use this one!
 }
 
@@ -42,24 +43,6 @@ export interface MonsterStats {
 export interface MonsterPatchObject {
   release: string;
   details: Array<string>;
-}
-
-export interface MonsterInfo {
-  title: string;
-  subtitle: string;
-  subcategories: Array<MonsterCategory>;
-}
-
-export interface MonsterCategory {
-  title: string;
-  data: Array<MonsterSkill>;
-}
-
-export interface MonsterSkill {
-  title: string;
-  titleColour: string;
-  icon: string;
-  effects: Array<TextColourizerTypes>;
 }
 
 export interface PatchRelease {

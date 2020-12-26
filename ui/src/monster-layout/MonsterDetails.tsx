@@ -2,10 +2,10 @@ import { Typography, Grid } from "@material-ui/core";
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/ReduxTypes";
-import { TextColourizer, TextColourizerTypes } from "../utils/TextColourizer";
 import { ImageAsset } from "../components/ImageAsset";
 import { MonsterWrapper } from "../components/InfoCardComponents/Baron";
-import { InfoHeader } from "./InfoHeader";
+import { InfoHeader } from "../layout/InfoHeader";
+import { ColouredList } from "../layout/ColouredList";
 
 export const MonsterDetails: FC = () => {
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
@@ -14,14 +14,8 @@ export const MonsterDetails: FC = () => {
   return (
     <MonsterWrapper>
       <InfoHeader title="Overview" />
-      <div style={{ width: "100%" }}>
-        <ul style={{ margin: 0 }}>
-          {overview?.map(({ text, colourMap }: TextColourizerTypes, index) => (
-            <li key={index}>
-              {<TextColourizer text={text} colourMap={colourMap} />}
-            </li>
-          ))}
-        </ul>
+      <div style={{ paddingLeft: 25 }}>
+        <ColouredList listItems={overview!} />
       </div>
       <Grid
         container

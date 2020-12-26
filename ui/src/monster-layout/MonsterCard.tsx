@@ -5,8 +5,8 @@ import { ImageAsset } from "../components/ImageAsset";
 import { MonsterDetails } from "./MonsterDetails";
 import { mainColour } from "../styles/palette";
 import { TextColourizer } from "../utils/TextColourizer";
-import { Footer } from "./Footer";
-import { InfoHeader } from "./InfoHeader";
+import { Footer } from "../layout/Footer";
+import { InfoHeader } from "../layout/InfoHeader";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/ReduxTypes";
 

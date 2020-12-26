@@ -4,6 +4,8 @@ import { ImageAsset } from "../components/ImageAsset";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { mainColour } from "../styles/palette";
 
+interface FooterProps extends React.ComponentProps<"div"> {}
+
 const StyledTabs = withStyles({
   root: {
     color: mainColour.white,
@@ -25,11 +27,11 @@ const useStyles = makeStyles({
   },
 });
 
-export const Footer: FC = () => {
+export const Footer: FC<FooterProps> = ({ ...divProps }) => {
   const classes = useStyles();
 
   return (
-    <Grid>
+    <div {...divProps}>
       <Grid>
         <StyledTabs
           // value={value}
@@ -73,6 +75,6 @@ export const Footer: FC = () => {
           <ImageAsset alt="ender.svg" />
         </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 };

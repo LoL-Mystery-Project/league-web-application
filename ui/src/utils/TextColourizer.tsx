@@ -14,6 +14,16 @@ interface IndexMap {
   [key: string]: Array<Position>;
 }
 
+/**
+ * For use with API data
+ * @param {string} text
+ * @param {ColourMap} colourMap
+ */
+export interface TextColourizerTypes {
+  text: string;
+  colourMap: ColourMap | {};
+}
+
 interface BaseProps extends TypographyProps {
   colourMap: ColourMap;
 }
@@ -26,16 +36,6 @@ interface PropsWithChildren extends BaseProps {
 interface PropsWithText extends BaseProps {
   text: string;
   children?: never;
-}
-
-/**
- * For use with API data
- * @param {string} text
- * @param {Object<string, Array<string>>} colourMap
- */
-export interface TextColourizerTypes {
-  text: string;
-  colourMap: ColourMap | {};
 }
 
 export type TextColourizerProps = PropsWithChildren | PropsWithText;
