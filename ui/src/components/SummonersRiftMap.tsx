@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { ImageAsset } from "./ImageAsset";
@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { mainColour } from "../styles/palette";
 
 import SoulSelectionToggle from "../components/SoulSelectionToggle";
+import { InfoHoverCard } from "../components/InfoHoverCard";
 
 // interface SummonersRiftMap {}
 
@@ -33,6 +34,12 @@ const Wrapper = styled.div`
   .mapContainer {
     position: relative;
     text-align: center;
+  }
+
+  .cardContainer {
+    position: absolute;
+    top: 27%;
+    left: 31%;
   }
 
   .baronPosition {
@@ -235,6 +242,14 @@ const Wrapper = styled.div`
 // }
 
 export default function SummonersRiftMap() {
+  const [showInfoCard, setShowInfoCard] = useState(false);
+
+  const handleShowInfoCard = () => {
+    setShowInfoCard(true);
+  };
+  const handleHideInfoCard = () => {
+    setShowInfoCard(false);
+  };
   // const placeMapElements = (mapArray: mapElement[]) => {
   //   for (const a of mapArray) {
   //     a.
@@ -255,7 +270,10 @@ export default function SummonersRiftMap() {
             className="baronPosition"
             width="4%"
             height="4%"
+            onMouseEnter={() => handleShowInfoCard()}
+            onMouseLeave={() => handleHideInfoCard()}
           />
+
           <ImageAsset
             alt="dragon.svg"
             className="dragonPosition"
@@ -479,6 +497,12 @@ export default function SummonersRiftMap() {
             style={{ marginTop: 5 }}
           />
         </div>
+
+        {showInfoCard && (
+          <div className="cardContainer">
+            <InfoHoverCard />{" "}
+          </div>
+        )}
       </Wrapper>
     </>
   );
