@@ -5,6 +5,7 @@ import { ImageAsset } from "../components/ImageAsset";
 import { mainColour } from "../styles/palette";
 import { ColouredList } from "./ColouredList";
 import { InfoSectionItem } from "./layoutTypes";
+import { Grid } from "@material-ui/core";
 
 interface InfoSectionProps {
   item: InfoSectionItem;
@@ -49,20 +50,41 @@ const ICON_SIZE = 35;
 export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
   return (
     <InfoSectionStyles>
-      <div className={`effectsStyles ${item.icon && "divWithIcon"}`}>
-        {item.icon && (
+      <div className="effectsStyles" style={{backgroundColor: "lavender"}}>
+        {/* {item.icon && (
           <ImageAsset alt={item.icon} height={ICON_SIZE} width={ICON_SIZE} />
-        )}
+        )} */}
         <span className={item.icon ? "spanWithIcon" : "spanWithoutIcon"}>
-          <Typography
-            className="abilitiesSubHeaderStyle"
-            style={{ color: item.titleColour }}
+          <Grid
+            container
+            spacing={3}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+            }}
           >
-            {item.title}
-          </Typography>
-          {/* <ul> tag with colourize text */}
-          <ColouredList listItems={item.effects} />
+            <Grid item className="divWithIcon">
+              {item.icon && (
+                <ImageAsset
+                  alt={item.icon}
+                  height={ICON_SIZE}
+                  width={ICON_SIZE}
+                />
+              )}
+            </Grid>
+            <Grid item style={{ width: 770 }}>
+              <Typography
+                className="abilitiesSubHeaderStyle"
+                style={{ color: item.titleColour }}
+              >
+                {item.title}
+              </Typography>
+              {/* <ul> tag with colourize text */}
+              <ColouredList listItems={item.effects} />
+            </Grid>
+          </Grid>
         </span>
+
       </div>
     </InfoSectionStyles>
   );

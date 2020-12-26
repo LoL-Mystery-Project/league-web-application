@@ -17,6 +17,9 @@ import Grid from "@material-ui/core/Grid";
 
 import { ImageAsset } from "./ImageAsset";
 import { TextColourizer } from "../utils/TextColourizer";
+import { RootState } from "../redux/ReduxTypes";
+import { MonsterType } from "../monster-layout/MonsterTypes";
+import { MapType } from "./SummonersRiftMap";
 
 const Wrapper = styled.div`
   .text {
@@ -34,9 +37,21 @@ const useStyles = makeStyles({
   },
 });
 
-export const InfoHoverCard: FC = () => {
+interface InfoHoverCardProps {
+  mapDatum: MapType;
+}
+
+export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
+  const [monsterDetails, setMonsterDetails] = useState<any>({});
+  const { allMonsters } = useSelector((state: RootState) => state.monsters);
   //https://stackoverflow.com/questions/32125708/how-can-i-access-a-hover-state-in-reactjs
   const classes = useStyles();
+
+  useEffect(() => {
+    setMonsterDetails(
+      allMonsters?.find((monster) => monster.name === mapDatum.id) || {}
+    );
+  }, [mapDatum, allMonsters]);
 
   return (
     <Wrapper>
@@ -47,21 +62,28 @@ export const InfoHoverCard: FC = () => {
             <Grid container style={{ display: "flex", flexDirection: "row" }}>
               <Grid item xs={10}>
                 <Typography gutterBottom variant="h5" component="h2">
-                  Baron Nashor
+                  {mapDatum.id}
                 </Typography>
               </Grid>
               <Grid item>
-                <ImageAsset alt="baron.svg" />
+                <ImageAsset alt={mapDatum.alt} />
               </Grid>
             </Grid>
             <Typography variant="body2" color="textSecondary" component="p">
               Epic Monster
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Baron Nashor is the most powerful neutral monster in Summoner’s
-              Rift. Killing it grants living teammates Hand of Baron, Empowered
-              Recall, and Aura - Empowered Allied Minions.
+            <Typography>
+
             </Typography>
+            {/* <TextColourizer
+              text={monsterDetails.overview && monsterDetails.overview[0].text}
+              colourMap={
+                monsterDetails.overview && monsterDetails.overview[0].colourMap
+              }
+            /> */}
+            {/* Baron Nashor is the most powerful neutral monster in Summoner’s
+              Rift. Killing it grants living teammates Hand of Baron, Empowered
+              Recall, and Aura - Empowered Allied Minions. */}
           </CardContent>
         </CardActionArea>
       </Card>

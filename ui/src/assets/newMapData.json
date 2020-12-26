@@ -1,0 +1,372 @@
+[
+  {
+    "id": "Baron Nashor",
+    "alt": "baron.svg",
+    "className": "baronPosition",
+    "width": "4%",
+    "height": "4%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Infernal Dragon",
+    "alt": "dragon.svg",
+    "className": "dragonPosition",
+    "width": "4%",
+    "height": "4%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Krugs",
+    "alt": "krug.svg",
+    "className": "redKrugPosition",
+    "width": "2.5%",
+    "height": "2.5%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Krugs",
+    "alt": "krug.svg",
+    "className": "blueKrugPosition",
+    "width": "2.5%",
+    "height": "2.5%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Raptors",
+    "alt": "raptor.svg",
+    "className": "redRaptorPosition",
+    "width": "2.5%",
+    "height": "2.5%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Raptors",
+    "alt": "raptor.svg",
+    "className": "blueRaptorPosition",
+    "width": "2.5%",
+    "height": "2.5%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Scuttler Crab",
+    "alt": "scuttlercrab.svg",
+    "className": "topScuttlePos",
+    "width": "3%",
+    "height": "3%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Scuttler Crab",
+    "alt": "scuttlercrab.svg",
+    "className": "botScuttlePos",
+    "width": "3%",
+    "height": "3%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Wolves",
+    "alt": "wolf.svg",
+    "className": "redWolfPos",
+    "width": "3%",
+    "height": "3%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Wolves",
+    "alt": "wolf.svg",
+    "className": "blueWolfPos",
+    "width": "3%",
+    "height": "3%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Nexus",
+    "alt": "rednexus.svg",
+    "className": "redNexusPos",
+    "width": "6%",
+    "height": "6%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Nexus",
+    "alt": "bluenexus.svg",
+    "className": "blueNexusPos",
+    "width": "6%",
+    "height": "6%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Inhibitors",
+    "alt": "redinhib.svg",
+    "className": "redInhibPosTop",
+    "width": "3.5%",
+    "height": "3.5%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Inhibitors",
+    "alt": "redinhib.svg",
+    "className": "redInhibPosMid",
+    "width": "3.5%",
+    "height": "3.5%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Inhibitors",
+    "alt": "redinhib.svg",
+    "className": "redInhibPosBot",
+    "width": "3.5%",
+    "height": "3.5%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Inhibitors",
+    "alt": "blueinhib.svg",
+    "className": "blueInhibPosTop",
+    "width": "3.5%",
+    "height": "3.5%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Inhibitors",
+    "alt": "blueinhib.svg",
+    "className": "blueInhibPosMid",
+    "width": "3.5%",
+    "height": "3.5%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Inhibitors",
+    "alt": "blueinhib.svg",
+    "className": "blueInhibPosBot",
+    "width": "3.5%",
+    "height": "3.5%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "blueOuterTurretTop",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "blueOuterTurretBot",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "blueInnerTurretBot",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "blueNexusTurretTop",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "blueNexusTurretBot",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "blueOuterTurretMid",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "blueInnerTurretMid",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "blueInnerTurretTop",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "blueInhibTurretTop",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "blueInhibTurretMid",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "blueInhibTurretBot",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "redOuterTurretTop",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "bluetower.svg",
+    "className": "redOuterTurretBot",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "redtower.svg",
+    "className": "redInnerTurretBot",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "redtower.svg",
+    "className": "redNexusTurretTop",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "redtower.svg",
+    "className": "redNexusTurretBot",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "redtower.svg",
+    "className": "redOuterTurretMid",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "redtower.svg",
+    "className": "redInnerTurretMid",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "redtower.svg",
+    "className": "redInnerTurretTop",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "redtower.svg",
+    "className": "redInhibTurretTop",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "redtower.svg",
+    "className": "redInhibTurretMid",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Turrets",
+    "alt": "redtower.svg",
+    "className": "redInhibTurretBot",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Blue Sentinel",
+    "alt": "bluesentinelIcon.svg",
+    "className": "redSideBlueBuff",
+    "width": "3%",
+    "height": "3%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Blue Sentinel",
+    "alt": "bluesentinelIcon.svg",
+    "className": "blueSideBlueBuff",
+    "width": "3%",
+    "height": "3%",
+    "banner": "baronCard.svg"
+  },
+
+  {
+    "id": "Red Brambleback",
+    "alt": "redbramblebackIcon.svg",
+    "className": "redSideRedBuff",
+    "width": "3%",
+    "height": "3%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Red Brambleback",
+    "alt": "redbramblebackIcon.svg",
+    "className": "blueSideRedBuff",
+    "width": "3%",
+    "height": "3%",
+    "banner": "baronCard.svg"
+  },
+
+  {
+    "id": "Gromp",
+    "alt": "grompIcon.svg",
+    "className": "redSideGromp",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  },
+  {
+    "id": "Gromp",
+    "alt": "grompIcon.svg",
+    "className": "blueSideGromp",
+    "width": "2%",
+    "height": "2%",
+    "banner": "baronCard.svg"
+  }
+]

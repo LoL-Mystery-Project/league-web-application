@@ -4,5 +4,5 @@ import { InfoHoverCard } from "../components/InfoHoverCard";
 interface LeaderboardProps {}
 
 export const Leaderboard: FC<LeaderboardProps> = ({}) => {
-  return <h1>Leaderboard <InfoHoverCard /></h1>;
+  return <h1>Leaderboard</h1>;
 };
