@@ -194,7 +194,7 @@ export const MonsterDetails: FC = () => {
                         className="textColorStylingGreen"
                         style={{ paddingLeft: 10 }}
                       >
-                        {selectedMonster?.stats.healthRegen || "n/a"}
+                        {selectedMonster?.stats.healthRegen || "-"}
                       </span>{" "}
                     </Typography>
                   </Grid>
