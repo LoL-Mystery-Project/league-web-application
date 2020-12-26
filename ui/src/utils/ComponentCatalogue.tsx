@@ -147,6 +147,10 @@ type TextColourizerProps = PropsWithChildren | PropsWithText;`}
   listItems: Array<TextColourizerTypes>;
 }
 
+interface ColourMap {
+  [key: string]: Array<string>;
+}
+
 interface TextColourizerTypes {
   text: string;
   colourMap: ColourMap | {};
