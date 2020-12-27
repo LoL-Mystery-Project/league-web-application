@@ -16,7 +16,7 @@ import { RootState } from "../redux/ReduxTypes";
 import { setSelectedMonster } from "../redux/actions/monsterActions";
 import { ImageAsset } from "../components/ImageAsset";
 import { MonsterType } from "../monster-layout/MonsterTypes";
-import { useWindowHeight } from "../components/hooks/useWindowHeight";
+import { useWindowDimensions } from "../components/hooks/useWindowDimensions";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -70,7 +70,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const [showInfoDrawer, setInfoDrawer] = useState(false);
   const { allMonsters } = useSelector((state: RootState) => state.monsters);
   const [asset, setAsset] = useState<MonsterType | undefined>(undefined);
-  const getWindowHeight = useWindowHeight();
+  const windowDimensions = useWindowDimensions();
 
   const handleToggleInfoDrawer = (monster: MonsterType) => {
     setInfoDrawer(!showInfoDrawer);
@@ -78,8 +78,8 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   };
 
   useEffect(() => {
-    setWindowHeight(getWindowHeight - 85);
-  }, [getWindowHeight]);
+    setWindowHeight(windowDimensions.height - 85);
+  }, [windowDimensions]);
 
   const classes = useStyles();
   return (
