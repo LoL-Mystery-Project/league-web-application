@@ -120,74 +120,74 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
     // </Drawer>
 
     <Fade in={showInfoDrawer}>
-      <div style={{marginLeft: globalPaddingValues.left}}>
-      <Grid container style={{ display: "flex", flexDirection: "column" }}>
-        {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
-        {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
-        {/* TODO: change marginLeft = 20 */}
-        <Grid item style={{ backgroundColor: "transparent" }}>
-          <Grid
-            container
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              marginTop: 30,
-              marginLeft: 10,
-              marginBottom: -30,
-            }}
-          >
-            {/* ICON */}
-            <Grid style={{ backgroundColor: "transparent", marginRight: 5 }}>
-              <ImageAsset
-                height={60}
-                width={60}
-                style={{ paddingRight: 5 }}
-                alt={selectedMonster?.icon ?? ""}
-              />{" "}
-            </Grid>
-            {/* MONSTER TITLE AND SUBTITLE */}
-            <Grid item xs={9} style={{ backgroundColor: "transparent" }}>
-              <Typography className={classes.monsterTitle}>
-                {selectedMonster?.name}
-              </Typography>
-              <Typography className={classes.monsterSubtitle}>
-                Epic Monster
-              </Typography>
-            </Grid>
-            {/* CLOSE BUTTON */}
-            <Grid item style={{ backgroundColor: "transparent" }}>
-              <ImageAsset
-                className={classes.closeButton}
-                height={30}
-                width={30}
-                alt="close.svg"
-                onClick={() => {
-                  handleCloseInfoDrawer();
-                  dispatch(clearSelectedMonster());
-                }}
-              />{" "}
+      <div style={{ marginLeft: globalPaddingValues.left }}>
+        <Grid container style={{ display: "flex", flexDirection: "column" }}>
+          {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
+          {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
+          {/* TODO: change marginLeft = 20 */}
+          <Grid item style={{ backgroundColor: "transparent" }}>
+            <Grid
+              container
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                marginTop: 30,
+                marginLeft: 10,
+                marginBottom: -30,
+              }}
+            >
+              {/* ICON */}
+              <Grid style={{ backgroundColor: "transparent", marginRight: 5 }}>
+                <ImageAsset
+                  height={60}
+                  width={60}
+                  style={{ paddingRight: 5 }}
+                  alt={selectedMonster?.icon ?? ""}
+                />{" "}
+              </Grid>
+              {/* MONSTER TITLE AND SUBTITLE */}
+              <Grid item xs={9} style={{ backgroundColor: "transparent" }}>
+                <Typography className={classes.monsterTitle}>
+                  {selectedMonster?.name}
+                </Typography>
+                <Typography className={classes.monsterSubtitle}>
+                  Epic Monster
+                </Typography>
+              </Grid>
+              {/* CLOSE BUTTON */}
+              <Grid item style={{ backgroundColor: "transparent" }}>
+                <ImageAsset
+                  className={classes.closeButton}
+                  height={30}
+                  width={30}
+                  alt="close.svg"
+                  onClick={() => {
+                    handleCloseInfoDrawer();
+                    dispatch(clearSelectedMonster());
+                  }}
+                />{" "}
+              </Grid>
             </Grid>
           </Grid>
+          {/* EVERYTHING ELSE */}
+          <div
+            style={{
+              overflowY: "scroll",
+              overflowX: "hidden",
+              height: windowHeight,
+            }}
+          >
+            <Grid
+              item
+              xs={12}
+              style={{
+                backgroundColor: "transparent",
+              }}
+            >
+              <InfoCardTabs />
+            </Grid>
+          </div>
         </Grid>
-        {/* EVERYTHING ELSE */}
-        <div
-          style={{
-            overflowY: "scroll",
-            overflowX: "hidden",
-            height: windowHeight,
-          }}
-        >
-          <Grid
-            item
-            xs={12}
-            style={{
-              backgroundColor: "transparent",
-            }}
-          >
-            <InfoCardTabs />
-          </Grid>
-        </div>
-      </Grid>
       </div>
     </Fade>
   );

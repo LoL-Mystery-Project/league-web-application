@@ -16,6 +16,7 @@ import { RootState } from "../redux/ReduxTypes";
 import { setSelectedMonster } from "../redux/actions/monsterActions";
 import { ImageAsset } from "../components/ImageAsset";
 import { MonsterType } from "../monster-layout/MonsterTypes";
+import { useWindowHeight } from "../components/hooks/useWindowHeight";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -69,6 +70,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const [showInfoDrawer, setInfoDrawer] = useState(false);
   const { allMonsters } = useSelector((state: RootState) => state.monsters);
   const [asset, setAsset] = useState<MonsterType | undefined>(undefined);
+  const getWindowHeight = useWindowHeight();
 
   const handleToggleInfoDrawer = (monster: MonsterType) => {
     setInfoDrawer(!showInfoDrawer);
@@ -76,13 +78,8 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", updateWindowDimensions);
-    updateWindowDimensions();
-  }, []);
-
-  const updateWindowDimensions = () => {
-    setWindowHeight(window.innerHeight - 85);
-  };
+    setWindowHeight(getWindowHeight - 85);
+  }, [getWindowHeight]);
 
   const classes = useStyles();
   return (
@@ -100,7 +97,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             className={classes.paper}
             style={{
               height: windowHeight,
-              textAlign: "center",
+              // textAlign: "center",
             }}
           >
             <SummonersRiftMap />

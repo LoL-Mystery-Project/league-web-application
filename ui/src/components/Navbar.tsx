@@ -13,6 +13,7 @@ import { PageState, RootState } from "../redux/ReduxTypes";
 import { setCurrentPage } from "../redux/actions/pageActions";
 import { mainColour } from "../styles/palette";
 import { ImageAsset } from "./ImageAsset";
+import { useWindowHeight } from "./hooks/useWindowHeight";
 
 // https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 const Wrapper = styled.div`
@@ -36,12 +37,18 @@ const Wrapper = styled.div`
 
   .selectedPage {
     color: #ffffff;
-    background: linear-gradient(rgba(255,255,255,0.001), ${mainColour.white} 500%);
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.001),
+      ${mainColour.white} 500%
+    );
   }
 
   .selectedPage:hover {
     color: #ffffff;
-    background-image: linear-gradient(rgba(255,255,255,0.001), ${mainColour.white} 500%),
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.001),
+        ${mainColour.white} 500%
+      ),
       radial-gradient(ellipse at bottom, white 10%, transparent 75%) !important;
     background-position: center, center bottom;
     background-size: 100% 100%, 75% 8%;
@@ -95,6 +102,7 @@ export default function MenuAppBar() {
   const dispatch = useDispatch();
   const pageState: PageState = useSelector((state: RootState) => state.page);
   const classes = useStyles();
+  const windowHeight = useWindowHeight();
 
   // set current page to "/" on initial page load
   useEffect(() => {

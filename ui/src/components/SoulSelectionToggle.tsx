@@ -31,6 +31,7 @@ const Wrapper = styled.div`
     font-size: 16px;
     line-height: 15px;
     display: flex;
+    white-space: nowrap;
     align-items: center;
   }
 
@@ -54,8 +55,8 @@ export default function SoulSelectionToggle() {
 
   return (
     <Wrapper>
-      <Grid container justify="center" style={{ padding: 2 }}>
-        <Grid item xs={6} style={{ display: "flex", paddingLeft: 10 }}>
+      <Grid container style={{ padding: 2 }}>
+        <Grid item xs={5} style={{ display: "flex", paddingLeft: 10 }}>
           <span
             onClick={() => updateSelectedDrag("cloud")}
             onMouseEnter={() => setHoverDrag("cloud")}
@@ -138,8 +139,13 @@ export default function SoulSelectionToggle() {
             )}
           </span>
         </Grid>
-        <Grid item xs={3}>
-          <div style={{ display: "flex", flexDirection: "row" }}>
+        <Grid item xs={4}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
             <Checkbox
               style={{ width: 10, height: 10 }}
               icon={<ImageAsset alt="checkboxborder.svg" />}
@@ -161,7 +167,16 @@ export default function SoulSelectionToggle() {
           </div>
         </Grid>
         {/* TODO: set paddingLeft to 55 later */}
-        <Grid item xs={3} style={{paddingLeft: 20}}>
+        <Grid
+          item
+          xs={2}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "right",
+            paddingLeft: 20,
+          }}
+        >
           <div style={{ display: "flex", flexDirection: "row" }}>
             <Checkbox
               style={{ width: 10, height: 10 }}
