@@ -106,15 +106,18 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
 
         {!showInfoDrawer ? (
           <Grid>
-            <Grid container style={{ paddingLeft: 60, overflowY: "scroll" }}>
+            <Grid
+              container
+              style={{
+                paddingLeft: 60,
+                overflowY: "scroll",
+                flexBasis: "unset",
+                height: windowHeight - 30,
+              }}
+            >
               {/* MONSTER LIST */}
               <Grid item xs={7}>
-                <Paper
-                  className={classes.paper}
-                  style={{
-                    height: windowHeight,
-                  }}
-                >
+                <Paper className={classes.paper}>
                   <SummonerSearchBar />
                   <Typography
                     style={{ paddingTop: 30 }}

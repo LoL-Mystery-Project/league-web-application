@@ -23,11 +23,7 @@ export const InfoContainer: FC<InfoContainerProps> = ({ subcategories }) => {
               <InfoHeader isSubheader={true} title={subcategory.title} />
             )}
             {subcategory.data.map((ability) => {
-              return (
-                <Grid item>
-                  <InfoSection item={ability} />
-                </Grid>
-              );
+              return <InfoSection item={ability} />;
             })}
           </Grid>
         );
