@@ -13,7 +13,6 @@ import { PageState, RootState } from "../redux/ReduxTypes";
 import { setCurrentPage } from "../redux/actions/pageActions";
 import { mainColour } from "../styles/palette";
 import { ImageAsset } from "./ImageAsset";
-import { useWindowDimensions } from "./hooks/useWindowDimensions";
 
 // https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 const Wrapper = styled.div`
@@ -102,7 +101,6 @@ export default function MenuAppBar() {
   const dispatch = useDispatch();
   const pageState: PageState = useSelector((state: RootState) => state.page);
   const classes = useStyles();
-  const windowHeight = useWindowDimensions();
 
   // set current page to "/" on initial page load
   useEffect(() => {
