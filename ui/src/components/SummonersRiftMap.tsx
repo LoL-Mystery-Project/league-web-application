@@ -4,6 +4,8 @@ import { ImageAsset } from "./ImageAsset";
 import SoulSelectionToggle from "../components/SoulSelectionToggle";
 import { InfoHoverCard } from "../components/InfoHoverCard";
 import newMapData from "../assets/newMapData.json";
+import styled from "styled-components";
+import { mainColour } from "../styles/palette";
 
 import "./mapData.css";
 

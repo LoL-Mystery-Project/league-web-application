@@ -233,7 +233,7 @@
   },
   {
     "id": "Turrets",
-    "alt": "bluetower.svg",
+    "alt": "redtower.svg",
     "className": "redOuterTurretTop",
     "width": "2%",
     "height": "2%",
@@ -241,7 +241,7 @@
   },
   {
     "id": "Turrets",
-    "alt": "bluetower.svg",
+    "alt": "redtower.svg",
     "className": "redOuterTurretBot",
     "width": "2%",
     "height": "2%",

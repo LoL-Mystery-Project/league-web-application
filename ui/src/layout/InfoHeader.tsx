@@ -2,6 +2,7 @@ import { Typography } from "@material-ui/core";
 import React, { FC } from "react";
 import styled from "styled-components";
 import { ImageAsset } from "../components/ImageAsset";
+import { globalPaddingValues } from "../styles/dimension";
 import { mainColour } from "../styles/palette";
 
 interface InfoHeaderProps extends React.ComponentProps<"div"> {
@@ -30,6 +31,7 @@ const HeaderStyles = styled.div`
   .titleStyle {
     font-family: Friz Quadrata;
     padding-top: 20px;
+    padding-bottom: 10px;
     font-size: 30px;
     color: ${mainColour.yellow};
   }
@@ -40,7 +42,7 @@ const HeaderStyles = styled.div`
     font-weight: normal;
     font-size: 20px;
     line-height: 18px;
-    padding-top: 10px;
+    padding-bottom: ${globalPaddingValues.left}px;
     color: ${mainColour.yellow};
   }
 

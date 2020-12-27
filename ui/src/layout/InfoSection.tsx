@@ -6,6 +6,7 @@ import { mainColour } from "../styles/palette";
 import { ColouredList } from "./ColouredList";
 import { InfoSectionItem } from "./layoutTypes";
 import { Grid } from "@material-ui/core";
+import { globalPaddingValues } from "../styles/dimension";
 
 interface InfoSectionProps {
   item: InfoSectionItem;
@@ -27,33 +28,26 @@ const InfoSectionStyles = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 5px;
   }
 
   .spanWithIcon {
     margin-top: 20px;
-    margin-left: 20px;
   }
 
   .spanWithoutIcon {
-    padding-left: 20px;
     margin-top: -5px;
   }
 
   .divWithIcon {
-    margin-left: 30px;
   }
 `;
 
-const ICON_SIZE = 35;
+const ICON_SIZE = 30;
 
 export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
   return (
     <InfoSectionStyles>
-      <div className="effectsStyles" style={{backgroundColor: "lavender"}}>
-        {/* {item.icon && (
-          <ImageAsset alt={item.icon} height={ICON_SIZE} width={ICON_SIZE} />
-        )} */}
+      <div className={`effectsStyles ${item.icon && "divWithIcon"}`}>
         <span className={item.icon ? "spanWithIcon" : "spanWithoutIcon"}>
           <Grid
             container
@@ -61,21 +55,25 @@ export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
             style={{
               display: "flex",
               flexDirection: "row",
+              paddingLeft: globalPaddingValues.left,
             }}
           >
-            <Grid item className="divWithIcon">
-              {item.icon && (
-                <ImageAsset
-                  alt={item.icon}
-                  height={ICON_SIZE}
-                  width={ICON_SIZE}
-                />
-              )}
-            </Grid>
-            <Grid item style={{ width: 770 }}>
+            {item.icon && (
+              <Grid>
+                {item.icon && (
+                  <ImageAsset
+                    alt={item.icon}
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                  />
+                )}
+              </Grid>
+            )}
+
+            <Grid item style={{ width: "90%" }}>
               <Typography
                 className="abilitiesSubHeaderStyle"
-                style={{ color: item.titleColour }}
+                style={{ color: item.titleColour, marginTop: -4 }}
               >
                 {item.title}
               </Typography>
@@ -84,7 +82,6 @@ export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
             </Grid>
           </Grid>
         </span>
-
       </div>
     </InfoSectionStyles>
   );

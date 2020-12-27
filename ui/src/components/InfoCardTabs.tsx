@@ -133,7 +133,7 @@ export const InfoCardTabs: FC = () => {
         </div>
       )}
       {value === 2 && (
-        <div style={{paddingTop: 20}}>
+        <div style={{ paddingTop: 20 }}>
           <SplashArtCardPanel />
         </div>
       )}

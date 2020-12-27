@@ -28,9 +28,12 @@ const Wrapper = styled.div`
   }
 `;
 
+const ICON_SIZE = 20;
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    backgroundColor: mainColour.black,
   },
   media: {
     height: 140,
@@ -60,20 +63,39 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
           <ImageAsset alt="baronCard.svg" />
           <CardContent>
             <Grid container style={{ display: "flex", flexDirection: "row" }}>
-              <Grid item xs={10}>
-                <Typography gutterBottom variant="h5" component="h2">
+              <Grid item>
+                <Typography
+                  variant="h5"
+                  component="h2"
+                  style={{
+                    color: mainColour.white,
+                    fontSize: 30,
+                    fontFamily: "Friz Quadrata",
+                  }}
+                >
                   {mapDatum.id}
                 </Typography>
               </Grid>
-              <Grid item>
-                <ImageAsset alt={mapDatum.alt} />
+              <Grid item style={{ paddingLeft: 40 }}>
+                <ImageAsset alt={mapDatum.alt} width={ICON_SIZE} height={ICON_SIZE}/>
               </Grid>
             </Grid>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="p"
+              style={{
+                color: mainColour.grey,
+                fontFamily: "Friz Quadrata",
+                fontSize: 16,
+              }}
+            >
               Epic Monster
             </Typography>
-            <Typography>
-
+            <Typography style={{ color: mainColour.grey, fontSize: 16 }}>
+              Baron Nashor is the most powerful neutral monster in Summoner’s
+              Rift. Killing it grants living teammates Hand of Baron, Empowered
+              Recall, and Aura - Empowered Allied Minions.
             </Typography>
             {/* <TextColourizer
               text={monsterDetails.overview && monsterDetails.overview[0].text}
