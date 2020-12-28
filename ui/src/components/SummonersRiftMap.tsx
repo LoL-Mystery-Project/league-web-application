@@ -84,7 +84,7 @@ export default function SummonersRiftMap() {
         })}
         {/* Map */}
         <ImageAsset
-          alt="map-cloud.svg"
+          alt="cloudMap.svg"
           height="100%"
           width="100%"
           style={{ marginTop: 5 }}
