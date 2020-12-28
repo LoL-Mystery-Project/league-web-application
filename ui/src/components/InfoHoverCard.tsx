@@ -26,6 +26,23 @@ const Wrapper = styled.div`
     background-color: transparent;
     color: ${mainColour.white};
   }
+  .subtitleText {
+    font-family: Friz Quadrata;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 15px;
+display: flex;
+align-items: center;
+color: ${mainColour.white};
+  }
+  .infoText {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: ${mainColour.grey};
+  }
 `;
 
 const ICON_SIZE = 20;
@@ -60,7 +77,7 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
     <Wrapper>
       <Card className={classes.root}>
         <CardActionArea>
-          <ImageAsset alt="baronCard.svg" />
+          <ImageAsset alt={mapDatum.banner} />
           <CardContent>
             <Grid container style={{ display: "flex", flexDirection: "row" }}>
               <Grid item>
@@ -84,15 +101,16 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
               variant="body2"
               color="textSecondary"
               component="p"
-              style={{
-                color: mainColour.grey,
-                fontFamily: "Friz Quadrata",
-                fontSize: 16,
-              }}
+              className="subtitleText"
+              // style={{
+              //   color: mainColour.grey,
+              //   fontFamily: "Friz Quadrata",
+              //   fontSize: 16,
+              // }}
             >
               Epic Monster
             </Typography>
-            <Typography style={{ color: mainColour.grey, fontSize: 16 }}>
+            <Typography className="infoText">
               Baron Nashor is the most powerful neutral monster in Summoner’s
               Rift. Killing it grants living teammates Hand of Baron, Empowered
               Recall, and Aura - Empowered Allied Minions.

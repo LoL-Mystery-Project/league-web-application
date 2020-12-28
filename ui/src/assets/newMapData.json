@@ -13,7 +13,7 @@
     "className": "dragonPosition",
     "width": "4%",
     "height": "4%",
-    "banner": "baronCard.svg"
+    "banner": "dragonsCard.svg"
   },
   {
     "id": "Krugs",
@@ -53,7 +53,7 @@
     "className": "topScuttlePos",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg"
+    "banner": "scuttleCard.svg"
   },
   {
     "id": "Scuttler Crab",
@@ -61,7 +61,7 @@
     "className": "botScuttlePos",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg"
+    "banner": "scuttleCard.svg"
   },
   {
     "id": "Wolves",

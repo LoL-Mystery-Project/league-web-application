@@ -145,7 +145,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                                 display: "flex",
                                 flexDirection: "row",
                                 alignContent: "center",
-                                paddingTop: 10,
+                                // paddingTop: 10, removed to rannow spaces between monsters icons
                               }}
                             >
                               <Button
@@ -192,7 +192,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                                 display: "flex",
                                 flexDirection: "row",
                                 alignContent: "center",
-                                paddingTop: 10,
+                                // paddingTop: 10, removed to rannow spaces between monsters icons
                               }}
                             >
                               <Button
@@ -264,7 +264,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         style={{
                           display: "flex",
                           flexDirection: "row",
-                          paddingTop: 10,
                         }}
                       >
                         <ImageAsset
@@ -326,7 +325,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         style={{
                           display: "flex",
                           flexDirection: "row",
-                          paddingTop: 10,
+                          // paddingTop: 10, removed to rannow spaces between monsters icons
                         }}
                       >
                         <ImageAsset
@@ -364,7 +363,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            paddingTop: 10,
+                            // paddingTop: 10, removed to rannow spaces between monsters icons
                           }}
                         >
                           <ImageAsset
@@ -382,7 +381,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            paddingTop: 10,
+                            // paddingTop: 10, removed to rannow spaces between monsters icons
                           }}
                         >
                           <ImageAsset
@@ -400,7 +399,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            paddingTop: 10,
                           }}
                         >
                           <ImageAsset
@@ -425,7 +423,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            paddingTop: 10,
                           }}
                         >
                           <ImageAsset
@@ -443,7 +440,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            paddingTop: 10,
                           }}
                         >
                           <ImageAsset
@@ -461,7 +457,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            paddingTop: 10,
                           }}
                         >
                           <ImageAsset
