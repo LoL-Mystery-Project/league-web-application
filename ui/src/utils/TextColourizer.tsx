@@ -1,6 +1,7 @@
 import Typography, { TypographyProps } from "@material-ui/core/Typography";
 import React, { FC, useEffect, useState } from "react";
 import { findKey, isEmpty } from "lodash";
+import { InfoPopover } from "./InfoPopover";
 
 interface Position {
   start: number;
@@ -8,6 +9,25 @@ interface Position {
 }
 export interface ColourMap {
   [key: string]: Array<string>;
+}
+
+/**
+ * An object with the following key and value types:
+ *
+ * @example
+ * Key: 'string to url-ify'
+ * Value: Object {
+ *   url: 'the URL to link to'
+ *   hasTooltip: 'boolean check to determine whether or not to show a tooltip onHover'
+ *   tooltipData: 'A generic object used to show data in the tooltip'
+ * }
+ */
+export interface LinkMap {
+  [key: string]: {
+    url: string;
+    hasTooltip: boolean;
+    tooltipData: Record<string, any> | {};
+  };
 }
 
 interface IndexMap {
@@ -22,10 +42,12 @@ interface IndexMap {
 export interface TextColourizerTypes {
   text: string;
   colourMap: ColourMap | {};
+  linkMap?: LinkMap;
 }
 
 interface BaseProps extends TypographyProps {
   colourMap: ColourMap;
+  linkMap?: LinkMap;
 }
 
 interface PropsWithChildren extends BaseProps {
@@ -41,14 +63,26 @@ interface PropsWithText extends BaseProps {
 export type TextColourizerProps = PropsWithChildren | PropsWithText;
 
 export const TextColourizer: FC<TextColourizerProps> = (props) => {
-  const { text, colourMap, children, ...typographyProps } = props;
-  const [rendered, setRendered] = useState<JSX.Element>();
+  const { text, colourMap, children, linkMap, ...typographyProps } = props;
+  const [rendered, setRendered] = useState<JSX.Element[]>();
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+  const open = Boolean(anchorEl);
+
+  const handlePopoverOpen = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
 
   useEffect(() => {
     const originalText = text || children!.toString();
 
     if (isEmpty(colourMap)) {
-      setRendered(<>{originalText}</>);
+      setRendered([<span>{originalText}</span>]);
       return;
     }
 
@@ -86,14 +120,14 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
         }
 
         const normalPhrase = curr.join("");
-        result.push(<span key={key++}>{normalPhrase}</span>);
+        result.push(<span key={`normal_${key++}`}>{normalPhrase}</span>);
         if (i === originalText.length) return result;
 
         const colour = findKey(indexMap, (e) => e.some((x) => x.start === i));
         const phrase = indexMap[colour!].find((e) => e.start === i);
 
         result.push(
-          <span key={key++} style={{ color: colour! }}>
+          <span key={`coloured_${key++}`} style={{ color: colour! }}>
             {originalText.substring(phrase!.start, phrase!.end)}
           </span>
         );
@@ -103,14 +137,76 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
       return result;
     };
 
-    setRendered(<>{getFinalJSX().map((elem) => elem)}</>);
-  }, [children, colourMap, text]);
+    const getJsxWithUrls = (arr: Array<JSX.Element>) => {
+      let result: JSX.Element[] = [];
+      let elemKey: number = 0;
+      arr.forEach((e) => {
+        let curr: JSX.Element[] = [];
+        Object.keys(linkMap!).forEach((key) => {
+          const children = e.props.children;
+          if (children.includes(key)) {
+            const start = children.indexOf(key);
+            const end = start + key.length;
+            if (start !== 0) {
+              curr.push(
+                <span key={`withUrl_${elemKey++}`} style={{ ...e.props.style }}>
+                  {children.substring(0, start)}
+                </span>
+              );
+            }
+            curr.push(
+              <a
+                style={{ color: e.props.style?.color || "inherit" }}
+                href={linkMap![key].url}
+                key={`withUrl_${elemKey++}`}
+                onMouseEnter={(e) => {
+                  if (linkMap![key].hasTooltip) {
+                    handlePopoverOpen(e);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (linkMap![key].hasTooltip) {
+                    handlePopoverClose();
+                  }
+                }}
+              >
+                {children.substring(start, end)}
+              </a>
+            );
+            if (end !== children.length) {
+              curr.push(
+                <span key={`withUrl_${elemKey++}`} style={{ ...e.props.style }}>
+                  {children.substring(end, children.length)}
+                </span>
+              );
+            }
+          }
+        });
+        curr.length
+          ? result.push(<>{curr.map((elem) => elem)}</>)
+          : result.push(e);
+      });
+
+      return result;
+    };
+
+    if (linkMap) {
+      setRendered(getJsxWithUrls(getFinalJSX()));
+    } else {
+      setRendered(getFinalJSX());
+    }
+  }, [children, colourMap, text, linkMap]);
 
   return (
     <div>
       <Typography display="inline" {...typographyProps}>
-        {rendered}
+        {rendered?.map((elem) => elem)}
       </Typography>
+      <InfoPopover
+        open={open}
+        anchorEl={anchorEl}
+        handlePopoverClose={handlePopoverClose}
+      />
     </div>
   );
 };

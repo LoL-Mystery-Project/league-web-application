@@ -44,30 +44,35 @@ export const Footer: FC<FooterProps> = ({ ...divProps }) => {
             label={
               <Typography className={classes.footerText}>Overview</Typography>
             }
+            value={0}
           />
           <Tab
             disableRipple
             label={
               <Typography className={classes.footerText}>Effects</Typography>
             }
+            value={1}
           />
           <Tab
             disableRipple
             label={
               <Typography className={classes.footerText}>Abilities</Typography>
             }
+            value={2}
           />
           <Tab
             disableRipple
             label={
               <Typography className={classes.footerText}>Strategy</Typography>
             }
+            value={3}
           />
           <Tab
             disableRipple
             label={
               <Typography className={classes.footerText}>Trivia</Typography>
             }
+            value={4}
           />
         </StyledTabs>
 
