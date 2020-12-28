@@ -16,7 +16,7 @@ import { InfoCardTabs } from "./InfoCardTabs";
 import { ImageAsset } from "./ImageAsset";
 import { clearSelectedMonster } from "../redux/actions/monsterActions";
 import { MonsterType } from "../monster-layout/MonsterTypes";
-import { globalPaddingValues } from "../styles/dimension";
+import { infoHeaderConstants } from "../styles/dimension";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -120,7 +120,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
     // </Drawer>
 
     <Fade in={showInfoDrawer}>
-      <div style={{ marginLeft: globalPaddingValues.left }}>
+      <div style={{ marginLeft: infoHeaderConstants.marginLeft }}>
         <Grid container style={{ display: "flex", flexDirection: "column" }}>
           {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
           {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}

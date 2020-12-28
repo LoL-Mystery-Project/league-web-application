@@ -6,7 +6,7 @@ import { mainColour } from "../styles/palette";
 import { ColouredList } from "./ColouredList";
 import { InfoSectionItem } from "./layoutTypes";
 import { Grid } from "@material-ui/core";
-import { globalPaddingValues } from "../styles/dimension";
+import { infoSectionConstants } from "../styles/dimension";
 
 interface InfoSectionProps {
   item: InfoSectionItem;
@@ -55,7 +55,7 @@ export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
             style={{
               display: "flex",
               flexDirection: "row",
-              paddingLeft: globalPaddingValues.left,
+              paddingLeft: infoSectionConstants.paddingLeft,
             }}
           >
             {item.icon && (

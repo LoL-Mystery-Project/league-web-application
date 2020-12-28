@@ -77,6 +77,7 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
     <Wrapper>
       <Card className={classes.root}>
         <CardActionArea>
+          {/* <ImageAsset alt ='frameInfoCardComponent.svg'/> */}
           <ImageAsset alt={mapDatum.banner} />
           <CardContent>
             <Grid container style={{ display: "flex", flexDirection: "row" }}>
@@ -102,11 +103,6 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
               color="textSecondary"
               component="p"
               className="subtitleText"
-              // style={{
-              //   color: mainColour.grey,
-              //   fontFamily: "Friz Quadrata",
-              //   fontSize: 16,
-              // }}
             >
               Epic Monster
             </Typography>

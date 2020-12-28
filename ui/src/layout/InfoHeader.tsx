@@ -2,7 +2,7 @@ import { Typography } from "@material-ui/core";
 import React, { FC } from "react";
 import styled from "styled-components";
 import { ImageAsset } from "../components/ImageAsset";
-import { globalPaddingValues } from "../styles/dimension";
+import { infoSectionConstants } from "../styles/dimension";
 import { mainColour } from "../styles/palette";
 
 interface InfoHeaderProps extends React.ComponentProps<"div"> {
@@ -42,7 +42,7 @@ const HeaderStyles = styled.div`
     font-weight: normal;
     font-size: 20px;
     line-height: 18px;
-    padding-bottom: ${globalPaddingValues.left}px;
+    padding-bottom: ${infoSectionConstants.paddingLeft}px;
     color: ${mainColour.yellow};
   }
 

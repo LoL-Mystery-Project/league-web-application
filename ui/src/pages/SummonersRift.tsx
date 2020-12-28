@@ -363,7 +363,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            // paddingTop: 10, removed to rannow spaces between monsters icons
+                            paddingTop: 10,
                           }}
                         >
                           <ImageAsset
@@ -381,7 +381,6 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            // paddingTop: 10, removed to rannow spaces between monsters icons
                           }}
                         >
                           <ImageAsset
@@ -423,6 +422,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
+                            paddingTop: 10,
                           }}
                         >
                           <ImageAsset
