@@ -13,12 +13,12 @@
 .baronPosition {
   position: absolute;
   top: 27%;
-  left: 31.7%;
+  left: 31%;
 }
 
 .dragonPosition {
   position: absolute;
-  top: 68%;
+  top: 69%;
   left: 65%;
 }
 
@@ -37,13 +37,13 @@
 .redRaptorPosition {
   position: absolute;
   top: 33.8%;
-  left: 52.3%;
+  left: 52%;
 }
 
 .blueRaptorPosition {
   position: absolute;
   top: 62.8%;
-  left: 46.8%;
+  left: 46.5%;
 }
 
 .topScuttlePos {

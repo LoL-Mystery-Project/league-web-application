@@ -1,22 +1,13 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
+import Popover from "@material-ui/core/Popover";
 import { ImageAsset } from "./ImageAsset";
 
 import SoulSelectionToggle from "../components/SoulSelectionToggle";
 import { InfoHoverCard } from "../components/InfoHoverCard";
 import newMapData from "../assets/newMapData.json";
-import styled from "styled-components";
-import { mainColour } from "../styles/palette";
 
 import "./mapData.css";
-
-// interface mapElement {
-//   imgName: String;
-//   top: String;
-//   left: String;
-//   width: number;
-//   height: number;
-// }
-
+import { makeStyles, Theme, createStyles } from "@material-ui/core";
 export interface MapType {
   id: string;
   alt: string;
@@ -26,7 +17,20 @@ export interface MapType {
   banner: string;
 }
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    popover: {
+      pointerEvents: "none",
+    },
+    paper: {
+      padding: theme.spacing(1),
+    },
+  })
+);
+
 export default function SummonersRiftMap() {
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const [hoveredObject, setHoveredObject] = useState<MapType>({
     id: "",
     alt: "",
@@ -36,24 +40,31 @@ export default function SummonersRiftMap() {
     banner: "",
   });
   const [showInfoCard, setShowInfoCard] = useState(false);
+  const open = Boolean(anchorEl);
 
-  const handleShowInfoCard = (mapDatum: MapType) => {
+  const handlePopoverOpen = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleShowInfoCard = (
+    mapDatum: MapType,
+    e: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
     setHoveredObject(mapDatum);
     setShowInfoCard(true);
+    handlePopoverOpen(e);
   };
   const handleHideInfoCard = (mapDatum: MapType) => {
     setHoveredObject(mapDatum);
     setShowInfoCard(false);
+    handlePopoverClose();
   };
-  // const placeMapElements = (mapArray: mapElement[]) => {
-  //   for (const a of mapArray) {
-  //     a.
-  //   }
-
-  //   return (
-  //     <ImageAsset alt={imgName} className={classPos} width={w} height={h} />
-  //   );
-  // };
 
   return (
     <>
@@ -66,7 +77,7 @@ export default function SummonersRiftMap() {
               className={mapDatum.className}
               width={mapDatum.width}
               height={mapDatum.height}
-              onMouseEnter={() => handleShowInfoCard(mapDatum)}
+              onMouseEnter={(e) => handleShowInfoCard(mapDatum, e)}
               onMouseLeave={() => handleHideInfoCard(mapDatum)}
             />
           );
@@ -81,9 +92,24 @@ export default function SummonersRiftMap() {
       </div>
 
       {showInfoCard && (
-        <div className="cardContainer">
+        <Popover
+          id="mouse-over-popover"
+          className={classes.popover}
+          open={open}
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          onClose={handlePopoverClose}
+          disableRestoreFocus
+        >
           <InfoHoverCard mapDatum={hoveredObject} />{" "}
-        </div>
+        </Popover>
       )}
     </>
   );
