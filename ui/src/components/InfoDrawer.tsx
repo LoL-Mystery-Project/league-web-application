@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
 import { mainColour } from "../styles/palette";
@@ -10,9 +10,13 @@ import Typography from "@material-ui/core/Typography";
 
 import { MonsterObject } from "../pages/SummonersRift";
 
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/types";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../redux/ReduxTypes";
 import { InfoCardTabs } from "./InfoCardTabs";
+import { ImageAsset } from "./ImageAsset";
+import { clearSelectedMonster } from "../redux/actions/monsterActions";
+import { MonsterType } from "../monster-layout/MonsterTypes";
+import { infoHeaderConstants } from "../styles/dimension";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -57,7 +61,7 @@ const useStyles = makeStyles({
   },
   infoCard: {
     // width: 800,
-    height: 500,
+    // height: 500,
     background: "transparent",
     color: mainColour.white,
   },
@@ -84,7 +88,7 @@ const useStyles = makeStyles({
 export interface InfoDrawerProps {
   handleClose: Function;
   showInfoDrawer: boolean;
-  asset: MonsterObject;
+  asset: MonsterType | undefined;
 }
 
 export const InfoDrawer: FC<InfoDrawerProps> = ({
@@ -92,72 +96,99 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
   showInfoDrawer,
   asset,
 }) => {
-  const { imageMap } = useSelector((state: RootState) => state.images);
-  const { name, hp, imageIcon } = asset;
-
+  const [windowHeight, setWindowHeight] = useState(0);
+  const dispatch = useDispatch();
+  const { selectedMonster } = useSelector((state: RootState) => state.monsters);
   const classes = useStyles();
 
   const handleCloseInfoDrawer = () => {
     handleClose(asset);
   };
 
+  useEffect(() => {
+    window.addEventListener("resize", updateWindowDimensions);
+    updateWindowDimensions();
+  }, []);
+
+  const updateWindowDimensions = () => {
+    setWindowHeight(window.innerHeight - 215);
+  };
+
   return (
     // <Drawer anchor="right" open={showInfoDrawer} onClose={() => handleClose(false)}>
     //   Hello
     // </Drawer>
+
     <Fade in={showInfoDrawer}>
-      <Grid container style={{ display: "flex", flexDirection: "column" }}>
-        {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
-        {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
-        {/* TODO: change marginLeft = 20 */}
-        <Grid item style={{ backgroundColor: "transparent" }}>
-          <Grid
-            container
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              marginTop: 30,
-              marginLeft: 10,
-              marginBottom: -50,
-            }}
-          >
-            {/* ICON */}
-            <Grid style={{ backgroundColor: "transparent", marginRight: 5 }}>
-              <img
-                src={imageIcon}
-                height={60}
-                width={60}
-                style={{ paddingRight: 5 }}
-                alt="whyyyyy"
-              />{" "}
-            </Grid>
-            {/* MONSTER TITLE AND SUBTITLE */}
-            <Grid item xs={9} style={{ backgroundColor: "transparent" }}>
-              <Typography className={classes.monsterTitle}>{name}</Typography>
-              <Typography className={classes.monsterSubtitle}>
-                Epic Monster
-              </Typography>
-            </Grid>
-            {/* CLOSE BUTTON */}
-            <Grid item style={{ backgroundColor: "transparent" }}>
-              <img
-                className={classes.closeButton}
-                src={imageMap["close.svg"]}
-                height={30}
-                width={30}
-                alt="close"
-                onClick={() => {
-                  handleCloseInfoDrawer();
-                }}
-              />{" "}
+      <div style={{ marginLeft: infoHeaderConstants.marginLeft }}>
+        <Grid container style={{ display: "flex", flexDirection: "column" }}>
+          {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
+          {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
+          {/* TODO: change marginLeft = 20 */}
+          <Grid item style={{ backgroundColor: "transparent" }}>
+            <Grid
+              container
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                marginTop: 30,
+                marginLeft: 10,
+                marginBottom: -30,
+              }}
+            >
+              {/* ICON */}
+              <Grid style={{ backgroundColor: "transparent", marginRight: 5 }}>
+                <ImageAsset
+                  height={60}
+                  width={60}
+                  style={{ paddingRight: 5 }}
+                  alt={selectedMonster?.icon ?? ""}
+                />{" "}
+              </Grid>
+              {/* MONSTER TITLE AND SUBTITLE */}
+              <Grid item xs={9} style={{ backgroundColor: "transparent" }}>
+                <Typography className={classes.monsterTitle}>
+                  {selectedMonster?.name}
+                </Typography>
+                <Typography className={classes.monsterSubtitle}>
+                  Epic Monster
+                </Typography>
+              </Grid>
+              {/* CLOSE BUTTON */}
+              <Grid item style={{ backgroundColor: "transparent" }}>
+                <ImageAsset
+                  className={classes.closeButton}
+                  height={30}
+                  width={30}
+                  alt="close.svg"
+                  onClick={() => {
+                    handleCloseInfoDrawer();
+                    dispatch(clearSelectedMonster());
+                  }}
+                />{" "}
+              </Grid>
             </Grid>
           </Grid>
+          {/* EVERYTHING ELSE */}
+          <div
+            style={{
+              overflowY: "scroll",
+              overflowX: "hidden",
+              height: windowHeight,
+            }}
+          >
+            <Grid
+              item
+              xs={12}
+              style={{
+                backgroundColor: "transparent",
+              }}
+            >
+              <InfoCardTabs />
+            </Grid>
+          </div>
         </Grid>
-        {/* EVERYTHING ELSE */}
-        <Grid item xs={12} style={{ backgroundColor: "transparent" }}>
-          <InfoCardTabs infoCardTabsProps={asset} />
-        </Grid>
-      </Grid>
+      </div>
     </Fade>
   );
 };

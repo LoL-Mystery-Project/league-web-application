@@ -6,16 +6,13 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-
-import background from "../assets/navbar/background.svg";
-import leageIcon from "../assets/navbar/league_icon.png";
 
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { PageState, RootState } from "../redux/types";
+import { PageState, RootState } from "../redux/ReduxTypes";
 import { setCurrentPage } from "../redux/actions/pageActions";
 import { mainColour } from "../styles/palette";
+import { ImageAsset } from "./ImageAsset";
 
 // https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 const Wrapper = styled.div`
@@ -39,12 +36,18 @@ const Wrapper = styled.div`
 
   .selectedPage {
     color: #ffffff;
-    background: linear-gradient(transparent, ${mainColour.white} 500%);
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.001),
+      ${mainColour.white} 500%
+    );
   }
 
   .selectedPage:hover {
     color: #ffffff;
-    background-image: linear-gradient(transparent, ${mainColour.white} 500%),
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.001),
+        ${mainColour.white} 500%
+      ),
       radial-gradient(ellipse at bottom, white 10%, transparent 75%) !important;
     background-position: center, center bottom;
     background-size: 100% 100%, 75% 8%;
@@ -124,17 +127,16 @@ export default function MenuAppBar() {
               color="inherit"
               aria-label="menu"
             >
-              <img src={leageIcon} alt="league icon" style={{ height: 39 }} />
+              <ImageAsset alt="lol.svg" style={{ height: 39 }} />
             </IconButton>
             <div className="parentNavBarContainer">
               {pages.map((page, index) => {
                 return (
                   <div>
                     {isSelectedPage(page[0]) && (
-                      <img
+                      <ImageAsset
                         className="arrowStyles"
                         height={15}
-                        src="https://league-icons.s3-us-west-2.amazonaws.com/pointer.svg"
                         alt="pointer.svg"
                       />
                     )}

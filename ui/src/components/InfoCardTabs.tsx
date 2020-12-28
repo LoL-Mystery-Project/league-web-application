@@ -11,6 +11,7 @@ import { SplashArtCardPanel } from "./SplashArtCardPanel";
 import Typography from "@material-ui/core/Typography";
 import { mainColour } from "../styles/palette";
 import { MonsterObject } from "../pages/SummonersRift";
+import { ImageAsset } from "./ImageAsset";
 
 const StyledTabs = withStyles({
   root: {
@@ -47,17 +48,9 @@ const Wrapper = styled.div`
     transform: rotate(45deg);
   }
 
-  .textselected: {
-    color: ${mainColour.red};
-  }
-
-  .textunselected: {
-    color: ${mainColour.grey};
-  }
-
   .bottomBorder {
     border-bottom: 2px solid transparent;
-    border-image-source: url("https://league-icons.s3-us-west-2.amazonaws.com/patchNotesLineSeparator.svg");
+    border-image-source: url("https://league-icons.s3-us-west-2.amazonaws.com/line.svg");
     border-image-repeat: initial;
     border-image-slice: 1;
     margin-bottom: 10px;
@@ -84,11 +77,7 @@ const useStyles = makeStyles({
 //   helloObject: string;
 // }
 
-interface InfoCardTabsProps {
-  infoCardTabsProps: MonsterObject;
-}
-
-export const InfoCardTabs: FC<InfoCardTabsProps> = ({ infoCardTabsProps }) => {
+export const InfoCardTabs: FC = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -102,7 +91,7 @@ export const InfoCardTabs: FC<InfoCardTabsProps> = ({ infoCardTabsProps }) => {
         value={value}
         onChange={handleChange}
         indicatorColor="primary" // underline
-        className="bottomBorder"
+        // className="bottomBorder"
         // textColor="secondary" // this changes the selected text colour
         // variant="fullWidth"
       >
@@ -130,20 +119,22 @@ export const InfoCardTabs: FC<InfoCardTabsProps> = ({ infoCardTabsProps }) => {
           disabled={false}
         />
       </StyledTabs>
+      <div style={{ marginTop: -12 }}>
+        <ImageAsset alt="line.svg" />
+      </div>
       {value === 0 && (
         <div>
-          <InfoCardPanel InfoPanelProps={infoCardTabsProps} />
+          <InfoCardPanel />
         </div>
       )}
       {value === 1 && (
         <div>
-          <PatchNoteCardPanel PatchNoteCardPanelProps={infoCardTabsProps} />
+          <PatchNoteCardPanel />
         </div>
       )}
       {value === 2 && (
-        <div>
-          Show splash art{" "}
-          <SplashArtCardPanel SplashArtCardPanelProps={infoCardTabsProps} />
+        <div style={{ paddingTop: 20 }}>
+          <SplashArtCardPanel />
         </div>
       )}
     </Wrapper>

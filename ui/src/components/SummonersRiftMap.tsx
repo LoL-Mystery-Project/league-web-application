@@ -1,56 +1,116 @@
-import React, { FC } from "react";
-import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState } from "react";
+import Popover from "@material-ui/core/Popover";
 import { ImageAsset } from "./ImageAsset";
 
 import SoulSelectionToggle from "../components/SoulSelectionToggle";
+import { InfoHoverCard } from "../components/InfoHoverCard";
+import newMapData from "../assets/newMapData.json";
 
-// interface SummonersRiftMap {}
+import "./mapData.css";
+import { makeStyles, Theme, createStyles } from "@material-ui/core";
+export interface MapType {
+  id: string;
+  alt: string;
+  className: string;
+  width: string;
+  height: string;
+  banner: string;
+}
 
-// export const SummonersRiftMap: FC<SummonersRiftMapProps> = ({}) => {
-//   return (
-//     <>
-//       <button>hi</button>
-//     </>
-//   );
-// };
-
-// helper functions and API calls
-// useEffects
-
-// backend:
-// create Express
-// create gmail
-// set up MongoDB
-// add Data Dragon json to MongoDB database :D
-
-const useStyles = makeStyles((theme) => ({
-  margin: {
-    margin: theme.spacing(1),
-  },
-  root: {
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      width: "25ch",
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    popover: {
+      pointerEvents: "none",
     },
-  },
-}));
+    paper: {
+      padding: theme.spacing(1),
+    },
+  })
+);
 
 export default function SummonersRiftMap() {
   const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+  const [hoveredObject, setHoveredObject] = useState<MapType>({
+    id: "",
+    alt: "",
+    className: "",
+    width: "",
+    height: "",
+    banner: "",
+  });
+  const [showInfoCard, setShowInfoCard] = useState(false);
+  const open = Boolean(anchorEl);
+
+  const handlePopoverOpen = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleShowInfoCard = (
+    mapDatum: MapType,
+    e: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => {
+    setHoveredObject(mapDatum);
+    setShowInfoCard(true);
+    handlePopoverOpen(e);
+  };
+  const handleHideInfoCard = (mapDatum: MapType) => {
+    setHoveredObject(mapDatum);
+    setShowInfoCard(false);
+    handlePopoverClose();
+  };
 
   return (
-    // div col1
-    // put into a div / row
-    // The selection thingy with the cloud drakes <separate component>
-    // the toggles <separate component>
-
-    // the map below
     <>
       <SoulSelectionToggle />
-      <div className="Map">
-        <ImageAsset alt="fullmap.svg" height="700" width="700" />;
+      <div className="mapContainer">
+        {newMapData.map((mapDatum) => {
+          return (
+            <ImageAsset
+              alt={mapDatum.alt}
+              className={mapDatum.className}
+              width={mapDatum.width}
+              height={mapDatum.height}
+              onMouseEnter={(e) => handleShowInfoCard(mapDatum, e)}
+              onMouseLeave={() => handleHideInfoCard(mapDatum)}
+            />
+          );
+        })}
+        {/* Map */}
+        <ImageAsset
+          alt="cloudMap.svg"
+          height="100%"
+          width="100%"
+          style={{ marginTop: 5 }}
+        />
       </div>
+
+      {showInfoCard && (
+        <Popover
+          id="mouse-over-popover"
+          className={classes.popover}
+          open={open}
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          onClose={handlePopoverClose}
+          disableRestoreFocus
+        >
+          <InfoHoverCard mapDatum={hoveredObject} />{" "}
+        </Popover>
+      )}
     </>
   );
 }

@@ -1,7 +1,10 @@
+import { MonsterType } from "../monster-layout/MonsterTypes";
+
 export interface RootState {
   page: PageState;
   dragon: DragonState;
   images: ImageState;
+  monsters: MonsterState;
 }
 
 export interface PageState {
@@ -29,4 +32,11 @@ export interface ImageState {
 interface ImageType {
   key: string;
   url: string;
+}
+
+export interface MonsterState {
+  fetchingMonsters: boolean;
+  fetchFailed: boolean;
+  allMonsters: Array<MonsterType> | undefined;
+  selectedMonster: MonsterType | undefined;
 }
