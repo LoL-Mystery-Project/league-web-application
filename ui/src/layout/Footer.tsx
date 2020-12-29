@@ -31,7 +31,7 @@ export const Footer: FC<FooterProps> = ({ ...divProps }) => {
   const classes = useStyles();
 
   return (
-    <div {...divProps}>
+    <div style={{ marginTop: 10 }} {...divProps}>
       <Grid>
         <StyledTabs
           // value={value}
@@ -76,7 +76,8 @@ export const Footer: FC<FooterProps> = ({ ...divProps }) => {
           />
         </StyledTabs>
 
-        <Grid style={{ paddingTop: 30, textAlign: "center" }}>
+        {/* Figma shows that marginTop should be 55 from tab text */}
+        <Grid style={{ marginTop: 30, textAlign: "center" }}>
           <ImageAsset alt="ender.svg" />
         </Grid>
       </Grid>

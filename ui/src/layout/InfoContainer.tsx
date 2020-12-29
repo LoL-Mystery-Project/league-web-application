@@ -11,24 +11,20 @@ interface InfoContainerProps {
 
 export const InfoContainer: FC<InfoContainerProps> = ({ subcategories }) => {
   return (
-    <Grid
-      container
-      spacing={1}
-      style={{ display: "flex", flexDirection: "column" }}
-    >
+    <Grid container style={{ display: "flex", flexDirection: "column" }}>
       {subcategories?.map((subcategory) => {
         return (
           <Grid item>
             {subcategory.title !== "noSubcategory" && (
               <InfoHeader isSubheader={true} title={subcategory.title} />
             )}
-            {subcategory.data.map((ability) => {
-              return <InfoSection item={ability} />;
-            })}
+              {subcategory.data.map((ability) => {
+                return <InfoSection item={ability} />;
+              })}
           </Grid>
         );
       })}
-      <Grid item>
+      <Grid item style={{ marginTop: 20, marginLeft: 20 }}>
         <ImageAsset alt="line.svg" />
       </Grid>
     </Grid>

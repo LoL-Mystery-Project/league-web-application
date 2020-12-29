@@ -16,6 +16,8 @@ import { ImageAsset } from "./ImageAsset";
 const StyledTabs = withStyles({
   root: {
     color: mainColour.white,
+    marginTop: 8, // TODO: confirm that this is correct
+    marginLeft: -5, // added this so that information tabs align vertically with monster icon
   },
   indicator: {
     height: 3,
@@ -119,7 +121,8 @@ export const InfoCardTabs: FC = () => {
           disabled={false}
         />
       </StyledTabs>
-      <div style={{ marginTop: -12 }}>
+      {/* added marginLeft so that line aligns with information tabs */}
+      <div style={{ marginTop: -12, marginLeft: 19 }}>
         <ImageAsset alt="line.svg" />
       </div>
       {value === 0 && (

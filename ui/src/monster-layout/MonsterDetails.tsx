@@ -14,17 +14,17 @@ export const MonsterDetails: FC = () => {
   return (
     <MonsterWrapper>
       <InfoHeader title="Overview" />
-      <div style={{ paddingLeft: 25 }}>
+      <div style={{ marginLeft: 40, marginTop: 20 }}>
         <ColouredList listItems={overview!} />
       </div>
       <Grid
         container
-        spacing={1}
         style={{
           display: "flex",
           flexDirection: "row",
-          paddingTop: 30,
-          paddingBottom: 20,
+          marginTop: 30,
+          marginLeft: 20,
+          marginBottom: 20,
         }}
       >
         {/* BOUNTY */}
@@ -32,7 +32,7 @@ export const MonsterDetails: FC = () => {
         <Grid item xs={3}>
           <Typography
             className="overViewSubTextStyling"
-            style={{ paddingBottom: 10 }}
+            style={{ paddingBottom: 10}}
           >
             Bounty
           </Typography>
