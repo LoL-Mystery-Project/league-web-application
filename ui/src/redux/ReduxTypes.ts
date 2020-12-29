@@ -5,6 +5,7 @@ export interface RootState {
   dragon: DragonState;
   images: ImageState;
   monsters: MonsterState;
+  
 }
 
 export interface PageState {
