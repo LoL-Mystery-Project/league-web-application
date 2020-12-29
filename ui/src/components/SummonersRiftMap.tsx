@@ -36,6 +36,7 @@ export default function SummonersRiftMap() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
   const dragState = useSelector((state: RootState) => state.dragon);
+
   const [hoveredObject, setHoveredObject] = useState<MapType>({
     id: "",
     alt: "",
@@ -75,18 +76,26 @@ export default function SummonersRiftMap() {
     <>
       <SoulSelectionToggle />
       <div className="mapContainer">
-        {newMapData.map((mapDatum) => {
-          return (
-            <ImageAsset
-              alt={mapDatum.alt}
-              className={mapDatum.className}
-              width={mapDatum.width}
-              height={mapDatum.height}
-              onMouseEnter={(e) => handleShowInfoCard(mapDatum, e)}
-              onMouseLeave={() => handleHideInfoCard(mapDatum)}
-            />
-          );
-        })}
+        {newMapData
+          .filter(
+            (mapDatum) =>
+              (mapDatum.objectType == "monster" &&
+                dragState.dragOptions?.showNeutralMonsters) ||
+              (mapDatum.objectType == "building" &&
+                dragState.dragOptions?.showBuildings)
+          )
+          .map((mapDatum) => {
+            return (
+              <ImageAsset
+                alt={mapDatum.alt}
+                className={mapDatum.className}
+                width={mapDatum.width}
+                height={mapDatum.height}
+                onMouseEnter={(e) => handleShowInfoCard(mapDatum, e)}
+                onMouseLeave={() => handleHideInfoCard(mapDatum)}
+              />
+            );
+          })}
         {/* Map */}
         {dragState.selectedDragon === "ocean" ? (
           <ImageAsset
