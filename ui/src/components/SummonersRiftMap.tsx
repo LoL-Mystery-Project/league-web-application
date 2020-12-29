@@ -72,18 +72,20 @@ export default function SummonersRiftMap() {
     handlePopoverClose();
   };
 
+  const filterByType = (type: String) => {
+    if (type == "monster") return dragState.dragOptions?.showNeutralMonsters;
+    if (type == "building") return dragState.dragOptions?.showBuildings;
+    if (type == "junglePlant") return dragState.dragOptions?.showJunglePlants;
+    if (type == "brush") return dragState.dragOptions?.showBrushes;
+    return false;
+  };
+
   return (
     <>
       <SoulSelectionToggle />
       <div className="mapContainer">
         {newMapData
-          .filter(
-            (mapDatum) =>
-              (mapDatum.objectType == "monster" &&
-                dragState.dragOptions?.showNeutralMonsters) ||
-              (mapDatum.objectType == "building" &&
-                dragState.dragOptions?.showBuildings)
-          )
+          .filter((mapDatum) => filterByType(mapDatum.objectType))
           .map((mapDatum) => {
             return (
               <ImageAsset

@@ -56,10 +56,6 @@ export default function SoulSelectionToggle() {
     dispatch(setSelectedDrag(dragType));
   };
 
-  const updateMapOptions = (mapOptions: DragonOptions) => {
-    dispatch(setDragOptions(mapOptions));
-  };
-
   const handleToggleCheckBox = (type: String) => {
     if (type === "neutralMonster") {
       dispatch(

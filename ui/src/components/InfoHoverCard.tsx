@@ -28,13 +28,13 @@ const Wrapper = styled.div`
   }
   .subtitleText {
     font-family: Friz Quadrata;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 15px;
-display: flex;
-align-items: center;
-color: ${mainColour.white};
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    color: ${mainColour.white};
   }
   .infoText {
     font-style: normal;
@@ -77,7 +77,7 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
     <Wrapper>
       <Card className={classes.root}>
         <CardActionArea>
-          {/* <ImageAsset alt ='frameInfoCardComponent.svg'/> */}
+          {/* <ImageAsset alt="frameInfoCardComponent.svg" /> */}
           <ImageAsset alt={mapDatum.banner} />
           <CardContent>
             <Grid container style={{ display: "flex", flexDirection: "row" }}>
@@ -95,7 +95,11 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
                 </Typography>
               </Grid>
               <Grid item style={{ paddingLeft: 40 }}>
-                <ImageAsset alt={mapDatum.alt} width={ICON_SIZE} height={ICON_SIZE}/>
+                <ImageAsset
+                  alt={mapDatum.alt}
+                  width={ICON_SIZE}
+                  height={ICON_SIZE}
+                />
               </Grid>
             </Grid>
             <Typography
