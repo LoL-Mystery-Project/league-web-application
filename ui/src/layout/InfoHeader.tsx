@@ -12,6 +12,9 @@ interface InfoHeaderProps extends React.ComponentProps<"div"> {
 }
 
 const HeaderStyles = styled.div`
+  p {
+    line-height: 28px;
+  }
   div {
     display: flex;
     flex-direction: row;
@@ -52,7 +55,7 @@ const HeaderStyles = styled.div`
     z-index: 10000;
     display: flex;
     margin-top: -40px;
-    padding-right: 20px;
+    margin-right: 20px;
     float: right;
   }
 

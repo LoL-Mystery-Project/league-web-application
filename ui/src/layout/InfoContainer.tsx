@@ -24,7 +24,7 @@ export const InfoContainer: FC<InfoContainerProps> = ({ subcategories }) => {
           </Grid>
         );
       })}
-      <Grid item style={{ marginTop: 20 }}>
+      <Grid item style={{ marginTop: 20, marginLeft: 20 }}>
         <ImageAsset alt="line.svg" />
       </Grid>
     </Grid>

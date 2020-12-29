@@ -35,7 +35,7 @@ const InfoSectionStyles = styled.div`
   }
 
   .spanWithoutIcon {
-    margin-top: -5px;
+    margin-top: 5px;
   }
 
   .divWithIcon {
@@ -54,7 +54,7 @@ export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
             style={{
               display: "flex",
               flexDirection: "row",
-              paddingLeft: infoSectionConstants.paddingLeft,
+              marginLeft: infoSectionConstants.paddingLeft,
               alignItems: "center",
             }}
           >
@@ -85,7 +85,7 @@ export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
         </span>
       </div>
 
-      <div style={{ marginLeft: item.icon ? 90 : 34}}>
+      <div style={{ marginLeft: item.icon ? 90 : 40, marginTop: 10 }}>
         {/* <ul> tag with colourize text */}
         <ColouredList listItems={item.effects} />
       </div>

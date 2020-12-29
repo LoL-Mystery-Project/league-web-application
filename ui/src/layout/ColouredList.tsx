@@ -8,7 +8,6 @@ interface ColouredListProps extends React.ComponentProps<"div"> {
 
 const ColouredListStyles = styled.div`
   li {
-    margin-top: 10px;
     margin-right: 160px;
   }
 
@@ -19,6 +18,10 @@ const ColouredListStyles = styled.div`
 
   .listStyles {
     margin-left: -20px;
+  }
+
+  p {
+    line-height: 19px;
   }
 `;
 

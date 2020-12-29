@@ -46,6 +46,28 @@ const Wrapper = styled.div`
     height: 100%;
     z-index: 9990;
   }
+
+  .monsterTitle {
+    font-family: Friz Quadrata;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .monsterSubtitle {
+    font-family: Friz Quadrata;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    color: ${mainColour.grey};
+  }
 `;
 
 const useStyles = makeStyles({
@@ -65,20 +87,9 @@ const useStyles = makeStyles({
     background: "transparent",
     color: mainColour.white,
   },
-  monsterTitle: {
-    color: mainColour.purple,
-    fontFamily: "Friz Quadrata",
-    fontSize: 30,
-    marginTop: -10,
-  },
-  monsterSubtitle: {
-    color: mainColour.grey,
-    fontFamily: "Friz Quadrata",
-    fontSize: 16,
-  },
   closeButton: {
     position: "absolute",
-    right: 20,
+    right: 28, // Figma says 20. Increased to 28 to align with close arrows
     "&:hover": {
       cursor: "pointer",
     },
@@ -120,75 +131,78 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
     // </Drawer>
 
     <Fade in={showInfoDrawer}>
-      <div style={{ marginLeft: infoHeaderConstants.marginLeft }}>
-        <Grid container style={{ display: "flex", flexDirection: "column" }}>
-          {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
-          {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
-          {/* TODO: change marginLeft = 20 */}
-          <Grid item style={{ backgroundColor: "transparent" }}>
-            <Grid
-              container
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                marginTop: 30,
-                marginLeft: 10,
-                marginBottom: -30,
-              }}
-            >
-              {/* ICON */}
-              <Grid style={{ backgroundColor: "transparent", marginRight: 5 }}>
-                <ImageAsset
-                  height={60}
-                  width={60}
-                  style={{ paddingRight: 5 }}
-                  alt={selectedMonster?.icon ?? ""}
-                />{" "}
-              </Grid>
-              {/* MONSTER TITLE AND SUBTITLE */}
-              <Grid item xs={9} style={{ backgroundColor: "transparent" }}>
-                <Typography className={classes.monsterTitle}>
-                  {selectedMonster?.name}
-                </Typography>
-                <Typography className={classes.monsterSubtitle}>
-                  Epic Monster
-                </Typography>
-              </Grid>
-              {/* CLOSE BUTTON */}
-              <Grid item style={{ backgroundColor: "transparent" }}>
-                <ImageAsset
-                  className={classes.closeButton}
-                  height={30}
-                  width={30}
-                  alt="close.svg"
-                  onClick={() => {
-                    handleCloseInfoDrawer();
-                    dispatch(clearSelectedMonster());
-                  }}
-                />{" "}
+      <Wrapper>
+        <div
+          style={{ marginLeft: infoHeaderConstants.marginLeft }}
+        >
+          <Grid container style={{ display: "flex", flexDirection: "column"}}>
+            {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
+            {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
+            <Grid item style={{ backgroundColor: "transparent" }}>
+              <Grid
+                container
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  marginLeft: 20,
+                }}
+              >
+                {/* ICON */}
+                <Grid
+                  style={{ backgroundColor: "transparent", marginRight: 10 }}
+                >
+                  <ImageAsset
+                    height={60}
+                    width={60}
+                    style={{ paddingRight: 5 }}
+                    alt={selectedMonster?.icon ?? ""}
+                  />{" "}
+                </Grid>
+                {/* MONSTER TITLE AND SUBTITLE */}
+                <Grid style={{ backgroundColor: "transparent" }}>
+                  <Typography className="monsterTitle">
+                    {selectedMonster?.name}
+                  </Typography>
+                  <Typography className="monsterSubtitle">
+                    Epic Monster
+                  </Typography>
+                </Grid>
+                {/* CLOSE BUTTON */}
+                <Grid item style={{ backgroundColor: "transparent" }}>
+                  <ImageAsset
+                    className={classes.closeButton}
+                    height={30}
+                    width={30}
+                    alt="close.svg"
+                    onClick={() => {
+                      handleCloseInfoDrawer();
+                      dispatch(clearSelectedMonster());
+                    }}
+                  />{" "}
+                </Grid>
               </Grid>
             </Grid>
+            {/* EVERYTHING ELSE */}
+            <div
+              style={{
+                overflowY: "scroll",
+                overflowX: "hidden",
+                height: windowHeight,
+              }}
+            >
+              <Grid
+                item
+                xs={12}
+                style={{
+                  backgroundColor: "transparent",
+                }}
+              >
+                <InfoCardTabs />
+              </Grid>
+            </div>
           </Grid>
-          {/* EVERYTHING ELSE */}
-          <div
-            style={{
-              overflowY: "scroll",
-              overflowX: "hidden",
-              height: windowHeight,
-            }}
-          >
-            <Grid
-              item
-              xs={12}
-              style={{
-                backgroundColor: "transparent",
-              }}
-            >
-              <InfoCardTabs />
-            </Grid>
-          </div>
-        </Grid>
-      </div>
+        </div>
+      </Wrapper>
     </Fade>
   );
 };
