@@ -6,6 +6,9 @@ import SoulSelectionToggle from "../components/SoulSelectionToggle";
 import { InfoHoverCard } from "../components/InfoHoverCard";
 import newMapData from "../assets/newMapData.json";
 
+import { RootState } from "../redux/ReduxTypes";
+import { useSelector } from "react-redux";
+
 import "./mapData.css";
 import { makeStyles, Theme, createStyles } from "@material-ui/core";
 export interface MapType {
@@ -31,6 +34,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function SummonersRiftMap() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+
+  const dragState = useSelector((state: RootState) => state.dragon);
   const [hoveredObject, setHoveredObject] = useState<MapType>({
     id: "",
     alt: "",
@@ -83,12 +88,21 @@ export default function SummonersRiftMap() {
           );
         })}
         {/* Map */}
-        <ImageAsset
-          alt="cloudMap.svg"
-          height="100%"
-          width="100%"
-          style={{ marginTop: 5 }}
-        />
+        {dragState.selectedDragon === "ocean" ? (
+          <ImageAsset
+            alt="cloudMap.svg"
+            height="100%"
+            width="100%"
+            style={{ marginTop: 5 }}
+          />
+        ) : (
+          <ImageAsset
+            alt={`${dragState.selectedDragon}Map.svg`}
+            height="100%"
+            width="100%"
+            style={{ marginTop: 5 }}
+          />
+        )}
       </div>
 
       {showInfoCard && (
