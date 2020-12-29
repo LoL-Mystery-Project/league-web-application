@@ -26,8 +26,15 @@ export interface LinkMap {
   [key: string]: {
     url: string;
     hasTooltip: boolean;
-    tooltipData: Record<string, any> | {};
+    tooltipData: LinkMapObject;
   };
+}
+
+export interface LinkMapObject {
+  image: string;
+  icon: string;
+  name: string;
+  description: string;
 }
 
 interface IndexMap {
@@ -62,10 +69,20 @@ interface PropsWithText extends BaseProps {
 
 export type TextColourizerProps = PropsWithChildren | PropsWithText;
 
+const initialTooltipState = Object.freeze({
+  image: "",
+  icon: "",
+  name: "",
+  description: "",
+});
+
 export const TextColourizer: FC<TextColourizerProps> = (props) => {
   const { text, colourMap, children, linkMap, ...typographyProps } = props;
   const [rendered, setRendered] = useState<JSX.Element[]>();
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+  const [hoveredObject, setHoveredObject] = useState<LinkMapObject>(
+    initialTooltipState
+  );
   const open = Boolean(anchorEl);
 
   const handlePopoverOpen = (
@@ -108,7 +125,7 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
       });
     });
 
-    const getFinalJSX = (): Array<JSX.Element> => {
+    const getColouredJSX = (): Array<JSX.Element> => {
       let result: Array<JSX.Element> = [];
       let key = 0;
 
@@ -161,6 +178,7 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
                 key={`withUrl_${elemKey++}`}
                 onMouseEnter={(e) => {
                   if (linkMap![key].hasTooltip) {
+                    setHoveredObject(linkMap![key].tooltipData);
                     handlePopoverOpen(e);
                   }
                 }}
@@ -191,9 +209,9 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
     };
 
     if (linkMap) {
-      setRendered(getJsxWithUrls(getFinalJSX()));
+      setRendered(getJsxWithUrls(getColouredJSX()));
     } else {
-      setRendered(getFinalJSX());
+      setRendered(getColouredJSX());
     }
   }, [children, colourMap, text, linkMap]);
 
@@ -206,6 +224,7 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
         open={open}
         anchorEl={anchorEl}
         handlePopoverClose={handlePopoverClose}
+        popoverObject={hoveredObject}
       />
     </div>
   );
