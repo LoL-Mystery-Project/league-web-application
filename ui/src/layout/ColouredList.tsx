@@ -31,7 +31,10 @@ export const ColouredList: FC<ColouredListProps> = (props) => {
           {listItems?.map((listItem) => {
             return (
               <li className="listStyles">
-                <TextColourizer colourMap={listItem.colourMap}>
+                <TextColourizer
+                  colourMap={listItem.colourMap}
+                  linkMap={listItem.linkMap}
+                >
                   {listItem.text}
                 </TextColourizer>
               </li>
