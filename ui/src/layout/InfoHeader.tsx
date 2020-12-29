@@ -30,8 +30,8 @@ const HeaderStyles = styled.div`
 
   .titleStyle {
     font-family: Friz Quadrata;
-    padding-top: 20px;
-    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
     font-size: 30px;
     color: ${mainColour.yellow};
   }
@@ -42,7 +42,9 @@ const HeaderStyles = styled.div`
     font-weight: normal;
     font-size: 20px;
     line-height: 18px;
-    padding-bottom: ${infoSectionConstants.paddingLeft}px;
+    margin-left: 20px;
+    margin-top: 20px;
+    // margin-bottom: ${infoSectionConstants.paddingLeft}px;
     color: ${mainColour.yellow};
   }
 

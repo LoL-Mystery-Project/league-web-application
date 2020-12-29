@@ -8,11 +8,12 @@ interface ColouredListProps extends React.ComponentProps<"div"> {
 
 const ColouredListStyles = styled.div`
   li {
+    margin-top: 10px;
     margin-right: 160px;
   }
 
   ul {
-    margin-top: 5px;
+    margin: 0;
     width: 100%;
   }
 
