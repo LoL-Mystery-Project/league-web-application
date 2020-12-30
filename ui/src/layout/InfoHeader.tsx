@@ -2,7 +2,7 @@ import { Typography } from "@material-ui/core";
 import React, { FC } from "react";
 import styled from "styled-components";
 import { ImageAsset } from "../components/ImageAsset";
-import { infoSectionConstants } from "../styles/dimension";
+import { infoHeaderConstants, closeArrowConstants } from "../styles/dimension";
 import { mainColour } from "../styles/palette";
 
 interface InfoHeaderProps extends React.ComponentProps<"div"> {
@@ -26,15 +26,15 @@ const HeaderStyles = styled.div`
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
-    padding-top: 10px;
-    padding-left: 10px;
-    color: #808080;
+    margin-top: ${infoHeaderConstants.effectsDescriptionMarginTop}px;
+    margin-left: ${infoHeaderConstants.effectsDescriptionMarginLeft}px;
+    color: ${mainColour.grey};
   }
 
   .titleStyle {
     font-family: Friz Quadrata;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: ${infoHeaderConstants.titleStyleMarginTop}px;
+    margin-left: ${infoHeaderConstants.titleStyleMarginLeft}px;
     font-size: 30px;
     color: ${mainColour.yellow};
   }
@@ -45,16 +45,16 @@ const HeaderStyles = styled.div`
     font-weight: normal;
     font-size: 20px;
     line-height: 18px;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-left: ${infoHeaderConstants.subheaderStyleMarginLeft}px;
+    margin-top: ${infoHeaderConstants.subheaderStyleMarginTop}px;
     color: ${mainColour.yellow};
   }
 
   .closeArrow {
     z-index: 10000;
     display: flex;
-    margin-top: -40px;
-    margin-right: 20px;
+    margin-top: ${closeArrowConstants.marginTop}px;
+    margin-right: ${closeArrowConstants.marginRight}px;
     float: right;
   }
 

@@ -10,4 +10,15 @@ export enum infoSectionConstants {
 
 export enum infoHeaderConstants {
   marginLeft = 20,
+  effectsDescriptionMarginTop = 10,
+  effectsDescriptionMarginLeft = 10,
+  titleStyleMarginTop = 20,
+  titleStyleMarginLeft = 20,
+  subheaderStyleMarginTop = 20,
+  subheaderStyleMarginLeft = 20,
+}
+
+export enum closeArrowConstants {
+  marginTop = -40,
+  marginRight = 20,
 }
