@@ -31,19 +31,19 @@
 .blueKrugPosition {
   position: absolute;
   top: 81.8%;
-  left: 56.6%;
+  left: 55.3%;
 }
 
 .redRaptorPosition {
   position: absolute;
-  top: 33.8%;
-  left: 52%;
+  top: 34%;
+  left: 51.5%;
 }
 
 .blueRaptorPosition {
   position: absolute;
   top: 62.8%;
-  left: 46.5%;
+  left: 46.2%;
 }
 
 .topScuttlePos {
@@ -60,13 +60,13 @@
 
 .redWolfPos {
   position: absolute;
-  top: 42%;
+  top: 41.7%;
   left: 73%;
 }
 
 .blueWolfPos {
   position: absolute;
-  top: 54%;
+  top: 55.5%;
   left: 24%;
 }
 
@@ -250,8 +250,8 @@
 
 .redSideRedBuff {
   position: absolute;
-  top: 24.5%;
-  right: 51%;
+  top: 25.5%;
+  right: 50.5%;
 }
 
 .blueSideBlueBuff {
@@ -262,14 +262,14 @@
 
 .blueSideRedBuff {
   position: absolute;
-  bottom: 24.5%;
-  left: 51%;
+  bottom: 25.5%;
+  left: 50.5%;
 }
 
 .redSideGromp {
   position: absolute;
   top: 55.5%;
-  right: 13%;
+  right: 13.5%;
 }
 
 .blueSideGromp {
