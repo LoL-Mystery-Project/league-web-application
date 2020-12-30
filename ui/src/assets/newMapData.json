@@ -7,6 +7,7 @@
     "height": "4%",
     "banner": "baronCard.svg",
     "subTitle": "Epic Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -17,6 +18,7 @@
     "height": "4%",
     "banner": "dragonsCard.svg",
     "subTitle": "Epic Monster",
+    "description": "The Dragon is the second most powerful neutral monster on Summoner's Rift in League of Legends. Slaying the Dragon grants the team a powerful stacking buff.",
     "objectType": "monster"
   },
   {
@@ -27,6 +29,7 @@
     "height": "2.5%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -37,6 +40,7 @@
     "height": "2.5%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -47,6 +51,7 @@
     "height": "2.5%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -57,6 +62,7 @@
     "height": "2.5%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -67,6 +73,7 @@
     "height": "3%",
     "banner": "scuttleCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Scuttle crab is a non-hostile neutral monster that can be found on the top and bottom river of Summoner's Rift. Killing it grants vision and bonus movement speed in a small area.",
     "objectType": "monster"
   },
   {
@@ -77,6 +84,7 @@
     "height": "3%",
     "banner": "scuttleCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -87,6 +95,7 @@
     "height": "3%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -97,6 +106,7 @@
     "height": "3%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -107,6 +117,7 @@
     "height": "6%",
     "banner": "nexusCard.svg",
     "subTitle": "Structure",
+    "description": "The Nexus is the primary objective in every League of Legends gamemode. A team only wins the match when their opposition's Nexus is destroyed.",
     "objectType": "building"
   },
   {
@@ -117,6 +128,7 @@
     "height": "6%",
     "banner": "nexusCard.svg",
     "subTitle": "Structure",
+    "description": "The Nexus is the primary objective in every League of Legends gamemode. A team only wins the match when their opposition's Nexus is destroyed.",
     "objectType": "building"
   },
   {
@@ -127,6 +139,7 @@
     "height": "3.5%",
     "banner": "baronCard.svg",
     "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
   },
   {
@@ -137,6 +150,7 @@
     "height": "3.5%",
     "banner": "baronCard.svg",
     "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
   },
   {
@@ -147,6 +161,7 @@
     "height": "3.5%",
     "banner": "baronCard.svg",
     "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
   },
   {
@@ -157,6 +172,7 @@
     "height": "3.5%",
     "banner": "baronCard.svg",
     "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
   },
   {
@@ -167,6 +183,7 @@
     "height": "3.5%",
     "banner": "baronCard.svg",
     "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
   },
   {
@@ -177,6 +194,7 @@
     "height": "3.5%",
     "banner": "baronCard.svg",
     "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
   },
   {
@@ -187,6 +205,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -197,6 +216,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -207,6 +227,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -217,6 +238,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -227,6 +249,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -237,6 +260,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -247,6 +271,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -257,6 +282,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -267,6 +293,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -277,6 +304,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -287,6 +315,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -297,6 +326,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -307,6 +337,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -317,6 +348,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -327,6 +359,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -337,6 +370,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -347,6 +381,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -357,6 +392,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -367,6 +403,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -377,6 +414,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -387,6 +425,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -397,6 +436,7 @@
     "height": "2%",
     "banner": "turretCard.svg",
     "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
   },
   {
@@ -407,6 +447,7 @@
     "height": "3%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -417,6 +458,7 @@
     "height": "3%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -427,6 +469,7 @@
     "height": "3%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -437,6 +480,7 @@
     "height": "3%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -447,6 +491,7 @@
     "height": "2%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   },
   {
@@ -457,6 +502,7 @@
     "height": "2%",
     "banner": "baronCard.svg",
     "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
   }
 ]
