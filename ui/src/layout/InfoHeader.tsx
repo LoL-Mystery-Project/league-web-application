@@ -47,7 +47,6 @@ const HeaderStyles = styled.div`
     line-height: 18px;
     margin-left: 20px;
     margin-top: 20px;
-    // margin-bottom: ${infoSectionConstants.paddingLeft}px;
     color: ${mainColour.yellow};
   }
 

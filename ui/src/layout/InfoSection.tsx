@@ -31,11 +31,11 @@ const InfoSectionStyles = styled.div`
   }
 
   .spanWithIcon {
-    margin-top: 20px;
+    margin-top: ${infoSectionConstants.spanWithIconMarginTop}px;
   }
 
   .spanWithoutIcon {
-    margin-top: 5px;
+    margin-top: ${infoSectionConstants.spanWithoutIconMarginTop}px;
   }
 
   .divWithIcon {
@@ -54,7 +54,7 @@ export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
             style={{
               display: "flex",
               flexDirection: "row",
-              marginLeft: infoSectionConstants.paddingLeft,
+              marginLeft: infoSectionConstants.marginLeft,
               alignItems: "center",
             }}
           >
@@ -75,7 +75,7 @@ export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
                 className="abilitiesSubHeaderStyle"
                 style={{
                   color: item.titleColour,
-                  marginLeft: 20,
+                  marginLeft: infoSectionConstants.abilitiesSubHeaderMarginLeft,
                 }}
               >
                 {item.title}
@@ -85,7 +85,14 @@ export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
         </span>
       </div>
 
-      <div style={{ marginLeft: item.icon ? 90 : 40, marginTop: 10 }}>
+      <div
+        style={{
+          marginLeft: item.icon
+            ? infoSectionConstants.colouredListWithIconMarginLeft
+            : infoSectionConstants.colouredListWithoutIconMarginLeft,
+          marginTop: infoSectionConstants.colouredListMarginTop,
+        }}
+      >
         {/* <ul> tag with colourize text */}
         <ColouredList listItems={item.effects} />
       </div>
