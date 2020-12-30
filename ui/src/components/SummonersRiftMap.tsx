@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import Popover from "@material-ui/core/Popover";
 import { ImageAsset } from "./ImageAsset";
 
 import SoulSelectionToggle from "../components/SoulSelectionToggle";
-import { InfoHoverCard } from "../components/InfoHoverCard";
 import newMapData from "../assets/newMapData.json";
 
 import "./mapData.css";
-import { makeStyles, Theme, createStyles } from "@material-ui/core";
+import { InfoPopover } from "../utils/InfoPopover";
 export interface MapType {
   id: string;
   alt: string;
@@ -15,21 +13,10 @@ export interface MapType {
   width: string;
   height: string;
   banner: string;
+  subTitle: string;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    popover: {
-      pointerEvents: "none",
-    },
-    paper: {
-      padding: theme.spacing(1),
-    },
-  })
-);
-
 export default function SummonersRiftMap() {
-  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const [hoveredObject, setHoveredObject] = useState<MapType>({
     id: "",
@@ -38,6 +25,7 @@ export default function SummonersRiftMap() {
     width: "",
     height: "",
     banner: "",
+    subTitle: "",
   });
   const [showInfoCard, setShowInfoCard] = useState(false);
   const open = Boolean(anchorEl);
@@ -90,26 +78,13 @@ export default function SummonersRiftMap() {
           style={{ marginTop: 5 }}
         />
       </div>
-
       {showInfoCard && (
-        <Popover
-          id="mouse-over-popover"
-          className={classes.popover}
+        <InfoPopover
           open={open}
           anchorEl={anchorEl}
-          anchorOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "left",
-          }}
-          onClose={handlePopoverClose}
-          disableRestoreFocus
-        >
-          <InfoHoverCard mapDatum={hoveredObject} />{" "}
-        </Popover>
+          handlePopoverClose={handlePopoverClose}
+          mapDatum={hoveredObject}
+        />
       )}
     </>
   );

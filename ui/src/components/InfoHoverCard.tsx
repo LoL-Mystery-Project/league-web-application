@@ -104,7 +104,7 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
               component="p"
               className="subtitleText"
             >
-              Epic Monster
+              {mapDatum.subTitle}
             </Typography>
             <Typography className="infoText">
               Baron Nashor is the most powerful neutral monster in Summoner’s
