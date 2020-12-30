@@ -1,7 +1,7 @@
-export const infoSectionConstants = Object.freeze({
-  paddingLeft: 40
-})
+export enum infoSectionConstants {
+  paddingLeft = 40,
+}
 
-export const infoHeaderConstants = Object.freeze({
-  marginLeft: 20
-})
+export enum infoHeaderConstants {
+  marginLeft = 20,
+}
