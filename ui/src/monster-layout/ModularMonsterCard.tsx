@@ -14,7 +14,7 @@ export const ModularMonsterCard: FC = () => {
   return (
     <div>
       <MonsterDetails />
-      <ImageAsset alt="line.svg" />
+      <ImageAsset style={{marginLeft: 20}} alt="line.svg" />
       <Grid container style={{ display: "flex", flexDirection: "column" }}>
         {selectedMonster?.informationText?.map((section) => {
           return (

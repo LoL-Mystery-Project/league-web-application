@@ -12,12 +12,16 @@ const ColouredListStyles = styled.div`
   }
 
   ul {
-    margin-top: 5px;
+    margin: 0;
     width: 100%;
   }
 
   .listStyles {
     margin-left: -20px;
+  }
+
+  p {
+    line-height: 19px;
   }
 `;
 

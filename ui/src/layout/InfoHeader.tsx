@@ -12,6 +12,9 @@ interface InfoHeaderProps extends React.ComponentProps<"div"> {
 }
 
 const HeaderStyles = styled.div`
+  p {
+    line-height: 28px;
+  }
   div {
     display: flex;
     flex-direction: row;
@@ -30,8 +33,8 @@ const HeaderStyles = styled.div`
 
   .titleStyle {
     font-family: Friz Quadrata;
-    padding-top: 20px;
-    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
     font-size: 30px;
     color: ${mainColour.yellow};
   }
@@ -42,7 +45,9 @@ const HeaderStyles = styled.div`
     font-weight: normal;
     font-size: 20px;
     line-height: 18px;
-    padding-bottom: ${infoSectionConstants.paddingLeft}px;
+    margin-left: 20px;
+    margin-top: 20px;
+    // margin-bottom: ${infoSectionConstants.paddingLeft}px;
     color: ${mainColour.yellow};
   }
 
@@ -50,7 +55,7 @@ const HeaderStyles = styled.div`
     z-index: 10000;
     display: flex;
     margin-top: -40px;
-    padding-right: 20px;
+    margin-right: 20px;
     float: right;
   }
 
