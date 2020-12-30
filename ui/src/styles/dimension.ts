@@ -1,3 +1,10 @@
+export enum infoDrawerConstants {
+  monsterTitleMarginBottom = 10,
+  closeButtonMarginRight = 28,
+  marginLeft = 20,
+  monsterIconMarginRight = 10,
+}
+
 export enum infoCardTabsConstants {
   marginTop = 8,
   marginLeft = -5,
@@ -5,6 +12,16 @@ export enum infoCardTabsConstants {
   infoCardTabLineMarginTop = -12,
   splashArtMarginLeft = 20,
   splashArtMarginTop = 20,
+}
+
+export enum monsterDetailsConstants {
+  statsMarginTop = 30,
+  statsMarginLeft = 20,
+  statsMarginBottom = 20,
+  statsTitleMarginBottom = 10,
+  statsColumnMarginLeft = 15,
+  statsColumnItemsMarginLeft = 10,
+  spawnSectionMarginRight = -30,
 }
 
 export enum infoSectionConstants {
