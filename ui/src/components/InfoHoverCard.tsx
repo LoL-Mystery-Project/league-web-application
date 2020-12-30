@@ -110,20 +110,22 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
             >
               Epic Monster
             </Typography>
-            <Typography className="infoText">
+            {/* <Typography className="infoText">
               Baron Nashor is the most powerful neutral monster in Summoner’s
               Rift. Killing it grants living teammates Hand of Baron, Empowered
               Recall, and Aura - Empowered Allied Minions.
-            </Typography>
+            </Typography> */}
             {/* <TextColourizer
-              text={monsterDetails.overview && monsterDetails.overview[0].text}
-              colourMap={
-                monsterDetails.overview && monsterDetails.overview[0].colourMap
-              }
+              // text={monsterDetails.overview && monsterDetails.overview[0].text}
+              // colourMap={
+              //   monsterDetails.overview && monsterDetails.overview[0].colourMap
+              // }
+              text={monsterDetails.overview?.text}
+              colourMap={monsterDetails.overview?.colourMap}
             /> */}
-            {/* Baron Nashor is the most powerful neutral monster in Summoner’s
-              Rift. Killing it grants living teammates Hand of Baron, Empowered
-              Recall, and Aura - Empowered Allied Minions. */}
+            <Typography className="infoText">
+              {monsterDetails.description}
+            </Typography>
           </CardContent>
         </CardActionArea>
       </Card>

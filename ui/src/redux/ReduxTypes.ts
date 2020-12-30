@@ -10,6 +10,7 @@ export interface RootState {
 
 export interface PageState {
   currentPage: string;
+  showInfoDrawer: boolean;
 }
 export interface DragonState {
   selectedDragon: string;
