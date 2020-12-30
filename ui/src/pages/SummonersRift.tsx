@@ -17,6 +17,7 @@ import { setSelectedMonster } from "../redux/actions/monsterActions";
 import { ImageAsset } from "../components/ImageAsset";
 import { MonsterType } from "../monster-layout/MonsterTypes";
 import { useWindowDimensions } from "../components/hooks/useWindowDimensions";
+import { setInfoDrawerBoolean } from "../redux/actions/pageActions";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -67,14 +68,13 @@ export interface MonsterObject {
 export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const dispatch = useDispatch();
   const [windowHeight, setWindowHeight] = useState(0);
-  const [showInfoDrawer, setInfoDrawer] = useState(false);
   const { allMonsters } = useSelector((state: RootState) => state.monsters);
+  const { showInfoDrawer } = useSelector((state: RootState) => state.page);
   const [asset, setAsset] = useState<MonsterType | undefined>(undefined);
   const windowDimensions = useWindowDimensions();
 
-  const handleToggleInfoDrawer = (monster: MonsterType) => {
-    setInfoDrawer(!showInfoDrawer);
-    setAsset(monster);
+  const handleCloseInfoDrawer = () => {
+    dispatch(setInfoDrawerBoolean(false));
   };
 
   useEffect(() => {
@@ -150,8 +150,9 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                             >
                               <Button
                                 onClick={() => {
-                                  handleToggleInfoDrawer(elem);
+                                  // handleToggleInfoDrawer(elem);
                                   dispatch(setSelectedMonster(elem.name));
+                                  dispatch(setInfoDrawerBoolean(true));
                                 }}
                               >
                                 <div
@@ -197,8 +198,9 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                             >
                               <Button
                                 onClick={() => {
-                                  handleToggleInfoDrawer(elem);
+                                  // handleToggleInfoDrawer(elem);
                                   dispatch(setSelectedMonster(elem.name));
+                                  dispatch(setInfoDrawerBoolean(true));
                                 }}
                               >
                                 <div
@@ -491,7 +493,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
           >
             <InfoDrawer
               showInfoDrawer={showInfoDrawer}
-              handleClose={handleToggleInfoDrawer}
+              handleClose={handleCloseInfoDrawer}
               asset={asset}
             />
           </Grid>

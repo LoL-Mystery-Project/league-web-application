@@ -6,7 +6,8 @@
     "width": "4%",
     "height": "4%",
     "banner": "baronCard.svg",
-    "subTitle": "Epic Monster"
+    "subTitle": "Epic Monster",
+    "objectType": "monster"
   },
   {
     "id": "Infernal Dragon",
@@ -15,7 +16,8 @@
     "width": "4%",
     "height": "4%",
     "banner": "dragonsCard.svg",
-    "subTitle": "Epic Monster"
+    "subTitle": "Epic Monster",
+    "objectType": "monster"
   },
   {
     "id": "Krugs",
@@ -24,7 +26,8 @@
     "width": "2.5%",
     "height": "2.5%",
     "banner": "baronCard.svg",
-    "subTitle": "Epic Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
   {
     "id": "Krugs",
@@ -33,7 +36,8 @@
     "width": "2.5%",
     "height": "2.5%",
     "banner": "baronCard.svg",
-    "subTitle": "Epic Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
   {
     "id": "Raptors",
@@ -42,7 +46,8 @@
     "width": "2.5%",
     "height": "2.5%",
     "banner": "baronCard.svg",
-    "subTitle": "Epic Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
   {
     "id": "Raptors",
@@ -51,7 +56,8 @@
     "width": "2.5%",
     "height": "2.5%",
     "banner": "baronCard.svg",
-    "subTitle": "Epic Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
   {
     "id": "Scuttler Crab",
@@ -60,7 +66,8 @@
     "width": "3%",
     "height": "3%",
     "banner": "scuttleCard.svg",
-    "subTitle": "Epic Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
   {
     "id": "Scuttler Crab",
@@ -69,7 +76,8 @@
     "width": "3%",
     "height": "3%",
     "banner": "scuttleCard.svg",
-    "subTitle": "Epic Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
   {
     "id": "Wolves",
@@ -78,7 +86,8 @@
     "width": "3%",
     "height": "3%",
     "banner": "baronCard.svg",
-    "subTitle": "Epic Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
   {
     "id": "Wolves",
@@ -87,7 +96,8 @@
     "width": "3%",
     "height": "3%",
     "banner": "baronCard.svg",
-    "subTitle": "Epic Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
   {
     "id": "Nexus",
@@ -96,7 +106,8 @@
     "width": "6%",
     "height": "6%",
     "banner": "nexusCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Nexus",
@@ -105,7 +116,8 @@
     "width": "6%",
     "height": "6%",
     "banner": "nexusCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -114,7 +126,8 @@
     "width": "3.5%",
     "height": "3.5%",
     "banner": "baronCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -123,7 +136,8 @@
     "width": "3.5%",
     "height": "3.5%",
     "banner": "baronCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -132,7 +146,8 @@
     "width": "3.5%",
     "height": "3.5%",
     "banner": "baronCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -141,7 +156,8 @@
     "width": "3.5%",
     "height": "3.5%",
     "banner": "baronCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -150,7 +166,8 @@
     "width": "3.5%",
     "height": "3.5%",
     "banner": "baronCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -159,7 +176,8 @@
     "width": "3.5%",
     "height": "3.5%",
     "banner": "baronCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -168,7 +186,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -177,7 +196,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -186,7 +206,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -195,7 +216,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -204,7 +226,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -213,7 +236,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -222,7 +246,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -231,7 +256,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -240,7 +266,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -249,7 +276,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -258,7 +286,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -267,7 +296,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -276,7 +306,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -285,7 +316,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -294,7 +326,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -303,7 +336,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -312,7 +346,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -321,7 +356,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -330,7 +366,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -339,7 +376,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -348,7 +386,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -357,7 +396,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "turretCard.svg",
-    "subTitle": "Structure"
+    "subTitle": "Structure",
+    "objectType": "building"
   },
   {
     "id": "Blue Sentinel",
@@ -366,7 +406,8 @@
     "width": "3%",
     "height": "3%",
     "banner": "baronCard.svg",
-    "subTitle": "Neutral Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
   {
     "id": "Blue Sentinel",
@@ -375,9 +416,9 @@
     "width": "3%",
     "height": "3%",
     "banner": "baronCard.svg",
-    "subTitle": "Neutral Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
-
   {
     "id": "Red Brambleback",
     "alt": "redbramblebackIcon.svg",
@@ -385,7 +426,8 @@
     "width": "3%",
     "height": "3%",
     "banner": "baronCard.svg",
-    "subTitle": "Neutral Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
   {
     "id": "Red Brambleback",
@@ -394,9 +436,9 @@
     "width": "3%",
     "height": "3%",
     "banner": "baronCard.svg",
-    "subTitle": "Neutral Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
-
   {
     "id": "Gromp",
     "alt": "grompIcon.svg",
@@ -404,7 +446,8 @@
     "width": "2%",
     "height": "2%",
     "banner": "baronCard.svg",
-    "subTitle": "Neutral Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   },
   {
     "id": "Gromp",
@@ -413,6 +456,7 @@
     "width": "2%",
     "height": "2%",
     "banner": "baronCard.svg",
-    "subTitle": "Neutral Monster"
+    "subTitle": "Neutral Monster",
+    "objectType": "monster"
   }
 ]

@@ -4,8 +4,13 @@ import { ImageAsset } from "./ImageAsset";
 import SoulSelectionToggle from "../components/SoulSelectionToggle";
 import newMapData from "../assets/newMapData.json";
 
+import { RootState } from "../redux/ReduxTypes";
+import { useDispatch, useSelector } from "react-redux";
+
 import "./mapData.css";
 import { InfoPopover } from "../utils/InfoPopover";
+import { setSelectedMonster } from "../redux/actions/monsterActions";
+import { setInfoDrawerBoolean } from "../redux/actions/pageActions";
 export interface MapType {
   id: string;
   alt: string;
@@ -18,6 +23,10 @@ export interface MapType {
 
 export default function SummonersRiftMap() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+  const dispatch = useDispatch();
+
+  const dragState = useSelector((state: RootState) => state.dragon);
+
   const [hoveredObject, setHoveredObject] = useState<MapType>({
     id: "",
     alt: "",
@@ -54,29 +63,52 @@ export default function SummonersRiftMap() {
     handlePopoverClose();
   };
 
+  const filterByType = (type: String) => {
+    if (type === "monster") return dragState.dragOptions?.showNeutralMonsters;
+    if (type === "building") return dragState.dragOptions?.showBuildings;
+    if (type === "junglePlant") return dragState.dragOptions?.showJunglePlants;
+    if (type === "brush") return dragState.dragOptions?.showBrushes;
+    return false;
+  };
+
   return (
     <>
       <SoulSelectionToggle />
       <div className="mapContainer">
-        {newMapData.map((mapDatum) => {
-          return (
-            <ImageAsset
-              alt={mapDatum.alt}
-              className={mapDatum.className}
-              width={mapDatum.width}
-              height={mapDatum.height}
-              onMouseEnter={(e) => handleShowInfoCard(mapDatum, e)}
-              onMouseLeave={() => handleHideInfoCard(mapDatum)}
-            />
-          );
-        })}
+        {newMapData
+          .filter((mapDatum) => filterByType(mapDatum.objectType))
+          .map((mapDatum) => {
+            return (
+              <ImageAsset
+                alt={mapDatum.alt}
+                className={mapDatum.className}
+                width={mapDatum.width}
+                height={mapDatum.height}
+                onMouseEnter={(e) => handleShowInfoCard(mapDatum, e)}
+                onMouseLeave={() => handleHideInfoCard(mapDatum)}
+                onClick={() => {
+                  dispatch(setSelectedMonster(mapDatum.id));
+                  dispatch(setInfoDrawerBoolean(true));
+                }}
+              />
+            );
+          })}
         {/* Map */}
-        <ImageAsset
-          alt="cloudMap.svg"
-          height="100%"
-          width="100%"
-          style={{ marginTop: 5 }}
-        />
+        {dragState.selectedDragon === "ocean" ? (
+          <ImageAsset
+            alt="cloudMap.svg"
+            height="100%"
+            width="100%"
+            style={{ marginTop: 5 }}
+          />
+        ) : (
+          <ImageAsset
+            alt={`${dragState.selectedDragon}Map.svg`}
+            height="100%"
+            width="100%"
+            style={{ marginTop: 5 }}
+          />
+        )}
       </div>
       {showInfoCard && (
         <InfoPopover
