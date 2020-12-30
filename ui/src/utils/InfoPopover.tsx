@@ -10,6 +10,7 @@ import { ImageAsset } from "../components/ImageAsset";
 import { LinkMapObject } from "./TextColourizer";
 import { mainColour } from "../styles/palette";
 import { MapType } from "../components/SummonersRiftMap";
+import { Box } from "@material-ui/core";
 
 interface BaseInfoPopoverProps {
   open: boolean;
@@ -79,18 +80,18 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: PopoverDimensions.subtitleFontSize,
       color: mainColour.grey,
       position: "absolute",
-      zIndex: 10,
+      zIndex: 1.0,
       marginTop: 244,
       marginLeft: PopoverDimensions.textMarginLeft,
       marginRight: PopoverDimensions.marginRight,
     },
     descriptionText: {
       fontSize: PopoverDimensions.descriptionFontSize,
-      fontWeight: 500,
       color: mainColour.grey,
       position: "absolute",
+      lineHeight: 1.3,
       zIndex: 10,
-      marginTop: 270,
+      marginTop: 275,
       marginLeft: PopoverDimensions.textMarginLeft,
       marginRight: PopoverDimensions.marginRight,
     },
