@@ -22,3 +22,8 @@ export enum closeArrowConstants {
   marginTop = -40,
   marginRight = 20,
 }
+
+export enum lineConstants {
+  marginTop = 20, 
+  marginLeft = 20,
+}
