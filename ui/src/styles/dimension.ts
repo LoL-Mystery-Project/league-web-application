@@ -1,3 +1,12 @@
+export enum infoCardTabsConstants {
+  marginTop = 8,
+  marginLeft = -5,
+  infoCardTabLineMarginLeft = 19,
+  infoCardTabLineMarginTop = -12,
+  splashArtMarginLeft = 20,
+  splashArtMarginTop = 20,
+}
+
 export enum infoSectionConstants {
   marginLeft = 40,
   spanWithIconMarginTop = 20,
@@ -26,4 +35,9 @@ export enum closeArrowConstants {
 export enum lineConstants {
   marginTop = 20, 
   marginLeft = 20,
+}
+
+export enum footerConstants {
+  marginTop = 10,
+  enderMarginTop = 30,
 }
