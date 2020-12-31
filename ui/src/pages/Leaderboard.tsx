@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { InfoHoverCard } from "../components/InfoHoverCard";
 
 interface LeaderboardProps {}
 
