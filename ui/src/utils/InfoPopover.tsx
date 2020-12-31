@@ -10,6 +10,7 @@ import { ImageAsset } from "../components/ImageAsset";
 import { LinkMapObject } from "./TextColourizer";
 import { mainColour } from "../styles/palette";
 import { MapType } from "../components/SummonersRiftMap";
+import { Box } from "@material-ui/core";
 
 interface BaseInfoPopoverProps {
   open: boolean;
@@ -39,6 +40,21 @@ interface InfoPopoverObject {
 
 type InfoPopoverProps = PropsWithLinkMap | PropsWithMapDatum;
 
+enum PopoverDimensions {
+  bannerHeight = 200,
+  bannerWidth = 398,
+  marginTop = 20,
+  bannerMarginLeft = 20,
+  textMarginLeft = 40,
+  marginRight = 20,
+  iconMarginLeft = 375,
+  iconSize = 20,
+  headerFontSize = 30,
+  subtitleFontSize = 16,
+  descriptionFontSize = 16,
+  headerHeight = 30,
+}
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     popover: {
@@ -52,35 +68,32 @@ const useStyles = makeStyles((theme: Theme) =>
     titleText: {
       fontFamily: "Friz Quadrata",
       fontSize: 30,
-      fontHeight: 15,
       color: mainColour.white,
       position: "absolute",
       zIndex: 10,
-      marginTop: 215,
-      marginLeft: 40,
-      marginRight: 20,
-    },
-    descriptionText: {
-      fontSize: 16,
-      fontWeight: 500,
-      color: mainColour.grey,
-      position: "absolute",
-      zIndex: 10,
-      marginTop: 285,
-      marginLeft: 40,
-      marginRight: 20,
+      marginTop: PopoverDimensions.bannerHeight + 8,
+      marginLeft: PopoverDimensions.textMarginLeft,
+      marginRight: PopoverDimensions.marginRight,
     },
     subtitleText: {
       fontFamily: "Friz Quadrata",
-      fontSize: 15,
-      fontWeight: 400,
-      fontHeight: 15,
+      fontSize: PopoverDimensions.subtitleFontSize,
       color: mainColour.grey,
       position: "absolute",
+      zIndex: 1.0,
+      marginTop: 244,
+      marginLeft: PopoverDimensions.textMarginLeft,
+      marginRight: PopoverDimensions.marginRight,
+    },
+    descriptionText: {
+      fontSize: PopoverDimensions.descriptionFontSize,
+      color: mainColour.grey,
+      position: "absolute",
+      lineHeight: 1.3,
       zIndex: 10,
-      marginTop: 255,
-      marginLeft: 40,
-      marginRight: 20,
+      marginTop: 275,
+      marginLeft: PopoverDimensions.textMarginLeft,
+      marginRight: PopoverDimensions.marginRight,
     },
   })
 );
@@ -115,7 +128,7 @@ export const InfoPopover: FC<InfoPopoverProps> = ({
     if (mapDatum) {
       setSelectedObject({
         name: mapDatum.id,
-        description: "",
+        description: mapDatum.description,
         subtitle: mapDatum.subTitle,
         image: mapDatum.banner,
         icon: mapDatum.alt,
@@ -148,13 +161,14 @@ export const InfoPopover: FC<InfoPopoverProps> = ({
       >
         <ImageAsset
           alt={selectedObject.icon}
-          width={25}
-          height={25}
+          width={PopoverDimensions.iconSize}
+          height={PopoverDimensions.iconSize}
           style={{
             position: "absolute",
             zIndex: 999,
-            marginLeft: 375,
-            marginTop: 223,
+            marginLeft: PopoverDimensions.iconMarginLeft,
+            marginTop:
+              PopoverDimensions.bannerHeight + PopoverDimensions.marginTop,
           }}
         />
         <Typography className={classes.titleText}>
@@ -171,9 +185,9 @@ export const InfoPopover: FC<InfoPopoverProps> = ({
           style={{
             objectFit: "cover",
             position: "absolute",
-            marginLeft: 20,
-            height: 200,
-            width: 398,
+            marginLeft: PopoverDimensions.bannerMarginLeft,
+            height: PopoverDimensions.bannerHeight,
+            width: PopoverDimensions.bannerWidth,
             border: `1px solid ${mainColour.yellow}`,
           }}
         />

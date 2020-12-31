@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
@@ -10,14 +10,17 @@ import { SplashArtCardPanel } from "./SplashArtCardPanel";
 
 import Typography from "@material-ui/core/Typography";
 import { mainColour } from "../styles/palette";
-import { MonsterObject } from "../pages/SummonersRift";
 import { ImageAsset } from "./ImageAsset";
+import { infoCardTabsConstants } from "../styles/dimension";
+import { useWindowDimensions } from "./hooks/useWindowDimensions";
+import { RootState } from "../redux/ReduxTypes";
+import { useSelector } from "react-redux";
 
 const StyledTabs = withStyles({
   root: {
     color: mainColour.white,
-    marginTop: 8, // TODO: confirm that this is correct
-    marginLeft: -5, // added this so that information tabs align vertically with monster icon
+    marginTop: infoCardTabsConstants.marginTop, // TODO: confirm that this is correct
+    marginLeft: infoCardTabsConstants.marginLeft, // added this so that information tabs align vertically with monster icon
   },
   indicator: {
     height: 3,
@@ -31,7 +34,7 @@ const StyledTabs = withStyles({
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
-    color: #ffffff;
+    color: ${mainColour.white};
     background-color: rgba(255, 255, 255, 0.1);
   }
 
@@ -50,12 +53,15 @@ const Wrapper = styled.div`
     transform: rotate(45deg);
   }
 
-  .bottomBorder {
-    border-bottom: 2px solid transparent;
-    border-image-source: url("https://league-icons.s3-us-west-2.amazonaws.com/line.svg");
-    border-image-repeat: initial;
-    border-image-slice: 1;
-    margin-bottom: 10px;
+  // added marginLeft so that line aligns with information tabs
+  .infoCardTabLine {
+    margin-top: ${infoCardTabsConstants.infoCardTabLineMarginTop}px;
+    margin-left: ${infoCardTabsConstants.infoCardTabLineMarginLeft}px;
+  }
+
+  .splashArt {
+    margin-top: ${infoCardTabsConstants.splashArtMarginTop}px;
+    margin-left: ${infoCardTabsConstants.splashArtMarginLeft}px;
   }
 `;
 
@@ -82,6 +88,13 @@ const useStyles = makeStyles({
 export const InfoCardTabs: FC = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
+  const { height } = useWindowDimensions();
+  const { selectedMonster } = useSelector((state: RootState) => state.monsters);
+
+  useEffect(() => {
+    setWindowHeight(height - 255);
+  }, [height]);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -93,7 +106,6 @@ export const InfoCardTabs: FC = () => {
         value={value}
         onChange={handleChange}
         indicatorColor="primary" // underline
-        // className="bottomBorder"
         // textColor="secondary" // this changes the selected text colour
         // variant="fullWidth"
       >
@@ -121,24 +133,35 @@ export const InfoCardTabs: FC = () => {
           disabled={false}
         />
       </StyledTabs>
-      {/* added marginLeft so that line aligns with information tabs */}
-      <div style={{ marginTop: -12, marginLeft: 19 }}>
-        <ImageAsset alt="line.svg" />
-      </div>
-      {value === 0 && (
-        <div>
-          <InfoCardPanel />
-        </div>
-      )}
-      {value === 1 && (
-        <div>
-          <PatchNoteCardPanel />
-        </div>
-      )}
-      {value === 2 && (
-        <div style={{ paddingTop: 20 }}>
-          <SplashArtCardPanel />
-        </div>
+      {selectedMonster && (
+        <>
+          <div className="infoCardTabLine">
+            <ImageAsset alt="line.svg" />
+          </div>
+          <div
+            style={{
+              overflowY: "scroll",
+              overflowX: "hidden",
+              height: windowHeight,
+            }}
+          >
+            {value === 0 && (
+              <div>
+                <InfoCardPanel />
+              </div>
+            )}
+            {value === 1 && (
+              <div>
+                <PatchNoteCardPanel patchNotes={selectedMonster.patchNotes} />
+              </div>
+            )}
+            {value === 2 && (
+              <div className="splashArt">
+                <SplashArtCardPanel />
+              </div>
+            )}
+          </div>
+        </>
       )}
     </Wrapper>
   );

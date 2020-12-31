@@ -7,6 +7,7 @@ import { InfoHeader } from "../layout/InfoHeader";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/ReduxTypes";
 import { InfoContainer } from "../layout/InfoContainer";
+import { lineConstants } from "../styles/dimension";
 
 export const ModularMonsterCard: FC = () => {
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
@@ -14,7 +15,7 @@ export const ModularMonsterCard: FC = () => {
   return (
     <div>
       <MonsterDetails />
-      <ImageAsset style={{marginLeft: 20}} alt="line.svg" />
+      <ImageAsset style={{marginLeft: lineConstants.marginLeft}} alt="line.svg" />
       <Grid container style={{ display: "flex", flexDirection: "column" }}>
         {selectedMonster?.informationText?.map((section) => {
           return (

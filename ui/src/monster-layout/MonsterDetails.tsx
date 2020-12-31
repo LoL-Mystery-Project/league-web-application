@@ -3,9 +3,10 @@ import React, { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/ReduxTypes";
 import { ImageAsset } from "../components/ImageAsset";
-import { MonsterWrapper } from "../components/InfoCardComponents/Baron";
 import { InfoHeader } from "../layout/InfoHeader";
 import { ColouredList } from "../layout/ColouredList";
+import { monsterDetailsConstants } from "../styles/dimension";
+import { MonsterWrapper } from "../components/InfoCardComponents (no longer used)/Baron";
 
 export const MonsterDetails: FC = () => {
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
@@ -14,7 +15,7 @@ export const MonsterDetails: FC = () => {
   return (
     <MonsterWrapper>
       <InfoHeader title="Overview" />
-      <div style={{ marginLeft: 40, marginTop: 20 }}>
+      <div className="overviewContainer">
         <ColouredList listItems={overview!} />
       </div>
       <Grid
@@ -22,20 +23,15 @@ export const MonsterDetails: FC = () => {
         style={{
           display: "flex",
           flexDirection: "row",
-          marginTop: 30,
-          marginLeft: 20,
-          marginBottom: 20,
+          marginTop: monsterDetailsConstants.statsMarginTop,
+          marginLeft: monsterDetailsConstants.statsMarginLeft,
+          marginBottom: monsterDetailsConstants.statsMarginBottom,
         }}
       >
         {/* BOUNTY */}
 
         <Grid item xs={3}>
-          <Typography
-            className="overViewSubTextStyling"
-            style={{ paddingBottom: 10}}
-          >
-            Bounty
-          </Typography>
+          <Typography className="overViewSubTextStyling">Bounty</Typography>
           <Grid style={{ display: "flex", flexDirection: "row" }}>
             <ImageAsset alt="line2.svg" />
             <Grid
@@ -43,7 +39,7 @@ export const MonsterDetails: FC = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                paddingLeft: 15,
+                marginLeft: monsterDetailsConstants.statsColumnMarginLeft,
               }}
             >
               <Grid item>
@@ -105,12 +101,7 @@ export const MonsterDetails: FC = () => {
         </Grid>
         {/* STATISTICS */}
         <Grid item xs={6}>
-          <Typography
-            className="overViewSubTextStyling"
-            style={{ paddingBottom: 10 }}
-          >
-            Statistics
-          </Typography>
+          <Typography className="overViewSubTextStyling">Statistics</Typography>
           <Grid style={{ display: "flex", flexDirection: "row" }}>
             <ImageAsset alt="line2.svg" />
             <Grid
@@ -118,7 +109,7 @@ export const MonsterDetails: FC = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                paddingLeft: 15,
+                marginLeft: monsterDetailsConstants.statsColumnMarginLeft,
               }}
             >
               <Grid item>
@@ -132,10 +123,7 @@ export const MonsterDetails: FC = () => {
                     >
                       {" "}
                       <ImageAsset alt="heart.svg" />
-                      <span
-                        className="textColorStylingGreen"
-                        style={{ paddingLeft: 10 }}
-                      >
+                      <span className="textColorStylingGreen">
                         {selectedMonster?.stats?.health}
                       </span>{" "}
                     </Typography>
@@ -147,10 +135,7 @@ export const MonsterDetails: FC = () => {
                       style={{ display: "flex", alignItems: "center" }}
                     >
                       <ImageAsset alt="physicaldamage.svg" />{" "}
-                      <span
-                        className="textColorStylingOrange"
-                        style={{ paddingLeft: 10 }}
-                      >
+                      <span className="textColorStylingOrange">
                         {" "}
                         {selectedMonster?.stats.attackDamage}
                       </span>{" "}
@@ -163,10 +148,7 @@ export const MonsterDetails: FC = () => {
                       style={{ display: "flex", alignItems: "center" }}
                     >
                       <ImageAsset alt="shield_orange.svg" />
-                      <span
-                        className="textColorStylingOrange"
-                        style={{ paddingLeft: 10 }}
-                      >
+                      <span className="textColorStylingOrange">
                         {" "}
                         {selectedMonster?.stats.armor}{" "}
                       </span>
@@ -184,10 +166,7 @@ export const MonsterDetails: FC = () => {
                       style={{ display: "flex", alignItems: "center" }}
                     >
                       <ImageAsset alt="hpregeneration.svg" />{" "}
-                      <span
-                        className="textColorStylingGreen"
-                        style={{ paddingLeft: 10 }}
-                      >
+                      <span className="textColorStylingGreen">
                         {selectedMonster?.stats.healthRegen || "-"}
                       </span>{" "}
                     </Typography>
@@ -199,10 +178,7 @@ export const MonsterDetails: FC = () => {
                       style={{ display: "flex", alignItems: "center" }}
                     >
                       <ImageAsset alt="attackspd.svg" />{" "}
-                      <span
-                        className="textColorStylingOrange"
-                        style={{ paddingLeft: 10 }}
-                      >
+                      <span className="textColorStylingOrange">
                         {selectedMonster?.stats.attackSpeed}{" "}
                       </span>{" "}
                     </Typography>
@@ -213,10 +189,7 @@ export const MonsterDetails: FC = () => {
                       style={{ display: "flex", alignItems: "center" }}
                     >
                       <ImageAsset alt="shield_blue.svg" />{" "}
-                      <span
-                        className="textColorStylingBlue"
-                        style={{ paddingLeft: 10 }}
-                      >
+                      <span className="textColorStylingBlue">
                         {selectedMonster?.stats.magicResist}
                       </span>{" "}
                     </Typography>
@@ -232,10 +205,7 @@ export const MonsterDetails: FC = () => {
                       style={{ display: "flex", alignItems: "center" }}
                     >
                       <ImageAsset alt="movement.svg" />{" "}
-                      <span
-                        className="textColorStylingPurple"
-                        style={{ paddingLeft: 10 }}
-                      >
+                      <span className="textColorStylingPurple">
                         {selectedMonster?.stats.movSpeed}
                       </span>{" "}
                     </Typography>{" "}
@@ -246,10 +216,7 @@ export const MonsterDetails: FC = () => {
                       style={{ display: "flex", alignItems: "center" }}
                     >
                       <ImageAsset alt="range.svg" />{" "}
-                      <span
-                        className="textColorStylingWhite"
-                        style={{ paddingLeft: 10 }}
-                      >
+                      <span className="textColorStylingWhite">
                         {selectedMonster?.stats.range}
                       </span>{" "}
                     </Typography>{" "}
@@ -261,26 +228,38 @@ export const MonsterDetails: FC = () => {
         </Grid>
 
         {/* SPAWN */}
-        <Grid item xs={3} style={{ marginLeft: -30 }}>
-          <Typography
-            className="overViewSubTextStyling"
-            style={{ paddingBottom: 10 }}
-          >
-            Spawn
-          </Typography>
+        {/* TODO: negative marginLeft is to move Spawn section more to the left. 
+                  We can edit/remove this when we solve the overlapping text issue */}
+        <Grid
+          item
+          xs={3}
+          style={{
+            marginLeft: monsterDetailsConstants.spawnSectionMarginRight,
+          }}
+        >
+          <Typography className="overViewSubTextStyling">Spawn</Typography>
           <Grid style={{ display: "flex", flexDirection: "row" }}>
             {" "}
             <ImageAsset alt="line2.svg" />
             <Grid
               container
               className="bountyStyles"
-              style={{ paddingLeft: 10 }}
+              style={{
+                marginLeft: monsterDetailsConstants.statsColumnItemsMarginLeft,
+              }}
             >
               <Grid container className="bountyStyles">
                 <Grid item xs={4}>
                   <Typography className="greyText">Initial</Typography>
                 </Grid>
-                <Grid item xs={4} style={{ paddingLeft: 10 }}>
+                <Grid
+                  item
+                  xs={4}
+                  style={{
+                    marginLeft:
+                      monsterDetailsConstants.statsColumnItemsMarginLeft,
+                  }}
+                >
                   <Typography>{selectedMonster?.location?.initial}</Typography>
                 </Grid>
               </Grid>
@@ -288,7 +267,14 @@ export const MonsterDetails: FC = () => {
                 <Grid item xs={4}>
                   <Typography className="greyText">Respawn</Typography>
                 </Grid>
-                <Grid item xs={4} style={{ paddingLeft: 10 }}>
+                <Grid
+                  item
+                  xs={4}
+                  style={{
+                    marginLeft:
+                      monsterDetailsConstants.statsColumnItemsMarginLeft,
+                  }}
+                >
                   <Typography>{selectedMonster?.location?.respawn}</Typography>
                 </Grid>
               </Grid>

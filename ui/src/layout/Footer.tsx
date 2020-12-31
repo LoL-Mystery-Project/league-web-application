@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import { ImageAsset } from "../components/ImageAsset";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { mainColour } from "../styles/palette";
+import { footerConstants } from "../styles/dimension";
 
 interface FooterProps extends React.ComponentProps<"div"> {}
 
@@ -31,7 +32,7 @@ export const Footer: FC<FooterProps> = ({ ...divProps }) => {
   const classes = useStyles();
 
   return (
-    <div style={{ marginTop: 10 }} {...divProps}>
+    <div style={{ marginTop: footerConstants.marginTop }} {...divProps}>
       <Grid>
         <StyledTabs
           // value={value}
@@ -76,8 +77,8 @@ export const Footer: FC<FooterProps> = ({ ...divProps }) => {
           />
         </StyledTabs>
 
-        {/* Figma shows that marginTop should be 55 from tab text */}
-        <Grid style={{ marginTop: 30, textAlign: "center" }}>
+        {/* TODO: Figma shows that marginTop should be 55 from tab text */}
+        <Grid style={{ marginTop: footerConstants.enderMarginTop, textAlign: "center" }}>
           <ImageAsset alt="ender.svg" />
         </Grid>
       </Grid>

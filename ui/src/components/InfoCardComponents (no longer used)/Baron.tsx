@@ -10,6 +10,7 @@ import { ImageAsset } from "../ImageAsset";
 import { MonsterDetails } from "../../monster-layout/MonsterDetails";
 
 import { TextColourizer } from "../../utils/TextColourizer";
+import { infoSectionConstants, monsterDetailsConstants } from "../../styles/dimension";
 
 const StyledTabs = withStyles({
   root: {
@@ -57,6 +58,11 @@ export const MonsterWrapper = styled.div`
     color: ${mainColour.grey};
   }
 
+  .overviewContainer {
+    margin-left: ${infoSectionConstants.colouredListWithoutIconMarginLeft}px;
+    margin-top: ${infoSectionConstants.abilitiesSubHeaderMarginLeft}px;
+  }
+
   .overViewSubTextStyling {
     font-family: Friz Quadrata;
     font-style: normal;
@@ -65,10 +71,12 @@ export const MonsterWrapper = styled.div`
     line-height: 18px;
     display: flex;
     align-items: center;
+    margin-bottom: ${monsterDetailsConstants.statsTitleMarginBottom}px;
 
     /* yellow/main */
     color: #b67f15;
   }
+
   .effectsDescription {
     font-style: normal;
     font-weight: normal;
@@ -80,6 +88,7 @@ export const MonsterWrapper = styled.div`
     /* grey/main */
     color: #808080;
   }
+
   .effectsSubHeaderStyle {
     font-family: Friz Quadrata;
     font-style: normal;
@@ -132,17 +141,21 @@ export const MonsterWrapper = styled.div`
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
+    margin-left: ${monsterDetailsConstants.statsColumnItemsMarginLeft}px;
 
     color: ${mainColour.orange};
   }
+
   .textColorStylingBlue {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
+    margin-left: ${monsterDetailsConstants.statsColumnItemsMarginLeft}px;
 
     color: ${mainColour.blue};
   }
+
   .textColorStylingYellow {
     font-style: normal;
     font-weight: normal;
@@ -151,11 +164,13 @@ export const MonsterWrapper = styled.div`
 
     color: ${mainColour.yellow};
   }
+
   .textColorStylingPurple {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
+    margin-left: ${monsterDetailsConstants.statsColumnItemsMarginLeft}px;
 
     color: ${mainColour.purple};
   }
@@ -165,6 +180,7 @@ export const MonsterWrapper = styled.div`
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
+    margin-left: ${monsterDetailsConstants.statsColumnItemsMarginLeft}px;
 
     color: ${mainColour.green};
   }
@@ -174,6 +190,7 @@ export const MonsterWrapper = styled.div`
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
+    margin-left: ${monsterDetailsConstants.statsColumnItemsMarginLeft}px;
 
     color: ${mainColour.white};
   }

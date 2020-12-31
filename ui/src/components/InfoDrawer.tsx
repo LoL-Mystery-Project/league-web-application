@@ -1,14 +1,11 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
 import { mainColour } from "../styles/palette";
 
-import Paper from "@material-ui/core/Paper";
 import Fade from "@material-ui/core/Fade";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-
-import { MonsterObject } from "../pages/SummonersRift";
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/ReduxTypes";
@@ -16,12 +13,11 @@ import { InfoCardTabs } from "./InfoCardTabs";
 import { ImageAsset } from "./ImageAsset";
 import { clearSelectedMonster } from "../redux/actions/monsterActions";
 import { MonsterType } from "../monster-layout/MonsterTypes";
-import { infoHeaderConstants } from "../styles/dimension";
-import { useWindowDimensions } from "./hooks/useWindowDimensions";
+import { infoDrawerConstants } from "../styles/dimension";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
-    color: #ffffff;
+    color: ${mainColour.white};
     background-color: rgba(255, 255, 255, 0.1);
   }
 
@@ -56,7 +52,7 @@ const Wrapper = styled.div`
     line-height: 28px;
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: ${infoDrawerConstants.monsterTitleMarginBottom}px;
   }
 
   .monsterSubtitle {
@@ -68,6 +64,11 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     color: ${mainColour.grey};
+  }
+
+  .monsterIcon {
+    background-color: transparent;
+    margin-right: ${infoDrawerConstants.monsterIconMarginRight}px;
   }
 `;
 
@@ -90,7 +91,7 @@ const useStyles = makeStyles({
   },
   closeButton: {
     position: "absolute",
-    right: 28, // Figma says 20. Increased to 28 to align with close arrows
+    right: infoDrawerConstants.closeButtonMarginRight, // Figma says 20. Increased to 28 to align with close arrows
     "&:hover": {
       cursor: "pointer",
     },
@@ -108,8 +109,6 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
   showInfoDrawer,
   asset,
 }) => {
-  const [windowHeight, setWindowHeight] = useState(0);
-  const { height } = useWindowDimensions();
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -118,10 +117,6 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
     handleClose(asset);
   };
 
-  useEffect(() => {
-    setWindowHeight(height - 215);
-  }, [height]);
-
   return (
     // <Drawer anchor="right" open={showInfoDrawer} onClose={() => handleClose(false)}>
     //   Hello
@@ -129,10 +124,8 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
 
     <Fade in={showInfoDrawer}>
       <Wrapper>
-        <div
-          style={{ marginLeft: infoHeaderConstants.marginLeft }}
-        >
-          <Grid container style={{ display: "flex", flexDirection: "column"}}>
+        <div style={{ marginLeft: infoDrawerConstants.marginLeft }}>
+          <Grid container style={{ display: "flex", flexDirection: "column" }}>
             {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
             {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
             <Grid item style={{ backgroundColor: "transparent" }}>
@@ -141,17 +134,14 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  marginLeft: 20,
+                  marginLeft: infoDrawerConstants.marginLeft,
                 }}
               >
                 {/* ICON */}
-                <Grid
-                  style={{ backgroundColor: "transparent", marginRight: 10 }}
-                >
+                <Grid className="monsterIcon">
                   <ImageAsset
                     height={60}
                     width={60}
-                    style={{ paddingRight: 5 }}
                     alt={selectedMonster?.icon ?? ""}
                   />{" "}
                 </Grid>
@@ -180,23 +170,15 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
               </Grid>
             </Grid>
             {/* EVERYTHING ELSE */}
-            <div
+            <Grid
+              item
+              xs={12}
               style={{
-                overflowY: "scroll",
-                overflowX: "hidden",
-                height: windowHeight,
+                backgroundColor: "transparent",
               }}
             >
-              <Grid
-                item
-                xs={12}
-                style={{
-                  backgroundColor: "transparent",
-                }}
-              >
-                <InfoCardTabs />
-              </Grid>
-            </div>
+              <InfoCardTabs />
+            </Grid>
           </Grid>
         </div>
       </Wrapper>
