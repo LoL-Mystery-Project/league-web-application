@@ -110,8 +110,6 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
   showInfoDrawer,
   asset,
 }) => {
-  const [windowHeight, setWindowHeight] = useState(0);
-  const { height } = useWindowDimensions();
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -119,10 +117,6 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
   const handleCloseInfoDrawer = () => {
     handleClose(asset);
   };
-
-  useEffect(() => {
-    setWindowHeight(height - 215);
-  }, [height]);
 
   return (
     // <Drawer anchor="right" open={showInfoDrawer} onClose={() => handleClose(false)}>
@@ -177,23 +171,15 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
               </Grid>
             </Grid>
             {/* EVERYTHING ELSE */}
-            <div
+            <Grid
+              item
+              xs={12}
               style={{
-                overflowY: "scroll",
-                overflowX: "hidden",
-                height: windowHeight,
+                backgroundColor: "transparent",
               }}
             >
-              <Grid
-                item
-                xs={12}
-                style={{
-                  backgroundColor: "transparent",
-                }}
-              >
-                <InfoCardTabs />
-              </Grid>
-            </div>
+              <InfoCardTabs />
+            </Grid>
           </Grid>
         </div>
       </Wrapper>

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import { mainColour } from "../styles/palette";
 import { ImageAsset } from "./ImageAsset";
 import { infoCardTabsConstants } from "../styles/dimension";
+import { useWindowDimensions } from "./hooks/useWindowDimensions";
 
 const StyledTabs = withStyles({
   root: {
@@ -85,6 +86,12 @@ const useStyles = makeStyles({
 export const InfoCardTabs: FC = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
+  const { height } = useWindowDimensions();
+
+  useEffect(() => {
+    setWindowHeight(height - 215);
+  }, [height]);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -126,21 +133,29 @@ export const InfoCardTabs: FC = () => {
       <div className="infoCardTabLine">
         <ImageAsset alt="line.svg" />
       </div>
-      {value === 0 && (
-        <div>
-          <InfoCardPanel />
-        </div>
-      )}
-      {value === 1 && (
-        <div>
-          <PatchNoteCardPanel />
-        </div>
-      )}
-      {value === 2 && (
-        <div className="splashArt">
-          <SplashArtCardPanel />
-        </div>
-      )}
+      <div
+        style={{
+          overflowY: "scroll",
+          overflowX: "hidden",
+          height: windowHeight,
+        }}
+      >
+        {value === 0 && (
+          <div>
+            <InfoCardPanel />
+          </div>
+        )}
+        {value === 1 && (
+          <div>
+            <PatchNoteCardPanel />
+          </div>
+        )}
+        {value === 2 && (
+          <div className="splashArt">
+            <SplashArtCardPanel />
+          </div>
+        )}
+      </div>
     </Wrapper>
   );
 };

@@ -36,7 +36,7 @@ export const SplashArtCardPanel: FC = () => {
   return (
     <div>
       {selectedMonster?.splashArt.map((image) => (
-        <ImageAsset alt={image} style={{ margin: 10 }} />
+        <ImageAsset alt={image} />
       ))}
     </div>
   );
