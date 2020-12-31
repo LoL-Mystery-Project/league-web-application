@@ -4,6 +4,7 @@ import { ImageAsset } from "../components/ImageAsset";
 import { InfoHeader } from "./InfoHeader";
 import { InfoSection } from "./InfoSection";
 import { InfoSectionCategory } from "./layoutTypes";
+import { lineConstants } from "../styles/dimension";
 
 interface InfoContainerProps {
   subcategories: Array<InfoSectionCategory>;
@@ -24,7 +25,7 @@ export const InfoContainer: FC<InfoContainerProps> = ({ subcategories }) => {
           </Grid>
         );
       })}
-      <Grid item style={{ marginTop: 20, marginLeft: 20 }}>
+      <Grid item style={{ marginTop: lineConstants.marginTop, marginLeft: lineConstants.marginLeft }}>
         <ImageAsset alt="line.svg" />
       </Grid>
     </Grid>

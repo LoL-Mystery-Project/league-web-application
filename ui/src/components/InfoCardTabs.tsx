@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
@@ -11,12 +11,13 @@ import { SplashArtCardPanel } from "./SplashArtCardPanel";
 import Typography from "@material-ui/core/Typography";
 import { mainColour } from "../styles/palette";
 import { ImageAsset } from "./ImageAsset";
+import { infoCardTabsConstants } from "../styles/dimension";
 
 const StyledTabs = withStyles({
   root: {
     color: mainColour.white,
-    marginTop: 8, // TODO: confirm that this is correct
-    marginLeft: -5, // added this so that information tabs align vertically with monster icon
+    marginTop: infoCardTabsConstants.marginTop, // TODO: confirm that this is correct
+    marginLeft: infoCardTabsConstants.marginLeft, // added this so that information tabs align vertically with monster icon
   },
   indicator: {
     height: 3,
@@ -30,7 +31,7 @@ const StyledTabs = withStyles({
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
-    color: #ffffff;
+    color: ${mainColour.white};
     background-color: rgba(255, 255, 255, 0.1);
   }
 
@@ -49,12 +50,15 @@ const Wrapper = styled.div`
     transform: rotate(45deg);
   }
 
-  .bottomBorder {
-    border-bottom: 2px solid transparent;
-    border-image-source: url("https://league-icons.s3-us-west-2.amazonaws.com/line.svg");
-    border-image-repeat: initial;
-    border-image-slice: 1;
-    margin-bottom: 10px;
+  // added marginLeft so that line aligns with information tabs
+  .infoCardTabLine {
+    margin-top: ${infoCardTabsConstants.infoCardTabLineMarginTop}px;
+    margin-left: ${infoCardTabsConstants.infoCardTabLineMarginLeft}px;
+  }
+
+  .splashArt {
+    margin-top: ${infoCardTabsConstants.splashArtMarginTop}px;
+    margin-left: ${infoCardTabsConstants.splashArtMarginLeft}px;
   }
 `;
 
@@ -92,7 +96,6 @@ export const InfoCardTabs: FC = () => {
         value={value}
         onChange={handleChange}
         indicatorColor="primary" // underline
-        // className="bottomBorder"
         // textColor="secondary" // this changes the selected text colour
         // variant="fullWidth"
       >
@@ -120,8 +123,7 @@ export const InfoCardTabs: FC = () => {
           disabled={false}
         />
       </StyledTabs>
-      {/* added marginLeft so that line aligns with information tabs */}
-      <div style={{ marginTop: -12, marginLeft: 19 }}>
+      <div className="infoCardTabLine">
         <ImageAsset alt="line.svg" />
       </div>
       {value === 0 && (
@@ -135,7 +137,7 @@ export const InfoCardTabs: FC = () => {
         </div>
       )}
       {value === 2 && (
-        <div style={{ paddingTop: 20 }}>
+        <div className="splashArt">
           <SplashArtCardPanel />
         </div>
       )}
