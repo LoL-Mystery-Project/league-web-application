@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import styled from "styled-components";
 import { mainColour } from "../styles/palette";
@@ -14,7 +14,6 @@ import { ImageAsset } from "./ImageAsset";
 import { clearSelectedMonster } from "../redux/actions/monsterActions";
 import { MonsterType } from "../monster-layout/MonsterTypes";
 import { infoDrawerConstants } from "../styles/dimension";
-import { useWindowDimensions } from "./hooks/useWindowDimensions";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
