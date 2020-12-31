@@ -10,7 +10,6 @@ import { SplashArtCardPanel } from "./SplashArtCardPanel";
 
 import Typography from "@material-ui/core/Typography";
 import { mainColour } from "../styles/palette";
-import { MonsterObject } from "../pages/SummonersRift";
 import { ImageAsset } from "./ImageAsset";
 
 const StyledTabs = withStyles({

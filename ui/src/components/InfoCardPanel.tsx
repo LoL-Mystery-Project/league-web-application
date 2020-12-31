@@ -19,33 +19,11 @@ const Wrapper = styled.div`
 // mini nav / tab thing
 
 export const InfoCardPanel: FC = () => {
-  const [selectedComponent, setSelectedComponent] = useState<JSX.Element>(
-    <></>
-  );
-  const { selectedMonster } = useSelector((state: RootState) => state.monsters);
-
-  useEffect(() => {
-    if (selectedMonster) {
-      switch (selectedMonster?.name) {
-        case "Baron Nashor":
-          setSelectedComponent(<Baron />);
-          break;
-        case "Rift Herald":
-          setSelectedComponent(<RiftHerald />);
-          break;
-        case "Elder Dragon":
-          setSelectedComponent(<ElderDragon />);
-          break;
-        default:
-          setSelectedComponent(<ModularMonsterCard />);
-          return;
-      }
-    }
-  }, [selectedMonster]);
-
   return (
     <Wrapper>
-      <div className="text">{selectedComponent}</div>
+      <div className="text">
+        <ModularMonsterCard />
+      </div>
     </Wrapper>
   );
 };
