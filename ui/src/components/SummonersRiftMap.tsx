@@ -18,6 +18,7 @@ export interface MapType {
   width: string;
   height: string;
   banner: string;
+  description: string;
   subTitle: string;
 }
 
@@ -34,6 +35,7 @@ export default function SummonersRiftMap() {
     width: "",
     height: "",
     banner: "",
+    description: "",
     subTitle: "",
   });
   const [showInfoCard, setShowInfoCard] = useState(false);
