@@ -13,6 +13,8 @@ import { mainColour } from "../styles/palette";
 import { ImageAsset } from "./ImageAsset";
 import { infoCardTabsConstants } from "../styles/dimension";
 import { useWindowDimensions } from "./hooks/useWindowDimensions";
+import { RootState } from "../redux/ReduxTypes";
+import { useSelector } from "react-redux";
 
 const StyledTabs = withStyles({
   root: {
@@ -88,6 +90,7 @@ export const InfoCardTabs: FC = () => {
   const [value, setValue] = React.useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
   const { height } = useWindowDimensions();
+  const { selectedMonster } = useSelector((state: RootState) => state.monsters);
 
   useEffect(() => {
     setWindowHeight(height - 215);
@@ -130,32 +133,36 @@ export const InfoCardTabs: FC = () => {
           disabled={false}
         />
       </StyledTabs>
-      <div className="infoCardTabLine">
-        <ImageAsset alt="line.svg" />
-      </div>
-      <div
-        style={{
-          overflowY: "scroll",
-          overflowX: "hidden",
-          height: windowHeight,
-        }}
-      >
-        {value === 0 && (
-          <div>
-            <InfoCardPanel />
+      {selectedMonster && (
+        <>
+          <div className="infoCardTabLine">
+            <ImageAsset alt="line.svg" />
           </div>
-        )}
-        {value === 1 && (
-          <div>
-            <PatchNoteCardPanel />
+          <div
+            style={{
+              overflowY: "scroll",
+              overflowX: "hidden",
+              height: windowHeight,
+            }}
+          >
+            {value === 0 && (
+              <div>
+                <InfoCardPanel />
+              </div>
+            )}
+            {value === 1 && (
+              <div>
+                <PatchNoteCardPanel patchNotes={selectedMonster.patchNotes} />
+              </div>
+            )}
+            {value === 2 && (
+              <div className="splashArt">
+                <SplashArtCardPanel />
+              </div>
+            )}
           </div>
-        )}
-        {value === 2 && (
-          <div className="splashArt">
-            <SplashArtCardPanel />
-          </div>
-        )}
-      </div>
+        </>
+      )}
     </Wrapper>
   );
 };
