@@ -12,7 +12,7 @@ import { WatchLive } from "./pages/WatchLive";
 import { Leaderboard } from "./pages/Leaderboard";
 import { Stats } from "./pages/Stats";
 import { Guides } from "./pages/Guides";
-import { ImageGallery } from "./components/ImageGallery";
+import { ImageGallery } from "./utils/ImageGallery";
 
 export const Routes: FC = () => {
   return (

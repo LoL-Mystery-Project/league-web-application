@@ -2,7 +2,7 @@ import { Typography, Grid } from "@material-ui/core";
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/ReduxTypes";
-import { ImageAsset } from "../components/ImageAsset";
+import { ImageAsset } from "../utils/ImageAsset";
 import { MonsterWrapper } from "../components/InfoCardComponents/Baron";
 import { InfoHeader } from "../layout/InfoHeader";
 import { ColouredList } from "../layout/ColouredList";

@@ -15,7 +15,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
-import { ImageAsset } from "./ImageAsset";
+import { ImageAsset } from "../utils/ImageAsset";
 import { TextColourizer } from "../utils/TextColourizer";
 import { RootState } from "../redux/ReduxTypes";
 import { MonsterType } from "../monster-layout/MonsterTypes";

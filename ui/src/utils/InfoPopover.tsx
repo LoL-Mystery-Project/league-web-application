@@ -6,7 +6,7 @@ import {
   Theme,
   Typography,
 } from "@material-ui/core";
-import { ImageAsset } from "../components/ImageAsset";
+import { ImageAsset } from "./ImageAsset";
 import { LinkMapObject } from "./TextColourizer";
 import { mainColour } from "../styles/palette";
 import { MapType } from "../components/SummonersRiftMap";

@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { Card } from "@material-ui/core";
 import styled from "styled-components";
-import { ImageAsset } from "./ImageAsset";
+import { ImageAsset } from "../utils/ImageAsset";
 
 import { mainColour } from "../styles/palette";
 

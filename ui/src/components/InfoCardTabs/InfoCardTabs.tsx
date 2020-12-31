@@ -1,16 +1,20 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
-import { InfoCardPanel } from "./InfoCardPanel";
 import { PatchNoteCardPanel } from "./PatchNoteCardPanel";
-import { SplashArtCardPanel } from "./SplashArtCardPanel";
 
 import Typography from "@material-ui/core/Typography";
-import { mainColour } from "../styles/palette";
-import { ImageAsset } from "./ImageAsset";
+import { mainColour } from "../../styles/palette";
+import { ImageAsset } from "../../utils/ImageAsset";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/ReduxTypes";
+import { ModularMonsterCard } from "../../monster-layout/ModularMonsterCard";
+import { SplashArtCardPanel } from "./SplashArtCardPanel";
+import { InfoCardPanel } from "./InfoCardPanel";
+import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 
 const StyledTabs = withStyles({
   root: {
@@ -74,13 +78,16 @@ const useStyles = makeStyles({
 });
 // mini nav / tab thing
 
-// interface InfoCardTabsDetails {
-//   helloObject: string;
-// }
-
 export const InfoCardTabs: FC = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
+  const { height } = useWindowDimensions();
+  const { selectedMonster } = useSelector((state: RootState) => state.monsters);
+
+  useEffect(() => {
+    setWindowHeight(height - 230);
+  }, [height]);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
@@ -92,9 +99,6 @@ export const InfoCardTabs: FC = () => {
         value={value}
         onChange={handleChange}
         indicatorColor="primary" // underline
-        // className="bottomBorder"
-        // textColor="secondary" // this changes the selected text colour
-        // variant="fullWidth"
       >
         {/* https://material-ui.com/api/tabs/ */}
 
@@ -121,22 +125,20 @@ export const InfoCardTabs: FC = () => {
         />
       </StyledTabs>
       {/* added marginLeft so that line aligns with information tabs */}
-      <div style={{ marginTop: -12, marginLeft: 19 }}>
-        <ImageAsset alt="line.svg" />
-      </div>
-      {value === 0 && (
-        <div>
-          <InfoCardPanel />
-        </div>
-      )}
-      {value === 1 && (
-        <div>
-          <PatchNoteCardPanel />
-        </div>
-      )}
-      {value === 2 && (
-        <div style={{ paddingTop: 20 }}>
-          <SplashArtCardPanel />
+      {selectedMonster && (
+        <div
+          style={{
+            overflowY: "scroll",
+            overflowX: "hidden",
+            height: windowHeight,
+          }}
+        >
+          <div style={{ marginTop: -11, marginLeft: 18 }}>
+            <ImageAsset alt="line.svg" />
+          </div>
+          {value === 0 && <InfoCardPanel selectedMonster={selectedMonster} />}
+          {value === 1 && <PatchNoteCardPanel selectedMonster={selectedMonster} />}
+          {value === 2 && <SplashArtCardPanel selectedMonster={selectedMonster} />}
         </div>
       )}
     </Wrapper>

@@ -1,6 +1,6 @@
 import { Grid, Tab, Tabs, Typography } from "@material-ui/core";
 import React, { FC } from "react";
-import { ImageAsset } from "../components/ImageAsset";
+import { ImageAsset } from "../utils/ImageAsset";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { mainColour } from "../styles/palette";
 

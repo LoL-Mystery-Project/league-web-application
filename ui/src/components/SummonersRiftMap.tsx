@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ImageAsset } from "./ImageAsset";
+import { ImageAsset } from "../utils/ImageAsset";
 
 import SoulSelectionToggle from "../components/SoulSelectionToggle";
 import newMapData from "../assets/newMapData.json";

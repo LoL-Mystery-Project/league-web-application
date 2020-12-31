@@ -11,7 +11,7 @@ import {
   setDragOptions,
 } from "../redux/actions/dragonActions";
 import { mainColour } from "../styles/palette";
-import { ImageAsset } from "./ImageAsset";
+import { ImageAsset } from "../utils/ImageAsset";
 
 const Wrapper = styled.div`
   .dragIcon {
