@@ -1,7 +1,7 @@
 import { Typography } from "@material-ui/core";
 import React, { FC } from "react";
 import styled from "styled-components";
-import { ImageAsset } from "../utils/ImageAsset";
+import { ImageAsset } from "../components/ImageAsset";
 import { mainColour } from "../styles/palette";
 import { ColouredList } from "./ColouredList";
 import { InfoSectionItem } from "./layoutTypes";

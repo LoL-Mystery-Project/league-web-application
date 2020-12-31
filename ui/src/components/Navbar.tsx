@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { PageState, RootState } from "../redux/ReduxTypes";
 import { setCurrentPage } from "../redux/actions/pageActions";
 import { mainColour } from "../styles/palette";
-import { ImageAsset } from "../utils/ImageAsset";
+import { ImageAsset } from "./ImageAsset";
 
 // https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 const Wrapper = styled.div`

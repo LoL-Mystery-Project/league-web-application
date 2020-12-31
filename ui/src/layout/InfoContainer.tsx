@@ -1,6 +1,6 @@
 import { Grid } from "@material-ui/core";
 import React, { FC } from "react";
-import { ImageAsset } from "../utils/ImageAsset";
+import { ImageAsset } from "../components/ImageAsset";
 import { InfoHeader } from "./InfoHeader";
 import { InfoSection } from "./InfoSection";
 import { InfoSectionCategory } from "./layoutTypes";

@@ -12,12 +12,12 @@ import { MonsterObject } from "../pages/SummonersRift";
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/ReduxTypes";
-import { InfoCardTabs } from "./InfoCardTabs/InfoCardTabs";
-import { ImageAsset } from "../utils/ImageAsset";
+import { InfoCardTabs } from "./InfoCardTabs";
+import { ImageAsset } from "./ImageAsset";
 import { clearSelectedMonster } from "../redux/actions/monsterActions";
 import { MonsterType } from "../monster-layout/MonsterTypes";
 import { infoHeaderConstants } from "../styles/dimension";
-import { useWindowDimensions } from "../hooks/useWindowDimensions";
+import { useWindowDimensions } from "./hooks/useWindowDimensions";
 
 const Wrapper = styled.div`
   .soulIconHover:hover {
@@ -108,6 +108,8 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
   showInfoDrawer,
   asset,
 }) => {
+  const [windowHeight, setWindowHeight] = useState(0);
+  const { height } = useWindowDimensions();
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -116,6 +118,10 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
     handleClose(asset);
   };
 
+  useEffect(() => {
+    setWindowHeight(height - 215);
+  }, [height]);
+
   return (
     // <Drawer anchor="right" open={showInfoDrawer} onClose={() => handleClose(false)}>
     //   Hello
@@ -123,8 +129,10 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
 
     <Fade in={showInfoDrawer}>
       <Wrapper>
-        <div style={{ marginLeft: infoHeaderConstants.marginLeft }}>
-          <Grid container style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{ marginLeft: infoHeaderConstants.marginLeft }}
+        >
+          <Grid container style={{ display: "flex", flexDirection: "column"}}>
             {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
             {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
             <Grid item style={{ backgroundColor: "transparent" }}>
@@ -172,16 +180,23 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
               </Grid>
             </Grid>
             {/* EVERYTHING ELSE */}
-
-            <Grid
-              item
-              xs={12}
+            <div
               style={{
-                backgroundColor: "transparent",
+                overflowY: "scroll",
+                overflowX: "hidden",
+                height: windowHeight,
               }}
             >
-              <InfoCardTabs />
-            </Grid>
+              <Grid
+                item
+                xs={12}
+                style={{
+                  backgroundColor: "transparent",
+                }}
+              >
+                <InfoCardTabs />
+              </Grid>
+            </div>
           </Grid>
         </div>
       </Wrapper>

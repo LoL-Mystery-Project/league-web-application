@@ -1,17 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import styled from "styled-components";
-import { mainColour } from "../../styles/palette";
+import { mainColour } from "../styles/palette";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { ImageAsset } from "../../utils/ImageAsset";
-import { MonsterType } from "../../monster-layout/MonsterTypes";
+import patchNotesLineSeparator from "../assets/assetPanel/patchNotesLineSeparator.svg";
 
 // TODO: modify display of details, which is an array of strings
-
-
-interface PatchNoteCardPanelProps {
-  selectedMonster: MonsterType;
-}
 
 const Wrapper = styled.div`
   .patchNotePanel {
@@ -35,7 +29,7 @@ export interface PatchNote {
   details: Array<string>;
 }
 
-export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({ selectedMonster }) => {
+export const PatchNoteCardPanel: FC = () => {
   const [patchData, setPatchData] = useState<Array<PatchNote>>([]);
 
   useEffect(() => {
@@ -73,7 +67,11 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({ selectedMonste
                 </Typography>
               ) : (
                 <Grid item>
-                  <ImageAsset alt="unknown.svg" />
+                  <img
+                    style={{ paddingTop: 20, paddingBottom: 20 }}
+                    src={patchNotesLineSeparator}
+                    alt="patchNotesLineSeparator"
+                  />
                   <Typography
                     className="versionNumber"
                     style={{ paddingBottom: 5 }}

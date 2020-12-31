@@ -14,9 +14,9 @@ import DonateInfoBox from "../components/DonateInfoBox";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/ReduxTypes";
 import { setSelectedMonster } from "../redux/actions/monsterActions";
-import { ImageAsset } from "../utils/ImageAsset";
+import { ImageAsset } from "../components/ImageAsset";
 import { MonsterType } from "../monster-layout/MonsterTypes";
-import { useWindowDimensions } from "../hooks/useWindowDimensions";
+import { useWindowDimensions } from "../components/hooks/useWindowDimensions";
 import { setInfoDrawerBoolean } from "../redux/actions/pageActions";
 
 const useStyles = makeStyles((theme: Theme) =>
