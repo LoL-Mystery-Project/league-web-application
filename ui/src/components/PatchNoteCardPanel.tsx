@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import {
   PatchCategory,
+  PatchCategoryTypes,
   PatchNote,
   PatchRelease,
 } from "../monster-layout/MonsterTypes";
@@ -28,7 +29,23 @@ const Wrapper = styled.div`
     font-size: 16px;
     margin-left: -20px;
   }
+
+  .abilityTitleStyles {
+    text-decoration: underline;
+  }
 `;
+
+const patchCategoryColourMap: Record<
+  PatchCategoryTypes,
+  string
+> = Object.freeze({
+  "REMOVED:": mainColour.white,
+  "NEW:": mainColour.white,
+  "BUG FIX:": mainColour.white,
+  "CHANGE:": mainColour.white,
+  "BUFF:": mainColour.green,
+  "NERF:": mainColour.red,
+});
 
 interface PatchNoteCardPanelProps {
   patchNotes: PatchRelease[] | undefined;
@@ -74,18 +91,32 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
               {/* PATCH INFO */}
               {patchRelease.data.map((patchCategory: PatchCategory) => {
                 return (
-                  <Grid container>
-                    <Grid item xs={2}>
-                      <Typography>{patchCategory.type}</Typography>
+                  <Grid container style={{ margin: 20 }}>
+                    <Grid item xs={2} style={{ maxWidth: 100 }}>
+                      <Typography
+                        style={{
+                          color: patchCategoryColourMap[patchCategory.type],
+                        }}
+                      >
+                        {patchCategory.type}
+                      </Typography>
                     </Grid>
                     <Grid item xs={10}>
                       {patchCategory.list.map((patchNote: PatchNote) => {
                         return (
                           <>
-                            <Typography variant="h5">
-                              {patchNote.ability}
-                            </Typography>
-                            <ColouredList listItems={patchNote.changes} />
+                            {patchNote.ability ? (
+                              <div>
+                                <Typography className="abilityTitleStyles">
+                                  {patchNote.ability}
+                                </Typography>
+                                <ColouredList listItems={patchNote.changes} />
+                              </div>
+                            ) : (
+                              <>
+                                <ColouredList listItems={patchNote.changes} />
+                              </>
+                            )}
                           </>
                         );
                       })}
