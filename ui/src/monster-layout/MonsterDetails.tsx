@@ -3,10 +3,10 @@ import React, { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/ReduxTypes";
 import { ImageAsset } from "../components/ImageAsset";
-import { MonsterWrapper } from "../components/InfoCardComponents (no longer used)/Baron";
 import { InfoHeader } from "../layout/InfoHeader";
 import { ColouredList } from "../layout/ColouredList";
 import { monsterDetailsConstants } from "../styles/dimension";
+import { MonsterWrapper } from "../components/InfoCardComponents (no longer used)/Baron";
 
 export const MonsterDetails: FC = () => {
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
