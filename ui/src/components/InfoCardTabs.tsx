@@ -93,7 +93,7 @@ export const InfoCardTabs: FC = () => {
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
 
   useEffect(() => {
-    setWindowHeight(height - 215);
+    setWindowHeight(height - 255);
   }, [height]);
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
