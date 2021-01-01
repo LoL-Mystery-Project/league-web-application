@@ -22,13 +22,13 @@ const useStyles = makeStyles((theme: Theme) =>
       background: "transparent", // TODO: change this later
     },
     paper2: {
-      background: mainColour.red, // TODO: change this later
+      background: "transparent", // TODO: change this later
     },
     paper3: {
-      background: mainColour.blue, // TODO: change this later
+      background: "transparent", // TODO: change this later
     },
     paper4: {
-      background: mainColour.green, // TODO: change this later
+      background: mainColour.blue, // TODO: change this later
     },
     headerText: {
       color: mainColour.yellow,
@@ -68,7 +68,19 @@ export const Leaderboard: FC<LeaderboardProps> = ({}) => {
   }, [windowDimensions]);
 
   return (
-    <div style={{ width: windowWidth }}>
+    <div
+      style={{
+        width: windowWidth,
+        background: `radial-gradient(
+      44.47% 50% at 50% 50%,
+      rgba(2, 13, 23, 0.25) 0%,
+      #010a13 100%
+    ),
+    url("https://league-icons.s3-us-west-2.amazonaws.com/leaderboardBG.png")`,
+        backgroundSize: "100% 800px",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <Grid
         container
         className={classes.root}
