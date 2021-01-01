@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/ButtonGroup";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { mainColour } from "../styles/palette";
+import { mainColour, subColour } from "../styles/palette";
 import { InfoDrawer } from "../components/InfoDrawer";
 import DonateInfoBox from "../components/DonateInfoBox";
 import { useDispatch, useSelector } from "react-redux";
@@ -478,7 +478,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                 </Paper>
               </Grid>
               {/* BIG ANNOYING AD */}
-              <Grid item xs={5}>
+              <Grid item xs={5} style={{backgroundColor: subColour.navy}}>
                 <DonateInfoBox />
               </Grid>
             </Grid>

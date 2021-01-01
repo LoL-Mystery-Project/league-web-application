@@ -59,7 +59,7 @@ export enum footerConstants {
   enderMarginTop = 30,
 }
 
-// lineMarginTop is 27 because the distance between the top of last list element and
+// lineMarginTop is 27 because the distance between the bottom of last list element and
 // the bottom of the version number is 90
 export enum patchNoteConstants {
   marginLeft = 20,
@@ -68,4 +68,9 @@ export enum patchNoteConstants {
   patchNoteListMarginTop = 20,
   patchNoteListMarginLeft = 20,
   listElementsMarginTop = 10,
+}
+
+export enum donateInfoBoxConstants {
+  headerTextMarginTop = 10,
+  textMarginTop = 5,
 }
