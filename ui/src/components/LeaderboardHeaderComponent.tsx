@@ -13,8 +13,22 @@ import React from "react";
 
 const Wrapper = styled.div`
   .imageBanner {
-    position: "absolute";
-    height: "100%";
+    /* position: absolute; */
+
+    // position: absolute;
+    // height: 800px;
+    // left: 0px;
+    // right: 0px;
+    // top: 80px;
+
+    /* background: radial-gradient(
+        44.47% 50% at 50% 50%,
+        rgba(2, 13, 23, 0.25) 0%,
+        #010a13 100%
+      ),
+      url("https://league-icons.s3-us-west-2.amazonaws.com/leaderboardBG.png");
+
+    background-size: 100% 800px; */
   }
 
   .headerStyle {
@@ -66,8 +80,11 @@ export default function LeaderboardHeaderComponent() {
 
   return (
     <Wrapper>
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <ImageAsset alt="leaderboardsBG.svg" style={{ position: "absolute" }} />
+      <div
+        className="imageBanner"
+        style={{ position: "relative", zIndex: 1, height: "100%" }}
+      >
+        {/* <ImageAsset alt="leaderboardsBG.svg" style={{ position: "absolute" }} /> */}
         <div className="parentContainer" style={{ zIndex: 3 }}>
           <Typography className="headerStyle">LEADERBOARDS</Typography>
           <div className={classes.alignItemsAndJustifyContent}>
