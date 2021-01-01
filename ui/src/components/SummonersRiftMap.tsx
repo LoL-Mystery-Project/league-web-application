@@ -11,6 +11,7 @@ import "./mapData.css";
 import { InfoPopover } from "../utils/InfoPopover";
 import { setSelectedMonster } from "../redux/actions/monsterActions";
 import { setInfoDrawerBoolean } from "../redux/actions/pageActions";
+import { SummonersRiftMapConstants } from "../styles/dimension";
 export interface MapType {
   id: string;
   alt: string;
@@ -101,14 +102,14 @@ export default function SummonersRiftMap() {
             alt="cloudMap.svg"
             height="100%"
             width="100%"
-            style={{ marginTop: 5 }}
+            style={{ marginTop: SummonersRiftMapConstants.marginTop }}
           />
         ) : (
           <ImageAsset
             alt={`${dragState.selectedDragon}Map.svg`}
             height="100%"
             width="100%"
-            style={{ marginTop: 5 }}
+            style={{ marginTop: SummonersRiftMapConstants.marginTop }}
           />
         )}
       </div>

@@ -1,3 +1,18 @@
+// listMarginTop should be 20. Set it to 10 for screen size purposes
+// iconAndTextMarginTop should be 10. Set it to 0 for screen size purposes
+export enum SummonersRiftConstants {
+  marginTop = 30,
+  marginLeft = 60,
+  neutralMonstersHeaderMarginTop = 30,
+  listMarginTop = 10,
+  iconAndTextMarginTop = 0,
+  iconMarginLeft = 10,
+}
+
+export enum SummonersRiftMapConstants {
+  marginTop = 5,
+}
+
 export enum infoDrawerConstants {
   monsterTitleMarginBottom = 10,
   closeButtonMarginRight = 28,
@@ -36,7 +51,7 @@ export enum infoSectionConstants {
 
 export enum infoHeaderConstants {
   marginLeft = 20,
-  effectsDescriptionMarginTop = 10,
+  effectsDescriptionMarginTop = 20,
   effectsDescriptionMarginLeft = 10,
   titleStyleMarginTop = 20,
   titleStyleMarginLeft = 20,
