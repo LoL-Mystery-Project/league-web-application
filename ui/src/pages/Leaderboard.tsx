@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
       background: "transparent", // TODO: change this later
     },
     paper2: {
-      background: "transparent", // TODO: change this later
+      background: mainColour.red, // TODO: change this later
     },
     paper3: {
       background: mainColour.blue, // TODO: change this later

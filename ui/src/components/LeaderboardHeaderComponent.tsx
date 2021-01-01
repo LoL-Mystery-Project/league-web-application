@@ -13,14 +13,13 @@ import React from "react";
 
 const Wrapper = styled.div`
   .imageBanner {
-    //width: auto;
+    position: "absolute";
     height: "100%";
   }
 
   .headerStyle {
-    position: absolute;
-    top: 30%;
-    left: 38%;
+    position: relative;
+    padding-top: 120px;
     font-family: Friz Quadrata;
     font-style: normal;
     font-weight: normal;
@@ -31,14 +30,14 @@ const Wrapper = styled.div`
   }
 
   .parentContainer {
-    position: relative;
+    // position: relative;
     text-align: center;
   }
 
   .searchBarPos {
     position: absolute;
-    top: 40%;
-    left: 28%;
+    // top: 40%;
+    // left: 28%;
   }
 `;
 
@@ -54,9 +53,11 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
   alignItemsAndJustifyContent: {
+    paddingTop: "60px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    position: "relative",
   },
 });
 
@@ -65,18 +66,13 @@ export default function LeaderboardHeaderComponent() {
 
   return (
     <Wrapper>
-      <div className="parentContainer">
-        <Container fixed>
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <ImageAsset alt="leaderboardsBG.svg" style={{ position: "absolute" }} />
+        <div className="parentContainer" style={{ zIndex: 3 }}>
           <Typography className="headerStyle">LEADERBOARDS</Typography>
-          <div className="searchBarPos">
+          <div className={classes.alignItemsAndJustifyContent}>
             <LeaderboardSearchBar />
           </div>
-        </Container>
-        <div className="imageBanner">
-          <ImageAsset
-            alt="leaderboardsBG.svg"
-            style={{ width: "100%", height: "100%" }}
-          />
         </div>
       </div>
     </Wrapper>
