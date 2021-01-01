@@ -30,7 +30,7 @@ export interface ImageState {
   fetchFailed: boolean;
 }
 
-interface ImageType {
+export interface ImageType {
   key: string;
   url: string;
 }
