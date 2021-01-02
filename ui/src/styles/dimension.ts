@@ -1,3 +1,18 @@
+// listMarginTop should be 20. Set it to 10 for screen size purposes
+// iconAndTextMarginTop should be 10. Set it to 0 for screen size purposes
+export enum SummonersRiftConstants {
+  marginTop = 30,
+  marginLeft = 60,
+  neutralMonstersHeaderMarginTop = 30,
+  listMarginTop = 10,
+  iconAndTextMarginTop = 0,
+  iconMarginLeft = 10,
+}
+
+export enum SummonersRiftMapConstants {
+  marginTop = 5,
+}
+
 export enum infoDrawerConstants {
   monsterTitleMarginBottom = 10,
   closeButtonMarginRight = 28,
@@ -36,7 +51,7 @@ export enum infoSectionConstants {
 
 export enum infoHeaderConstants {
   marginLeft = 20,
-  effectsDescriptionMarginTop = 10,
+  effectsDescriptionMarginTop = 20,
   effectsDescriptionMarginLeft = 10,
   titleStyleMarginTop = 20,
   titleStyleMarginLeft = 20,
@@ -59,7 +74,7 @@ export enum footerConstants {
   enderMarginTop = 30,
 }
 
-// lineMarginTop is 27 because the distance between the top of last list element and
+// lineMarginTop is 27 because the distance between the bottom of last list element and
 // the bottom of the version number is 90
 export enum patchNoteConstants {
   marginLeft = 20,
@@ -68,4 +83,9 @@ export enum patchNoteConstants {
   patchNoteListMarginTop = 20,
   patchNoteListMarginLeft = 20,
   listElementsMarginTop = 10,
+}
+
+export enum donateInfoBoxConstants {
+  headerTextMarginTop = 10,
+  textMarginTop = 5,
 }

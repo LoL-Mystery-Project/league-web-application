@@ -5,7 +5,7 @@ import { Card } from "@material-ui/core";
 import styled from "styled-components";
 import { ImageAsset } from "./ImageAsset";
 
-import { mainColour } from "../styles/palette";
+import { mainColour, subColour } from "../styles/palette";
 
 const Wrapper = styled.div`
   .containerDonateImage {
@@ -33,35 +33,55 @@ const Wrapper = styled.div`
     color: ${mainColour.white};
   }
 
+  .linkContainer {
+    display: flex;
+    direction: row;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
   .linkTextStyles {
     font-style: normal;
     font-size: 16px;
     font-weight: normal;
-
-    /* grey/sub */
-    color: #5b5b5b;
+    margin-top: 10px;
+    color: ${subColour.grey};
   }
 
   .linkHeaderTextStyles {
     font-style: normal;
     font-size: 20px;
     font-weight: bold;
+    color: ${subColour.grey};
+  }
 
-    /* grey/sub */
-    color: #5b5b5b;
+  .socialLinksContainer {
+    margin-bottom: 34px;
+    margin-left: 60px;
+  }
+
+  .compliantDiv {
+    display: flex;
+    direction: row;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .compliantText {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    margin-left: 10px;
+    color: ${subColour.grey};
   }
 `;
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 400,
-    minHeight: 800,
-    maxWidth: 400,
-    maxHeight: 800,
-    backgroundColor: "#041722",
-  },
-  pos: {
-    marginBottom: 12,
+    backgroundColor: subColour.navy,
+    display: "flex",
+    flexDirection: "column",
   },
 });
 
@@ -85,41 +105,30 @@ export default function DonateInfoBox() {
           </a>
         </div>
 
-        <Grid
-          container
-          style={{ display: "flex", flexDirection: "row", marginTop: 40, marginLeft: 30}}
-        >
+        <Grid container className="linkContainer">
           {/* COLUMN 1 */}
-          <Grid item xs={6}>
+          <Grid>
             <Typography className="linkHeaderTextStyles">One HP</Typography>
-            <Typography style={{paddingTop: 10}} className="linkTextStyles">About Us</Typography>
-            <Typography style={{paddingTop: 5}} className="linkTextStyles">
+            <Typography className="linkTextStyles">About Us</Typography>
+            <Typography className="linkTextStyles">
               Advertise with Us
             </Typography>
-            <Typography style={{paddingTop: 5}} className="linkTextStyles">Terms of Service</Typography>
-            <Typography style={{paddingTop: 5}} className="linkTextStyles">Privacy Policy</Typography>
-            <Typography style={{paddingTop: 5}} className="linkTextStyles">FAQ</Typography>
+            <Typography className="linkTextStyles">Terms of Service</Typography>
+            <Typography className="linkTextStyles">Privacy Policy</Typography>
+            <Typography className="linkTextStyles">FAQ</Typography>
           </Grid>
           {/* COLUMN 2 */}
-          <Grid item xs={6}>
+          <Grid className="socialLinksContainer">
             <Typography className="linkHeaderTextStyles">Social</Typography>
-            <Typography style={{paddingTop: 10}} className="linkTextStyles">Instagram</Typography>
-            <Typography style={{paddingTop: 5}} className="linkTextStyles">Facebook</Typography>
-            <Typography style={{paddingTop: 5}} className="linkTextStyles">Discord</Typography>
-            <Typography style={{paddingTop: 5}} className="linkTextStyles">Twitter</Typography>
+            <Typography className="linkTextStyles">Instagram</Typography>
+            <Typography className="linkTextStyles">Facebook</Typography>
+            <Typography className="linkTextStyles">Discord</Typography>
+            <Typography className="linkTextStyles">Twitter</Typography>
           </Grid>
         </Grid>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            margin: 10,
-            justifyContent: "center",
-            paddingTop: 30,
-          }}
-        >
+        <div className="compliantDiv">
           <ImageAsset alt="compliance.svg" />
-          <Typography style={{paddingLeft: 10}} className="linkTextStyles">
+          <Typography className="compliantText">
             Riot Games Compliant
           </Typography>
         </div>
