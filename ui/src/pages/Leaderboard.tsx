@@ -7,8 +7,9 @@ import Paper from "@material-ui/core/Paper";
 import { mainColour } from "../styles/palette";
 import { useWindowDimensions } from "../components/hooks/useWindowDimensions";
 import { ImageAsset } from "../components/ImageAsset";
-import {HeaderComponent} from "../components/HeaderComponent";
+import { HeaderComponent } from "../components/HeaderComponent";
 import { Container, Typography } from "@material-ui/core";
+import { LeaderboardListComponent } from "../components/LeaderboardList";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -114,14 +115,15 @@ export const Leaderboard: FC<LeaderboardProps> = ({}) => {
             style={{ paddingTop: 5, height: 4840, width: windowWidth }}
           >
             <Grid item xs={9}>
-              <Paper
+              {/* <Paper
                 className={classes.paper3}
                 style={{
                   height: "100%",
                 }}
               >
                 bye world
-              </Paper>
+              </Paper> */}
+              <LeaderboardListComponent />
             </Grid>
             <Grid item xs={3}>
               <Paper
