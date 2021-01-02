@@ -111,8 +111,9 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
                       {patchCategory.list.map((patchNote: PatchNote) => {
                         return (
                           <div>
-                            {patchNote.ability ? (
-                              patchNote.changes.length === 1 ? (
+                            {/** SCENARIO 1: Ability exists and length of changes == 1 (underline ability and show change on same line) */}
+                            {patchNote.ability &&
+                              patchNote.changes.length === 1 && (
                                 <ul style={{ margin: 0, marginLeft: -20 }}>
                                   <li>
                                     <TextColourizer
@@ -134,21 +135,24 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
                                     />
                                   </li>
                                 </ul>
-                              ) : (
-                                <ul style={{ margin: 0, marginLeft: -20 }}>
-                                  <li>
-                                    <div>
-                                      <Typography className="abilityTitleStyles">
-                                        {patchNote.ability}
-                                      </Typography>
-                                      <ColouredList
-                                        listItems={patchNote.changes}
-                                      />
-                                    </div>
-                                  </li>
-                                </ul>
-                              )
-                            ) : (
+                              )}
+                            {/** SCENARIO 2: Ability exists and length of list > 1 (show changes in a sublist) */}
+                            {patchNote.ability && patchNote.changes.length > 1 && (
+                              <ul style={{ margin: 0, marginLeft: -20 }}>
+                                <li>
+                                  <div>
+                                    <Typography className="abilityTitleStyles">
+                                      {patchNote.ability}
+                                    </Typography>
+                                    <ColouredList
+                                      listItems={patchNote.changes}
+                                    />
+                                  </div>
+                                </li>
+                              </ul>
+                            )}
+                            {/** SCENARIO 3: No ability exists: always show a coloured list */}
+                            {!patchNote.ability && (
                               <ColouredList listItems={patchNote.changes} />
                             )}
                           </div>
