@@ -97,33 +97,29 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
 
   useEffect(() => {
     const originalText = text || children!.toString();
-
-    if (isEmpty(colourMap)) {
-      setRendered([<span>{originalText}</span>]);
-      return;
-    }
-
     const indexMap: IndexMap = {};
     let setOfStartingPositions: Set<number> = new Set();
 
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#Finding_all_the_occurrences_of_an_element
-    Object.keys(colourMap).forEach((colour) => {
-      colourMap[colour].forEach((phrase) => {
-        let indices = [];
-        let idx = originalText.indexOf(phrase);
-        while (idx !== -1) {
-          setOfStartingPositions.add(idx);
-          indices.push({
-            start: idx,
-            end: idx + phrase.length,
-          });
-          idx = originalText.indexOf(phrase, idx + 1);
-        }
-        indexMap[colour] = indexMap[colour]
-          ? [...indexMap[colour], ...indices]
-          : indices;
+    const populateIndexMap = () => {
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#Finding_all_the_occurrences_of_an_element
+      Object.keys(colourMap).forEach((colour) => {
+        colourMap[colour].forEach((phrase) => {
+          let indices = [];
+          let idx = originalText.indexOf(phrase);
+          while (idx !== -1) {
+            setOfStartingPositions.add(idx);
+            indices.push({
+              start: idx,
+              end: idx + phrase.length,
+            });
+            idx = originalText.indexOf(phrase, idx + 1);
+          }
+          indexMap[colour] = indexMap[colour]
+            ? [...indexMap[colour], ...indices]
+            : indices;
+        });
       });
-    });
+    };
 
     const getColouredJSX = (): Array<JSX.Element> => {
       let result: Array<JSX.Element> = [];
@@ -208,6 +204,17 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
       return result;
     };
 
+    if (isEmpty(colourMap)) {
+      if (linkMap) {
+        setRendered(getJsxWithUrls([<span>{originalText}</span>]));
+      } else {
+        setRendered([<span>{originalText}</span>]);
+      }
+      return;
+    }
+
+    populateIndexMap();
+
     if (linkMap) {
       setRendered(getJsxWithUrls(getColouredJSX()));
     } else {
@@ -216,7 +223,7 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
   }, [children, colourMap, text, linkMap]);
 
   return (
-    <div>
+    <span>
       <Typography display="inline" {...typographyProps}>
         {rendered?.map((elem) => elem)}
       </Typography>
@@ -226,6 +233,6 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
         handlePopoverClose={handlePopoverClose}
         popoverObject={hoveredObject}
       />
-    </div>
+    </span>
   );
 };

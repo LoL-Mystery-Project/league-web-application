@@ -12,6 +12,7 @@ import {
 import { ImageAsset } from "./ImageAsset";
 import { ColouredList } from "../layout/ColouredList";
 import { patchNoteConstants } from "../styles/dimension";
+import { TextColourizer } from "../utils/TextColourizer";
 
 // TODO: modify display of details, which is an array of strings
 
@@ -31,6 +32,11 @@ const Wrapper = styled.div`
 
   .abilityTitleStyles {
     text-decoration: underline;
+    padding-right: 5px;
+  }
+
+  .singleLineAbility > * {
+    cursor: text !important;
   }
 
   .lineStyle {
@@ -104,20 +110,48 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
                     <Grid item xs={10}>
                       {patchCategory.list.map((patchNote: PatchNote) => {
                         return (
-                          <>
+                          <div>
                             {patchNote.ability ? (
-                              <div>
-                                <Typography className="abilityTitleStyles">
-                                  {patchNote.ability}
-                                </Typography>
-                                <ColouredList listItems={patchNote.changes} />
-                              </div>
+                              patchNote.changes.length === 1 ? (
+                                <ul style={{ margin: 0, marginLeft: -20 }}>
+                                  <li>
+                                    <TextColourizer
+                                      text={`${patchNote.ability} ${patchNote.changes[0].text}`}
+                                      colourMap={patchNote.changes[0].colourMap}
+                                      className="singleLineAbility"
+                                      linkMap={{
+                                        [patchNote.ability]: {
+                                          url: "#",
+                                          hasTooltip: false,
+                                          tooltipData: {
+                                            icon: "",
+                                            name: "",
+                                            description: "",
+                                            image: "",
+                                          },
+                                        },
+                                      }}
+                                    />
+                                  </li>
+                                </ul>
+                              ) : (
+                                <ul style={{ margin: 0, marginLeft: -20 }}>
+                                  <li>
+                                    <div>
+                                      <Typography className="abilityTitleStyles">
+                                        {patchNote.ability}
+                                      </Typography>
+                                      <ColouredList
+                                        listItems={patchNote.changes}
+                                      />
+                                    </div>
+                                  </li>
+                                </ul>
+                              )
                             ) : (
-                              <>
-                                <ColouredList listItems={patchNote.changes} />
-                              </>
+                              <ColouredList listItems={patchNote.changes} />
                             )}
-                          </>
+                          </div>
                         );
                       })}
                     </Grid>
