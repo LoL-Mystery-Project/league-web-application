@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { withStyles } from "@material-ui/core/styles";
+import { Theme, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Menu, { MenuProps } from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -26,17 +26,9 @@ const Wrapper = styled.div`
 
     color: ${mainColour.yellow};
   }
-
-  .buttonStyle {
-    border: "2px solid ${mainColour.yellow}";
-  }
 `;
 
-const StyledMenu = withStyles({
-  paper: {
-    border: "1px solid #d3d4d5",
-  },
-})((props: MenuProps) => (
+const StyledMenu = withStyles({})((props: MenuProps) => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
@@ -73,6 +65,19 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
+const OutlineButton = withStyles((theme: Theme) => ({
+  root: {
+    color: mainColour.yellow,
+    backgroundColor: "transparent",
+    "&:hover": {
+      backgroundColor: "",
+    },
+    border: "1px solid",
+    paddingLeft: "20px",
+    width: "200px",
+  },
+}))(Button);
+
 export const RegionRankSelector: FC = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -89,16 +94,17 @@ export const RegionRankSelector: FC = () => {
       <Grid container style={{ display: "flex" }}>
         <Grid item style={{ paddingLeft: "20px" }}>
           <div>
-            <Button
+            <OutlineButton
               aria-controls="customized-menu"
               aria-haspopup="true"
-              variant="contained"
+              variant="outlined"
+              color="primary"
               onClick={handleClick}
             >
               <Typography className="menuTextStyle"> All Regions </Typography>
               {/* placeholder until image is available */}
               <ImageAsset alt="arrow.svg" />
-            </Button>
+            </OutlineButton>
             <StyledMenu
               id="region"
               anchorEl={anchorEl}

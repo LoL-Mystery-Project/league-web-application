@@ -35,9 +35,6 @@ export const LeaderboardListComponent: FC<LeaderboardListComponentProps> = ({}) 
           </Grid>
           <Grid item>
             <RegionRankSelector />
-            <Paper style={{ background: "blue", height: "60px" }}>
-              All Regions All Ranks
-            </Paper>
           </Grid>
           <Grid item>
             <Paper style={{ background: "green", height: "2000px" }}>
