@@ -11,27 +11,30 @@ import {
 } from "../monster-layout/MonsterTypes";
 import { ImageAsset } from "./ImageAsset";
 import { ColouredList } from "../layout/ColouredList";
+import { patchNoteConstants } from "../styles/dimension";
 
 // TODO: modify display of details, which is an array of strings
 
 const Wrapper = styled.div`
   .patchNotePanel {
     color: ${mainColour.white};
+    display: flex;
   }
 
   .versionNumber {
     color: ${mainColour.yellow};
-    font-size: 24px;
     font-weight: bold;
-  }
-
-  .patchInfo {
-    font-size: 16px;
-    margin-left: -20px;
+    font-size: 24px;
+    line-height: 28px;
+    margin-top: ${patchNoteConstants.versionNumberMarginTop}px;
   }
 
   .abilityTitleStyles {
     text-decoration: underline;
+  }
+
+  .lineStyle {
+    margin-top: ${patchNoteConstants.lineMarginTop}px;
   }
 `;
 
@@ -59,30 +62,20 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
   return (
     <Wrapper>
       {patchNotes.map((patchRelease: PatchRelease, index: number) => (
-        <Grid
-          container
-          className="patchNotePanel"
-          style={{ display: "flex", flexDirection: "column", width: 940 }}
-        >
+        <Grid container className="patchNotePanel">
           {/* Only display patch note if details array is not empty */}
           {patchRelease.data.length > 0 && (
-            <Grid item style={{ marginLeft: 22 }}>
+            <Grid item style={{ marginLeft: patchNoteConstants.marginLeft }}>
               {/* LINE SEPARATOR AND VERSION NUMBER */}
               {/* If it is the first patch note, do not display line separator */}
               {index === 0 ? (
-                <Typography
-                  className="versionNumber"
-                  style={{ paddingTop: 20, paddingBottom: 5 }}
-                >
+                <Typography className="versionNumber">
                   {patchRelease.release}
                 </Typography>
               ) : (
-                <Grid item>
+                <Grid item className="lineStyle">
                   <ImageAsset alt="patchNotesLineSeparator.svg" />
-                  <Typography
-                    className="versionNumber"
-                    style={{ paddingBottom: 5 }}
-                  >
+                  <Typography className="versionNumber">
                     {patchRelease.release}
                   </Typography>
                 </Grid>
@@ -91,7 +84,14 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
               {/* PATCH INFO */}
               {patchRelease.data.map((patchCategory: PatchCategory) => {
                 return (
-                  <Grid container style={{ margin: 20 }}>
+                  <Grid
+                    container
+                    style={{
+                      display: "flex",
+                      marginLeft: patchNoteConstants.patchNoteListMarginLeft,
+                      marginTop: patchNoteConstants.patchNoteListMarginTop,
+                    }}
+                  >
                     <Grid item xs={2} style={{ maxWidth: 100 }}>
                       <Typography
                         style={{
