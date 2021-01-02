@@ -15,11 +15,18 @@ export interface ColourMap {
  * An object with the following key and value types:
  *
  * @example
- * Key: 'string to url-ify'
+ * Key: 'string to url-ify (with tooltip)'
  * Value: Object {
  *   url: 'the URL to link to'
- *   hasTooltip: 'boolean check to determine whether or not to show a tooltip onHover'
- *   tooltipData: 'A generic object used to show data in the tooltip'
+ *   hasTooltip: true
+ *   tooltipData: { image: "", icon: "", name: "", description: "" }
+ * }
+ *
+ * @example
+ * Key: 'string to url-ify (without tooltip)'
+ * Value: Object {
+ *   url: 'the URL to link to'
+ *   hasTooltip: false
  * }
  */
 export type LinkMap = {
