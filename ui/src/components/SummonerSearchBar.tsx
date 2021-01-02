@@ -1,11 +1,7 @@
-import React, { FC } from "react";
-
+import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-
 import InputBase from "@material-ui/core/InputBase";
-
 import SearchIcon from "@material-ui/icons/Search";
-
 import { mainColour, subColour } from "../styles/palette";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -31,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     searchIcon: {
-      padding: theme.spacing(0, 2),
+      margin: theme.spacing(0, 2),
       height: "100%",
       position: "absolute",
       pointerEvents: "none",
@@ -44,8 +40,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     inputInput: {
       padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+      // vertical margin + font size from searchIcon
+      marginLeft: `calc(1em + ${theme.spacing(4)}px)`,
       transition: theme.transitions.create("width"),
       width: "100%",
       [theme.breakpoints.up("md")]: {

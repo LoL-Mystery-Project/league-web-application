@@ -146,7 +146,7 @@ export const ImageGallery: FC = ({}) => {
                   className="gridCell"
                   onClick={() => handleClick(image.key, image.url)}
                 >
-                  <img src={image.url} alt={image.key} />
+                  <img src={image.url} alt={image.key} loading="lazy" />
                 </div>
                 <GridListTileBar title={image.key} />
               </GridListTile>
