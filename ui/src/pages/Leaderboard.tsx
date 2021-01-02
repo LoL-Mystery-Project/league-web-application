@@ -7,7 +7,7 @@ import Paper from "@material-ui/core/Paper";
 import { mainColour } from "../styles/palette";
 import { useWindowDimensions } from "../components/hooks/useWindowDimensions";
 import { ImageAsset } from "../components/ImageAsset";
-import LeaderboardHeaderComponent from "../components/LeaderboardHeaderComponent";
+import {HeaderComponent} from "../components/HeaderComponent";
 import { Container, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -51,6 +51,17 @@ const useStyles = makeStyles((theme: Theme) =>
         cursor: "pointer",
       },
     },
+
+    headerBackground: {
+      background: `radial-gradient(
+        44.47% 50% at 50% 50%,
+        rgba(2, 13, 23, 0.25) 0%,
+        #010a13 100%
+      ),
+      url("https://league-icons.s3-us-west-2.amazonaws.com/leaderboardBG.png")`,
+      backgroundSize: "100% 800px",
+      backgroundRepeat: "no-repeat",
+    },
   })
 );
 
@@ -69,16 +80,9 @@ export const Leaderboard: FC<LeaderboardProps> = ({}) => {
 
   return (
     <div
+      className={classes.headerBackground}
       style={{
         width: windowWidth,
-        background: `radial-gradient(
-      44.47% 50% at 50% 50%,
-      rgba(2, 13, 23, 0.25) 0%,
-      #010a13 100%
-    ),
-    url("https://league-icons.s3-us-west-2.amazonaws.com/leaderboardBG.png")`,
-        backgroundSize: "100% 800px",
-        backgroundRepeat: "no-repeat",
       }}
     >
       <Grid
@@ -97,7 +101,7 @@ export const Leaderboard: FC<LeaderboardProps> = ({}) => {
               height: 400,
             }}
           >
-            <LeaderboardHeaderComponent />
+            <HeaderComponent />
           </Paper>{" "}
         </Grid>
         <Grid item>

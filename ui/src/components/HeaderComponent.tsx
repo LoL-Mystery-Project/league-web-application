@@ -6,31 +6,14 @@ import styled from "styled-components";
 import { ImageAsset } from "./ImageAsset";
 import { Container } from "@material-ui/core";
 
-import LeaderboardSearchBar from "../components/LeaderboardSearchBar";
+import LeaderboardSearchBar from "./LeaderboardSearchBar";
 
 import { mainColour } from "../styles/palette";
-import React from "react";
+import React, { FC, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/ReduxTypes";
 
 const Wrapper = styled.div`
-  .imageBanner {
-    /* position: absolute; */
-
-    // position: absolute;
-    // height: 800px;
-    // left: 0px;
-    // right: 0px;
-    // top: 80px;
-
-    /* background: radial-gradient(
-        44.47% 50% at 50% 50%,
-        rgba(2, 13, 23, 0.25) 0%,
-        #010a13 100%
-      ),
-      url("https://league-icons.s3-us-west-2.amazonaws.com/leaderboardBG.png");
-
-    background-size: 100% 800px; */
-  }
-
   .headerStyle {
     position: relative;
     padding-top: 120px;
@@ -50,8 +33,6 @@ const Wrapper = styled.div`
 
   .searchBarPos {
     position: absolute;
-    // top: 40%;
-    // left: 28%;
   }
 `;
 
@@ -75,23 +56,35 @@ const useStyles = makeStyles({
   },
 });
 
-export default function LeaderboardHeaderComponent() {
+export interface HeaderComponentProps {}
+export const HeaderComponent: FC<HeaderComponentProps> = ({}) => {
   const classes = useStyles();
-
+  const currentRoute = window.location.pathname;
+  let page = "";
+  const checkPage = () => {
+    if (currentRoute == "/leaderboards") {
+      page = "LEADERBOARDS";
+    } else if (currentRoute == "/watchlive") {
+      page = "WATCH LIVE";
+    } else if (currentRoute == "/home") {
+      page = "LIVE STATS, GUIDES, WIKI AND EVERYTHING";
+    }
+  };
+  checkPage();
   return (
     <Wrapper>
-      <div
-        className="imageBanner"
-        style={{ position: "relative", zIndex: 1, height: "100%" }}
-      >
-        {/* <ImageAsset alt="leaderboardsBG.svg" style={{ position: "absolute" }} /> */}
+      <div style={{ position: "relative", zIndex: 1 }}>
         <div className="parentContainer" style={{ zIndex: 3 }}>
-          <Typography className="headerStyle">LEADERBOARDS</Typography>
+          <Typography className="headerStyle">{page}</Typography>
           <div className={classes.alignItemsAndJustifyContent}>
-            <LeaderboardSearchBar />
+            {page == "LEADERBOARDS" ? (
+              <LeaderboardSearchBar />
+            ) : (
+              <div>"Other Search Bar"</div>
+            )}
           </div>
         </div>
       </div>
     </Wrapper>
   );
-}
+};
