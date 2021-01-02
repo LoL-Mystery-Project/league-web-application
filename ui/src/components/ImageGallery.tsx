@@ -22,6 +22,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import Divider from "@material-ui/core/Divider";
+import { useWindowDimensions } from "./hooks/useWindowDimensions";
 
 const Wrapper = styled.div`
   .containerStyles {
@@ -64,8 +65,8 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       backgroundColor: mainColour.bgBlack,
       alignItems: "center",
-      width: 400,
-      height: 50,
+      width: 500,
+      height: 30,
     },
     input: {
       marginLeft: theme.spacing(1),
@@ -77,7 +78,7 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: 10,
     },
     divider: {
-      height: 28,
+      height: 20,
       margin: 4,
       backgroundColor: mainColour.white,
     },
@@ -93,6 +94,7 @@ export const ImageGallery: FC = ({}) => {
   });
   const { imageList } = useSelector((state: RootState) => state.images);
   const classes = useStyles();
+  const { height } = useWindowDimensions();
 
   const handleClick = (imageKey: string, url: string) => {
     setDialogProps({ imageKey, url });
@@ -109,7 +111,7 @@ export const ImageGallery: FC = ({}) => {
     <Wrapper>
       <Grid container style={{ margin: 20 }} className="containerStyles">
         <Grid item xs={12}>
-          <h1>Image Gallery (dev mode only)</h1>
+          <h2>Image Gallery (dev mode only)</h2>
         </Grid>
         <Grid
           item
@@ -119,7 +121,7 @@ export const ImageGallery: FC = ({}) => {
             justifyContent: "flex-end",
           }}
         >
-          <div style={{ paddingTop: 15 }}>
+          <div style={{ paddingTop: 10 }}>
             <Paper component="form" className={classes.root}>
               <div className={classes.iconButton} aria-label="menu">
                 <SearchIcon />
@@ -128,7 +130,7 @@ export const ImageGallery: FC = ({}) => {
               <InputBase
                 className={classes.input}
                 onChange={handleChange}
-                onKeyDown={e => e.key === 'Enter' && e.preventDefault()}
+                onKeyDown={(e) => e.key === "Enter" && e.preventDefault()}
                 placeholder="Search images"
                 inputProps={{ "aria-label": "search images" }}
               />
@@ -136,23 +138,33 @@ export const ImageGallery: FC = ({}) => {
           </div>
         </Grid>
       </Grid>
-      <div className="containerStyles">
-        <GridList cellHeight={150} cols={8} style={{ width: "70%" }}>
-          {imageList
-            ?.filter((e) => e.key.includes(searchState))
-            .map((image) => (
-              <GridListTile key={image.key}>
-                <div
-                  className="gridCell"
-                  onClick={() => handleClick(image.key, image.url)}
-                >
-                  <img src={image.url} alt={image.key} loading="lazy" />
-                </div>
-                <GridListTileBar title={image.key} />
-              </GridListTile>
-            ))}
-        </GridList>
-      </div>
+      <Grid item xs={12}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
+            overflowY: "scroll",
+            height: height - 250,
+          }}
+        >
+          <GridList cellHeight={150} cols={8} style={{ width: "70%" }}>
+            {imageList
+              ?.filter((e) => e.key.includes(searchState))
+              .map((image) => (
+                <GridListTile key={image.key}>
+                  <div
+                    className="gridCell"
+                    onClick={() => handleClick(image.key, image.url)}
+                  >
+                    <img src={image.url} alt={image.key} loading="lazy" />
+                  </div>
+                  <GridListTileBar title={image.key} />
+                </GridListTile>
+              ))}
+          </GridList>
+        </div>
+      </Grid>
       <ImageDialog
         imageKey={dialogProps.imageKey}
         url={dialogProps.url}
