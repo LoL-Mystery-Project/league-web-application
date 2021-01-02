@@ -37,33 +37,22 @@ export const ColouredList: FC<ColouredListProps> = (props) => {
       <div {...divProps}>
         <ul>
           {listItems?.map((listItem) => {
-            if (listItem.sublist) {
-              return (
-                <li className="listStyles">
-                  <TextColourizer
-                    colourMap={listItem.colourMap}
-                    linkMap={listItem.linkMap}
-                  >
-                    {listItem.text}
-                  </TextColourizer>
+            return (
+              <li className="listStyles">
+                <TextColourizer
+                  colourMap={listItem.colourMap}
+                  linkMap={listItem.linkMap}
+                >
+                  {listItem.text}
+                </TextColourizer>
+                {listItem.sublist && (
                   <ColouredList
                     listItems={listItem.sublist}
                     style={{ paddingLeft: 20 }}
                   />
-                </li>
-              );
-            } else {
-              return (
-                <li className="listStyles">
-                  <TextColourizer
-                    colourMap={listItem.colourMap}
-                    linkMap={listItem.linkMap}
-                  >
-                    {listItem.text}
-                  </TextColourizer>
-                </li>
-              );
-            }
+                )}
+              </li>
+            );
           })}
         </ul>
       </div>
