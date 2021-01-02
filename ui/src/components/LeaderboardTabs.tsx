@@ -11,6 +11,7 @@ import { infoCardTabsConstants } from "../styles/dimension";
 import { useWindowDimensions } from "./hooks/useWindowDimensions";
 import { RootState } from "../redux/ReduxTypes";
 import { useSelector } from "react-redux";
+import { RankedLeaderboard } from "./RankedLeaderboard";
 
 const StyledTabs = withStyles({
   root: {
@@ -117,6 +118,14 @@ export const LeaderboardTabs: FC = () => {
       <div className="infoCardTabLine">
         <ImageAsset alt="line.svg" />
       </div>
+
+      {value === 0 && (
+        <div>
+          <RankedLeaderboard />
+        </div>
+      )}
+      {value === 1 && <div>Mastery Leaderboard</div>}
+      {value === 2 && <div>Level Leaderboard</div>}
     </Wrapper>
   );
 };

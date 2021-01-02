@@ -10,7 +10,6 @@ import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/ReduxTypes";
 import { LeaderboardTabs } from "./LeaderboardTabs";
-import { RegionRankSelector } from "./RegionRankSelector";
 
 const Wrapper = styled.div``;
 
@@ -32,14 +31,6 @@ export const LeaderboardListComponent: FC<LeaderboardListComponentProps> = ({}) 
             }}
           >
             <LeaderboardTabs />
-          </Grid>
-          <Grid item>
-            <RegionRankSelector />
-          </Grid>
-          <Grid item>
-            <Paper style={{ background: "green", height: "2000px" }}>
-              Leaderboard List
-            </Paper>
           </Grid>
         </Grid>
       </div>
