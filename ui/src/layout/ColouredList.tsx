@@ -2,8 +2,12 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import { TextColourizerTypes, TextColourizer } from "../utils/TextColourizer";
 
+interface SubListType extends TextColourizerTypes {
+  sublist?: Array<SubListType>;
+}
+
 interface ColouredListProps extends React.ComponentProps<"div"> {
-  listItems: Array<TextColourizerTypes>;
+  listItems: Array<SubListType>;
 }
 
 const ColouredListStyles = styled.div`
@@ -33,16 +37,33 @@ export const ColouredList: FC<ColouredListProps> = (props) => {
       <div {...divProps}>
         <ul>
           {listItems?.map((listItem) => {
-            return (
-              <li className="listStyles">
-                <TextColourizer
-                  colourMap={listItem.colourMap}
-                  linkMap={listItem.linkMap}
-                >
-                  {listItem.text}
-                </TextColourizer>
-              </li>
-            );
+            if (listItem.sublist) {
+              return (
+                <li className="listStyles">
+                  <TextColourizer
+                    colourMap={listItem.colourMap}
+                    linkMap={listItem.linkMap}
+                  >
+                    {listItem.text}
+                  </TextColourizer>
+                  <ColouredList
+                    listItems={listItem.sublist}
+                    style={{ paddingLeft: 20 }}
+                  />
+                </li>
+              );
+            } else {
+              return (
+                <li className="listStyles">
+                  <TextColourizer
+                    colourMap={listItem.colourMap}
+                    linkMap={listItem.linkMap}
+                  >
+                    {listItem.text}
+                  </TextColourizer>
+                </li>
+              );
+            }
           })}
         </ul>
       </div>
