@@ -124,12 +124,6 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
                                         [patchNote.ability]: {
                                           url: "#",
                                           hasTooltip: false,
-                                          tooltipData: {
-                                            icon: "",
-                                            name: "",
-                                            description: "",
-                                            image: "",
-                                          },
                                         },
                                       }}
                                     />

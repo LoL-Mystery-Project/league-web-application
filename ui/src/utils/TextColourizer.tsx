@@ -22,13 +22,19 @@ export interface ColourMap {
  *   tooltipData: 'A generic object used to show data in the tooltip'
  * }
  */
-export interface LinkMap {
-  [key: string]: {
-    url: string;
-    hasTooltip: boolean;
-    tooltipData: LinkMapObject;
-  };
-}
+export type LinkMap = {
+  [key: string]:
+    | {
+        url: string;
+        hasTooltip: true;
+        tooltipData: LinkMapObject;
+      }
+    | {
+        url: string;
+        hasTooltip: false;
+        tooltipData?: never;
+      };
+};
 
 export interface LinkMapObject {
   image: string;
@@ -174,7 +180,7 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
                 key={`withUrl_${elemKey++}`}
                 onMouseEnter={(e) => {
                   if (linkMap![key].hasTooltip) {
-                    setHoveredObject(linkMap![key].tooltipData);
+                    setHoveredObject(linkMap![key].tooltipData!);
                     handlePopoverOpen(e);
                   }
                 }}
