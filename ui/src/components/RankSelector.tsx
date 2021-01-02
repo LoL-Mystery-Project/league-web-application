@@ -20,15 +20,18 @@ const Wrapper = styled.div`
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 20px;
+    line-height: 23px;
     text-transform: none;
-
-    color: ${mainColour.yellow};
+    color: mainColour.yellow;
   }
 `;
 
-const StyledMenu = withStyles({})((props: MenuProps) => (
+const StyledMenu = withStyles({
+  paper: {
+    background: "#010A13",
+  },
+})((props: MenuProps) => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
@@ -52,6 +55,7 @@ const StyledMenuItem = withStyles((theme) => ({
     //     color: theme.palette.common.white,
     //   },
     position: "relative",
+    color: mainColour.yellow,
     backgroundColor: "#010A13",
     "&:hover": {
       backgroundColor: "010A13",
@@ -78,7 +82,7 @@ const OutlineButton = withStyles((theme: Theme) => ({
   },
 }))(Button);
 
-export const RegionRankSelector: FC = () => {
+export const RankSelector: FC = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -101,12 +105,12 @@ export const RegionRankSelector: FC = () => {
               color="primary"
               onClick={handleClick}
             >
-              <Typography className="menuTextStyle"> All Regions </Typography>
+              <Typography className="menuTextStyle"> All Ranks </Typography>
               {/* placeholder until image is available */}
               <ImageAsset alt="arrow.svg" />
             </OutlineButton>
             <StyledMenu
-              id="region"
+              id="ranks"
               anchorEl={anchorEl}
               keepMounted
               open={Boolean(anchorEl)}
@@ -114,27 +118,51 @@ export const RegionRankSelector: FC = () => {
             >
               <StyledMenuItem onClick={handleClose}>
                 <ListItemIcon>
-                  <SendIcon fontSize="small" />
-                </ListItemIcon>
-                <ListItemText primary="All Regions" />
-              </StyledMenuItem>
-              <StyledMenuItem onClick={handleClose}>
-                <ListItemIcon>
                   <DraftsIcon fontSize="small" />
                 </ListItemIcon>
-                <ListItemText primary="North America" />
+                <ListItemText primary="Challenger" />
               </StyledMenuItem>
               <StyledMenuItem onClick={handleClose}>
                 <ListItemIcon>
                   <InboxIcon fontSize="small" />
                 </ListItemIcon>
-                <ListItemText primary="Europe" />
+                <ListItemText primary="Master" />
               </StyledMenuItem>
               <StyledMenuItem onClick={handleClose}>
                 <ListItemIcon>
                   <InboxIcon fontSize="small" />
                 </ListItemIcon>
-                <ListItemText primary="Korea" />
+                <ListItemText primary="Diamond" />
+              </StyledMenuItem>
+              <StyledMenuItem onClick={handleClose}>
+                <ListItemIcon>
+                  <InboxIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText primary="Platinum" />
+              </StyledMenuItem>
+              <StyledMenuItem onClick={handleClose}>
+                <ListItemIcon>
+                  <InboxIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText primary="Gold" />
+              </StyledMenuItem>
+              <StyledMenuItem onClick={handleClose}>
+                <ListItemIcon>
+                  <InboxIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText primary="Silver" />
+              </StyledMenuItem>
+              <StyledMenuItem onClick={handleClose}>
+                <ListItemIcon>
+                  <InboxIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText primary="Bronze" />
+              </StyledMenuItem>
+              <StyledMenuItem onClick={handleClose}>
+                <ListItemIcon>
+                  <InboxIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText primary="Iron" />
               </StyledMenuItem>
             </StyledMenu>
           </div>
