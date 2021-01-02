@@ -55,7 +55,7 @@ export const RankedLeaderboard: FC = () => {
             <Grid item xs={8}>
               <RankSelector />
             </Grid>
-            <Grid xs={2} item }>
+            <Grid xs={2} item>
               <ImageAsset alt="showGraphIcon.svg" />
             </Grid>
           </Grid>
