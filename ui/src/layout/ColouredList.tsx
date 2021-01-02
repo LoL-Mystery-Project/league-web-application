@@ -2,8 +2,12 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import { TextColourizerTypes, TextColourizer } from "../utils/TextColourizer";
 
+interface SubListType extends TextColourizerTypes {
+  sublist?: Array<SubListType>;
+}
+
 interface ColouredListProps extends React.ComponentProps<"div"> {
-  listItems: Array<TextColourizerTypes>;
+  listItems: Array<SubListType>;
 }
 
 const ColouredListStyles = styled.div`
@@ -41,6 +45,12 @@ export const ColouredList: FC<ColouredListProps> = (props) => {
                 >
                   {listItem.text}
                 </TextColourizer>
+                {listItem.sublist && (
+                  <ColouredList
+                    listItems={listItem.sublist}
+                    style={{ paddingLeft: 20 }}
+                  />
+                )}
               </li>
             );
           })}

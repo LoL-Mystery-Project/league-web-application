@@ -12,6 +12,7 @@ import {
 import { ImageAsset } from "./ImageAsset";
 import { ColouredList } from "../layout/ColouredList";
 import { patchNoteConstants } from "../styles/dimension";
+import { TextColourizer } from "../utils/TextColourizer";
 
 // TODO: modify display of details, which is an array of strings
 
@@ -31,6 +32,8 @@ const Wrapper = styled.div`
 
   .abilityTitleStyles {
     text-decoration: underline;
+    padding-right: 5px;
+    font-weight: bold;
   }
 
   .lineStyle {
@@ -104,20 +107,50 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
                     <Grid item xs={10}>
                       {patchCategory.list.map((patchNote: PatchNote) => {
                         return (
-                          <>
-                            {patchNote.ability ? (
-                              <div>
-                                <Typography className="abilityTitleStyles">
-                                  {patchNote.ability}
-                                </Typography>
-                                <ColouredList listItems={patchNote.changes} />
-                              </div>
-                            ) : (
-                              <>
-                                <ColouredList listItems={patchNote.changes} />
-                              </>
+                          <div>
+                            {/** SCENARIO 1: Ability exists and length of changes == 1 (underline ability and show change on same line) */}
+                            {patchNote.ability &&
+                              patchNote.changes.length === 1 && (
+                                <ul style={{ margin: 0, marginLeft: -20 }}>
+                                  <li>
+                                    <span>
+                                      <Typography
+                                        display="inline"
+                                        noWrap
+                                        className="abilityTitleStyles"
+                                      >
+                                        {patchNote.ability}
+                                      </Typography>
+                                      <TextColourizer
+                                        text={patchNote.changes[0].text}
+                                        colourMap={
+                                          patchNote.changes[0].colourMap
+                                        }
+                                      />
+                                    </span>
+                                  </li>
+                                </ul>
+                              )}
+                            {/** SCENARIO 2: Ability exists and length of list > 1 (show changes in a sublist) */}
+                            {patchNote.ability && patchNote.changes.length > 1 && (
+                              <ul style={{ margin: 0, marginLeft: -20 }}>
+                                <li>
+                                  <div>
+                                    <Typography className="abilityTitleStyles">
+                                      {patchNote.ability}
+                                    </Typography>
+                                    <ColouredList
+                                      listItems={patchNote.changes}
+                                    />
+                                  </div>
+                                </li>
+                              </ul>
                             )}
-                          </>
+                            {/** SCENARIO 3: No ability exists: always show a coloured list */}
+                            {!patchNote.ability && (
+                              <ColouredList listItems={patchNote.changes} />
+                            )}
+                          </div>
                         );
                       })}
                     </Grid>
