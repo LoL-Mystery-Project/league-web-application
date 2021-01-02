@@ -223,15 +223,13 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
       } else {
         setRendered([<span>{originalText}</span>]);
       }
-      return;
-    }
-
-    populateIndexMap();
-
-    if (linkMap) {
-      setRendered(getJsxWithUrls(getColouredJSX()));
     } else {
-      setRendered(getColouredJSX());
+      populateIndexMap();
+      if (linkMap) {
+        setRendered(getJsxWithUrls(getColouredJSX()));
+      } else {
+        setRendered(getColouredJSX());
+      }
     }
   }, [children, colourMap, text, linkMap]);
 

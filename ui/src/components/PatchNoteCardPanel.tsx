@@ -33,10 +33,7 @@ const Wrapper = styled.div`
   .abilityTitleStyles {
     text-decoration: underline;
     padding-right: 5px;
-  }
-
-  .singleLineAbility > * {
-    cursor: text !important;
+    font-weight: bold;
   }
 
   .lineStyle {
@@ -116,17 +113,21 @@ export const PatchNoteCardPanel: FC<PatchNoteCardPanelProps> = ({
                               patchNote.changes.length === 1 && (
                                 <ul style={{ margin: 0, marginLeft: -20 }}>
                                   <li>
-                                    <TextColourizer
-                                      text={`${patchNote.ability} ${patchNote.changes[0].text}`}
-                                      colourMap={patchNote.changes[0].colourMap}
-                                      className="singleLineAbility"
-                                      linkMap={{
-                                        [patchNote.ability]: {
-                                          url: "#",
-                                          hasTooltip: false,
-                                        },
-                                      }}
-                                    />
+                                    <span>
+                                      <Typography
+                                        display="inline"
+                                        noWrap
+                                        className="abilityTitleStyles"
+                                      >
+                                        {patchNote.ability}
+                                      </Typography>
+                                      <TextColourizer
+                                        text={patchNote.changes[0].text}
+                                        colourMap={
+                                          patchNote.changes[0].colourMap
+                                        }
+                                      />
+                                    </span>
                                   </li>
                                 </ul>
                               )}
