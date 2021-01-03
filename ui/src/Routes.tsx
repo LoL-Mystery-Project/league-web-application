@@ -13,6 +13,7 @@ import { Leaderboard } from "./pages/Leaderboard";
 import { Stats } from "./pages/Stats";
 import { Guides } from "./pages/Guides";
 import { ImageGallery } from "./components/ImageGallery";
+import { prodMode } from "../src/config/featureFlags";
 
 export const Routes: FC = () => {
   return (
