@@ -277,3 +277,165 @@
   bottom: 55.5%;
   left: 13%;
 }
+
+.blastCone1 {
+  position: absolute;
+  top: 20%;
+  left: 57%;
+}
+
+.blastCone2 {
+  position: absolute;
+  top: 24%;
+  left: 39%;
+}
+.blastCone3 {
+  position: absolute;
+  top: 47%;
+  left: 68%;
+}
+.blastCone4 {
+  position: absolute;
+  top: 65%;
+  left: 80%;
+}
+.blastCone5 {
+  position: absolute;
+  bottom: 20%;
+  right: 57%;
+}
+.blastCone6 {
+  position: absolute;
+  bottom: 24%;
+  right: 39%;
+}
+.blastCone7 {
+  position: absolute;
+  bottom: 47%;
+  right: 68%;
+}
+.blastCone8 {
+  position: absolute;
+  bottom: 65%;
+  right: 80%;
+}
+.scryersbloom1 {
+  position: absolute;
+  top: 20%;
+  right: 33%;
+}
+.scryersbloom2 {
+  position: absolute;
+  bottom: 20%;
+  left: 33%;
+}
+.scryersbloom3 {
+  position: absolute;
+  top: 33%;
+  right: 17%;
+}
+.scryersbloom4 {
+  position: absolute;
+  bottom: 33%;
+  left: 17%;
+}
+.scryersbloom5 {
+  position: absolute;
+  top: 34%;
+  right: 54%;
+}
+.scryersbloom6 {
+  position: absolute;
+  bottom: 34%;
+  left: 54%;
+}
+.scryersbloom7 {
+  position: absolute;
+  top: 21%;
+  right: 70%;
+}
+.scryersbloom8 {
+  position: absolute;
+  bottom: 21%;
+  left: 70%;
+}
+.scryersbloom9 {
+  position: absolute;
+  top: 40%;
+  right: 76%;
+}
+.scryersbloom10 {
+  position: absolute;
+  bottom: 40%;
+  left: 76%;
+}
+.scryersbloom11 {
+  position: absolute;
+  top: 47%;
+  right: 67%;
+}
+.scryersbloom12 {
+  position: absolute;
+  bottom: 47%;
+  left: 67%;
+}
+.honeyfruit1 {
+  position: absolute;
+  top: 20%;
+  left: 22%;
+}
+.honeyfruit2 {
+  position: absolute;
+  top: 30%;
+  left: 21%;
+}
+.honeyfruit3 {
+  position: absolute;
+  top: 30%;
+  left: 27%;
+}
+.honeyfruit4 {
+  position: absolute;
+  bottom: 20%;
+  right: 22%;
+}
+.honeyfruit5 {
+  position: absolute;
+  bottom: 30%;
+  right: 21%;
+}
+.honeyfruit6 {
+  position: absolute;
+  bottom: 29%;
+  right: 26%;
+}
+.honeyfruit7 {
+  position: absolute;
+  top: 38%;
+  right: 69%;
+}
+.honeyfruit8 {
+  position: absolute;
+  top: 35.5%;
+  right: 62%;
+}
+.honeyfruit9 {
+  position: absolute;
+  top: 44%;
+  right: 60%;
+}
+.honeyfruit10 {
+  position: absolute;
+  bottom: 38%;
+  left: 69%;
+}
+.honeyfruit11 {
+  position: absolute;
+  bottom: 35.5%;
+  left: 62%;
+}
+.honeyfruit12 {
+  position: absolute;
+  bottom: 44%;
+  left: 60%;
+}
