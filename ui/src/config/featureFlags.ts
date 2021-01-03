@@ -1,13 +1,13 @@
 export const prodMode = {
-    "/": true,
-    "/home": true,
-    "/watchlive": true,
-    "/leaderboards": true, 
-    "/stats": true,
-    "/guides": true,
-    "/summonersrift": true,
-    "/wiki": true,
-    "image_gallery": true,
+    "default": false,
+    "home": false,
+    "watchlive": false,
+    "leaderboards": false, 
+    "stats": false,
+    "guides": false,
+    "summonersrift": true,
+    "wiki": false,
+    "image_gallery": false,
 }
 
 // if (process.env.PRODUCTION) {...}

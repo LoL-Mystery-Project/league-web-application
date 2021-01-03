@@ -20,7 +20,7 @@ export const Routes: FC = () => {
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route exact path="/" component={Test} />
+        <Route exact path="/" component={prodMode.default ? Test : Test} />
         <Route path="/test" component={RiftMap} />
         <Route path="/home" component={Home} />
         <Route path="/watchlive" component={WatchLive} />
