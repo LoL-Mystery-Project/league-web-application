@@ -15,20 +15,33 @@ export interface ColourMap {
  * An object with the following key and value types:
  *
  * @example
- * Key: 'string to url-ify'
+ * Key: 'string to url-ify (with tooltip)'
  * Value: Object {
  *   url: 'the URL to link to'
- *   hasTooltip: 'boolean check to determine whether or not to show a tooltip onHover'
- *   tooltipData: 'A generic object used to show data in the tooltip'
+ *   hasTooltip: true
+ *   tooltipData: { image: "", icon: "", name: "", description: "" }
+ * }
+ *
+ * @example
+ * Key: 'string to url-ify (without tooltip)'
+ * Value: Object {
+ *   url: 'the URL to link to'
+ *   hasTooltip: false
  * }
  */
-export interface LinkMap {
-  [key: string]: {
-    url: string;
-    hasTooltip: boolean;
-    tooltipData: LinkMapObject;
-  };
-}
+export type LinkMap = {
+  [key: string]:
+    | {
+        url: string;
+        hasTooltip: true;
+        tooltipData: LinkMapObject;
+      }
+    | {
+        url: string;
+        hasTooltip: false;
+        tooltipData?: never;
+      };
+};
 
 export interface LinkMapObject {
   image: string;
@@ -97,33 +110,29 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
 
   useEffect(() => {
     const originalText = text || children!.toString();
-
-    if (isEmpty(colourMap)) {
-      setRendered([<span>{originalText}</span>]);
-      return;
-    }
-
     const indexMap: IndexMap = {};
     let setOfStartingPositions: Set<number> = new Set();
 
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#Finding_all_the_occurrences_of_an_element
-    Object.keys(colourMap).forEach((colour) => {
-      colourMap[colour].forEach((phrase) => {
-        let indices = [];
-        let idx = originalText.indexOf(phrase);
-        while (idx !== -1) {
-          setOfStartingPositions.add(idx);
-          indices.push({
-            start: idx,
-            end: idx + phrase.length,
-          });
-          idx = originalText.indexOf(phrase, idx + 1);
-        }
-        indexMap[colour] = indexMap[colour]
-          ? [...indexMap[colour], ...indices]
-          : indices;
+    const populateIndexMap = () => {
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf#Finding_all_the_occurrences_of_an_element
+      Object.keys(colourMap).forEach((colour) => {
+        colourMap[colour].forEach((phrase) => {
+          let indices = [];
+          let idx = originalText.indexOf(phrase);
+          while (idx !== -1) {
+            setOfStartingPositions.add(idx);
+            indices.push({
+              start: idx,
+              end: idx + phrase.length,
+            });
+            idx = originalText.indexOf(phrase, idx + 1);
+          }
+          indexMap[colour] = indexMap[colour]
+            ? [...indexMap[colour], ...indices]
+            : indices;
+        });
       });
-    });
+    };
 
     const getColouredJSX = (): Array<JSX.Element> => {
       let result: Array<JSX.Element> = [];
@@ -178,7 +187,7 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
                 key={`withUrl_${elemKey++}`}
                 onMouseEnter={(e) => {
                   if (linkMap![key].hasTooltip) {
-                    setHoveredObject(linkMap![key].tooltipData);
+                    setHoveredObject(linkMap![key].tooltipData!);
                     handlePopoverOpen(e);
                   }
                 }}
@@ -208,15 +217,24 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
       return result;
     };
 
-    if (linkMap) {
-      setRendered(getJsxWithUrls(getColouredJSX()));
+    if (isEmpty(colourMap)) {
+      if (linkMap) {
+        setRendered(getJsxWithUrls([<span>{originalText}</span>]));
+      } else {
+        setRendered([<span>{originalText}</span>]);
+      }
     } else {
-      setRendered(getColouredJSX());
+      populateIndexMap();
+      if (linkMap) {
+        setRendered(getJsxWithUrls(getColouredJSX()));
+      } else {
+        setRendered(getColouredJSX());
+      }
     }
   }, [children, colourMap, text, linkMap]);
 
   return (
-    <div>
+    <span>
       <Typography display="inline" {...typographyProps}>
         {rendered?.map((elem) => elem)}
       </Typography>
@@ -226,6 +244,6 @@ export const TextColourizer: FC<TextColourizerProps> = (props) => {
         handlePopoverClose={handlePopoverClose}
         popoverObject={hoveredObject}
       />
-    </div>
+    </span>
   );
 };

@@ -5,7 +5,7 @@
     "className": "baronPosition",
     "width": "4%",
     "height": "4%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Epic Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -16,7 +16,7 @@
     "className": "dragonPosition",
     "width": "4%",
     "height": "4%",
-    "banner": "dragonsCard.svg",
+    "banner": "dragonCard.png",
     "subTitle": "Epic Monster",
     "description": "The Dragon is the second most powerful neutral monster on Summoner's Rift in League of Legends. Slaying the Dragon grants the team a powerful stacking buff.",
     "objectType": "monster"
@@ -27,7 +27,7 @@
     "className": "redKrugPosition",
     "width": "2.5%",
     "height": "2.5%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -38,7 +38,7 @@
     "className": "blueKrugPosition",
     "width": "2.5%",
     "height": "2.5%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -49,7 +49,7 @@
     "className": "redRaptorPosition",
     "width": "2.5%",
     "height": "2.5%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -60,7 +60,7 @@
     "className": "blueRaptorPosition",
     "width": "2.5%",
     "height": "2.5%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -71,7 +71,7 @@
     "className": "topScuttlePos",
     "width": "3%",
     "height": "3%",
-    "banner": "scuttleCard.svg",
+    "banner": "scuttleCard.png",
     "subTitle": "Neutral Monster",
     "description": "Scuttle crab is a non-hostile neutral monster that can be found on the top and bottom river of Summoner's Rift. Killing it grants vision and bonus movement speed in a small area.",
     "objectType": "monster"
@@ -82,7 +82,7 @@
     "className": "botScuttlePos",
     "width": "3%",
     "height": "3%",
-    "banner": "scuttleCard.svg",
+    "banner": "scuttleCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -93,7 +93,7 @@
     "className": "redWolfPos",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -104,7 +104,7 @@
     "className": "blueWolfPos",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -137,7 +137,7 @@
     "className": "redInhibPosTop",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Structure",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
@@ -148,7 +148,7 @@
     "className": "redInhibPosMid",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Structure",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
@@ -159,7 +159,7 @@
     "className": "redInhibPosBot",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Structure",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
@@ -170,7 +170,7 @@
     "className": "blueInhibPosTop",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Structure",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
@@ -181,7 +181,7 @@
     "className": "blueInhibPosMid",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Structure",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
@@ -192,7 +192,7 @@
     "className": "blueInhibPosBot",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Structure",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "building"
@@ -203,7 +203,7 @@
     "className": "blueOuterTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -214,7 +214,7 @@
     "className": "blueOuterTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -225,7 +225,7 @@
     "className": "blueInnerTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -236,7 +236,7 @@
     "className": "blueNexusTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -247,7 +247,7 @@
     "className": "blueNexusTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -258,7 +258,7 @@
     "className": "blueOuterTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -269,7 +269,7 @@
     "className": "blueInnerTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -280,7 +280,7 @@
     "className": "blueInnerTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -291,7 +291,7 @@
     "className": "blueInhibTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -302,7 +302,7 @@
     "className": "blueInhibTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -313,7 +313,7 @@
     "className": "blueInhibTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -324,7 +324,7 @@
     "className": "redOuterTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -335,7 +335,7 @@
     "className": "redOuterTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -346,7 +346,7 @@
     "className": "redInnerTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -357,7 +357,7 @@
     "className": "redNexusTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -368,7 +368,7 @@
     "className": "redNexusTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -379,7 +379,7 @@
     "className": "redOuterTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -390,7 +390,7 @@
     "className": "redInnerTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -401,7 +401,7 @@
     "className": "redInnerTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -412,7 +412,7 @@
     "className": "redInhibTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -423,7 +423,7 @@
     "className": "redInhibTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -434,7 +434,7 @@
     "className": "redInhibTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "turretCard.svg",
+    "banner": "turretCard.png",
     "subTitle": "Structure",
     "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
     "objectType": "building"
@@ -445,7 +445,7 @@
     "className": "redSideBlueBuff",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -456,7 +456,7 @@
     "className": "blueSideBlueBuff",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -467,7 +467,7 @@
     "className": "redSideRedBuff",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -478,7 +478,7 @@
     "className": "blueSideRedBuff",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -489,7 +489,7 @@
     "className": "redSideGromp",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
@@ -500,9 +500,361 @@
     "className": "blueSideGromp",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg",
+    "banner": "baronCard.png",
     "subTitle": "Neutral Monster",
     "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
     "objectType": "monster"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone1",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone2",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone3",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone4",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone5",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone6",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone7",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone8",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom1",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom2",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom3",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom4",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom4",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom5",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom6",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom8",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom7",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom8",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom9",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom10",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom11",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom12",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit1",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit2",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit3",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit4",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit5",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit6",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit7",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit8",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit9",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit10",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit11",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit12",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
   }
 ]
