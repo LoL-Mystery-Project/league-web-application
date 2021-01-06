@@ -33,8 +33,8 @@ const Wrapper = styled.div`
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      height: "100%",
-      width: "100%",
+      // height: "100%",
+      // width: "100%",
       overflowY: "hidden",
       overflowX: "hidden",
     },
@@ -91,29 +91,20 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const classes = useStyles();
   return (
     <Wrapper>
-      <div style={{ height: windowHeight }}>
+      <div style={{ maxHeight: windowHeight }}>
         <Grid
           container
           className={classes.root}
           justify="center"
           spacing={1}
-          style={{ marginTop: SummonersRiftConstants.marginTop }}
+          style={{ margin: SummonersRiftConstants.marginTop }}
         >
           {/* MAP */}
           <Grid item xs={5}>
-            <Paper
-              className={classes.paper}
-              style={{
-                height: windowHeight,
-                // textAlign: "center",
-              }}
-            >
-              <SummonersRiftMap />
-            </Paper>
+            <SummonersRiftMap />
           </Grid>
-
           {!showInfoDrawer ? (
-            <Grid>
+            <Grid item xs={7} style={{ maxWidth: "55%" }}>
               <Grid
                 container
                 style={{
@@ -124,180 +115,179 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                 }}
               >
                 {/* MONSTER LIST */}
-                <Grid item xs={7}>
-                  <Paper className={classes.paper}>
-                    <SummonerSearchBar />
-                    <Typography
-                      style={{
-                        marginTop:
-                          SummonersRiftConstants.neutralMonstersHeaderMarginTop,
-                      }}
-                      className="headerText"
-                    >
-                      Neutral Monsters
-                    </Typography>
-                    <ImageAsset width={460} alt="lineSeparator.svg" />
-                    <Grid
-                      container
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        marginTop: SummonersRiftConstants.listMarginTop,
-                      }}
-                    >
-                      {/* NEUTRAL MONSTERS: COLUMN 1 */}
-                      <Grid item xs={6}>
-                        {allMonsters?.map((elem: MonsterType) => (
-                          <div>
-                            {allMonsters?.indexOf(elem) < 7 && (
-                              <Grid
-                                container
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "row",
-                                  alignContent: "center",
-                                  marginTop:
-                                    SummonersRiftConstants.iconAndTextMarginTop,
+                <Grid item xs={7} style={{ maxWidth: "50%" }}>
+                  <SummonerSearchBar />
+                  <Typography
+                    style={{
+                      marginTop:
+                        SummonersRiftConstants.neutralMonstersHeaderMarginTop,
+                    }}
+                    className="headerText"
+                  >
+                    Neutral Monsters
+                  </Typography>
+                  <ImageAsset width={460} alt="lineSeparator.svg" />
+                  <Grid
+                    container
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      marginTop: SummonersRiftConstants.listMarginTop,
+                    }}
+                  >
+                    {/* NEUTRAL MONSTERS: COLUMN 1 */}
+                    <Grid item xs={6}>
+                      {allMonsters?.map((elem: MonsterType) => (
+                        <div>
+                          {allMonsters?.indexOf(elem) < 7 && (
+                            <Grid
+                              container
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignContent: "center",
+                                marginTop:
+                                  SummonersRiftConstants.iconAndTextMarginTop,
+                              }}
+                            >
+                              <Button
+                                onClick={() => {
+                                  // handleToggleInfoDrawer(elem);
+                                  dispatch(setSelectedMonster(elem.name));
+                                  dispatch(setInfoDrawerBoolean(true));
                                 }}
                               >
-                                <Button
-                                  onClick={() => {
-                                    // handleToggleInfoDrawer(elem);
-                                    dispatch(setSelectedMonster(elem.name));
-                                    dispatch(setInfoDrawerBoolean(true));
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "row",
                                   }}
+                                  className={classes.listItem}
                                 >
-                                  <div
+                                  <ImageAsset
+                                    className=""
+                                    height={ICON_SIZE}
+                                    width={ICON_SIZE}
+                                    alt={elem.icon}
+                                  />{" "}
+                                  <p
+                                    className={classes.assetText}
                                     style={{
-                                      display: "flex",
-                                      flexDirection: "row",
+                                      marginLeft:
+                                        SummonersRiftConstants.iconMarginLeft,
                                     }}
-                                    className={classes.listItem}
                                   >
-                                    <ImageAsset
-                                      className=""
-                                      height={ICON_SIZE}
-                                      width={ICON_SIZE}
-                                      alt={elem.icon}
-                                    />{" "}
-                                    <p
-                                      className={classes.assetText}
-                                      style={{
-                                        marginLeft:
-                                          SummonersRiftConstants.iconMarginLeft,
-                                      }}
-                                    >
-                                      {elem.name}
-                                    </p>
-                                  </div>
-                                </Button>
-                              </Grid>
-                            )}
-                          </div>
-                        ))}
-                      </Grid>
-                      {/* NEUTRAL MONSTERS: COLUMN 2 */}
-                      <Grid item xs={6}>
-                        {allMonsters?.map((elem: MonsterType) => (
-                          <div>
-                            {allMonsters?.indexOf(elem) > 6 && (
-                              <Grid
-                                container
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "row",
-                                  alignContent: "center",
-                                  marginTop:
-                                    SummonersRiftConstants.iconAndTextMarginTop,
-                                }}
-                              >
-                                <Button
-                                  onClick={() => {
-                                    // handleToggleInfoDrawer(elem);
-                                    dispatch(setSelectedMonster(elem.name));
-                                    dispatch(setInfoDrawerBoolean(true));
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "row",
-                                    }}
-                                    className={classes.listItem}
-                                  >
-                                    <ImageAsset
-                                      className=""
-                                      height={ICON_SIZE}
-                                      width={ICON_SIZE}
-                                      alt={elem.icon}
-                                    />{" "}
-                                    <p
-                                      className={classes.assetText}
-                                      style={{
-                                        marginLeft:
-                                          SummonersRiftConstants.iconMarginLeft,
-                                      }}
-                                    >
-                                      {elem.name}
-                                    </p>
-                                  </div>
-                                </Button>
-                              </Grid>
-                            )}
-                          </div>
-                        ))}
-                      </Grid>
+                                    {elem.name}
+                                  </p>
+                                </div>
+                              </Button>
+                            </Grid>
+                          )}
+                        </div>
+                      ))}
                     </Grid>
-                    <Typography
-                      style={{
-                        marginTop:
-                          SummonersRiftConstants.neutralMonstersHeaderMarginTop,
-                      }}
-                      className="headerText"
-                    >
-                      Minions
-                    </Typography>
-                    <ImageAsset width={460} alt="lineSeparator.svg" />
-                    <Grid
-                      container
-                      style={{ display: "flex", flexDirection: "row" }}
-                    >
-                      {/* MINIONS: COLUMN 1 */}
-                      <Grid item xs={6}>
-                        <div
+                    {/* NEUTRAL MONSTERS: COLUMN 2 */}
+                    <Grid item xs={6}>
+                      {allMonsters?.map((elem: MonsterType) => (
+                        <div>
+                          {allMonsters?.indexOf(elem) > 6 && (
+                            <Grid
+                              container
+                              style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignContent: "center",
+                                marginTop:
+                                  SummonersRiftConstants.iconAndTextMarginTop,
+                              }}
+                            >
+                              <Button
+                                onClick={() => {
+                                  // handleToggleInfoDrawer(elem);
+                                  dispatch(setSelectedMonster(elem.name));
+                                  dispatch(setInfoDrawerBoolean(true));
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "row",
+                                  }}
+                                  className={classes.listItem}
+                                >
+                                  <ImageAsset
+                                    className=""
+                                    height={ICON_SIZE}
+                                    width={ICON_SIZE}
+                                    alt={elem.icon}
+                                  />{" "}
+                                  <p
+                                    className={classes.assetText}
+                                    style={{
+                                      marginLeft:
+                                        SummonersRiftConstants.iconMarginLeft,
+                                    }}
+                                  >
+                                    {elem.name}
+                                  </p>
+                                </div>
+                              </Button>
+                            </Grid>
+                          )}
+                        </div>
+                      ))}
+                    </Grid>
+                  </Grid>
+                  <Typography
+                    style={{
+                      marginTop:
+                        SummonersRiftConstants.neutralMonstersHeaderMarginTop,
+                    }}
+                    className="headerText"
+                  >
+                    Minions
+                  </Typography>
+                  <ImageAsset width={460} alt="lineSeparator.svg" />
+                  <Grid
+                    container
+                    style={{ display: "flex", flexDirection: "row" }}
+                  >
+                    {/* MINIONS: COLUMN 1 */}
+                    <Grid item xs={6}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          marginTop: SummonersRiftConstants.listMarginTop,
+                        }}
+                      >
+                        <ImageAsset alt="superminion.svg" />
+                        <p
+                          className={classes.assetText}
                           style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            marginTop: SummonersRiftConstants.listMarginTop,
+                            marginLeft: SummonersRiftConstants.iconMarginLeft,
                           }}
                         >
-                          <ImageAsset alt="superminion.svg" />
-                          <p
-                            className={classes.assetText}
-                            style={{
-                              marginLeft: SummonersRiftConstants.iconMarginLeft,
-                            }}
-                          >
-                            Super Minions
-                          </p>
-                        </div>
-                        <div
+                          Super Minions
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                        }}
+                      >
+                        <ImageAsset alt="meleeminion.svg" />
+                        <p
+                          className={classes.assetText}
                           style={{
-                            display: "flex",
-                            flexDirection: "row",
+                            marginLeft: SummonersRiftConstants.iconMarginLeft,
                           }}
                         >
-                          <ImageAsset alt="meleeminion.svg" />
-                          <p
-                            className={classes.assetText}
-                            style={{
-                              marginLeft: SummonersRiftConstants.iconMarginLeft,
-                            }}
-                          >
-                            Melee Minions
-                          </p>
-                        </div>
-                        {/* {[1, 1].map(() => (
+                          Melee Minions
+                        </p>
+                      </div>
+                      {/* {[1, 1].map(() => (
                         <div
                           style={{
                             display: "flex",
@@ -320,9 +310,65 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           </p>
                         </div>
                       ))} */}
-                      </Grid>
-                      {/* COLUMN 2 */}
+                    </Grid>
+                    {/* COLUMN 2 */}
+                    <Grid item xs={6}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          marginTop: SummonersRiftConstants.listMarginTop,
+                        }}
+                      >
+                        <ImageAsset alt="canonminion.svg" />
+                        <p
+                          className={classes.assetText}
+                          style={{
+                            marginLeft: SummonersRiftConstants.iconMarginLeft,
+                          }}
+                        >
+                          Cannon Minions
+                        </p>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          marginTop:
+                            SummonersRiftConstants.iconAndTextMarginTop,
+                        }}
+                      >
+                        <ImageAsset alt="casterminion.svg" />
+                        <p
+                          className={classes.assetText}
+                          style={{
+                            marginLeft: SummonersRiftConstants.iconMarginLeft,
+                          }}
+                        >
+                          Caster Minions
+                        </p>
+                      </div>
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    style={{ display: "flex", flexDirection: "row" }}
+                  >
+                    <Grid
+                      container
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        marginTop:
+                          SummonersRiftConstants.neutralMonstersHeaderMarginTop,
+                      }}
+                    >
+                      {/* JUNGLE PLANTS*/}
                       <Grid item xs={6}>
+                        <Typography className="headerText">
+                          Jungle Plants
+                        </Typography>
+                        <ImageAsset width={220} alt="lineSeparatorShort.svg" />
                         <div
                           style={{
                             display: "flex",
@@ -330,176 +376,107 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                             marginTop: SummonersRiftConstants.listMarginTop,
                           }}
                         >
-                          <ImageAsset alt="canonminion.svg" />
+                          <ImageAsset alt="blastcone.svg" />
                           <p
                             className={classes.assetText}
                             style={{
                               marginLeft: SummonersRiftConstants.iconMarginLeft,
                             }}
                           >
-                            Cannon Minions
+                            Blast Cone
                           </p>
                         </div>
                         <div
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            marginTop:
-                              SummonersRiftConstants.iconAndTextMarginTop,
                           }}
                         >
-                          <ImageAsset alt="casterminion.svg" />
+                          <ImageAsset alt="honeyfruit.svg" />
                           <p
                             className={classes.assetText}
                             style={{
                               marginLeft: SummonersRiftConstants.iconMarginLeft,
                             }}
                           >
-                            Caster Minions
+                            Honey Fruit
+                          </p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                          }}
+                        >
+                          <ImageAsset alt="scryersbloom.svg" />
+                          <p
+                            className={classes.assetText}
+                            style={{
+                              marginLeft: SummonersRiftConstants.iconMarginLeft,
+                            }}
+                          >
+                            Scryer's Bloom
+                          </p>
+                        </div>
+                      </Grid>
+                      {/* BUILDINGS */}
+                      <Grid item xs={6}>
+                        <Typography className="headerText">
+                          Buildings
+                        </Typography>
+                        <ImageAsset width={220} alt="lineSeparatorShort.svg" />
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            marginTop: SummonersRiftConstants.listMarginTop,
+                          }}
+                        >
+                          <ImageAsset alt="turret.svg" />
+                          <p
+                            className={classes.assetText}
+                            style={{
+                              marginLeft: SummonersRiftConstants.iconMarginLeft,
+                            }}
+                          >
+                            Turrets
+                          </p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                          }}
+                        >
+                          <ImageAsset alt="inhibitor.svg" />
+                          <p
+                            className={classes.assetText}
+                            style={{
+                              marginLeft: SummonersRiftConstants.iconMarginLeft,
+                            }}
+                          >
+                            Inhibitors
+                          </p>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                          }}
+                        >
+                          <ImageAsset alt="nexus.svg" />
+                          <p
+                            className={classes.assetText}
+                            style={{
+                              marginLeft: SummonersRiftConstants.iconMarginLeft,
+                            }}
+                          >
+                            Nexus
                           </p>
                         </div>
                       </Grid>
                     </Grid>
-                    <Grid
-                      container
-                      style={{ display: "flex", flexDirection: "row" }}
-                    >
-                      <Grid
-                        container
-                        style={{
-                          display: "flex",
-                          flexDirection: "row",
-                          marginTop:
-                            SummonersRiftConstants.neutralMonstersHeaderMarginTop,
-                        }}
-                      >
-                        {/* JUNGLE PLANTS*/}
-                        <Grid item xs={6}>
-                          <Typography className="headerText">
-                            Jungle Plants
-                          </Typography>
-                          <ImageAsset
-                            width={220}
-                            alt="lineSeparatorShort.svg"
-                          />
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                              marginTop: SummonersRiftConstants.listMarginTop,
-                            }}
-                          >
-                            <ImageAsset alt="blastcone.svg" />
-                            <p
-                              className={classes.assetText}
-                              style={{
-                                marginLeft:
-                                  SummonersRiftConstants.iconMarginLeft,
-                              }}
-                            >
-                              Blast Cone
-                            </p>
-                          </div>
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                            }}
-                          >
-                            <ImageAsset alt="honeyfruit.svg" />
-                            <p
-                              className={classes.assetText}
-                              style={{
-                                marginLeft:
-                                  SummonersRiftConstants.iconMarginLeft,
-                              }}
-                            >
-                              Honey Fruit
-                            </p>
-                          </div>
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                            }}
-                          >
-                            <ImageAsset alt="scryersbloom.svg" />
-                            <p
-                              className={classes.assetText}
-                              style={{
-                                marginLeft:
-                                  SummonersRiftConstants.iconMarginLeft,
-                              }}
-                            >
-                              Scryer's Bloom
-                            </p>
-                          </div>
-                        </Grid>
-                        {/* BUILDINGS */}
-                        <Grid item xs={6}>
-                          <Typography className="headerText">
-                            Buildings
-                          </Typography>
-                          <ImageAsset
-                            width={220}
-                            alt="lineSeparatorShort.svg"
-                          />
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                              marginTop: SummonersRiftConstants.listMarginTop,
-                            }}
-                          >
-                            <ImageAsset alt="turret.svg" />
-                            <p
-                              className={classes.assetText}
-                              style={{
-                                marginLeft:
-                                  SummonersRiftConstants.iconMarginLeft,
-                              }}
-                            >
-                              Turrets
-                            </p>
-                          </div>
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                            }}
-                          >
-                            <ImageAsset alt="inhibitor.svg" />
-                            <p
-                              className={classes.assetText}
-                              style={{
-                                marginLeft:
-                                  SummonersRiftConstants.iconMarginLeft,
-                              }}
-                            >
-                              Inhibitors
-                            </p>
-                          </div>
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                            }}
-                          >
-                            <ImageAsset alt="nexus.svg" />
-                            <p
-                              className={classes.assetText}
-                              style={{
-                                marginLeft:
-                                  SummonersRiftConstants.iconMarginLeft,
-                              }}
-                            >
-                              Nexus
-                            </p>
-                          </div>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </Paper>
+                  </Grid>
                 </Grid>
                 {/* BIG ANNOYING AD */}
                 <Grid item xs={5} style={{ backgroundColor: subColour.navy }}>
@@ -513,6 +490,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
               xs={7}
               style={{
                 background: `transparent`,
+                maxWidth: '55%'
               }}
             >
               <InfoDrawer
