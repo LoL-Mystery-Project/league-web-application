@@ -20,6 +20,11 @@ export const MonsterDetails: FC = () => {
   const thirdColumnSize = isOverCharLimit ? 3 : 2;
   const secondColumnMarginLeft = healthCharacterCount > 12 ? 20 : 0;
   const thirdColumnMarginLeft = attackCharacterCount > 5 ? 20 : 0;
+  const initialCharacterCount = selectedMonster?.location?.initial.length ?? 0;
+  const isOverInitialCharLimit = initialCharacterCount > 4 ? true: false;
+  const spawnColumnMarginLeft = isOverInitialCharLimit ? -40 : -30;
+  const spawnFirstColumnSize = isOverInitialCharLimit ? 7 : 4;
+
 
   const handleClick = () => {
     setIsPanelOpen(!isPanelOpen);
@@ -264,7 +269,7 @@ export const MonsterDetails: FC = () => {
           </Grid>
 
           {/* SPAWN */}
-          <Grid item xs={3}>
+          <Grid item xs={3} style={{marginLeft: spawnColumnMarginLeft}}>
             <Typography className="overViewSubTextStyling">Spawn</Typography>
             <Grid style={{ display: "flex", flexDirection: "row" }}>
               {" "}
@@ -283,13 +288,13 @@ export const MonsterDetails: FC = () => {
                   </Grid>
                   <Grid
                     item
-                    xs={4}
+                    xs={spawnFirstColumnSize}
                     style={{
                       marginLeft:
                         monsterDetailsConstants.statsColumnItemsMarginLeft,
                     }}
                   >
-                    <Typography>
+                    <Typography className="spawnInfo">
                       {selectedMonster?.location?.initial}
                     </Typography>
                   </Grid>

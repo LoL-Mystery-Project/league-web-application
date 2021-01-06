@@ -207,6 +207,11 @@ export const MonsterWrapper = styled.div`
     white-space: nowrap;
   }
 
+  .spawnInfo {
+    white-space: normal;
+    line-height: 19px;
+  }
+  
   .listStyles {
     margin-left: -20px;
   }
