@@ -81,7 +81,7 @@ export default function SoulSelectionToggle() {
         })
       );
     }
-    if (type === "brush") {
+    if (type === "bush") {
       dispatch(
         setDragOptions({
           ...dragOptions,
@@ -233,6 +233,7 @@ export default function SoulSelectionToggle() {
               style={{ width: 10, height: 10 }}
               icon={<ImageAsset alt="checkboxborder.svg" />}
               checkedIcon={<ImageAsset alt="checkbox.svg" />}
+              onChange={() => handleToggleCheckBox("bush")}
             />
             <Typography className={"toggleButtonStyles"}>
               Show brushes
