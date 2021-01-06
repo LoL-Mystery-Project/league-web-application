@@ -77,7 +77,7 @@ const useStyles = makeStyles({
     width: 250,
   },
   fullList: {
-    width: "auto",
+    // width: "auto",
   },
   drawerStyle: {
     zIndex: 9999,

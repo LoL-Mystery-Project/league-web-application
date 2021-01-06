@@ -1,5 +1,6 @@
 import { Typography } from "@material-ui/core";
 import React, { FC } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { ImageAsset } from "../components/ImageAsset";
 import { infoHeaderConstants, closeArrowConstants } from "../styles/dimension";
@@ -9,6 +10,7 @@ interface InfoHeaderProps extends React.ComponentProps<"div"> {
   title: string;
   subtitle?: string;
   isSubheader?: boolean;
+  handleArrowClick?: (title?: string) => void;
 }
 
 const HeaderStyles = styled.div`
@@ -58,13 +60,24 @@ const HeaderStyles = styled.div`
     float: right;
   }
 
+  .arrow-up {
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .arrow-down {
+    transform: rotate(180deg);
+    transition: transform 0.2s ease-in-out;
+  }
+
   .closeArrow:hover {
     cursor: pointer;
   }
 `;
 
 export const InfoHeader: FC<InfoHeaderProps> = (props) => {
-  const { title, subtitle, isSubheader, ...divProps } = props;
+  const { title, subtitle, isSubheader, handleArrowClick, ...divProps } = props;
+  const [isArrowOpen, setIsArrowOpen] = useState(false);
 
   return (
     <HeaderStyles>
@@ -75,8 +88,15 @@ export const InfoHeader: FC<InfoHeaderProps> = (props) => {
         <Typography className="effectsDescription">{subtitle}</Typography>
       </div>
       {!isSubheader && (
-        <div className="closeArrow">
-          <ImageAsset alt="arrow.svg" />
+        <div
+          className="closeArrow"
+          onClick={() => setIsArrowOpen(!isArrowOpen)}
+        >
+          <ImageAsset
+            alt="arrow.svg"
+            className={isArrowOpen ? "arrow-down" : "arrow-up"}
+            onClick={() => handleArrowClick && handleArrowClick(title)}
+          />
         </div>
       )}
     </HeaderStyles>
