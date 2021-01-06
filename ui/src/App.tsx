@@ -16,8 +16,8 @@ const App = () => {
         setDragOptions({
           showNeutralMonsters: true,
           showBuildings: true,
-          showJunglePlants: true,
-          showBrushes: true,
+          showJunglePlants: false,
+          showBrushes: false,
         })
       ),
     ]);

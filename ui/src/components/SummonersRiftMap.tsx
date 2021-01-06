@@ -70,7 +70,7 @@ export default function SummonersRiftMap() {
     if (type === "monster") return dragState.dragOptions?.showNeutralMonsters;
     if (type === "building") return dragState.dragOptions?.showBuildings;
     if (type === "junglePlant") return dragState.dragOptions?.showJunglePlants;
-    if (type === "brush") return dragState.dragOptions?.showBrushes;
+    if (type === "bush") return dragState.dragOptions?.showBrushes;
     return false;
   };
 
