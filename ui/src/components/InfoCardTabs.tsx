@@ -128,7 +128,7 @@ export const InfoCardTabs: FC = () => {
         <Tab
           disableRipple
           label={
-            <Typography className={classes.tabText}>Splash Art</Typography>
+            <Typography className={classes.tabText}>Media</Typography>
           }
           disabled={false}
         />
