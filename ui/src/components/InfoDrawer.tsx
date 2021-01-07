@@ -91,7 +91,7 @@ const useStyles = makeStyles({
   },
   closeButton: {
     position: "absolute",
-    right: infoDrawerConstants.closeButtonMarginRight, // Figma says 20. Increased to 28 to align with close arrows
+    right: infoDrawerConstants.closeButtonMarginRight, // Figma says 20. Decreased to 15 to align with close arrows
     "&:hover": {
       cursor: "pointer",
     },

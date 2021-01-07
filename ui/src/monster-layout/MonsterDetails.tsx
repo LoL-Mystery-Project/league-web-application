@@ -21,10 +21,11 @@ export const MonsterDetails: FC = () => {
   const secondColumnMarginLeft = healthCharacterCount > 12 ? 20 : 0;
   const thirdColumnMarginLeft = attackCharacterCount > 5 ? 20 : 0;
   const initialCharacterCount = selectedMonster?.location?.initial.length ?? 0;
-  const isOverInitialCharLimit = initialCharacterCount > 4 ? true: false;
+  const isOverInitialCharLimit = initialCharacterCount > 10 ? true : false;
   const spawnColumnMarginLeft = isOverInitialCharLimit ? -40 : -30;
   const spawnFirstColumnSize = isOverInitialCharLimit ? 7 : 4;
-
+  const spawnInitialMarginTop = isOverInitialCharLimit ? 6 : 0;
+  const initialTextMarginBottom = isOverInitialCharLimit ? 19 : 0;
 
   const handleClick = () => {
     setIsPanelOpen(!isPanelOpen);
@@ -269,7 +270,7 @@ export const MonsterDetails: FC = () => {
           </Grid>
 
           {/* SPAWN */}
-          <Grid item xs={3} style={{marginLeft: spawnColumnMarginLeft}}>
+          <Grid item xs={3} style={{ marginLeft: spawnColumnMarginLeft }}>
             <Typography className="overViewSubTextStyling">Spawn</Typography>
             <Grid style={{ display: "flex", flexDirection: "row" }}>
               {" "}
@@ -282,9 +283,18 @@ export const MonsterDetails: FC = () => {
                     monsterDetailsConstants.statsColumnItemsMarginLeft,
                 }}
               >
-                <Grid container className="bountyStyles">
+                <Grid
+                  container
+                  className="bountyStyles"
+                  style={{ marginTop: spawnInitialMarginTop }}
+                >
                   <Grid item xs={4}>
-                    <Typography className="greyText">Initial</Typography>
+                    <Typography
+                      className="greyText"
+                      style={{ marginBottom: initialTextMarginBottom }}
+                    >
+                      Initial
+                    </Typography>
                   </Grid>
                   <Grid
                     item

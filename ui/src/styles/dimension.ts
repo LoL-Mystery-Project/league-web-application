@@ -15,7 +15,7 @@ export enum SummonersRiftMapConstants {
 
 export enum infoDrawerConstants {
   monsterTitleMarginBottom = 10,
-  closeButtonMarginRight = 28,
+  closeButtonMarginRight = 15,
   marginLeft = 20,
   monsterIconMarginRight = 10,
 }
