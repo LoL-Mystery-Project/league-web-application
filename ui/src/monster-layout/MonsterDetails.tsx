@@ -12,6 +12,20 @@ export const MonsterDetails: FC = () => {
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
   const { overview } = selectedMonster!;
   const [isPanelOpen, setIsPanelOpen] = useState(true);
+  const healthCharacterCount = selectedMonster?.stats?.health.length ?? 0;
+  const attackCharacterCount = selectedMonster?.stats.attackDamage.length ?? 0;
+  const isOverCharLimit = healthCharacterCount > 12 ? true : false;
+  const firstColumnSize = isOverCharLimit ? 6 : 4;
+  const secondColumnSize = isOverCharLimit ? 3 : 3;
+  const thirdColumnSize = isOverCharLimit ? 3 : 2;
+  const secondColumnMarginLeft = healthCharacterCount > 12 ? 20 : 0;
+  const thirdColumnMarginLeft = attackCharacterCount > 5 ? 20 : 0;
+  const initialCharacterCount = selectedMonster?.location?.initial.length ?? 0;
+  const isOverInitialCharLimit = initialCharacterCount > 10 ? true : false;
+  const spawnColumnMarginLeft = isOverInitialCharLimit ? -40 : -30;
+  const spawnFirstColumnSize = isOverInitialCharLimit ? 7 : 4;
+  const spawnInitialMarginTop = isOverInitialCharLimit ? 6 : 0;
+  const initialTextMarginBottom = isOverInitialCharLimit ? 19 : 0;
 
   const handleClick = () => {
     setIsPanelOpen(!isPanelOpen);
@@ -123,7 +137,7 @@ export const MonsterDetails: FC = () => {
                 <Grid item>
                   {/* STAT COL 1 */}
                   <Grid container className="bountyStyles">
-                    <Grid item xs={4}>
+                    <Grid item xs={firstColumnSize}>
                       {/* HP */}
 
                       <Typography
@@ -136,11 +150,15 @@ export const MonsterDetails: FC = () => {
                         </span>{" "}
                       </Typography>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={secondColumnSize}>
                       {/* ATK */}
 
                       <Typography
-                        style={{ display: "flex", alignItems: "center" }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginLeft: secondColumnMarginLeft,
+                        }}
                       >
                         <ImageAsset alt="physicaldamage.svg" />{" "}
                         <span className="textColorStylingOrange">
@@ -149,11 +167,15 @@ export const MonsterDetails: FC = () => {
                         </span>{" "}
                       </Typography>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={thirdColumnSize}>
                       {/* DEF */}
 
                       <Typography
-                        style={{ display: "flex", alignItems: "center" }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginLeft: thirdColumnMarginLeft,
+                        }}
                       >
                         <ImageAsset alt="shield_orange.svg" />
                         <span className="textColorStylingOrange">
@@ -167,7 +189,7 @@ export const MonsterDetails: FC = () => {
                 <Grid item>
                   {/* STAT COL 2 */}
                   <Grid container className="bountyStyles">
-                    <Grid item xs={4}>
+                    <Grid item xs={firstColumnSize}>
                       {/* REGEN */}
 
                       <Typography
@@ -179,11 +201,15 @@ export const MonsterDetails: FC = () => {
                         </span>{" "}
                       </Typography>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={secondColumnSize}>
                       {/* ATK.SPD */}
 
                       <Typography
-                        style={{ display: "flex", alignItems: "center" }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginLeft: secondColumnMarginLeft,
+                        }}
                       >
                         <ImageAsset alt="attackspd.svg" />{" "}
                         <span className="textColorStylingOrange">
@@ -191,10 +217,14 @@ export const MonsterDetails: FC = () => {
                         </span>{" "}
                       </Typography>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={thirdColumnSize}>
                       {/* MR */}
                       <Typography
-                        style={{ display: "flex", alignItems: "center" }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginLeft: thirdColumnMarginLeft,
+                        }}
                       >
                         <ImageAsset alt="shield_blue.svg" />{" "}
                         <span className="textColorStylingBlue">
@@ -207,7 +237,7 @@ export const MonsterDetails: FC = () => {
                 <Grid item>
                   {/* STAT COL 3 */}
                   <Grid container className="bountyStyles">
-                    <Grid item xs={4}>
+                    <Grid item xs={firstColumnSize}>
                       {/* SPEED */}
                       <Typography
                         style={{ display: "flex", alignItems: "center" }}
@@ -218,10 +248,14 @@ export const MonsterDetails: FC = () => {
                         </span>{" "}
                       </Typography>{" "}
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={secondColumnSize}>
                       {/* RANGE */}
                       <Typography
-                        style={{ display: "flex", alignItems: "center" }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          marginLeft: secondColumnMarginLeft,
+                        }}
                       >
                         <ImageAsset alt="range.svg" />{" "}
                         <span className="textColorStylingWhite">
@@ -236,15 +270,7 @@ export const MonsterDetails: FC = () => {
           </Grid>
 
           {/* SPAWN */}
-          {/* TODO: negative marginLeft is to move Spawn section more to the left. 
-                  We can edit/remove this when we solve the overlapping text issue */}
-          <Grid
-            item
-            xs={3}
-            style={{
-              marginLeft: monsterDetailsConstants.spawnSectionMarginRight,
-            }}
-          >
+          <Grid item xs={3} style={{ marginLeft: spawnColumnMarginLeft }}>
             <Typography className="overViewSubTextStyling">Spawn</Typography>
             <Grid style={{ display: "flex", flexDirection: "row" }}>
               {" "}
@@ -257,19 +283,28 @@ export const MonsterDetails: FC = () => {
                     monsterDetailsConstants.statsColumnItemsMarginLeft,
                 }}
               >
-                <Grid container className="bountyStyles">
+                <Grid
+                  container
+                  className="bountyStyles"
+                  style={{ marginTop: spawnInitialMarginTop }}
+                >
                   <Grid item xs={4}>
-                    <Typography className="greyText">Initial</Typography>
+                    <Typography
+                      className="greyText"
+                      style={{ marginBottom: initialTextMarginBottom }}
+                    >
+                      Initial
+                    </Typography>
                   </Grid>
                   <Grid
                     item
-                    xs={4}
+                    xs={spawnFirstColumnSize}
                     style={{
                       marginLeft:
                         monsterDetailsConstants.statsColumnItemsMarginLeft,
                     }}
                   >
-                    <Typography>
+                    <Typography className="spawnInfo">
                       {selectedMonster?.location?.initial}
                     </Typography>
                   </Grid>
