@@ -41,7 +41,7 @@ const Wrapper = styled.div`
     font-weight: normal;
     font-size: 24px;
     line-height: 34px;
-    color: #ffffff;
+    color: #b67f15;
     padding: 18px 15px;
   }
 
