@@ -13,6 +13,7 @@ import { PageState, RootState } from "../redux/ReduxTypes";
 import { setCurrentPage } from "../redux/actions/pageActions";
 import { mainColour } from "../styles/palette";
 import { ImageAsset } from "./ImageAsset";
+import { prodMode } from "../config/featureFlags";
 
 // https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 const Wrapper = styled.div`
@@ -32,6 +33,16 @@ const Wrapper = styled.div`
     background-position: center bottom;
     background-size: 75% 8%;
     background-repeat: no-repeat;
+  }
+
+  .siteName {
+    font-family: Friz Quadrata;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 34px;
+    color: #ffffff;
+    padding: 18px 15px;
   }
 
   .selectedPage {
@@ -88,12 +99,12 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const pages = [
-  ["/home", "Home"],
-  ["/watchlive", "Watch Live"],
-  ["/leaderboards", "Leaderboards"],
-  ["/Stats", "Stats"],
-  ["/Guides", "Guides"],
-  ["/wiki", "Wiki"],
+  // ["/home", "Home"],
+  // ["/watchlive", "Watch Live"],
+  // ["/leaderboards", "Leaderboards"],
+  // ["/Stats", "Stats"],
+  // ["/Guides", "Guides"],
+  // ["/wiki", "Wiki"],
   ["/summonersrift", "Summoner's Rift"],
 ];
 
@@ -128,7 +139,9 @@ export default function MenuAppBar() {
               aria-label="menu"
             >
               <ImageAsset alt="lol.svg" style={{ height: 39 }} />
+              <Typography className="siteName">OneHP</Typography>
             </IconButton>
+
             <div className="parentNavBarContainer">
               {pages.map((page, index) => {
                 return (
