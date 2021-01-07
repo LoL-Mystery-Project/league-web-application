@@ -126,12 +126,12 @@ export default function DonateInfoBox() {
             <Typography className="linkTextStyles">Twitter</Typography>
           </Grid>
         </Grid>
-        <div className="compliantDiv">
+        {/* <div className="compliantDiv">
           <ImageAsset alt="compliance.svg" />
           <Typography className="compliantText">
             Riot Games Compliant
           </Typography>
-        </div>
+        </div> */}
       </Card>
     </Wrapper>
   );
