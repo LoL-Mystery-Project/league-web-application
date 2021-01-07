@@ -244,8 +244,8 @@
 
 .redSideBlueBuff {
   position: absolute;
-  top: 51%;
-  right: 23%;
+  top: 51.2%;
+  right: 24.1%;
 }
 
 .redSideRedBuff {
@@ -256,8 +256,8 @@
 
 .blueSideBlueBuff {
   position: absolute;
-  bottom: 51%;
-  left: 23%;
+  bottom: 51.1%;
+  left: 24.2%;
 }
 
 .blueSideRedBuff {
@@ -438,4 +438,208 @@
   position: absolute;
   bottom: 44%;
   left: 60%;
+}
+
+.bushEdge1 {
+  position: absolute;
+  top: 47%;
+  left: 4.4%;
+}
+.bushEdge2 {
+  position: absolute;
+  top: 16%;
+  left: 5.5%;
+}
+.bushEdge3 {
+  position: absolute;
+  top: 10.3%;
+  left: 9.7%;
+}
+.bushEdge4 {
+  position: absolute;
+  top: 6.1%;
+  left: 15.5%;
+}
+.bushEdge5 {
+  position: absolute;
+  top: 5%;
+  left: 45%;
+}
+
+.bushEdge6 {
+  position: absolute;
+  bottom: 5%;
+  right: 45%;
+}
+.bushEdge7 {
+  position: absolute;
+  bottom: 6.1%;
+  right: 15.5%;
+}
+.bushEdge8 {
+  position: absolute;
+  bottom: 10.2%;
+  right: 9.9%;
+}
+.bushEdge9 {
+  position: absolute;
+  bottom: 16%;
+  right: 5.5%;
+}
+.bushEdge10 {
+  position: absolute;
+  bottom: 47%;
+  right: 4.4%;
+}
+
+.topJGBush1 {
+  position: absolute;
+  top: 52.6%;
+  left: 30.8%;
+}
+.topJGBush2 {
+  position: absolute;
+  top: 47.1%;
+  left: 20.9%;
+}
+.topJGBush3 {
+  position: absolute;
+  top: 43%;
+  left: 32.1%;
+}
+.topJGBush4 {
+  position: absolute;
+  top: 38%;
+  left: 18%;
+}
+.topJGBush5 {
+  position: absolute;
+  top: 33.6%;
+  left: 13.5%;
+}
+.topJGBush6 {
+  position: absolute;
+  top: 42.6%;
+  left: 42.3%;
+}
+.topJGBush7 {
+  position: absolute;
+  top: 39%;
+  left: 37%;
+}
+.topJGBush8 {
+  position: absolute;
+  top: 23%;
+  left: 16.2%;
+}
+.topJGBush9 {
+  position: absolute;
+  top: 18.4%;
+  left: 28.5%;
+}
+.topJGBush10 {
+  position: absolute;
+  top: 29%;
+  left: 40.5%;
+}
+.topJGBush11 {
+  position: absolute;
+  top: 29.5%;
+  left: 54.5%;
+}
+.topJGBush12 {
+  position: absolute;
+  top: 20.6%;
+  left: 43.6%;
+}
+.topJGBush13 {
+  position: absolute;
+  top: 11%;
+  left: 37%;
+}
+.topJGBush14 {
+  position: absolute;
+  top: 18.6%;
+  left: 52.1%;
+}
+.topJGBush15 {
+  position: absolute;
+  top: 21%;
+  left: 61%;
+}
+
+.botJGBush1 {
+  position: absolute;
+  bottom: 52.5%;
+  right: 30.9%;
+}
+.botJGBush2 {
+  position: absolute;
+  bottom: 47.1%;
+  right: 20.9%;
+}
+.botJGBush3 {
+  position: absolute;
+  bottom: 43.3%;
+  right: 32.1%;
+}
+.botJGBush4 {
+  position: absolute;
+  bottom: 38%;
+  right: 18.2%;
+}
+.botJGBush5 {
+  position: absolute;
+  bottom: 33.6%;
+  right: 13.5%;
+}
+.botJGBush6 {
+  position: absolute;
+  bottom: 42.6%;
+  right: 42.3%;
+}
+.botJGBush7 {
+  position: absolute;
+  bottom: 39%;
+  right: 37%;
+}
+.botJGBush8 {
+  position: absolute;
+  bottom: 23%;
+  right: 16.6%;
+}
+.botJGBush9 {
+  position: absolute;
+  bottom: 18.4%;
+  right: 28.5%;
+}
+.botJGBush10 {
+  position: absolute;
+  bottom: 29%;
+  right: 40.5%;
+}
+.botJGBush11 {
+  position: absolute;
+  bottom: 29.5%;
+  right: 54.5%;
+}
+.botJGBush12 {
+  position: absolute;
+  bottom: 20.6%;
+  right: 43.6%;
+}
+.botJGBush13 {
+  position: absolute;
+  bottom: 11%;
+  right: 37.1%;
+}
+.botJGBush14 {
+  position: absolute;
+  bottom: 18.7%;
+  right: 52.1%;
+}
+.botJGBush15 {
+  position: absolute;
+  bottom: 21%;
+  right: 61%;
 }
