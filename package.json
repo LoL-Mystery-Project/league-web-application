@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "yarn build",
-    "build": "cd ui && yarn install --network-timeout 100000 && yarn build && cd ../server && yarn install --network-timeout 100000",
-    "heroku-postbuild": "cd server && yarn run dev"
+    "start": "cd server && yarn run dev",
+    "heroku-postbuild": "cd ui && yarn install --network-timeout 100000 && yarn build && cd ../server && yarn install --network-timeout 100000"
   },
   "repository": {
     "type": "git",
@@ -20,4 +19,3 @@
   },
   "homepage": "https://github.com/LoL-Mystery-Project/league-web-application#readme"
 }
-
