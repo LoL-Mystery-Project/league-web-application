@@ -10,7 +10,9 @@ export const CLEAR_SELECTED_MONSTER = "@@MONSTER_ACTION/CLEAR_SELECTED_MONSTER";
 export const fetchAllMonsters = () => async (dispatch: Function) => {
   dispatch({ type: FETCHING_ALL_MONSTERS, payload: true });
   try {
-    const monsters = await fetch("http://localhost:5000/monsters");
+    const monsters = await fetch(
+      `http://localhost:${process.env.PORT || 5000}/monsters`
+    );
     const json = await monsters.json();
     dispatch({ type: SET_ALL_MONSTERS, payload: json });
   } catch (err) {

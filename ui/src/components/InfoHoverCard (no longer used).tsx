@@ -8,17 +8,12 @@ import { mainColour } from "../styles/palette";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
 import { ImageAsset } from "./ImageAsset";
-import { TextColourizer } from "../utils/TextColourizer";
 import { RootState } from "../redux/ReduxTypes";
-import { MonsterType } from "../monster-layout/MonsterTypes";
 import { MapType } from "./SummonersRiftMap";
 
 const Wrapper = styled.div`
@@ -28,13 +23,13 @@ const Wrapper = styled.div`
   }
   .subtitleText {
     font-family: Friz Quadrata;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-line-height: 15px;
-display: flex;
-align-items: center;
-color: ${mainColour.white};
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    color: ${mainColour.white};
   }
   .infoText {
     font-style: normal;
@@ -77,7 +72,7 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
     <Wrapper>
       <Card className={classes.root}>
         <CardActionArea>
-          {/* <ImageAsset alt ='frameInfoCardComponent.svg'/> */}
+          {/* <ImageAsset alt="frameInfoCardComponent.svg" /> */}
           <ImageAsset alt={mapDatum.banner} />
           <CardContent>
             <Grid container style={{ display: "flex", flexDirection: "row" }}>
@@ -95,7 +90,11 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
                 </Typography>
               </Grid>
               <Grid item style={{ paddingLeft: 40 }}>
-                <ImageAsset alt={mapDatum.alt} width={ICON_SIZE} height={ICON_SIZE}/>
+                <ImageAsset
+                  alt={mapDatum.alt}
+                  width={ICON_SIZE}
+                  height={ICON_SIZE}
+                />
               </Grid>
             </Grid>
             <Typography
@@ -104,22 +103,24 @@ export const InfoHoverCard: FC<InfoHoverCardProps> = ({ mapDatum }) => {
               component="p"
               className="subtitleText"
             >
-              Epic Monster
+              {mapDatum.subTitle}
             </Typography>
-            <Typography className="infoText">
+            {/* <Typography className="infoText">
               Baron Nashor is the most powerful neutral monster in Summoner’s
               Rift. Killing it grants living teammates Hand of Baron, Empowered
               Recall, and Aura - Empowered Allied Minions.
-            </Typography>
+            </Typography> */}
             {/* <TextColourizer
-              text={monsterDetails.overview && monsterDetails.overview[0].text}
-              colourMap={
-                monsterDetails.overview && monsterDetails.overview[0].colourMap
-              }
+              // text={monsterDetails.overview && monsterDetails.overview[0].text}
+              // colourMap={
+              //   monsterDetails.overview && monsterDetails.overview[0].colourMap
+              // }
+              text={monsterDetails.overview?.text}
+              colourMap={monsterDetails.overview?.colourMap}
             /> */}
-            {/* Baron Nashor is the most powerful neutral monster in Summoner’s
-              Rift. Killing it grants living teammates Hand of Baron, Empowered
-              Recall, and Aura - Empowered Allied Minions. */}
+            <Typography className="infoText">
+              {monsterDetails.description}
+            </Typography>
           </CardContent>
         </CardActionArea>
       </Card>

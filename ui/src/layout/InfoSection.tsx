@@ -31,11 +31,11 @@ const InfoSectionStyles = styled.div`
   }
 
   .spanWithIcon {
-    margin-top: 20px;
+    margin-top: ${infoSectionConstants.spanWithIconMarginTop}px;
   }
 
   .spanWithoutIcon {
-    margin-top: -5px;
+    margin-top: ${infoSectionConstants.spanWithoutIconMarginTop}px;
   }
 
   .divWithIcon {
@@ -51,11 +51,11 @@ export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
         <span className={item.icon ? "spanWithIcon" : "spanWithoutIcon"}>
           <Grid
             container
-            spacing={3}
             style={{
               display: "flex",
               flexDirection: "row",
-              paddingLeft: infoSectionConstants.paddingLeft,
+              marginLeft: infoSectionConstants.marginLeft,
+              alignItems: "center",
             }}
           >
             {item.icon && (
@@ -70,18 +70,31 @@ export const InfoSection: FC<InfoSectionProps> = ({ item }) => {
               </Grid>
             )}
 
-            <Grid item style={{ width: "90%" }}>
+            <Grid item>
               <Typography
                 className="abilitiesSubHeaderStyle"
-                style={{ color: item.titleColour, marginTop: -4 }}
+                style={{
+                  color: item.titleColour,
+                  marginLeft: infoSectionConstants.abilitiesSubHeaderMarginLeft,
+                }}
               >
                 {item.title}
               </Typography>
-              {/* <ul> tag with colourize text */}
-              <ColouredList listItems={item.effects} />
             </Grid>
           </Grid>
         </span>
+      </div>
+
+      <div
+        style={{
+          marginLeft: item.icon
+            ? infoSectionConstants.colouredListWithIconMarginLeft
+            : infoSectionConstants.colouredListWithoutIconMarginLeft,
+          marginTop: infoSectionConstants.colouredListMarginTop,
+        }}
+      >
+        {/* <ul> tag with colourize text */}
+        <ColouredList listItems={item.effects} />
       </div>
     </InfoSectionStyles>
   );

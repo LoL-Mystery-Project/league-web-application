@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/ButtonGroup";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { mainColour } from "../styles/palette";
+import { mainColour, subColour } from "../styles/palette";
 import { InfoDrawer } from "../components/InfoDrawer";
 import DonateInfoBox from "../components/DonateInfoBox";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,22 +17,30 @@ import { setSelectedMonster } from "../redux/actions/monsterActions";
 import { ImageAsset } from "../components/ImageAsset";
 import { MonsterType } from "../monster-layout/MonsterTypes";
 import { useWindowDimensions } from "../components/hooks/useWindowDimensions";
+import { setInfoDrawerBoolean } from "../redux/actions/pageActions";
+import { SummonersRiftConstants } from "../styles/dimension";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  .headerText {
+    color: ${mainColour.yellow};
+    font-family: "Friz Quadrata";
+    font-size: 20px;
+    line-height: 18px;
+  }
+`;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      height: "100%",
-      width: "100%",
+      // height: "100%",
+      // width: "100%",
       overflowY: "hidden",
       overflowX: "hidden",
     },
+
     paper: {
-      background: "transparent", // TODO: change this later
-    },
-    headerText: {
-      color: mainColour.yellow,
-      fontFamily: "Friz Quadrata",
-      fontSize: 20,
+      background: "transparent",
     },
 
     assetText: {
@@ -67,14 +75,13 @@ export interface MonsterObject {
 export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const dispatch = useDispatch();
   const [windowHeight, setWindowHeight] = useState(0);
-  const [showInfoDrawer, setInfoDrawer] = useState(false);
   const { allMonsters } = useSelector((state: RootState) => state.monsters);
+  const { showInfoDrawer } = useSelector((state: RootState) => state.page);
   const [asset, setAsset] = useState<MonsterType | undefined>(undefined);
   const windowDimensions = useWindowDimensions();
 
-  const handleToggleInfoDrawer = (monster: MonsterType) => {
-    setInfoDrawer(!showInfoDrawer);
-    setAsset(monster);
+  const handleCloseInfoDrawer = () => {
+    dispatch(setInfoDrawerBoolean(false));
   };
 
   useEffect(() => {
@@ -83,45 +90,39 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
 
   const classes = useStyles();
   return (
-    <div style={{ height: windowHeight }}>
-      <Grid
-        container
-        className={classes.root}
-        justify="center"
-        spacing={1}
-        style={{ paddingTop: 30 }}
-      >
-        {/* MAP */}
-        <Grid item xs={5}>
-          <Paper
-            className={classes.paper}
-            style={{
-              height: windowHeight,
-              // textAlign: "center",
-            }}
-          >
+    <Wrapper>
+      <div style={{ maxHeight: windowHeight }}>
+        <Grid
+          container
+          className={classes.root}
+          justify="center"
+          spacing={1}
+          style={{ margin: SummonersRiftConstants.marginTop }}
+        >
+          {/* MAP */}
+          <Grid item xs={5}>
             <SummonersRiftMap />
-          </Paper>
-        </Grid>
-
-        {!showInfoDrawer ? (
-          <Grid>
-            <Grid
-              container
-              style={{
-                paddingLeft: 60,
-                overflowY: "scroll",
-                flexBasis: "unset",
-                height: windowHeight - 30,
-              }}
-            >
-              {/* MONSTER LIST */}
-              <Grid item xs={7}>
-                <Paper className={classes.paper}>
+          </Grid>
+          {!showInfoDrawer ? (
+            <Grid item xs={7} style={{ maxWidth: "55%" }}>
+              <Grid
+                container
+                style={{
+                  marginLeft: SummonersRiftConstants.marginLeft,
+                  overflowY: "scroll",
+                  flexBasis: "unset",
+                  height: windowHeight - 30,
+                }}
+              >
+                {/* MONSTER LIST */}
+                <Grid item xs={7} style={{ maxWidth: "50%" }}>
                   <SummonerSearchBar />
                   <Typography
-                    style={{ paddingTop: 30 }}
-                    className={classes.headerText}
+                    style={{
+                      marginTop:
+                        SummonersRiftConstants.neutralMonstersHeaderMarginTop,
+                    }}
+                    className="headerText"
                   >
                     Neutral Monsters
                   </Typography>
@@ -131,7 +132,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                     style={{
                       display: "flex",
                       flexDirection: "row",
-                      margin: 5,
+                      marginTop: SummonersRiftConstants.listMarginTop,
                     }}
                   >
                     {/* NEUTRAL MONSTERS: COLUMN 1 */}
@@ -145,13 +146,15 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                                 display: "flex",
                                 flexDirection: "row",
                                 alignContent: "center",
-                                // paddingTop: 10, removed to rannow spaces between monsters icons
+                                marginTop:
+                                  SummonersRiftConstants.iconAndTextMarginTop,
                               }}
                             >
                               <Button
                                 onClick={() => {
-                                  handleToggleInfoDrawer(elem);
+                                  // handleToggleInfoDrawer(elem);
                                   dispatch(setSelectedMonster(elem.name));
+                                  dispatch(setInfoDrawerBoolean(true));
                                 }}
                               >
                                 <div
@@ -165,12 +168,14 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                                     className=""
                                     height={ICON_SIZE}
                                     width={ICON_SIZE}
-                                    style={{ paddingRight: 5 }}
                                     alt={elem.icon}
                                   />{" "}
                                   <p
                                     className={classes.assetText}
-                                    style={{ paddingLeft: 10 }}
+                                    style={{
+                                      marginLeft:
+                                        SummonersRiftConstants.iconMarginLeft,
+                                    }}
                                   >
                                     {elem.name}
                                   </p>
@@ -192,13 +197,15 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                                 display: "flex",
                                 flexDirection: "row",
                                 alignContent: "center",
-                                // paddingTop: 10, removed to rannow spaces between monsters icons
+                                marginTop:
+                                  SummonersRiftConstants.iconAndTextMarginTop,
                               }}
                             >
                               <Button
                                 onClick={() => {
-                                  handleToggleInfoDrawer(elem);
+                                  // handleToggleInfoDrawer(elem);
                                   dispatch(setSelectedMonster(elem.name));
+                                  dispatch(setInfoDrawerBoolean(true));
                                 }}
                               >
                                 <div
@@ -212,12 +219,14 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                                     className=""
                                     height={ICON_SIZE}
                                     width={ICON_SIZE}
-                                    style={{ paddingRight: 5 }}
                                     alt={elem.icon}
                                   />{" "}
                                   <p
                                     className={classes.assetText}
-                                    style={{ paddingLeft: 10 }}
+                                    style={{
+                                      marginLeft:
+                                        SummonersRiftConstants.iconMarginLeft,
+                                    }}
                                   >
                                     {elem.name}
                                   </p>
@@ -230,8 +239,11 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                     </Grid>
                   </Grid>
                   <Typography
-                    style={{ paddingTop: 20 }}
-                    className={classes.headerText}
+                    style={{
+                      marginTop:
+                        SummonersRiftConstants.neutralMonstersHeaderMarginTop,
+                    }}
+                    className="headerText"
                   >
                     Minions
                   </Typography>
@@ -246,16 +258,15 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         style={{
                           display: "flex",
                           flexDirection: "row",
-                          paddingTop: 10,
+                          marginTop: SummonersRiftConstants.listMarginTop,
                         }}
                       >
-                        <ImageAsset
-                          style={{ paddingRight: 5 }}
-                          alt="superminion.svg"
-                        />
+                        <ImageAsset alt="superminion.svg" />
                         <p
                           className={classes.assetText}
-                          style={{ paddingLeft: 10 }}
+                          style={{
+                            marginLeft: SummonersRiftConstants.iconMarginLeft,
+                          }}
                         >
                           Super Minions
                         </p>
@@ -266,13 +277,12 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           flexDirection: "row",
                         }}
                       >
-                        <ImageAsset
-                          style={{ paddingRight: 5 }}
-                          alt="meleeminion.svg"
-                        />
+                        <ImageAsset alt="meleeminion.svg" />
                         <p
                           className={classes.assetText}
-                          style={{ paddingLeft: 10 }}
+                          style={{
+                            marginLeft: SummonersRiftConstants.iconMarginLeft,
+                          }}
                         >
                           Melee Minions
                         </p>
@@ -282,19 +292,19 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            paddingTop: 10,
+                            marginTop: 10,
                           }}
                         >
                           <img
                             className=""
                             src={baronIcon}
                             height={ICON_SIZE}
-                            style={{ paddingRight: 5 }}
+                            style={{ marginRight: 5 }}
                             alt="baronIcon"
                           />{" "}
                           <p
                             className={classes.assetText}
-                            style={{ paddingLeft: 10 }}
+                            style={{ marginLeft: 10 }}
                           >
                             Baron Nashor
                           </p>
@@ -307,16 +317,15 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         style={{
                           display: "flex",
                           flexDirection: "row",
-                          paddingTop: 10,
+                          marginTop: SummonersRiftConstants.listMarginTop,
                         }}
                       >
-                        <ImageAsset
-                          style={{ paddingRight: 5 }}
-                          alt="canonminion.svg"
-                        />
+                        <ImageAsset alt="canonminion.svg" />
                         <p
                           className={classes.assetText}
-                          style={{ paddingLeft: 10 }}
+                          style={{
+                            marginLeft: SummonersRiftConstants.iconMarginLeft,
+                          }}
                         >
                           Cannon Minions
                         </p>
@@ -325,16 +334,16 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                         style={{
                           display: "flex",
                           flexDirection: "row",
-                          // paddingTop: 10, removed to rannow spaces between monsters icons
+                          marginTop:
+                            SummonersRiftConstants.iconAndTextMarginTop,
                         }}
                       >
-                        <ImageAsset
-                          style={{ paddingRight: 5 }}
-                          alt="casterminion.svg"
-                        />
+                        <ImageAsset alt="casterminion.svg" />
                         <p
                           className={classes.assetText}
-                          style={{ paddingLeft: 10 }}
+                          style={{
+                            marginLeft: SummonersRiftConstants.iconMarginLeft,
+                          }}
                         >
                           Caster Minions
                         </p>
@@ -350,12 +359,13 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                       style={{
                         display: "flex",
                         flexDirection: "row",
-                        paddingTop: 20,
+                        marginTop:
+                          SummonersRiftConstants.neutralMonstersHeaderMarginTop,
                       }}
                     >
                       {/* JUNGLE PLANTS*/}
                       <Grid item xs={6}>
-                        <Typography className={classes.headerText}>
+                        <Typography className="headerText">
                           Jungle Plants
                         </Typography>
                         <ImageAsset width={220} alt="lineSeparatorShort.svg" />
@@ -363,16 +373,15 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            paddingTop: 10,
+                            marginTop: SummonersRiftConstants.listMarginTop,
                           }}
                         >
-                          <ImageAsset
-                            style={{ paddingRight: 5 }}
-                            alt="blastcone.svg"
-                          />
+                          <ImageAsset alt="blastcone.svg" />
                           <p
                             className={classes.assetText}
-                            style={{ paddingLeft: 10 }}
+                            style={{
+                              marginLeft: SummonersRiftConstants.iconMarginLeft,
+                            }}
                           >
                             Blast Cone
                           </p>
@@ -383,13 +392,12 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                             flexDirection: "row",
                           }}
                         >
-                          <ImageAsset
-                            style={{ paddingRight: 5 }}
-                            alt="honeyfruit.svg"
-                          />
+                          <ImageAsset alt="honeyfruit.svg" />
                           <p
                             className={classes.assetText}
-                            style={{ paddingLeft: 10 }}
+                            style={{
+                              marginLeft: SummonersRiftConstants.iconMarginLeft,
+                            }}
                           >
                             Honey Fruit
                           </p>
@@ -400,13 +408,12 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                             flexDirection: "row",
                           }}
                         >
-                          <ImageAsset
-                            style={{ paddingRight: 5 }}
-                            alt="scryersbloom.svg"
-                          />
+                          <ImageAsset alt="scryersbloom.svg" />
                           <p
                             className={classes.assetText}
-                            style={{ paddingLeft: 10 }}
+                            style={{
+                              marginLeft: SummonersRiftConstants.iconMarginLeft,
+                            }}
                           >
                             Scryer's Bloom
                           </p>
@@ -414,7 +421,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                       </Grid>
                       {/* BUILDINGS */}
                       <Grid item xs={6}>
-                        <Typography className={classes.headerText}>
+                        <Typography className="headerText">
                           Buildings
                         </Typography>
                         <ImageAsset width={220} alt="lineSeparatorShort.svg" />
@@ -422,16 +429,15 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                           style={{
                             display: "flex",
                             flexDirection: "row",
-                            paddingTop: 10,
+                            marginTop: SummonersRiftConstants.listMarginTop,
                           }}
                         >
-                          <ImageAsset
-                            style={{ paddingRight: 5 }}
-                            alt="turret.svg"
-                          />
+                          <ImageAsset alt="turret.svg" />
                           <p
                             className={classes.assetText}
-                            style={{ paddingLeft: 10 }}
+                            style={{
+                              marginLeft: SummonersRiftConstants.iconMarginLeft,
+                            }}
                           >
                             Turrets
                           </p>
@@ -442,13 +448,12 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                             flexDirection: "row",
                           }}
                         >
-                          <ImageAsset
-                            style={{ paddingRight: 5 }}
-                            alt="inhibitor.svg"
-                          />
+                          <ImageAsset alt="inhibitor.svg" />
                           <p
                             className={classes.assetText}
-                            style={{ paddingLeft: 10 }}
+                            style={{
+                              marginLeft: SummonersRiftConstants.iconMarginLeft,
+                            }}
                           >
                             Inhibitors
                           </p>
@@ -459,13 +464,12 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                             flexDirection: "row",
                           }}
                         >
-                          <ImageAsset
-                            style={{ paddingRight: 5 }}
-                            alt="nexus.svg"
-                          />
+                          <ImageAsset alt="nexus.svg" />
                           <p
                             className={classes.assetText}
-                            style={{ paddingLeft: 10 }}
+                            style={{
+                              marginLeft: SummonersRiftConstants.iconMarginLeft,
+                            }}
                           >
                             Nexus
                           </p>
@@ -473,30 +477,31 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
                       </Grid>
                     </Grid>
                   </Grid>
-                </Paper>
-              </Grid>
-              {/* BIG ANNOYING AD */}
-              <Grid item xs={5}>
-                <DonateInfoBox />
+                </Grid>
+                {/* BIG ANNOYING AD */}
+                <Grid item xs={5} style={{ backgroundColor: subColour.navy }}>
+                  <DonateInfoBox />
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
-        ) : (
-          <Grid
-            item
-            xs={7}
-            style={{
-              background: `transparent`,
-            }}
-          >
-            <InfoDrawer
-              showInfoDrawer={showInfoDrawer}
-              handleClose={handleToggleInfoDrawer}
-              asset={asset}
-            />
-          </Grid>
-        )}
-      </Grid>
-    </div>
+          ) : (
+            <Grid
+              item
+              xs={7}
+              style={{
+                background: `transparent`,
+                maxWidth: '55%'
+              }}
+            >
+              <InfoDrawer
+                showInfoDrawer={showInfoDrawer}
+                handleClose={handleCloseInfoDrawer}
+                asset={asset}
+              />
+            </Grid>
+          )}
+        </Grid>
+      </div>
+    </Wrapper>
   );
 };

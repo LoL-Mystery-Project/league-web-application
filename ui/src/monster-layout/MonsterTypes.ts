@@ -51,7 +51,7 @@ export interface PatchRelease {
 }
 
 export interface PatchCategory {
-  type: string;
+  type: PatchCategoryTypes;
   list: Array<PatchNote>;
 }
 
@@ -59,3 +59,11 @@ export interface PatchNote {
   ability: string;
   changes: Array<TextColourizerTypes>;
 }
+
+export type PatchCategoryTypes =
+  | "REMOVED:"
+  | "NEW:"
+  | "BUG FIX:"
+  | "CHANGE:"
+  | "BUFF:"
+  | "NERF:";

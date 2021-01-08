@@ -9,6 +9,7 @@ export interface RootState {
 
 export interface PageState {
   currentPage: string;
+  showInfoDrawer: boolean;
 }
 export interface DragonState {
   selectedDragon: string;
@@ -29,7 +30,7 @@ export interface ImageState {
   fetchFailed: boolean;
 }
 
-interface ImageType {
+export interface ImageType {
   key: string;
   url: string;
 }

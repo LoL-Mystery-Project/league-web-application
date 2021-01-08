@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import { ImageAsset } from "../components/ImageAsset";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { mainColour } from "../styles/palette";
+import { footerConstants } from "../styles/dimension";
 
 interface FooterProps extends React.ComponentProps<"div"> {}
 
@@ -31,7 +32,7 @@ export const Footer: FC<FooterProps> = ({ ...divProps }) => {
   const classes = useStyles();
 
   return (
-    <div {...divProps}>
+    <div style={{ marginTop: footerConstants.marginTop }} {...divProps}>
       <Grid>
         <StyledTabs
           // value={value}
@@ -44,34 +45,40 @@ export const Footer: FC<FooterProps> = ({ ...divProps }) => {
             label={
               <Typography className={classes.footerText}>Overview</Typography>
             }
+            value={0}
           />
           <Tab
             disableRipple
             label={
               <Typography className={classes.footerText}>Effects</Typography>
             }
+            value={1}
           />
           <Tab
             disableRipple
             label={
               <Typography className={classes.footerText}>Abilities</Typography>
             }
+            value={2}
           />
           <Tab
             disableRipple
             label={
               <Typography className={classes.footerText}>Strategy</Typography>
             }
+            value={3}
           />
           <Tab
             disableRipple
             label={
               <Typography className={classes.footerText}>Trivia</Typography>
             }
+            value={4}
           />
         </StyledTabs>
 
-        <Grid style={{ paddingTop: 30, textAlign: "center" }}>
+        {/* TODO: Figma shows that marginTop should be 55 from tab text */}
+        <Grid style={{ marginTop: footerConstants.enderMarginTop, textAlign: "center" }}>
           <ImageAsset alt="ender.svg" />
         </Grid>
       </Grid>

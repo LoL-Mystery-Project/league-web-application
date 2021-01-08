@@ -5,7 +5,10 @@
     "className": "baronPosition",
     "width": "4%",
     "height": "4%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Epic Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
   {
     "id": "Infernal Dragon",
@@ -13,7 +16,10 @@
     "className": "dragonPosition",
     "width": "4%",
     "height": "4%",
-    "banner": "dragonsCard.svg"
+    "banner": "dragonCard.png",
+    "subTitle": "Epic Monster",
+    "description": "The Dragon is the second most powerful neutral monster on Summoner's Rift in League of Legends. Slaying the Dragon grants the team a powerful stacking buff.",
+    "objectType": "monster"
   },
   {
     "id": "Krugs",
@@ -21,7 +27,10 @@
     "className": "redKrugPosition",
     "width": "2.5%",
     "height": "2.5%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
   {
     "id": "Krugs",
@@ -29,7 +38,10 @@
     "className": "blueKrugPosition",
     "width": "2.5%",
     "height": "2.5%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
   {
     "id": "Raptors",
@@ -37,7 +49,10 @@
     "className": "redRaptorPosition",
     "width": "2.5%",
     "height": "2.5%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
   {
     "id": "Raptors",
@@ -45,7 +60,10 @@
     "className": "blueRaptorPosition",
     "width": "2.5%",
     "height": "2.5%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
   {
     "id": "Scuttler Crab",
@@ -53,7 +71,10 @@
     "className": "topScuttlePos",
     "width": "3%",
     "height": "3%",
-    "banner": "scuttleCard.svg"
+    "banner": "scuttleCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Scuttle crab is a non-hostile neutral monster that can be found on the top and bottom river of Summoner's Rift. Killing it grants vision and bonus movement speed in a small area.",
+    "objectType": "monster"
   },
   {
     "id": "Scuttler Crab",
@@ -61,7 +82,10 @@
     "className": "botScuttlePos",
     "width": "3%",
     "height": "3%",
-    "banner": "scuttleCard.svg"
+    "banner": "scuttleCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
   {
     "id": "Wolves",
@@ -69,7 +93,10 @@
     "className": "redWolfPos",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
   {
     "id": "Wolves",
@@ -77,7 +104,10 @@
     "className": "blueWolfPos",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
   {
     "id": "Nexus",
@@ -85,7 +115,10 @@
     "className": "redNexusPos",
     "width": "6%",
     "height": "6%",
-    "banner": "baronCard.svg"
+    "banner": "nexusCard.svg",
+    "subTitle": "Structure",
+    "description": "The Nexus is the primary objective in every League of Legends gamemode. A team only wins the match when their opposition's Nexus is destroyed.",
+    "objectType": "building"
   },
   {
     "id": "Nexus",
@@ -93,7 +126,10 @@
     "className": "blueNexusPos",
     "width": "6%",
     "height": "6%",
-    "banner": "baronCard.svg"
+    "banner": "nexusCard.svg",
+    "subTitle": "Structure",
+    "description": "The Nexus is the primary objective in every League of Legends gamemode. A team only wins the match when their opposition's Nexus is destroyed.",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -101,7 +137,10 @@
     "className": "redInhibPosTop",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -109,7 +148,10 @@
     "className": "redInhibPosMid",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -117,7 +159,10 @@
     "className": "redInhibPosBot",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -125,7 +170,10 @@
     "className": "blueInhibPosTop",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -133,7 +181,10 @@
     "className": "blueInhibPosMid",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "building"
   },
   {
     "id": "Inhibitors",
@@ -141,7 +192,10 @@
     "className": "blueInhibPosBot",
     "width": "3.5%",
     "height": "3.5%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Structure",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -149,7 +203,10 @@
     "className": "blueOuterTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -157,7 +214,10 @@
     "className": "blueOuterTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -165,7 +225,10 @@
     "className": "blueInnerTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -173,7 +236,10 @@
     "className": "blueNexusTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -181,7 +247,10 @@
     "className": "blueNexusTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -189,7 +258,10 @@
     "className": "blueOuterTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -197,7 +269,10 @@
     "className": "blueInnerTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -205,7 +280,10 @@
     "className": "blueInnerTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -213,7 +291,10 @@
     "className": "blueInhibTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -221,7 +302,10 @@
     "className": "blueInhibTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -229,7 +313,10 @@
     "className": "blueInhibTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -237,7 +324,10 @@
     "className": "redOuterTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -245,7 +335,10 @@
     "className": "redOuterTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -253,7 +346,10 @@
     "className": "redInnerTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -261,7 +357,10 @@
     "className": "redNexusTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -269,7 +368,10 @@
     "className": "redNexusTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -277,7 +379,10 @@
     "className": "redOuterTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -285,7 +390,10 @@
     "className": "redInnerTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -293,7 +401,10 @@
     "className": "redInnerTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -301,7 +412,10 @@
     "className": "redInhibTurretTop",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -309,7 +423,10 @@
     "className": "redInhibTurretMid",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Turrets",
@@ -317,32 +434,43 @@
     "className": "redInhibTurretBot",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "turretCard.png",
+    "subTitle": "Structure",
+    "description": "Turrets are heavy fortifications that attack enemy units on sight.Turrets target one unit at a time and deal heavy damage. Teams must destroy enemy turrets to push their assault into enemy territory.",
+    "objectType": "building"
   },
   {
     "id": "Blue Sentinel",
     "alt": "bluesentinelIcon.svg",
     "className": "redSideBlueBuff",
-    "width": "3%",
-    "height": "3%",
-    "banner": "baronCard.svg"
+    "width": "2.5%",
+    "height": "2.5%",
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
   {
     "id": "Blue Sentinel",
     "alt": "bluesentinelIcon.svg",
     "className": "blueSideBlueBuff",
-    "width": "3%",
-    "height": "3%",
-    "banner": "baronCard.svg"
+    "width": "2.5%",
+    "height": "2.5%",
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
-
   {
     "id": "Red Brambleback",
     "alt": "redbramblebackIcon.svg",
     "className": "redSideRedBuff",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
   {
     "id": "Red Brambleback",
@@ -350,16 +478,21 @@
     "className": "blueSideRedBuff",
     "width": "3%",
     "height": "3%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
-
   {
     "id": "Gromp",
     "alt": "grompIcon.svg",
     "className": "redSideGromp",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
   },
   {
     "id": "Gromp",
@@ -367,6 +500,804 @@
     "className": "blueSideGromp",
     "width": "2%",
     "height": "2%",
-    "banner": "baronCard.svg"
+    "banner": "baronCard.png",
+    "subTitle": "Neutral Monster",
+    "description": "Baron Nashor is the most powerful neutral monster in Summoner’s Rift. Killing it grants living teammates Hand of Baron, Empowered Recall, and Aura - Empowered Allied Minions.",
+    "objectType": "monster"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone1",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone2",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone3",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone4",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone5",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone6",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone7",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "BlastCone",
+    "alt": "blastconeIcon.svg",
+    "className": "blastCone8",
+    "width": "2%",
+    "height": "2%",
+    "banner": "blastconeIcon.svg",
+    "subTitle": "Plant",
+    "description": "Blast Cone",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom1",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom2",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom3",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom4",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom4",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom5",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom6",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom8",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom7",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom8",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom9",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom10",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom11",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "ScryerBloom",
+    "alt": "scryersbloomIcon.svg",
+    "className": "scryersbloom12",
+    "width": "2%",
+    "height": "2%",
+    "banner": "scryersbloomIcon.svg",
+    "subTitle": "Plant",
+    "description": "scryersbloom",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit1",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit2",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit3",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit4",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit5",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit6",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit7",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit8",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit9",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit10",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit11",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+  {
+    "id": "HoneyFruit",
+    "alt": "honeyfruitIcon.svg",
+    "className": "honeyfruit12",
+    "width": "2%",
+    "height": "2%",
+    "banner": "honeyfruitIcon.svg",
+    "subTitle": "Plant",
+    "description": "honeyfruit",
+    "objectType": "junglePlant"
+  },
+
+  {
+    "id": "Bush",
+    "alt": "bushEdge1.svg",
+    "className": "bushEdge1",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushedge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "bushEdge2.svg",
+    "className": "bushEdge2",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "bushEdge3.svg",
+    "className": "bushEdge3",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushedge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "bushEdge4.svg",
+    "className": "bushEdge4",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushedge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "bushEdge5.svg",
+    "className": "bushEdge5",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushedge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "bushEdge6.svg",
+    "className": "bushEdge6",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushedge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "bushEdge7.svg",
+    "className": "bushEdge7",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushedge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "bushEdge8.svg",
+    "className": "bushEdge8",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushedge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "bushEdge9.svg",
+    "className": "bushEdge9",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushedge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "bushEdge10.svg",
+    "className": "bushEdge10",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushedge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+
+  {
+    "id": "Bush",
+    "alt": "topJGBush1.svg",
+    "className": "topJGBush1",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush2.svg",
+    "className": "topJGBush2",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush3.svg",
+    "className": "topJGBush3",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush4.svg",
+    "className": "topJGBush4",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush5.svg",
+    "className": "topJGBush5",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush6.svg",
+    "className": "topJGBush6",
+    "width": "6.5%",
+    "height": "6.5%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush7.svg",
+    "className": "topJGBush7",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush8.svg",
+    "className": "topJGBush8",
+    "width": "5%",
+    "height": "5%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush9.svg",
+    "className": "topJGBush9",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush10.svg",
+    "className": "topJGBush10",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush11.svg",
+    "className": "topJGBush11",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush12.svg",
+    "className": "topJGBush12",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush13.svg",
+    "className": "topJGBush13",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush14.svg",
+    "className": "topJGBush14",
+    "width": "3.5%",
+    "height": "3.5%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "topJGBush15.svg",
+    "className": "topJGBush15",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+
+  {
+    "id": "Bush",
+    "alt": "botJGBush1.svg",
+    "className": "botJGBush1",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush2.svg",
+    "className": "botJGBush2",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush3.svg",
+    "className": "botJGBush3",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush4.svg",
+    "className": "botJGBush4",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush5.svg",
+    "className": "botJGBush5",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush6.svg",
+    "className": "botJGBush6",
+    "width": "6.5%",
+    "height": "6.5%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush7.svg",
+    "className": "botJGBush7",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush8.svg",
+    "className": "botJGBush8",
+    "width": "5%",
+    "height": "5%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush9.svg",
+    "className": "botJGBush9",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush10.svg",
+    "className": "botJGBush10",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush11.svg",
+    "className": "botJGBush11",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush12.svg",
+    "className": "botJGBush12",
+    "width": "4%",
+    "height": "4%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush13.svg",
+    "className": "botJGBush13",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush14.svg",
+    "className": "botJGBush14",
+    "width": "3.5%",
+    "height": "3.5%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
+  },
+  {
+    "id": "Bush",
+    "alt": "botJGBush15.svg",
+    "className": "botJGBush15",
+    "width": "3%",
+    "height": "3%",
+    "banner": "bushEdge1.svg",
+    "subTitle": "Bush",
+    "description": "bush",
+    "objectType": "bush"
   }
 ]

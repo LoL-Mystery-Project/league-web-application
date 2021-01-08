@@ -5,8 +5,11 @@ import styled from "styled-components";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from "@material-ui/core/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/ReduxTypes";
-import { setSelectedDrag } from "../redux/actions/dragonActions";
+import { DragonOptions, RootState } from "../redux/ReduxTypes";
+import {
+  setSelectedDrag,
+  setDragOptions,
+} from "../redux/actions/dragonActions";
 import { mainColour } from "../styles/palette";
 import { ImageAsset } from "./ImageAsset";
 
@@ -47,10 +50,45 @@ export default function SoulSelectionToggle() {
   const [hoverDrag, setHoverDrag] = useState("");
   const dispatch = useDispatch();
   const dragState = useSelector((state: RootState) => state.dragon);
-  const { selectedDragon } = dragState;
+  const { selectedDragon, dragOptions } = dragState;
 
   const updateSelectedDrag = (dragType: string) => {
     dispatch(setSelectedDrag(dragType));
+  };
+
+  const handleToggleCheckBox = (type: String) => {
+    if (type === "neutralMonster") {
+      dispatch(
+        setDragOptions({
+          ...dragOptions,
+          showNeutralMonsters: !dragOptions.showNeutralMonsters,
+        })
+      );
+    }
+    if (type === "jungle") {
+      dispatch(
+        setDragOptions({
+          ...dragOptions,
+          showJunglePlants: !dragOptions.showJunglePlants,
+        })
+      );
+    }
+    if (type === "building") {
+      dispatch(
+        setDragOptions({
+          ...dragOptions,
+          showBuildings: !dragOptions.showBuildings,
+        })
+      );
+    }
+    if (type === "bush") {
+      dispatch(
+        setDragOptions({
+          ...dragOptions,
+          showBrushes: !dragOptions.showBrushes,
+        })
+      );
+    }
   };
 
   return (
@@ -148,8 +186,9 @@ export default function SoulSelectionToggle() {
           >
             <Checkbox
               style={{ width: 10, height: 10 }}
-              icon={<ImageAsset alt="checkboxborder.svg" />}
-              checkedIcon={<ImageAsset alt="checkbox.svg" />}
+              checkedIcon={<ImageAsset alt="checkboxborder.svg" />}
+              icon={<ImageAsset alt="checkbox.svg" />}
+              onChange={() => handleToggleCheckBox("neutralMonster")}
             />
             <Typography className={"toggleButtonStyles"}>
               Show neutral monsters
@@ -160,6 +199,7 @@ export default function SoulSelectionToggle() {
               style={{ width: 10, height: 10 }}
               icon={<ImageAsset alt="checkboxborder.svg" />}
               checkedIcon={<ImageAsset alt="checkbox.svg" />}
+              onChange={() => handleToggleCheckBox("jungle")}
             />
             <Typography className={"toggleButtonStyles"}>
               Show jungle plants{" "}
@@ -180,8 +220,9 @@ export default function SoulSelectionToggle() {
           <div style={{ display: "flex", flexDirection: "row" }}>
             <Checkbox
               style={{ width: 10, height: 10 }}
-              icon={<ImageAsset alt="checkboxborder.svg" />}
-              checkedIcon={<ImageAsset alt="checkbox.svg" />}
+              checkedIcon={<ImageAsset alt="checkboxborder.svg" />}
+              icon={<ImageAsset alt="checkbox.svg" />}
+              onChange={() => handleToggleCheckBox("building")}
             />
             <Typography className={"toggleButtonStyles"}>
               Show buildings
@@ -192,6 +233,7 @@ export default function SoulSelectionToggle() {
               style={{ width: 10, height: 10 }}
               icon={<ImageAsset alt="checkboxborder.svg" />}
               checkedIcon={<ImageAsset alt="checkbox.svg" />}
+              onChange={() => handleToggleCheckBox("bush")}
             />
             <Typography className={"toggleButtonStyles"}>
               Show brushes
