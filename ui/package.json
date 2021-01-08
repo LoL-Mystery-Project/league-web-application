@@ -30,6 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postinstall": "yarn build && cd ../server && yarn install --network-timeout 100000",
     "postbuild": "mv build ../server/public || move build ../server/public",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
