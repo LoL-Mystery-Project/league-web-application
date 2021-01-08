@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const Monster = require("./models/monster");
 const MapData = require("./models/mapData");
+const path = require('path');
 
 //const userRouter = require("./routes/users");
 
@@ -62,6 +63,38 @@ app.get("/add", async (req, res) => {
   }
 });
 
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(__dirname, "public", "index.html"));
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
+
+function startKeepAlive() {
+  setInterval(function () {
+    var options = {
+      host: "one-hp.herokuapp.com",
+      port: 80,
+      path: "/",
+    };
+    http
+      .get(options, function (res) {
+        res.on("data", function (chunk) {
+          try {
+            // optional logging... disable after it's working
+            console.log("HEROKU RESPONSE: " + chunk);
+          } catch (err) {
+            console.log(err.message);
+          }
+        });
+      })
+      .on("error", function (err) {
+        console.log("Error: " + err.message);
+      });
+  }, 20 * 60 * 1000); // load every 20 minutes
+}
+
+startKeepAlive();
