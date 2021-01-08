@@ -44,24 +44,24 @@ app.get("/monsters", async (req, res) => {
   }
 });
 
-app.get("/mapData", async (req, res) => {
-  try {
-    const payload = await MapData.find();
-    res.status(200).send(payload);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
+// app.get("/mapData", async (req, res) => {
+//   try {
+//     const payload = await MapData.find();
+//     res.status(200).send(payload);
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
+// });
 
-app.get("/add", async (req, res) => {
-  try {
-    const elderDrag = new MapData(elder);
-    await elderDrag.save();
-    res.status(200).send("ok");
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
+// app.get("/add", async (req, res) => {
+//   try {
+//     const elderDrag = new MapData(elder);
+//     await elderDrag.save();
+//     res.status(200).send("ok");
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
+// });
 
 app.use(express.static(path.join(__dirname, "public")));
 
