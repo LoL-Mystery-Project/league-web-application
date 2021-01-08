@@ -13,22 +13,48 @@ import { Leaderboard } from "./pages/Leaderboard";
 import { Stats } from "./pages/Stats";
 import { Guides } from "./pages/Guides";
 import { ImageGallery } from "./components/ImageGallery";
+import { prodMode } from "../src/config/featureFlags";
 
 export const Routes: FC = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route exact path="/" component={Test} />
-        <Route path="/test" component={RiftMap} />
-        <Route path="/home" component={Home} />
-        <Route path="/watchlive" component={WatchLive} />
-        <Route path="/leaderboards" component={Leaderboard} />
-        <Route path="/stats" component={Stats} />
-        <Route path="/guides" component={Guides} />
-        <Route path="/summonersrift" component={SummonersRift} />
-        <Route path="/wiki" component={Wiki} />
-        <Route path="/image_gallery" component={ImageGallery} />
+        <Route
+          exact
+          path="/"
+          component={prodMode.default ? Test : SummonersRift}
+        />
+        <Route
+          path="/test"
+          component={prodMode.default ? Test : SummonersRift}
+        />
+        <Route path="/home" component={prodMode.home ? Home : SummonersRift} />
+        <Route
+          path="/watchlive"
+          component={prodMode.watchlive ? WatchLive : SummonersRift}
+        />
+        <Route
+          path="/leaderboards"
+          component={prodMode.leaderboards ? Leaderboard : SummonersRift}
+        />
+        <Route
+          path="/stats"
+          component={prodMode.stats ? Stats : SummonersRift}
+        />
+        <Route
+          path="/guides"
+          component={prodMode.guides ? Guides : SummonersRift}
+        />
+        <Route
+          path="/summonersrift"
+          component={prodMode.summonersrift ? SummonersRift : SummonersRift}
+        />
+        <Route path="/wiki" component={prodMode.wiki ? Wiki : SummonersRift} />
+        <Route
+          path="/image_gallery"
+          component={prodMode.image_gallery ? ImageGallery : SummonersRift}
+        />
       </Switch>
     </BrowserRouter>
   );
