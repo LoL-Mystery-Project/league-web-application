@@ -42,7 +42,7 @@ const Wrapper = styled.div`
     font-size: 24px;
     line-height: 34px;
     color: #b67f15;
-    padding: 18px 15px;
+    padding: 0px 15px;
   }
 
   .selectedPage {

@@ -79,7 +79,7 @@ const Wrapper = styled.div`
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: subColour.navy,
+    backgroundColor: "transparent",
     display: "flex",
     flexDirection: "column",
   },

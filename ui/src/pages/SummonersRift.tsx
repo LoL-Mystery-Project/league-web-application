@@ -91,13 +91,13 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const classes = useStyles();
   return (
     <Wrapper>
-      <div style={{ maxHeight: windowHeight }}>
+      <div style={{ maxHeight: windowHeight, margin: SummonersRiftConstants.marginTop }}>
         <Grid
           container
           className={classes.root}
           justify="center"
-          spacing={1}
-          style={{ margin: SummonersRiftConstants.marginTop }}
+          // spacing={1}
+          // style={{ margin: SummonersRiftConstants.marginTop }}
         >
           {/* MAP */}
           <Grid item xs={5}>
@@ -107,8 +107,9 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             <Grid item xs={7} style={{ maxWidth: "55%" }}>
               <Grid
                 container
+                justify="flex-end"
                 style={{
-                  marginLeft: SummonersRiftConstants.marginLeft,
+                  // marginLeft: SummonersRiftConstants.marginLeft,
                   overflowY: "scroll",
                   flexBasis: "unset",
                   height: windowHeight - 30,
