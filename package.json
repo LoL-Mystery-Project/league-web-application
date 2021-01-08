@@ -1,0 +1,21 @@
+{
+  "name": "league-web-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && yarn run dev",
+    "heroku-postbuild": "cd ui && yarn install --network-timeout 100000 && yarn build && cd ../server && yarn install --network-timeout 100000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoL-Mystery-Project/league-web-application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoL-Mystery-Project/league-web-application/issues"
+  },
+  "homepage": "https://github.com/LoL-Mystery-Project/league-web-application#readme"
+}

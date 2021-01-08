@@ -25,12 +25,19 @@
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.1",
     "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "redux-devtools-extension": "^2.13.8",
+    "@types/aws-sdk": "^2.7.0",
+    "@types/react-redux": "^7.1.11",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/react-syntax-highlighter": "^13.5.0",
+    "@types/redux-devtools-extension": "^2.13.2",
+    "@types/styled-components": "^5.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "mv build ../server/public",
+    "postbuild": "mv build ../server/public || move build ../server/public",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -52,13 +59,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@types/aws-sdk": "^2.7.0",
-    "@types/react-redux": "^7.1.11",
-    "@types/react-router-dom": "^5.1.6",
-    "@types/react-syntax-highlighter": "^13.5.0",
-    "@types/redux-devtools-extension": "^2.13.2",
-    "@types/styled-components": "^5.1.4",
-    "redux-devtools-extension": "^2.13.8"
-  }
+  "proxy": "http://localhost:5000"
 }
