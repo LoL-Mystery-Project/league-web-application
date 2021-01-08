@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd ui && yarn && yarn build && cd ../server && yarn && yarn run dev"
+    "start": "cd ui && yarn install --network-timeout 100000 && yarn build && cd ../server && yarn install --network-timeout 100000 && yarn run dev"
   },
   "repository": {
     "type": "git",
