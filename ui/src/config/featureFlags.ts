@@ -1,13 +1,13 @@
 export const prodMode = {
     "default": false,
-    "home": true,
-    "watchlive": true,
-    "leaderboards": true, 
+    "home": false,
+    "watchlive": false,
+    "leaderboards": false, 
     "stats": false,
     "guides": false,
     "summonersrift": true,
     "wiki": false,
-    "image_gallery": true,
+    "image_gallery": false,
 }
 
 // if (process.env.PRODUCTION) {...}
