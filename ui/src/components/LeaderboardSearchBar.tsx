@@ -1,11 +1,7 @@
 import React, { FC } from "react";
-
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-
 import InputBase from "@material-ui/core/InputBase";
-
 import SearchIcon from "@material-ui/icons/Search";
-
 import { mainColour, subColour } from "../styles/palette";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -22,10 +18,9 @@ const useStyles = makeStyles((theme: Theme) =>
       "&:hover": {
         backgroundColor: "010A13",
       },
-      border: `1px solid ${mainColour.yellow}`,
+      border: `2px solid ${mainColour.yellow}`,
       marginRight: theme.spacing(2),
       marginLeft: 0,
-      width: "100%",
       [theme.breakpoints.up("sm")]: {
         width: 800,
       },
@@ -41,16 +36,14 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     inputRoot: {
       color: subColour.yellow,
+      minHeight: "80px",
     },
     inputInput: {
-      paddingLeft: 20,
+      paddingLeft: 10,
       padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
       transition: theme.transitions.create("width"),
       width: "100%",
-      // [theme.breakpoints.up("md")]: {
-      //   width: "20ch",
-      // },
+      fontSize: "22px",
     },
   })
 );
@@ -61,7 +54,7 @@ export default function LeaderboardSearchBar() {
   return (
     <div className={classes.search}>
       <div className={classes.searchIcon}>
-        <SearchIcon style={{ color: `${mainColour.yellow}` }} />
+        <SearchIcon style={{ color: `${mainColour.yellow}`, fontSize: "36" }} />
       </div>
       <InputBase
         fullWidth={false}
