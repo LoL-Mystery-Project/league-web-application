@@ -90,8 +90,9 @@ const useStyles = makeStyles({
     color: mainColour.white,
   },
   closeButton: {
-    position: "absolute",
-    right: infoDrawerConstants.closeButtonMarginRight, // Figma says 20. Decreased to 15 to align with close arrows
+    display: "flex",
+    justifyContent: "flex-end",
+    // right: infoDrawerConstants.closeButtonMarginRight, // Figma says 20. Decreased to 15 to align with close arrows
     "&:hover": {
       cursor: "pointer",
     },
@@ -124,7 +125,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
 
     <Fade in={showInfoDrawer}>
       <Wrapper>
-        <div style={{ marginLeft: infoDrawerConstants.marginLeft }}>
+        <div style={{ marginLeft: infoDrawerConstants.paddingConstraint }}>
           <Grid container style={{ display: "flex", flexDirection: "column" }}>
             {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
             {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
@@ -134,7 +135,9 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  marginLeft: infoDrawerConstants.marginLeft,
+                  // constrains container to fit
+                  paddingLeft: infoDrawerConstants.paddingConstraint,
+                  paddingRight: infoDrawerConstants.paddingConstraint,
                 }}
               >
                 {/* ICON */}
@@ -155,9 +158,11 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
                   </Typography>
                 </Grid>
                 {/* CLOSE BUTTON */}
-                <Grid item style={{ backgroundColor: "transparent" }}>
+                <div
+                  className={classes.closeButton}
+                  style={{ backgroundColor: "transparent", flexGrow: 1 }}
+                >
                   <ImageAsset
-                    className={classes.closeButton}
                     height={30}
                     width={30}
                     alt="close.svg"
@@ -166,7 +171,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
                       dispatch(clearSelectedMonster());
                     }}
                   />{" "}
-                </Grid>
+                </div>
               </Grid>
             </Grid>
             {/* EVERYTHING ELSE */}
