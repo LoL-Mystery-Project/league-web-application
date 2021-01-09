@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const Monster = require("./models/monster");
 const MapData = require("./models/mapData");
-const path = require('path');
+const path = require("path");
 
 //const userRouter = require("./routes/users");
 
@@ -69,32 +69,15 @@ app.get("*", (_, res) => {
   res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
+app.get("/secret", (req, res) => {
+  res.send("blehhhh");
 });
 
-function startKeepAlive() {
-  setInterval(function () {
-    var options = {
-      host: "one-hp.herokuapp.com",
-      port: 80,
-      path: "/",
-    };
-    http
-      .get(options, function (res) {
-        res.on("data", function (chunk) {
-          try {
-            // optional logging... disable after it's working
-            console.log("HEROKU RESPONSE: " + chunk);
-          } catch (err) {
-            console.log(err.message);
-          }
-        });
-      })
-      .on("error", function (err) {
-        console.log("Error: " + err.message);
-      });
-  }, 20 * 60 * 1000); // load every 20 minutes
-}
+app.listen(port, () => {
+  if (process.env.NODE_ENV === "production") {
+    console.log("keepDynoAwake is running");
+    keepDynoAwake("https://one-hp.herokuapp.com/secret");
+  }
 
-startKeepAlive();
+  console.log(`Server is running on port: ${port}`);
+});
