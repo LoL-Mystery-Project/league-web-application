@@ -95,9 +95,9 @@ export default function DonateInfoBox() {
         style={{ display: "flex", flexDirection: "column" }}
       >
         <div>
-          <a href="/">
+          {/* <a href="/"> */}
             <ImageAsset alt="more_donation.svg" />
-          </a>
+          {/* </a> */}
           {/* <Typography className="donateText">
             plz <br />
             donate
