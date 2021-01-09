@@ -90,7 +90,8 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     menuButton: {
-      marginRight: theme.spacing(2),
+      // marginRight: theme.spacing(2),
+      marginLeft: 45,
     },
     title: {
       flexGrow: 1,
