@@ -6,7 +6,6 @@ import SummonersRiftMap from "../components/SummonersRiftMap";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/ButtonGroup";
-import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { mainColour, subColour } from "../styles/palette";
 import { InfoDrawer } from "../components/InfoDrawer";
@@ -91,13 +90,11 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const classes = useStyles();
   return (
     <Wrapper>
-      <div style={{ maxHeight: windowHeight }}>
+      <div style={{ maxHeight: windowHeight, margin: SummonersRiftConstants.marginTop }}>
         <Grid
           container
           className={classes.root}
           justify="center"
-          spacing={1}
-          style={{ margin: SummonersRiftConstants.marginTop }}
         >
           {/* MAP */}
           <Grid item xs={5}>
@@ -107,8 +104,8 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
             <Grid item xs={7} style={{ maxWidth: "55%" }}>
               <Grid
                 container
+                justify="flex-end"
                 style={{
-                  marginLeft: SummonersRiftConstants.marginLeft,
                   overflowY: "scroll",
                   flexBasis: "unset",
                   height: windowHeight - 30,
