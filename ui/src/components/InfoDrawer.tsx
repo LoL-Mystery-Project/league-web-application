@@ -125,7 +125,7 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
 
     <Fade in={showInfoDrawer}>
       <Wrapper>
-        <div style={{ marginLeft: infoDrawerConstants.marginLeft }}>
+        <div style={{ marginLeft: infoDrawerConstants.paddingConstraint }}>
           <Grid container style={{ display: "flex", flexDirection: "column" }}>
             {/* ICON, MONSTER TITLE, MONSTER SUBTITLE, EXIT BUTTON */}
             {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/  flex-direction: column*/}
@@ -135,8 +135,9 @@ export const InfoDrawer: FC<InfoDrawerProps> = ({
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  paddingLeft: infoDrawerConstants.marginLeft,
-                  paddingRight: "20px",
+                  // constrains container to fit
+                  paddingLeft: infoDrawerConstants.paddingConstraint,
+                  paddingRight: infoDrawerConstants.paddingConstraint,
                 }}
               >
                 {/* ICON */}
