@@ -65,12 +65,12 @@ app.get("/monsters", async (req, res) => {
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("*", (_, res) => {
-  res.sendFile(path.resolve(__dirname, "public", "index.html"));
-});
-
 app.get("/secret", (req, res) => {
   res.send("blehhhh");
+});
+
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 
 app.listen(port, () => {
