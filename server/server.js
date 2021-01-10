@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const Monster = require("./models/monster");
 const MapData = require("./models/mapData");
+const keepDynoAwake = require("./keepDynoAwake");
 const path = require("path");
 
 //const userRouter = require("./routes/users");
