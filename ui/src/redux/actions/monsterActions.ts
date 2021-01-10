@@ -7,12 +7,30 @@ export const SET_ALL_MONSTERS = "@@MONSTER_ACTION/SET_ALL_MONSTERS";
 export const SET_SELECTED_MONSTER = "@@MONSTER_ACTION/SET_SELECTED_MONSTER";
 export const CLEAR_SELECTED_MONSTER = "@@MONSTER_ACTION/CLEAR_SELECTED_MONSTER";
 
+const sortOrder = [
+  "Baron Nashor",
+  "Elder Drake",
+  "Ocean Drake",
+  "Cloud Drake",
+  "Blue Sentinel",
+  "Wolves",
+  "Gromp",
+  "Rift Herald",
+  "Mountain Drake",
+  "Infernal Drake",
+  "Scuttle Crab",
+  "Red Brambleback",
+  "Raptors",
+  "Krugs",
+];
+
 export const fetchAllMonsters = () => async (dispatch: Function) => {
   dispatch({ type: FETCHING_ALL_MONSTERS, payload: true });
   try {
     const monsters = await fetch(`/monsters`);
     const json = await monsters.json();
-    dispatch({ type: SET_ALL_MONSTERS, payload: json });
+    const sorted = sortOrder.map((monster) => json.find((elem: MonsterType) => monster === elem.name));
+    dispatch({ type: SET_ALL_MONSTERS, payload: sorted });
   } catch (err) {
     console.error(`${FETCHING_MONSTERS_FAILED} failed: ${err}`);
     dispatch({ type: FETCHING_MONSTERS_FAILED });

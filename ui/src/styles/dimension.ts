@@ -16,7 +16,7 @@ export enum SummonersRiftMapConstants {
 export enum infoDrawerConstants {
   monsterTitleMarginBottom = 10,
   closeButtonMarginRight = 15,
-  marginLeft = 20,
+  paddingConstraint = 20,
   monsterIconMarginRight = 10,
 }
 
@@ -65,7 +65,7 @@ export enum closeArrowConstants {
 }
 
 export enum lineConstants {
-  marginTop = 20, 
+  marginTop = 20,
   marginLeft = 20,
 }
 

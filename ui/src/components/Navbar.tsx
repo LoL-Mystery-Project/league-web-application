@@ -40,9 +40,9 @@ const Wrapper = styled.div`
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    line-height: 34px;
     color: #b67f15;
-    padding: 18px 15px;
+    padding-left: 5px;
+    padding-right: 10px;
   }
 
   .selectedPage {
@@ -90,7 +90,8 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     menuButton: {
-      marginRight: theme.spacing(2),
+      // marginRight: theme.spacing(2),
+      marginLeft: 45,
     },
     title: {
       flexGrow: 1,
@@ -138,7 +139,7 @@ export default function MenuAppBar() {
               color="inherit"
               aria-label="menu"
             >
-              <ImageAsset alt="lol.svg" style={{ height: 39 }} />
+              <ImageAsset alt="websiteIcon.svg" style={{ height: 39 }} />
               <Typography className="siteName">OneHP</Typography>
             </IconButton>
 

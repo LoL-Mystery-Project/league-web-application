@@ -79,7 +79,7 @@ const Wrapper = styled.div`
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: subColour.navy,
+    backgroundColor: "transparent",
     display: "flex",
     flexDirection: "column",
   },
@@ -92,17 +92,20 @@ export default function DonateInfoBox() {
     <Wrapper>
       <Card
         className={classes.root}
-        style={{ display: "flex", flexDirection: "column", margin: 5 }}
+        style={{ display: "flex", flexDirection: "column" }}
       >
-        <div className="containerDonateImage">
-          <Typography className="donateText">
+        <div>
+          <a href="/">
+            <ImageAsset alt="more_donation.svg" />
+          </a>
+          {/* <Typography className="donateText">
             plz <br />
             donate
           </Typography>
           <ImageAsset alt="cat.svg" />
           <a href="/">
             <ImageAsset alt="donate.svg" className="bottomLeft" />
-          </a>
+          </a> */}
         </div>
 
         <Grid container className="linkContainer">
