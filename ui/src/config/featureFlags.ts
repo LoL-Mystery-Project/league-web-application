@@ -7,7 +7,7 @@ export const prodMode = {
     "guides": false,
     "summonersrift": true,
     "wiki": false,
-    "image_gallery": true,
+    "image_gallery": false,
 }
 
 // if (process.env.PRODUCTION) {...}
