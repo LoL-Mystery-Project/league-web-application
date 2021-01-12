@@ -18,6 +18,7 @@ import { MonsterType } from "../monster-layout/MonsterTypes";
 import { useWindowDimensions } from "../components/hooks/useWindowDimensions";
 import { setInfoDrawerBoolean } from "../redux/actions/pageActions";
 import { SummonersRiftConstants } from "../styles/dimension";
+import { MobilePopup } from "../components/MobilePopup";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -78,9 +79,14 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const { showInfoDrawer } = useSelector((state: RootState) => state.page);
   const [asset, setAsset] = useState<MonsterType | undefined>(undefined);
   const windowDimensions = useWindowDimensions();
+  const [showMobileCard, setShowMobileCard] = useState(true);
 
   const handleCloseInfoDrawer = () => {
     dispatch(setInfoDrawerBoolean(false));
+  };
+
+  const showMobileHandler = () => {
+    setShowMobileCard(!showMobileCard);
   };
 
   useEffect(() => {
@@ -90,12 +96,18 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
   const classes = useStyles();
   return (
     <Wrapper>
-      <div style={{ maxHeight: windowHeight, margin: SummonersRiftConstants.marginTop }}>
-        <Grid
-          container
-          className={classes.root}
-          justify="center"
-        >
+      {showMobileCard && (
+        <span>
+          <MobilePopup showMobileHandler={showMobileHandler} />
+        </span>
+      )}
+      <div
+        style={{
+          maxHeight: windowHeight,
+          margin: SummonersRiftConstants.marginTop,
+        }}
+      >
+        <Grid container className={classes.root} justify="center">
           {/* MAP */}
           <Grid item xs={5}>
             <SummonersRiftMap />
@@ -487,7 +499,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
               xs={7}
               style={{
                 background: `transparent`,
-                maxWidth: '55%'
+                maxWidth: "55%",
               }}
             >
               <InfoDrawer
@@ -499,6 +511,7 @@ export const SummonersRift: FC<SummonersRiftProps> = ({}) => {
           )}
         </Grid>
       </div>
+      )
     </Wrapper>
   );
 };
