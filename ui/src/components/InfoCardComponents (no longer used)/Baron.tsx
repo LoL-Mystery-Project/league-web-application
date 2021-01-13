@@ -255,7 +255,7 @@ export const Baron: FC<BaronProps> = ({}) => {
       <Grid container style={{ display: "flex", flexDirection: "column" }}>
         {/* OVERVIEW: BOUNTY, STATISTICS, SPAWN */}
         <Grid item>
-          <MonsterDetails />
+          {/* <MonsterDetails /> */}
         </Grid>
         {/* EFFECTS: HEADER AND INFO */}
         <Grid>

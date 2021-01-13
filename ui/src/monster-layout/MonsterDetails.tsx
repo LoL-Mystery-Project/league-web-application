@@ -7,20 +7,32 @@ import { InfoHeader } from "../layout/InfoHeader";
 import { ColouredList } from "../layout/ColouredList";
 import { monsterDetailsConstants } from "../styles/dimension";
 import { MonsterWrapper } from "../components/InfoCardComponents (no longer used)/Baron";
+import { MonsterVariant } from "./MonsterTypes";
+import { MonsterSelect } from "../layout/MonsterSelect";
 
-export const MonsterDetails: FC = () => {
+interface MonsterDetailsProps {
+  monsterVariant: MonsterVariant;
+  selectedVariant?: number;
+  setSelectedVariant?: (index: number) => void;
+}
+
+export const MonsterDetails: FC<MonsterDetailsProps> = ({
+  monsterVariant,
+  selectedVariant,
+  setSelectedVariant,
+}) => {
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
   const { overview } = selectedMonster!;
   const [isPanelOpen, setIsPanelOpen] = useState(true);
-  const healthCharacterCount = selectedMonster?.stats?.health.length ?? 0;
-  const attackCharacterCount = selectedMonster?.stats.attackDamage.length ?? 0;
+  const healthCharacterCount = monsterVariant?.stats?.health.length ?? 0;
+  const attackCharacterCount = monsterVariant?.stats.attackDamage.length ?? 0;
   const isOverCharLimit = healthCharacterCount > 12 ? true : false;
   const firstColumnSize = isOverCharLimit ? 6 : 4;
   const secondColumnSize = isOverCharLimit ? 3 : 3;
   const thirdColumnSize = isOverCharLimit ? 3 : 2;
   const secondColumnMarginLeft = healthCharacterCount > 12 ? 20 : 0;
   const thirdColumnMarginLeft = attackCharacterCount > 5 ? 20 : 0;
-  const initialCharacterCount = selectedMonster?.location?.initial.length ?? 0;
+  const initialCharacterCount = monsterVariant?.location?.initial.length ?? 0;
   const isOverInitialCharLimit = initialCharacterCount > 10 ? true : false;
   const spawnColumnMarginLeft = isOverInitialCharLimit ? -40 : -30;
   const spawnFirstColumnSize = isOverInitialCharLimit ? 7 : 4;
@@ -49,7 +61,15 @@ export const MonsterDetails: FC = () => {
           }}
         >
           {/* BOUNTY */}
-
+          {selectedMonster && selectedMonster.hasVariants && (
+            <Grid item xs={12} style={{ marginTop: -5, marginBottom: 30 }}>
+              <MonsterSelect
+                variants={selectedMonster!.details}
+                value={selectedVariant!}
+                setSelectedVariant={setSelectedVariant!}
+              />
+            </Grid>
+          )}
           <Grid item xs={3}>
             <Typography className="overViewSubTextStyling">Bounty</Typography>
             <Grid style={{ display: "flex", flexDirection: "row" }}>
@@ -77,7 +97,7 @@ export const MonsterDetails: FC = () => {
                       {/* Gold value */}
                       <Typography className="textColorStylingYellow">
                         {" "}
-                        {selectedMonster?.bounty?.gold}{" "}
+                        {monsterVariant?.bounty?.gold}{" "}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -95,7 +115,7 @@ export const MonsterDetails: FC = () => {
                     </Grid>
                     <Grid item xs={4}>
                       {/* EXP value */}
-                      <Typography> {selectedMonster?.bounty?.exp} </Typography>
+                      <Typography> {monsterVariant?.bounty?.exp} </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -112,7 +132,7 @@ export const MonsterDetails: FC = () => {
                     </Grid>
                     <Grid item xs={4}>
                       {/* CS value */}
-                      <Typography> {selectedMonster?.bounty?.cs} </Typography>
+                      <Typography> {monsterVariant?.bounty?.cs} </Typography>
                     </Grid>
                   </Grid>
                 </Grid>
@@ -146,7 +166,7 @@ export const MonsterDetails: FC = () => {
                         {" "}
                         <ImageAsset alt="heart.svg" />
                         <span className="textColorStylingGreen">
-                          {selectedMonster?.stats?.health}
+                          {monsterVariant?.stats?.health}
                         </span>{" "}
                       </Typography>
                     </Grid>
@@ -163,7 +183,7 @@ export const MonsterDetails: FC = () => {
                         <ImageAsset alt="physicaldamage.svg" />{" "}
                         <span className="textColorStylingOrange">
                           {" "}
-                          {selectedMonster?.stats.attackDamage}
+                          {monsterVariant?.stats.attackDamage}
                         </span>{" "}
                       </Typography>
                     </Grid>
@@ -180,7 +200,7 @@ export const MonsterDetails: FC = () => {
                         <ImageAsset alt="shield_orange.svg" />
                         <span className="textColorStylingOrange">
                           {" "}
-                          {selectedMonster?.stats.armor}{" "}
+                          {monsterVariant?.stats.armor}{" "}
                         </span>
                       </Typography>
                     </Grid>
@@ -197,7 +217,7 @@ export const MonsterDetails: FC = () => {
                       >
                         <ImageAsset alt="hpregeneration.svg" />{" "}
                         <span className="textColorStylingGreen">
-                          {selectedMonster?.stats.healthRegen || "-"}
+                          {monsterVariant?.stats.healthRegen || "-"}
                         </span>{" "}
                       </Typography>
                     </Grid>
@@ -213,7 +233,7 @@ export const MonsterDetails: FC = () => {
                       >
                         <ImageAsset alt="attackspd.svg" />{" "}
                         <span className="textColorStylingOrange">
-                          {selectedMonster?.stats.attackSpeed}{" "}
+                          {monsterVariant?.stats.attackSpeed}{" "}
                         </span>{" "}
                       </Typography>
                     </Grid>
@@ -228,7 +248,7 @@ export const MonsterDetails: FC = () => {
                       >
                         <ImageAsset alt="shield_blue.svg" />{" "}
                         <span className="textColorStylingBlue">
-                          {selectedMonster?.stats.magicResist}
+                          {monsterVariant?.stats.magicResist}
                         </span>{" "}
                       </Typography>
                     </Grid>
@@ -244,7 +264,7 @@ export const MonsterDetails: FC = () => {
                       >
                         <ImageAsset alt="movement.svg" />{" "}
                         <span className="textColorStylingPurple">
-                          {selectedMonster?.stats.movSpeed}
+                          {monsterVariant?.stats.movSpeed}
                         </span>{" "}
                       </Typography>{" "}
                     </Grid>
@@ -259,7 +279,7 @@ export const MonsterDetails: FC = () => {
                       >
                         <ImageAsset alt="range.svg" />{" "}
                         <span className="textColorStylingWhite">
-                          {selectedMonster?.stats.range}
+                          {monsterVariant?.stats.range}
                         </span>{" "}
                       </Typography>{" "}
                     </Grid>
@@ -305,7 +325,7 @@ export const MonsterDetails: FC = () => {
                     }}
                   >
                     <Typography className="spawnInfo">
-                      {selectedMonster?.location?.initial}
+                      {monsterVariant?.location?.initial}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -321,9 +341,7 @@ export const MonsterDetails: FC = () => {
                         monsterDetailsConstants.statsColumnItemsMarginLeft,
                     }}
                   >
-                    <Typography>
-                      {selectedMonster?.location?.respawn}
-                    </Typography>
+                    <Typography>{monsterVariant?.location?.respawn}</Typography>
                   </Grid>
                 </Grid>
               </Grid>

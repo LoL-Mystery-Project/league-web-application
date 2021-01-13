@@ -10,6 +10,7 @@ import { RootState } from "../redux/ReduxTypes";
 import { InfoContainer } from "../layout/InfoContainer";
 import { lineConstants } from "../styles/dimension";
 import { Category } from "../layout/layoutTypes";
+import { MonsterVariant } from "./MonsterTypes";
 
 interface openStateType {
   [key: string]: boolean;
@@ -17,6 +18,7 @@ interface openStateType {
 
 export const ModularMonsterCard: FC = () => {
   const { selectedMonster } = useSelector((state: RootState) => state.monsters);
+  const [selectedVariant, setSelectedVariant] = useState(0);
   const [openState, setOpenState] = useState<openStateType>({});
 
   const handleClick = (title?: string) => {
@@ -25,7 +27,15 @@ export const ModularMonsterCard: FC = () => {
 
   return (
     <div>
-      <MonsterDetails />
+      {selectedMonster && selectedMonster.hasVariants ? (
+        <MonsterDetails
+          monsterVariant={selectedMonster!.details[selectedVariant]}
+          selectedVariant={selectedVariant}
+          setSelectedVariant={setSelectedVariant}
+        />
+      ) : (
+        <MonsterDetails monsterVariant={selectedMonster!.details[0]} />
+      )}
       <ImageAsset
         style={{ marginLeft: lineConstants.marginLeft }}
         alt="line.svg"
