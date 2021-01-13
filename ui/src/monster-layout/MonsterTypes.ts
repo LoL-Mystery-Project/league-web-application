@@ -4,9 +4,8 @@ import { Category } from "../layout/layoutTypes";
 export interface MonsterType {
   name: string;
   icon: string;
-  bounty: MonsterBounty;
-  stats: MonsterStats;
-  location: MonsterLocation;
+  hasVariants: boolean;
+  details: MonsterVariant[];
   description?: Array<string>; // deprecated in favour of overview
   colouredDescription?: Array<TextColourizerTypes>; // deprecated in favour of overview
   overview?: Array<TextColourizerTypes>; // use this one!
@@ -14,6 +13,14 @@ export interface MonsterType {
   informationText?: Array<Category>;
   patchHistory?: Array<MonsterPatchObject>; // depcrecated in favour of patchNotes
   patchNotes?: Array<PatchRelease>; // use this one!
+}
+
+export interface MonsterVariant {
+  variant: string;
+  icon: string;
+  bounty: MonsterBounty;
+  stats: MonsterStats;
+  location: MonsterLocation;
 }
 
 export interface MonsterLocation {
