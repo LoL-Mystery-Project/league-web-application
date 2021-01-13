@@ -6,7 +6,7 @@ export const ElderDragon: FC = () => {
   return (
     <Grid container>
       <Grid item>
-        <MonsterDetails />
+        {/* <MonsterDetails /> */}
       </Grid>
     </Grid>
   );

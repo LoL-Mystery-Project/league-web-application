@@ -40,7 +40,7 @@ export const RiftHerald: FC<RiftHeraldProps> = ({}) => {
     <MonsterWrapper>
       <Grid container>
         <Grid item>
-          <MonsterDetails />
+          {/* <MonsterDetails /> */}
         </Grid>
 
         {/* EFFECTS: LINE SEPARATOR, HEADER AND INFO */}
